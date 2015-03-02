@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.2.8)  24 FEB 2015 17:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.2.8)  2 MAR 2015 19:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -239,7 +239,8 @@ Package: inputenc 2014/04/30 v1.2b Input encoding file
 (/usr/share/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2014/04/30 v1.2b Input encoding file
 )) (./tesi.aux
-(./frontespizio.aux) (./dedica.aux) (./sommario.aux) (./ringraziamenti.aux))
+(./frontespizio.aux) (./dedica.aux) (./sommario.aux) (./ringraziamenti.aux)
+(./capitolo1.aux))
 \openout1 = `tesi.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -327,23 +328,40 @@ File: ./pictures/logopm.eps Graphic file (type eps)
 
 ] [1] [2
 
+]
+\openout2 = `capitolo1.aux'.
+
+ (./capitolo1.tex
+Capitolo 1.
+) [3
+
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4
+
+
 ] (./tesi.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [3
-
+) [5
 
 
 ] (./tesi.aux (./frontespizio.aux) (./dedica.aux) (./sommario.aux)
-(./ringraziamenti.aux)) ) 
+(./ringraziamenti.aux) (./capitolo1.aux)) ) 
 Here is how much of TeX's memory you used:
- 3927 strings out of 493109
- 52642 string characters out of 6140752
+ 3938 strings out of 493109
+ 52796 string characters out of 6140752
  120068 words of memory out of 5000000
- 7322 multiletter control sequences out of 15000+600000
- 6112 words of font info for 22 fonts, out of 8000000 for 9000
+ 7326 multiletter control sequences out of 15000+600000
+ 6718 words of font info for 24 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 36i,5n,43p,859b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,11n,43p,859b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (17 pages, 4200 bytes).
+Output written on tesi.dvi (19 pages, 4564 bytes).
