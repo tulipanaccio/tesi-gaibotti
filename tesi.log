@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.9.5)  5 MAR 2015 12:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.9.5)  7 MAR 2015 11:19
 entering extended mode
 **tesi.tex
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\tesi.tex
@@ -248,7 +248,13 @@ File: latin1.def 2014/04/30 v1.2b Input encoding file
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\dedica.aux)
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\sommario.aux)
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\ringraziamenti.aux)
-(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\capitolo1.aux))
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\introduzione.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\statoArte.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\formulazioneProblema.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\soluzioneProposta.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\architettura.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\proveSperimentali.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\conclusioni.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
@@ -323,26 +329,58 @@ File: ./pictures/logopm.eps Graphic file (type eps)
 ] [1] [2
 
 ]
-(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\capitolo1.tex
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\introduzione.tex
 Capitolo 1.
 ) [3
 
 
+] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\statoArte.tex [4
+
+
+
 ]
+Capitolo 2.
+) [5] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\formulazioneProblema.tex
+[6
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[4
+
+]
+Capitolo 3.
+) [7] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\soluzioneProposta.tex
+[8
+
+
+
+]
+Capitolo 4.
+) [9] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\architettura.tex [10
+
+
+
+]
+Capitolo 5.
+) [11] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\proveSperimentali.tex
+[12
+
+
+
+]
+Capitolo 6.
+) [13] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\conclusioni.tex [14
+
+
+
+]
+Capitolo 7.
+) [15] [16
 
 
 ] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\tesi.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [5
+) [17
 
 
 ] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\tesi.aux
@@ -350,14 +388,20 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\dedica.aux)
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\sommario.aux)
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\ringraziamenti.aux)
-(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\capitolo1.aux)) ) 
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\introduzione.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\statoArte.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\formulazioneProblema.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\soluzioneProposta.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\architettura.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\proveSperimentali.aux)
+(C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
- 3943 strings out of 493707
- 55335 string characters out of 3144604
- 119209 words of memory out of 3000000
- 7185 multiletter control sequences out of 15000+200000
+ 3997 strings out of 493707
+ 57964 string characters out of 3144604
+ 121380 words of memory out of 3000000
+ 7197 multiletter control sequences out of 15000+200000
  6718 words of font info for 24 fonts, out of 3000000 for 9000
  1026 hyphenation exceptions out of 8191
- 36i,11n,43p,864b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,5n,43p,864b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tesi.dvi (19 pages, 6484 bytes).
+Output written on tesi.dvi (31 pages, 9064 bytes).
