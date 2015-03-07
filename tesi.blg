@@ -5,13 +5,19 @@ A level-1 auxiliary file: frontespizio.aux
 A level-1 auxiliary file: dedica.aux
 A level-1 auxiliary file: sommario.aux
 A level-1 auxiliary file: ringraziamenti.aux
-A level-1 auxiliary file: capitolo1.aux
+A level-1 auxiliary file: introduzione.aux
+A level-1 auxiliary file: statoArte.aux
+A level-1 auxiliary file: formulazioneProblema.aux
+A level-1 auxiliary file: soluzioneProposta.aux
+A level-1 auxiliary file: architettura.aux
+A level-1 auxiliary file: proveSperimentali.aux
+A level-1 auxiliary file: conclusioni.aux
 The style file: plain.bst
 I found no \citation commands---while reading file tesi.aux
 Database file #1: bibl_tesi.bib
 You've used 0 entries,
             2118 wiz_defined-function locations,
-            502 strings with 4059 characters,
+            508 strings with 4172 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0
