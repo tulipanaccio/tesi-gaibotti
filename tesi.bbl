@@ -1,3 +1,14 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Targhe}
+\url{http://www.mitan.it/security-solution/videosorveglianza/sistemi-di-videosorveglianza-e-registrazione/}.
+\newblock Visitato il giorno 09/03/2015.
+
+\bibitem{alippi2010detecting}
+Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
+\newblock Detecting external disturbances on the camera lens in wireless
+  multimedia sensor networks.
+\newblock {\em Instrumentation and Measurement, IEEE Transactions on},
+  59(11):2982--2990, 2010.
 
 \end{thebibliography}

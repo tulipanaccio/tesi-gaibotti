@@ -20,3 +20,30 @@
 
 \noindent 
 \section{Modello di osservazione}
+\subsection{Sfocatura}
+Il fenomeno della sfocatura avviene quando un elemento trasparente o semitrasparente si interpone tra la lente della camera e la scena ripresa, causando una perdita nei dettagli della scena ripresa.
+Riprendendo \cite{alippi2010detecting}, questo fenomeno pu\`o essere modellato come un operatore di \textit{degradazione} $D$ applicato a un'immagine $y$, considerata priva di errori, i.e.,
+\begin{equation}
+z=D[y].
+\end{equation}
+In particolare, all'interno dell'operatore $D$ si pu\`o considerare il contributo dovuto a un operatore di \textit{sfocatura} $B$ (dall'inglese \textit{blur}) e un termine $\eta$ corrispondente al rumore, i.e.,
+\begin{equation}
+\label{blur_single}
+z(x)=D[y](x) = B[y](x) + \eta(x), \qquad x \in X
+\end{equation}
+dove abbiamo indicato con $x$ le coordinate dei \textit{pixel} dell'immagine. 
+Possiamo assumere la sfocatura $B$ come un operatore \textit{lineare} di \textit{convoluzione},
+\begin{equation}
+B[y](x) = \int_{X}y(x)h(x,s)ds,
+\end{equation}
+dove $h(x,s)$ rappresenta un filtro \textit{gaussiano} o \textit{uniforme}, il cui risultato consiste nel rendere le differenze di intensit\`a, tra pixel adiacenti, pi\`u morbide (\textit{smooth}).\\
+Nel caso pi\`u generale possiamo considerare che la camera acquisisca un sequenza di $N$ osservazioni $\{z_i\}, i = 1, \dots ,N$, quindi la formula \ref{blur_single} si pu\`o riscrivere come
+\begin{equation}
+\label{blur_multi}
+z_i(x)=D[y](x) = B_i[y_i](x) + \eta(x), \qquad x \in X.
+\end{equation}
+
+\subsection{Spostamento della camera}
+
+\subsection{Occlusione}
+\section{Tampering detection}
