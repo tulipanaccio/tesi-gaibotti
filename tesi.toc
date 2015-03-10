@@ -7,20 +7,20 @@
 \contentsline {section}{\numberline {2.1}Tampering Detection}{5}
 \contentsline {subsection}{\numberline {2.1.1}Identificazione di occlusioni}{5}
 \contentsline {subsection}{\numberline {2.1.2}Identificazione di spostamenti della camera}{5}
-\contentsline {subsection}{\numberline {2.1.3}Identificazione di cambiamenti nella messa a fuoco della scena}{5}
+\contentsline {subsection}{\numberline {2.1.3}Identificazione di sfocature}{5}
 \contentsline {chapter}{\numberline {3}Impostazione del problema di ricerca}{7}
-\contentsline {section}{\numberline {3.1}Modello di osservazione}{7}
+\contentsline {section}{\numberline {3.1}Modello delle osservazioni}{7}
 \contentsline {subsection}{\numberline {3.1.1}Sfocatura}{7}
-\contentsline {subsection}{\numberline {3.1.2}Spostamento della camera}{8}
-\contentsline {subsection}{\numberline {3.1.3}Occlusione}{8}
-\contentsline {section}{\numberline {3.2}Tampering detection}{8}
-\contentsline {chapter}{\numberline {4}Soluzione proposta}{9}
-\contentsline {section}{\numberline {4.1}Estrazione dei descrittori del cambiamento}{9}
-\contentsline {section}{\numberline {4.2}Algoritmo di segmentazione}{9}
-\contentsline {section}{\numberline {4.3}Monitoraggio one-shot}{9}
-\contentsline {section}{\numberline {4.4}Monitoraggio sequenziale}{9}
-\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{11}
-\contentsline {section}{\numberline {5.1}Acquisizione del dataset}{11}
-\contentsline {section}{\numberline {5.2}Risultati}{11}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{13}
-\contentsline {chapter}{Bibliografia}{15}
+\contentsline {subsection}{\numberline {3.1.2}Spostamento della camera}{9}
+\contentsline {subsection}{\numberline {3.1.3}Occlusione}{10}
+\contentsline {section}{\numberline {3.2}Tampering detection}{10}
+\contentsline {chapter}{\numberline {4}Soluzione proposta}{11}
+\contentsline {section}{\numberline {4.1}Estrazione dei descrittori del cambiamento}{11}
+\contentsline {section}{\numberline {4.2}Algoritmo di segmentazione}{11}
+\contentsline {section}{\numberline {4.3}Monitoraggio one-shot}{11}
+\contentsline {section}{\numberline {4.4}Monitoraggio sequenziale}{11}
+\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{13}
+\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{13}
+\contentsline {section}{\numberline {5.2}Risultati}{13}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{15}
+\contentsline {chapter}{Bibliografia}{17}

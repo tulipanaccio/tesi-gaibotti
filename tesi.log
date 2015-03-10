@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.9.5)  9 MAR 2015 17:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.9.5)  10 MAR 2015 17:03
 entering extended mode
 **tesi.tex
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\tesi.tex
@@ -356,26 +356,70 @@ Capitolo 2.
 
 ]
 Capitolo 3.
-[7]) [8] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\soluzioneProposta.tex
+File: ./pictures/bassiniORIGINAL.eps Graphic file (type eps)
+<./pictures/bassiniORIGINAL.eps>
+File: ./pictures/bassiniDEFOCUS.eps Graphic file (type eps)
+ <./pictures/bassiniDEFOCUS.eps>
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 32.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 32.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
+ [7]
+File: ./pictures/image0001.eps Graphic file (type eps)
+
+<./pictures/image0001.eps>
+File: ./pictures/image0002.eps Graphic file (type eps)
+ <./pictures/image0002.eps>
+File: ./pictures/image0003.eps Graphic file (type eps)
+
+<./pictures/image0003.eps>
+File: ./pictures/image0004.eps Graphic file (type eps)
+ <./pictures/image0004.eps>
+File: ./pictures/image0005.eps Graphic file (type eps)
+
+<./pictures/image0005.eps>
+File: ./pictures/image0006.eps Graphic file (type eps)
+ <./pictures/image0006.eps>
+File: ./pictures/image0007.eps Graphic file (type eps)
+
+<./pictures/image0007.eps>
+File: ./pictures/image0008.eps Graphic file (type eps)
+ <./pictures/image0008.eps> [8]
+File: ./pictures/testiORIGINALE.eps Graphic file (type eps)
+
+<./pictures/testiORIGINALE.eps>
+File: ./pictures/testiDISPLACEMENT.eps Graphic file (type eps)
+ <./pictures/testiDISPLACEMENT.eps> [9])
+[10] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\soluzioneProposta.tex
 Capitolo 4.
-) [9
+) [11
 
 
 
 ] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\proveSperimentali.tex
-[10
+[12
 
 
 
 ]
 Capitolo 5.
-) [11] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\conclusioni.tex [12
+) [13] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\conclusioni.tex [14
 
 
 
 ]
 Capitolo 6.
-) [13] [14
+) [15] [16
 
 
 ] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\tesi.bbl
@@ -390,7 +434,7 @@ Underfull \hbox (badness 4886) in paragraph at lines 4--6
 cmr/m/n/10.95 .  Vi-si-ta-to il
  []
 
-) [15
+) [17
 
 
 ] (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\tesi.aux
@@ -405,12 +449,12 @@ cmr/m/n/10.95 .  Vi-si-ta-to il
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\proveSperimentali.aux)
 (C:\Users\Adriano\Documents\Tesi\tesi-gaibotti\conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
- 4039 strings out of 493707
- 58297 string characters out of 3144604
- 124062 words of memory out of 3000000
- 7227 multiletter control sequences out of 15000+200000
- 11839 words of font info for 44 fonts, out of 3000000 for 9000
+ 4092 strings out of 493707
+ 59273 string characters out of 3144604
+ 125111 words of memory out of 3000000
+ 7263 multiletter control sequences out of 15000+200000
+ 12856 words of font info for 47 fonts, out of 3000000 for 9000
  1026 hyphenation exceptions out of 8191
- 36i,6n,43p,508b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,7n,43p,534b,410s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on tesi.dvi (29 pages, 19764 bytes).
+Output written on tesi.dvi (31 pages, 28548 bytes).
