@@ -3,9 +3,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempio di sfocatura\relax }}{8}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di sfocature\relax }}{8}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pioggia sull'obiettivo}}}{8}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Deodorante spray}}}{8}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Sequenza di otto frame consecutivi acquisiti ogni minuto\relax }}{9}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di spostamento della camera\relax }}{9}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di spostamento della camera\relax }}{10}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Vista originale}}}{10}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Vista in seguito allo spostamento della camera}}}{10}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
