@@ -22,8 +22,45 @@
 \section{Tampering Detection}
 Nei moderni sistemi di videosorveglianza troviamo spesso algoritmi utilizzati per identificare particolari eventi all'interno della scena ripresa dalla camera. 
 Ad esempio \`e possibile avere un software in grado di identificare le targhe delle automobili che superano il limite di velocit\`a , oppure la presenza di oggetti incustoditi in una stazione \cite{Targhe}.
-Affinch\'e questi algoritmi funzionino correttamente, \`e importante che le immagini, che verranno poi processati da questi sistemi, mantengano una certa qualit\`a.
-
+Affinch\'e questi algoritmi funzionino correttamente, \`e importante che l'\textit{affidabilit\`a} del sistema di acquisizione sia preservata.
+Per fare questo la letteratura scientifica offre molte tecniche che permettano l'identificazione automatica di eventi in grado di compromettere la corretta ripresa della scena da parte della videocamera.
+\subsection{Modello di background}
+Nella maggior parte dei lavori dedicati a questo problema, il concetto principale consiste nel confrontare ciascun frame con un modello che viene calcolato utilizzando i frame precedenti.
+Tale modello \`e ampliamente utilizzato in vari ambiti di visione artificiale e prende il nome di \textit{modello di background}.
+Un metodo generale di calcolo del background \`e presentato in \cite{aksay2007camera}.
+Indichiamo con $I_n(x,y)$ il valore, nel pixel di coordinate $(x,y)$, della luminosit\`a nell'i-esimo frame.
+Il valore del modello di background \`e calcolato in maniera ricorsiva secondo la seguente formula:
+\begin{equation}
+\label{eq:background}
+B_{n + 1}(x,y)=\left\{ \begin{array} {ll}
+aB_n(x,y)+ (1-a)I_n(x,y) & \mbox{, se (x, y) \`e fermo} \\
+B_n(x,y) & \mbox{, se (x, y) si muove} \end{array} \right. ,
+\end{equation}
+dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{update parameter}).
+La discriminazione tra pixel che si muove e pixel che \`e fermo viene fatta confrontando due frame adiacenti:
+ \begin{equation}
+ \label{eq:diffBackground}
+|I_n(x,y) - I_{n-1}(x, y)|>T_n(x,y),
+ \end{equation}
+ dove $T_n(x,y)$ \`e una soglia che permette di identificare un cambiamento sostanziale di luminosit\`a nel pixel $(x,y)$. 
+ Questa soglia viene aggiornata in maniera ricorsiva secondo la seguente formula:
+  \begin{equation}
+  \label{eq:backgroundThreshUpd}
+  T_{n + 1}(x,y)=\left\{ \begin{array} {ll}
+  aT_n(x,y)+ (1-a)(c |I_n(x,y) - B_n(x,y)|) & \mbox{, se (x, y) \`e fermo} \\
+  T_n(x,y) & \mbox{, se (x, y) si muove} \end{array} \right. ,
+  \end{equation}
+  dove $c > 1$ e $0<a<1$.
+  Lo stesso modello viene applicato in altri lavori (\cite{saglam2009real}, \cite{tsesmelis2013tamper}), mentre una variante molto usata consiste nell'estrarre il modello di background a partire dall'\textit{estrazione dei contorni} da ciascun frame (\cite{harasse2004automated}, \cite{gil2007automatic}).
 \subsection{Identificazione di occlusioni}
+L'evento di occlusione avviene quando un oggetto opaco viene posto vicino alla camera, in modo da coprire la scena ripresa.
+In \cite{aksay2007camera} e \cite{saglam2009real} questo evento \`e associato a un cambiamento nella struttura dell'\textit{istogramma} del frame occluso rispetto a quello del background.
+Infatti, nel caso di occlusioni, i valori dell'istogramma tendono a concentrarsi in un intervallo molto ristretto, verso i livelli pi\`u bassi della scala di grigi.\\
+Un approccio simile \`e presente in \cite{harasse2004automated}, \cite{gil2007automatic} e \cite{ellwart2012camera}, in cui l'evento di occlusione \`e associato a un abbassamento dell'\textit{entropia}:
+ \begin{equation}
+ \label{eq:entropy}
+ E=-\sum_{k}p_k\ln(p_k) ,
+ \end{equation}
+ dove $p_k$ rappresenta la probabilit\`a che il livello di grigio $k$ sia presente all'interno dell'immagine. 
 \subsection{Identificazione di spostamenti della camera}
 \subsection{Identificazione di sfocature} 

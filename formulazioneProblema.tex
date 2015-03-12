@@ -17,13 +17,27 @@
 %}
 %\end{quotation}
 \vspace{0.5cm}
-In questo capitolo descriviamo il problema, affrontato dall'algoritmo di tampering detection, in maniera formale e rigorosa. Il primo paragrafo illustra il modello delle osservazioni e gli eventi che siamo interessati a identificare, mentre il secondo paragrafo formalizza il concetto di tampering detection. Nel seguito useremo il termine \textit{vista} per indicare l'ambiente ripreso dalla camera, determinato univocamente dalla posizione della stessa\footnote{Altre volte useremo il termine \textit{inquadratura}.}.
+In questo capitolo descriviamo il problema, affrontato dall'algoritmo di tampering detection, in maniera formale e rigorosa. Il primo paragrafo illustra il modello delle osservazioni e gli eventi che siamo interessati a identificare, mentre il secondo paragrafo formalizza il concetto di tampering detection. 
 \noindent 
 \section{Modello delle osservazioni}
 Il nostro campo di osservazione si concentra su quegli eventi che si interpongono tra la scena ripresa da una camera e il sensore che acquisisce le immagini. Non vogliamo, cio\`e, identificare degli eventi particolari che avvengono nella scena, come un oggetto lasciato incustodito \cite{Targhe}, bens\`i vogliamo identificare quegli eventi tali per cui il sensore non \`e pi\`u nelle condizioni di riprendere, in maniera ottimale, la scena, quali ad esempio sfocature o spostamenti della camera.
 Nel seguito cerchiamo di dare una definizione formale di questi eventi.
+\subsection{Scena e posizione della camera}
+Prima di tutto definiamo, in maniera rigorosa, i termini che verranno utilizzati nel seguito della trattazione.\\
+Lo scenario che consideriamo \`e quello di una camera che deve riprendere una particolare \textit{\gls{scena}}.
+La posizione e la rotazione della camera determinano l'\textit{\gls{inquadratura}} della scena.
+In un'applicazione di monitoraggio video consideriamo che la camera, in condizioni di funzionamento ottimale, mantenga la stessa inquadratura nel tempo e che si in grado di acquisire, in maniera nitida, tutti gli elementi di interesse presenti nella scena.
+Definiamo \gls{tampering} un qualsiasi evento che determina un cambio di inquadratura o che non permette la corretta acquisizione di parte o totalit\`a della scena.
+Possiamo classificare gli eventi di tampering in quattro categorie:
+\begin{itemize}
+	\item Sfocature
+	\item Spostamenti della camera
+	\item Occlusioni
+	\item Guasti della camera
+\end{itemize}
+
 \subsection{Sfocatura}
-Il fenomeno della sfocatura avviene quando un elemento trasparente o semitrasparente si interpone tra la lente della camera e la scena ripresa, oppure quando viene cambiata la messa a fuoco, causando una perdita nei dettagli della scena ripresa.
+Il fenomeno della sfocatura avviene quando un elemento trasparente o semitrasparente si interpone tra la lente della camera e la \gls{scena} ripresa, oppure quando viene cambiata la messa a fuoco, causando una perdita nei dettagli della \gls{scena} ripresa.
 
 \begin{figure}
 	\centering
@@ -103,13 +117,40 @@ Possiamo formalizzare il concetto di spostamento della camera nel modo seguente:
 Possiamo, dunque, considerare la sequenza di immagini $\{z_i\}$ in cui avviene uno spostamento della camera all'istante $T^*$ nel seguente modo:
 \begin{equation}
 \label{eq:displacement}
-z_i(x) = \left\{ \begin{array}{rcl}
+z_i(x) = \mathcal{S}_i[y_i](x) = \left\{ \begin{array}{rcl}
 	y_i(x) + \eta(x) & \mbox{per} & i < T^* \\
-	w_i(x) + \eta(x) & \mbox{per} & i \geqslant T^*,
-	\end{array}\right.
+	w_i(x) + \eta(x) & \mbox{per} & i \geqslant T^*
+	\end{array}\right. ,
 \end{equation}
 dove $\eta(x)$ \`e un rumore stazionario.\\
+In questa formulazione abbiamo considerato lo spostamento come un fenomeno \textit{istantaneo};
+in generale, possiamo considerare una fase \textit{transitoria} in cui l'inquadratura della camera cambia a ogni \gls{frame} acquisito, fino a raggiungere la posizione finale. 
+Dato che, nella nostra applicazione, la camera opera con \gls{framerate} bassi (come ad esempio un'immagine al minuto), possiamo considerare lo spostamento come istantaneo e, quindi, tenere come riferimento il modello della formula \ref{eq:displacement}.\\
+%Nella formulazione pi\`u generale possiamo, quindi, assumere un istante $T_{start}^ *$ in cui inizia lo spostamento e un istante $T_{end}^*$ in cui termina il transitorio:
+%\begin{equation}
+%\label{eq:displacementGeneral}
+%z_i(x) = \left\{ \begin{array}{rcl}
+%y_i(x) + \eta(x) & \mbox{per} & i < T_{start}^* \\
+%v_i(x) + \eta(x) & \mbox{per} & T_{start}^* \leq i < T_{end}^* \\
+%w_i(x) + \eta(x) & \mbox{per} & i \geqslant T_{end}^*
+%\end{array}\right. ,
+%\end{equation}
+%dove $\{v_i\}$ rappresenta la sequenza di immagini generate da viste differenti.
+%Inoltre, durante il transitorio dello spostamento, il tempo di esposizione della camera pu\`o portare alla generazione di sfocature nelle immagini.\\
 Anche per lo spostamento della camera vale la considerazione fatta nel caso della sfocatura: il contenuto delle immagini varia con il passare del tempo, quindi identificare lo spostamento confrontando frame consecutivi nel tempo genera un alto numero di falsi positivi.
 \subsection{Occlusione e guasti della camera}
 Il fenomeno dell'occlusione avviene quando un oggetto opaco si pone a ridosso della camera, impedendo la visione di una parte, se non la totalit\`a, della scena. 
+L'effetto di questo evento \`e quello di impedire l'acquisizione della scena nella sua totalit\`a.
+Un esempio di occlusione ce l'abbiamo quando qualcuno copre la camera con un cappello, o mette un foglio di giornale davanti alla lente del sensore, oppure pu\`o succedere che della neve si accumuli sull'ottica del sensore.
+\begin{figure}
+	\centering
+	\subfigure[Occlusione volontaria]{\label{fig:occlusionCALZA} \includegraphics[width=6cm]{./pictures/calza}}
+	\subfigure[Occlusione dovuta a deposito di neve]{\label{fig:occlusionNEVE}\includegraphics[width=6cm]{./pictures/neve}}
+	\caption{Esempi di occlusione}
+	\label{fig:occlusion}
+\end{figure}
+\noindent Il guasto del sensore invece comporta un aumento del rumore presente nell'immagine. \\
+Queste problemi non sono stati affrontati durante la tesi, comunque le tecniche messe a punto per rilevare spostamenti e sfocature possono essere utilizzate anche per rilevare questo tipo di eventi. 
 \section{Tampering detection}
+L'algoritmo di tampering detection consiste nell'analizzare la sequenza di osservazioni $\{z_i\}, i=1, \dots , N$ in modo da determinare un possibile cambiamento nell'operatore di degradazione $\mathcal{D}$ o in quello di spostamento $\mathcal{S}$.
+Come abbiamo illustrato precedentemente, discriminare tra cambiamenti avvenuti a livello di contenuto della scena e cambiamenti dovuti a tampering pu\`o diventare complicato confrontando direttamente i frame tra loro.

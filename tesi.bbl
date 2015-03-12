@@ -4,11 +4,49 @@
 \url{http://www.mitan.it/security-solution/videosorveglianza/sistemi-di-videosorveglianza-e-registrazione/}.
 \newblock Visitato il giorno 09/03/2015.
 
+\bibitem{aksay2007camera}
+Anil Aksay, Alptekin Temizel, and A.~Enis Cetin.
+\newblock Camera tamper detection using wavelet analysis for video
+  surveillance.
+\newblock In {\em Advanced Video and Signal Based Surveillance, 2007. AVSS
+  2007. IEEE Conference on}, pages 558--562. IEEE, 2007.
+
 \bibitem{alippi2010detecting}
 Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
 \newblock Detecting external disturbances on the camera lens in wireless
   multimedia sensor networks.
 \newblock {\em Instrumentation and Measurement, IEEE Transactions on},
   59(11):2982--2990, 2010.
+
+\bibitem{ellwart2012camera}
+Damian Ellwart, Piotr Szczuko, and Andrzej Czy{\.z}ewski.
+\newblock Camera sabotage detection for surveillance systems.
+\newblock In {\em Security and Intelligent Information Systems}, pages 45--53.
+  Springer, 2012.
+
+\bibitem{gil2007automatic}
+Pedro Gil-Jim{\'e}nez, R.~L{\'o}pez-Sastre, Philip Siegmann, Javier
+  Acevedo-Rodr{\'\i}guez, and Saturnino Maldonado-Basc{\'o}n.
+\newblock Automatic control of video surveillance camera sabotage.
+\newblock {\em Nature Inspired Problem-Solving Methods in Knowledge
+  Engineering}, pages 222--231, 2007.
+
+\bibitem{harasse2004automated}
+Sebastien Harasse, Laurent Bonnaud, Alice Caplier, and Michel Desvignes.
+\newblock Automated camera dysfunctions detection.
+\newblock In {\em Image Analysis and Interpretation, 2004. 6th IEEE Southwest
+  Symposium on}, pages 36--40. IEEE, 2004.
+
+\bibitem{saglam2009real}
+Ali Saglam and Alptekin Temizel.
+\newblock Real-time adaptive camera tamper detection for video surveillance.
+\newblock In {\em Advanced Video and Signal Based Surveillance, 2009. AVSS'09.
+  Sixth IEEE International Conference on}, pages 430--435. IEEE, 2009.
+
+\bibitem{tsesmelis2013tamper}
+Theodore Tsesmelis, Lars Christensen, Preben Fihl, and Thomas~B Moeslund.
+\newblock Tamper detection for active surveillance systems.
+\newblock In {\em Advanced Video and Signal Based Surveillance (AVSS), 2013
+  10th IEEE International Conference on}, pages 57--62. IEEE, 2013.
 
 \end{thebibliography}

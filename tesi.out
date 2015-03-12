@@ -1,19 +1,24 @@
 \BOOKMARK [0][-]{chapter*.2}{Sommario}{}% 1
 \BOOKMARK [0][-]{chapter*.3}{Ringraziamenti}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Introduzione}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Inquadramento generale}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Breve descrizione del lavoro}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.3}{Struttura della tesi}{chapter.1}% 6
-\BOOKMARK [0][-]{chapter.2}{Stato dell'arte}{}% 7
-\BOOKMARK [0][-]{chapter.3}{Impostazione del problema di ricerca}{}% 8
-\BOOKMARK [0][-]{chapter.4}{Progetto logico della soluzione del problema}{}% 9
-\BOOKMARK [0][-]{chapter.5}{Architettura del sistema}{}% 10
-\BOOKMARK [0][-]{chapter.6}{Realizzazioni sperimentali e valutazione}{}% 11
-\BOOKMARK [0][-]{chapter.7}{Direzioni future di ricerca e conclusioni}{}% 12
-\BOOKMARK [0][-]{chapter.7}{Bibliografia}{}% 13
-\BOOKMARK [0][-]{appendix.Alph1}{Documentazione del progetto logico}{}% 14
-\BOOKMARK [0][-]{appendix.Alph2}{Documentazione della programmazione}{}% 15
-\BOOKMARK [0][-]{appendix.Alph3}{Listato}{}% 16
-\BOOKMARK [0][-]{appendix.Alph4}{Il manuale utente}{}% 17
-\BOOKMARK [0][-]{appendix.Alph5}{Esempio di impiego}{}% 18
-\BOOKMARK [0][-]{appendix.Alph6}{Datasheet}{}% 19
+\BOOKMARK [0][-]{chapter.2}{Stato dell'arte}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Tampering Detection}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.1.1}{Identificazione di occlusioni}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.2}{Identificazione di spostamenti della camera}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.3}{Identificazione di sfocature}{section.2.1}% 8
+\BOOKMARK [0][-]{chapter.3}{Impostazione del problema di ricerca}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Modello delle osservazioni}{chapter.3}% 10
+\BOOKMARK [2][-]{subsection.3.1.1}{Sfocatura}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.2}{Spostamento della camera}{section.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.1.3}{Occlusione e guasti della camera}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{Tampering detection}{chapter.3}% 14
+\BOOKMARK [0][-]{chapter.4}{Soluzione proposta}{}% 15
+\BOOKMARK [1][-]{section.4.1}{Estrazione dei descrittori del cambiamento}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{Algoritmo di segmentazione}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.3}{Monitoraggio one-shot}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.4}{Monitoraggio sequenziale}{chapter.4}% 19
+\BOOKMARK [0][-]{chapter.5}{Realizzazioni sperimentali e valutazione}{}% 20
+\BOOKMARK [1][-]{section.5.1}{Acquisizione dei dataset}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.2}{Risultati}{chapter.5}% 22
+\BOOKMARK [0][-]{chapter.6}{Direzioni future di ricerca e conclusioni}{}% 23
+\BOOKMARK [0][-]{chapter.6}{Bibliografia}{}% 24

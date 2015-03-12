@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper,twoside,openright]{book}
 
+%\usepackage{hyperref}
 \usepackage[dvips]{graphicx}
 \usepackage{tabularx}
 \usepackage{url}
@@ -9,6 +10,8 @@
 \usepackage{rotating}  
 \usepackage{fancyhdr}  
 \usepackage[scriptsize]{caption} 
+\usepackage{glossaries}
+\makeglossaries
 \hyphenation{a-gen-tiz-za-zio-ne}
 
 \setlength{\paperwidth}{16cm}
@@ -25,6 +28,17 @@
 \pagestyle{empty}
 \graphicspath{./pictures}
 
+% Voci del glossario
+\newglossaryentry{scena}{name={scena},description={luogo di interesse per una particolare applicazione di monitoraggio video}}
+
+\newglossaryentry{inquadratura}{name={inquadratura},description={porzione dello spazio fisico che viene acquisito dal sensore della camera}}
+
+\newglossaryentry{frame}{name={frame},description={immagine acquisita dal sensore della camera}}
+
+\newglossaryentry{framerate}{name={framerate},description={frequenza di acquisizione dei frame da parte della camera}}
+
+\newglossaryentry{tampering}{name={tampering},description={letteralmente \textit{manomissione}, nel contesto della tesi indica un qualsiasi evento che non permette una corretta ripresa della scena da parte della camera}}
+
 \begin{document}
 \include{frontespizio}
 \frontmatter
@@ -37,6 +51,8 @@
 \tableofcontents
 \listoffigures
 \listoftables
+\printglossaries
+
 \mainmatter
 \thispagestyle{empty} \vspace*{.75truecm} \normalfont \cleardoublepage
 \pagestyle{plain}\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}} 

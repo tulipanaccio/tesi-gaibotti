@@ -1,5 +1,6 @@
 latex $1
 bibtex $1
+makeglossaries $1
 latex $1
 latex $1
 dvips -Ppdf -G0 -ta4 $1.dvi
