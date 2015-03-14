@@ -3,13 +3,19 @@
 
 \addcontentsline{toc}{chapter}{Sommario}
 
-Uno dei principali problemi, quando si ha a che fare con applicazioni di monitoraggio video, \`e quello di identificare quegli eventi che possano compromettere la corretta ripresa della scena da parte del sensore.
-Pu\`o capitare, ad esempio, che dell'acqua piovana si depositi sulla lente della camera, rendendo l'immagine acquisita sfocata, oppure che qualcuno sposti la camera in modo che essa non riprenda pi\`u la scena che stava monitorando.
+Nel campo dei sistemi di monitoraggio video, uno dei principali problemi \`e quello di identificare eventi che possano compromettere la corretta ripresa della scena.
+Pu\`o capitare, ad esempio, che dell'acqua piovana si depositi sulla lente della camera, rendendo l'immagine acquisita sfocata, oppure che la camera si sposti, a causa di un intenzionale intervento umano o per eventi naturali quali una raffica di vento, e non riprenda pi\`u la scena originale.\\
+
 Il problema di individuare, in maniera automatica, questo tipo di eventi prende il nome di \textit{tampering detection}. 
-Nella letteratura scientifica lo studio di questo problema si \`e concentrato solamente sulle applicazioni di \textit{videosorveglianza}, dove \`e necessario che la camera operi con una frequenza di acquisizione delle immagini elevata.
-Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per sistemi di monitoraggio a basso consumo. Abbiamo considerato scenari, come ad esempio il monitoraggio ambientale, in cui non \`e necessario che la camera operi con un'acquisizione continua e, quindi, sia possibile limitare il carico computazionale acquisendo, ad esempio, un'immagine ogni minuto.
-In questi casi, se consideriamo il caso della ripresa di una strada, in cui passano delle macchine o dei pedoni, abbiamo un'elevata dinamicit\`a che non permette di fare un confronto tra frame consecutivi per identificare gli eventi di nostro interesse. In aggiunta, abbiamo dei cambiamenti di luminosit\`a, tra un'immagine e la successiva, pi\`u sostanziali rispetto al caso di acquisizione continua.  
-La nostra proposta \`e quella di monitorare nel tempo degli indicatori semplici, calcolati considerando solamente il \textit{contenuto visivo} delle singole immagini, in modo da ottimizzare le risorse hardware disponibili e ridurre la complessit\`a computazionale.
-Data l'alta variabilit\`a di questi indicatori abbiamo introdotto una \textit{segmentazione} della scena ripresa, estratta durante una fase di \textit{configurazione} dell'algoritmo, in modo da considerare solo le regioni in cui il monitoraggio risulta pi\`u efficace.
-La tesi \`e stata svolta durante uno stage presso \textit{STMicroelectronics}, particolarmente interessata a sviluppare algoritmi intelligenti di processione immagini da integrare nei propri dispositivi hardware, e a scenari di impiego per questi.
-Prove sperimentali, fatte considerando diversi sistemi di acquisizione operanti con frame rate differenti, hanno confermato l'efficacia di utilizzare la segmentazione rispetto a considerare l'intera scena per individuare eventi di spostamento della camera. 
+Nella letteratura scientifica questo problema \`e stato affrontato solamente per applicazioni di \textit{videosorveglianza}, dove la camera opera con frequenze di acquisizione elevate. 
+Tali prestazioni sono possibili solamente su sistemi di monitoraggio con una certa potenza computazionale, e che vengono alimentati a corrente.
+%[QUESTO E POSSIBILE IN SISTEMI CON UNA CERTA POTENZA COMPUTAZIONALE E ATTACCATI ALLA CORRENTE]
+Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per sistemi \textit{embedded} e a basso consumo da utilizzarsi in scenari di monitoraggio. In particolare, l'algoritmo \`e caratterizzato da un basso carico computazionale ed \`e pensato per scenari, tipo il monitoraggio ambientale, dove il sistema, per ridurre il consumo energetico, acquisisce e analizza poche immagini al minuto o all'ora (\textit{framerate bassi}).
+In questi casi scene ad \textit{alta dinamicit\`a}, come una strada in cui passano macchine e pedoni, non permettono di identificare eventi di tampering tramite un confronto tra frame consecutivi. 
+Inoltre, operando a bassi framerate, si verificano variazioni di luminosit\`a, tra immagini consecutive, pi\`u sostanziali rispetto al caso di acquisizione continua. \\ 
+L'algoritmo proposto si basa su indicatori, estratti dalle singole immagini, calcolati a bassa complessit\`a computazionale; tali indicatori vengono monitorati nel tempo attraverso tecniche \textit{sequenziali} e di \textit{outlier detection} per identificare l'istante in cui avviene l'evento di tampering.
+Data l'alta variabilit\`a degli indicatori utilizzati, abbiamo introdotto una fase di \textit{segmentazione} della scena, in modo da limitare l'analisi ad alcune regioni specifiche:
+questo permette di migliorare le prestazioni dell'algoritmo e diminuire il numero di falsi allarmi.\\
+
+La tesi \`e stata svolta durante uno stage presso \textit{STMicroelectronics}, interessata a sviluppare algoritmi intelligenti di elaborazione immagini da integrare nei propri dispositivi embedded, e a scenari di impiego per questi.
+Sono stati messi a punto diversi sistemi di acquisizione operanti a diversi framerate, che hanno permesso di generare i dataset per testare l'efficacia della soluzione proposta e, in particolare, dei vantaggi nell'utilizzo della segmentazione a supporto del tampering detection. 

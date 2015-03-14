@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Targhe}
 \url{http://www.mitan.it/security-solution/videosorveglianza/sistemi-di-videosorveglianza-e-registrazione/}.
@@ -17,6 +17,17 @@ Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
   multimedia sensor networks.
 \newblock {\em Instrumentation and Measurement, IEEE Transactions on},
   59(11):2982--2990, 2010.
+
+\bibitem{bracewell1978fourier}
+Ronald~N Bracewell.
+\newblock The fourier transform and its applications.
+\newblock 1978.
+
+\bibitem{canny1986computational}
+John Canny.
+\newblock A computational approach to edge detection.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, (6):679--698, 1986.
 
 \bibitem{ellwart2012camera}
 Damian Ellwart, Piotr Szczuko, and Andrzej Czy{\.z}ewski.
@@ -37,11 +48,36 @@ Sebastien Harasse, Laurent Bonnaud, Alice Caplier, and Michel Desvignes.
 \newblock In {\em Image Analysis and Interpretation, 2004. 6th IEEE Southwest
   Symposium on}, pages 36--40. IEEE, 2004.
 
+\bibitem{kryjak2012fpga}
+Tomasz Kryjak, Mateusz Komorkiewicz, and Marek Gorgon.
+\newblock Fpga implementation of real-time head-shoulder detection using local
+  binary patterns, svm and foreground object detection.
+\newblock In {\em Design and Architectures for Signal and Image Processing
+  (DASIP), 2012 Conference on}, pages 1--8. IEEE, 2012.
+
+\bibitem{mallat1989theory}
+Stephane~G Mallat.
+\newblock A theory for multiresolution signal decomposition: the wavelet
+  representation.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 11(7):674--693, 1989.
+
+\bibitem{roma2002comparative}
+Nuno Roma, Jos{\'e} Santos-Victor, and Jos{\'e} Tom{\'e}.
+\newblock A comparative analysis of cross-correlation matching algorithms using
+  a pyramidal resolution approach.
+\newblock 2002.
+
 \bibitem{saglam2009real}
 Ali Saglam and Alptekin Temizel.
 \newblock Real-time adaptive camera tamper detection for video surveillance.
 \newblock In {\em Advanced Video and Signal Based Surveillance, 2009. AVSS'09.
   Sixth IEEE International Conference on}, pages 430--435. IEEE, 2009.
+
+\bibitem{sobel19683x3}
+Irwin Sobel and Gary Feldman.
+\newblock A 3x3 isotropic gradient operator for image processing.
+\newblock 1968.
 
 \bibitem{tsesmelis2013tamper}
 Theodore Tsesmelis, Lars Christensen, Preben Fihl, and Thomas~B Moeslund.
