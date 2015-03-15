@@ -18,6 +18,17 @@ Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
 \newblock {\em Instrumentation and Measurement, IEEE Transactions on},
   59(11):2982--2990, 2010.
 
+\bibitem{alippi2008just}
+Cesare Alippi and Manuel Roveri.
+\newblock Just-in-time adaptive classifiers-part {I}: Detecting nonstationary
+  changes.
+\newblock {\em Neural Networks, IEEE Transactions on}, 19(7):1145--1153, 2008.
+
+\bibitem{bay2006surf}
+Herbert Bay, Tinne Tuytelaars, and Luc Van~Gool.
+\newblock Surf: Speeded up robust features.
+\newblock In {\em Computer vision--ECCV 2006}, pages 404--417. Springer, 2006.
+
 \bibitem{bracewell1978fourier}
 Ronald~N Bracewell.
 \newblock The fourier transform and its applications.
@@ -62,11 +73,29 @@ Stephane~G Mallat.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 11(7):674--693, 1989.
 
+\bibitem{pimentel2014review}
+Marco~A.F. Pimentel, David~A. Clifton, Lei Clifton, and Lionel Tarassenko.
+\newblock A review of novelty detection.
+\newblock {\em Signal Processing}, 99:215--249, 2014.
+
+\bibitem{ribnick2006real}
+Evan Ribnick, Stefan Atev, Osama Masoud, Nikolaos Papanikolopoulos, and Richard
+  Voyles.
+\newblock Real-time detection of camera tampering.
+\newblock In {\em Video and Signal Based Surveillance, 2006. AVSS'06. IEEE
+  International Conference on}, pages 10--10. IEEE, 2006.
+
 \bibitem{roma2002comparative}
 Nuno Roma, Jos{\'e} Santos-Victor, and Jos{\'e} Tom{\'e}.
 \newblock A comparative analysis of cross-correlation matching algorithms using
   a pyramidal resolution approach.
 \newblock 2002.
+
+\bibitem{ross2011nonparametric}
+Gordon~J. Ross, Dimitris~K. Tasoulis, and Niall~M. Adams.
+\newblock Nonparametric monitoring of data streams for changes in location and
+  scale.
+\newblock {\em Technometrics}, 53(4):379--389, 2011.
 
 \bibitem{saglam2009real}
 Ali Saglam and Alptekin Temizel.

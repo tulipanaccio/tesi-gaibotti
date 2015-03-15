@@ -41,10 +41,10 @@ Il fenomeno della sfocatura avviene quando un elemento trasparente o semitraspar
 
 \begin{figure}
 	\centering
-	\begin{subfigure}[Pioggia sull'obiettivo]
+	\begin{subfigure}[]
 		{\label{fig:pioggia} \includegraphics[width=6cm]{./pictures/pioggia}}
 	\end{subfigure}
-	\begin{subfigure}[Deodorante spray]
+	\begin{subfigure}[]
 		{\label{fig:bassiniDEFOCUS} \includegraphics[width=6cm]{./pictures/bassiniDEFOCUS}}
 	\end{subfigure}
 	\caption{Esempi di sfocature}
@@ -57,6 +57,8 @@ Queste possono essere di origine diversa:
 	\item dovute a \textit{cause naturali}, come ad esempio dell'acqua piovana che si deposita sulla lente (figura \ref{fig:pioggia}), o la condensa dovuta all'umidit\`a e alle basse temperature, oppure un raggio di sole incidente sull'obiettivo della camera;
 	\item per \textit{intervento dell'uomo}, che a sua volta pu\`o avvenire in maniera intenzionale (e in questo caso si pu\`o parlare di \textit{manomissione}) oppure non intenzionale. Ad esempio, si pu\`o direttamente intervenire sulla messa a fuoco, nel caso sia possibile cambiarla manualmente; oppure (come nel caso della figura \ref{fig:bassiniDEFOCUS}) \`e possibile applicare una sostanza semitrasparente sulla lente della camera, come il gas di un deodorante spray.
 \end{itemize}
+Inoltre, possiamo notare come nella figura \ref{fig:bassiniDEFOCUS} la sfocatura sia applicata su tutta l'immagine, mentre nella figura \ref{fig:pioggia} la sfocatura si concentri solo in alcune aree (quelle dove sono presenti le gocce). 
+Nel primo caso si parler\`a, quindi, di sfocatura \textit{totale}, mentre nel secondo caso di sfocatura \textit{parziale}.\\
 Riprendendo \cite{alippi2010detecting}, questo fenomeno pu\`o essere modellato come un operatore di \textit{degradazione} $\mathcal{D}$ applicato a un'immagine $y$, considerata priva di errori, i.e.,
 \begin{equation}
 z=\mathcal{D}[y].
@@ -107,12 +109,12 @@ Lo spostamento della camera avviene quando cambia la sua vista.
 Le cause possono essere, ancora una volta, di tipo naturale, ad esempio una raffica di vento che sposta la camera, oppure dovute a un intervento malevolo da parte di un uomo.
 \begin{figure}
 	\centering
-	\subfigure[Vista originale]{\includegraphics[width=6cm]{./pictures/testiORIGINALE}}
-	\subfigure[Vista in seguito allo spostamento della camera]{\includegraphics[width=6cm]{./pictures/testiDISPLACEMENT}}
+	\subfigure[]{\label{fig:displacementORIGINALE} \includegraphics[width=6cm]{./pictures/testiORIGINALE}}
+	\subfigure[]{\label{fig:displacementSPOSTATO}\includegraphics[width=6cm]{./pictures/testiDISPLACEMENT}}
 	\caption{Esempio di spostamento della camera}
 	\label{fig:testiDISPLACEMENT}
 \end{figure}
-\noindent Un esempio di spostamento della camera \`e mostrato nella figura \ref{fig:testiDISPLACEMENT}.
+\noindent Un esempio \`e mostrato nella figura \ref{fig:testiDISPLACEMENT}, dove vediamo che tra il frame riportato in figura \ref{fig:displacementORIGINALE} e quello in figura \ref{fig:displacementSPOSTATO} c'\`e stato un evento che ha spostato la camera.
 Possiamo formalizzare il concetto di spostamento della camera nel modo seguente: consideriamo la sequenza $\{y_i\}$ di immagini generate da una camera in una certa posizione, e la sequenza $\{w_i\}$ di immagini generate dalla stessa camera in una posizione differente.\\
 Possiamo, dunque, considerare la sequenza di immagini $\{z_i\}$ in cui avviene uno spostamento della camera all'istante $T^*$ nel seguente modo:
 \begin{equation}
