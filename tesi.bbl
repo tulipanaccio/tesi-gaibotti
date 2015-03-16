@@ -46,6 +46,11 @@ Damian Ellwart, Piotr Szczuko, and Andrzej Czy{\.z}ewski.
 \newblock In {\em Security and Intelligent Information Systems}, pages 45--53.
   Springer, 2012.
 
+\bibitem{forsyth2002computer}
+David~A Forsyth and Jean Ponce.
+\newblock Computer vision: A modern approach.
+\newblock 2002.
+
 \bibitem{gil2007automatic}
 Pedro Gil-Jim{\'e}nez, R.~L{\'o}pez-Sastre, Philip Siegmann, Javier
   Acevedo-Rodr{\'\i}guez, and Saturnino Maldonado-Basc{\'o}n.
@@ -58,6 +63,11 @@ Sebastien Harasse, Laurent Bonnaud, Alice Caplier, and Michel Desvignes.
 \newblock Automated camera dysfunctions detection.
 \newblock In {\em Image Analysis and Interpretation, 2004. 6th IEEE Southwest
   Symposium on}, pages 36--40. IEEE, 2004.
+
+\bibitem{hartley2003multiple}
+Richard Hartley and Andrew Zisserman.
+\newblock {\em Multiple view geometry in computer vision}.
+\newblock Cambridge university press, 2003.
 
 \bibitem{kryjak2012fpga}
 Tomasz Kryjak, Mateusz Komorkiewicz, and Marek Gorgon.

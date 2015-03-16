@@ -5,27 +5,30 @@
 \contentsline {chapter}{\numberline {1}Introduzione}{3}
 \contentsline {chapter}{\numberline {2}Stato dell'arte}{5}
 \contentsline {section}{\numberline {2.1}Modello della camera}{5}
-\contentsline {section}{\numberline {2.2}Monitoraggio video: concetti e terminologia}{5}
-\contentsline {section}{\numberline {2.3}Tampering Detection}{6}
-\contentsline {subsection}{\numberline {2.3.1}Tecniche basate su confronto di background}{7}
-\contentsline {subsubsection}{Identificazione di occlusioni}{7}
-\contentsline {subsubsection}{Identificazione di spostamenti della camera}{8}
-\contentsline {subsubsection}{Identificazione di sfocature}{9}
-\contentsline {subsection}{\numberline {2.3.2}Tecniche basate su monitoraggio sequenziale}{10}
-\contentsline {chapter}{\numberline {3}Impostazione del problema di ricerca}{13}
-\contentsline {section}{\numberline {3.1}Modello delle osservazioni}{13}
-\contentsline {subsection}{\numberline {3.1.1}Scena e posizione della camera}{13}
-\contentsline {subsection}{\numberline {3.1.2}Sfocatura}{14}
-\contentsline {subsection}{\numberline {3.1.3}Spostamento della camera}{16}
-\contentsline {subsection}{\numberline {3.1.4}Occlusione e guasti della camera}{17}
-\contentsline {section}{\numberline {3.2}Tampering detection}{18}
-\contentsline {chapter}{\numberline {4}Soluzione proposta}{19}
-\contentsline {section}{\numberline {4.1}Estrazione dei descrittori del cambiamento}{19}
-\contentsline {section}{\numberline {4.2}Algoritmo di segmentazione}{19}
-\contentsline {section}{\numberline {4.3}Monitoraggio one-shot}{19}
-\contentsline {section}{\numberline {4.4}Monitoraggio sequenziale}{19}
-\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{21}
-\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{21}
-\contentsline {section}{\numberline {5.2}Risultati}{21}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{23}
-\contentsline {chapter}{Bibliografia}{25}
+\contentsline {subsection}{\numberline {2.1.1}La matrice prospettica della camera}{6}
+\contentsline {subsection}{\numberline {2.1.2}Parametri intrinseci}{8}
+\contentsline {subsection}{\numberline {2.1.3}Parametri estrinseci}{10}
+\contentsline {section}{\numberline {2.2}Monitoraggio video: concetti e terminologia}{11}
+\contentsline {section}{\numberline {2.3}Tampering Detection}{12}
+\contentsline {subsection}{\numberline {2.3.1}Tecniche basate su confronto di background}{13}
+\contentsline {subsubsection}{Identificazione di occlusioni}{13}
+\contentsline {subsubsection}{Identificazione di spostamenti della camera}{14}
+\contentsline {subsubsection}{Identificazione di sfocature}{15}
+\contentsline {subsection}{\numberline {2.3.2}Tecniche basate su monitoraggio sequenziale}{16}
+\contentsline {chapter}{\numberline {3}Impostazione del problema di ricerca}{19}
+\contentsline {section}{\numberline {3.1}Modello delle osservazioni}{19}
+\contentsline {subsection}{\numberline {3.1.1}Scena e posizione della camera}{19}
+\contentsline {subsection}{\numberline {3.1.2}Sfocatura}{20}
+\contentsline {subsection}{\numberline {3.1.3}Spostamento della camera}{22}
+\contentsline {subsection}{\numberline {3.1.4}Occlusione e guasti della camera}{23}
+\contentsline {section}{\numberline {3.2}Tampering detection}{24}
+\contentsline {chapter}{\numberline {4}Soluzione proposta}{25}
+\contentsline {section}{\numberline {4.1}Estrazione dei descrittori del cambiamento}{25}
+\contentsline {section}{\numberline {4.2}Algoritmo di segmentazione}{25}
+\contentsline {section}{\numberline {4.3}Monitoraggio one-shot}{25}
+\contentsline {section}{\numberline {4.4}Monitoraggio sequenziale}{25}
+\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{27}
+\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{27}
+\contentsline {section}{\numberline {5.2}Risultati}{27}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{29}
+\contentsline {chapter}{Bibliografia}{31}

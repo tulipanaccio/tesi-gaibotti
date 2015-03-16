@@ -18,9 +18,191 @@
 %\end{quotation}
 \vspace{0.5cm}
 
-\noindent In questo capitolo elenchiamo quelle che sono le principali tecniche, presenti nella letteratura scientifica, utilizzate per identificare tentativi di manomissione su camere di videosorveglianza. 
+\noindent In questo capitolo presentiamo i concetti fondamentali della teoria alla base della \textit{visione artificiale} e lo studio fatto finora sul problema del \textit{tampering detection}.
+Nel primo paragrafo diamo una visione generale del modello della camera, senza pretendere una completa e dettagliata descrizione, bens\`i una visione pi\`u generale per comprendere meglio gli argomenti trattati nei prossimi capitoli.
+Nel secondo paragrafo definiamo i concetti del monitoraggio video e la terminologia che verr\`a utilizzata nel resto della tesi.
+Il terzo paragrafo descrive le soluzioni al problema del tampering detection che si trovano nella letteratura scientifica.
 \section{Modello della camera}
+Affinch\'e un sistema di visione artificiale possa risolvere il problema per cui \`e stato progettato, \`e necessario che esso sia in grado di acquisire una porzione della realt\`a che lo circonda.
+Questo compito viene svolto da un particolare sensore chiamato \textit{camera}, il cui scopo principale \`e quello di creare una \textit{proiezione} dell'ambiente \textit{tridimensionale} in un sistema \textit{bidimensionale}.
+Il principio alla base della camera \`e un concetto inventato da \textit{Filippo Brunelleschi} nel XV secolo, chiamato \textit{prospettiva a punto unico di fuga} (\textit{pinhole perspective}).
+Il modello matematico utilizzato considera uno spazio tridimensionale, detto \textit{ambiente}, e un piano bidimensionale chiamato \textit{immagine}. 
+I punti su tale piano sono la \textit{proiezione} dell'ambiente tridimensionale.
+La proiezione \`e dovuta a un punto, chiamato \textit{centro ottico}, in cui viene convogliata la luce emanata dall'ambiente tridimensionale.
+In questa astrazione, ciascun punto dello spazio tridimensionale viene associato univocamente a un punto nel piano immagine attraverso il raggio di luce che passa dal centro ottico.
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm]{./pictures/prospettiva}
+	\caption{Utilizzo della camera oscura}
+	\label{fig:prospettiva}
+\end{figure} 
+All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una \textit{camera oscura}, come si pu\`o osservare nell'illustrazione in figura \ref{fig:prospettiva}, mentre nei moderni sistemi di acquisizione viene realizzato tramite \textit{lenti ottiche}. 
+\subsection{La matrice prospettica della camera}
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm]{./pictures/modelloCamera}
+	\caption{Schematizzazione del sistema ottico della camera}
+	\label{fig:modelloCamera}
+\end{figure} 
+Nella figura \ref{fig:modelloCamera} sono illustrati i concetti che sono utilizzati per descrivere il sistema ottico della camera.
+Indichiamo con $\textbf{M}=[X, Y, Z]^\textit{T}$ un qualsiasi punto nello spazio tridimensionale e con $\textbf{m} = [u, v]^\textit{T}$ la sua proiezione sul piano immagine dovuta al centro ottico $\textbf{C}$.
+La linea che congiunge il centro ottico $\textbf{C}$ perpendicolarmente al piano immagine \`e detta \textit{asse principale}, indicata con $Z$, e il suo punto di intersezione con il piano stesso viene definita \textit{punto principale} $\textbf{c}$.
+La distanza tra il punto principale e il centro ottico viene definita \textit{distanza focale},  e viene indicata con $f$.\\
+La rappresentazione dei punti viene fatto attraverso le loro \textit{coordinate omogenee}.
+In questo modo \`e possibile rappresentare le trasformazioni tra sistemi di coordinate di ordine differente tramite una singola trasformazione matriciale.
+Chiamiamo coordinate omogenee di un punto $\textbf{m} = [u,v]$ del piano una qualsiasi terna ordinata $[U,V,W]$ di numeri reali tali che
+\[W\neq 0,
+\frac{U}{W}=u,
+\frac{V}{W}=v.\]
+Analogamente, le coordinate omogenee di un punto $\textbf{M}=[x,y,z]$ nello spazio tridimensionale saranno costituite da una quaterna di numeri $[X,Y,Z,W]$ tali che 
+\[W\neq 0,
+\frac{X}{W}=x,
+\frac{Y}{W}=y,
+\frac{Z}{W}=z.\]
+La coordinata $W$ viene definita \textit{valore di scala}; nel caso $W=1$ le rimanenti coordinate omogenee rappresentano le \textit{coordinate cartesiane} del punto.\\
+Consideriamo un punto $\textbf{M}$ nello spazio tridimensionale, rappresentato tramite le coordinate omogenee $[X,Y,Z,1]^\textit{T}$, e il suo punto immagine $\textbf{m}$ rappresentato dalle coordinate omogenee $[u,v,1]^\textit{T}$.
+La proiezione della camera pu\`o essere espressa come
+\begin{equation}
+\label{eq:proiezione}
+\textbf{m}=P\textbf{M},
+\end{equation}
+dove $P$  \`e una matrice di dimensioni $3 \times 4$ chiamata \textit{matrice prospettica} \cite{hartley2003multiple}.
+Tale matrice contiene al suo interno informazioni sui parametri della camera a cui \`e associata, e descrive sia la proiezione sul piano immagine che le trasformazioni di camera rispetto al sistema di riferimento tridimensionale.
+Formalmente viene rappresentata attraverso due matrici: una che rappresenta i \textit{parametri intrinseci} e un'altra che rappresenta i \textit{parametri estrinseci} \cite{forsyth2002computer}.
+\begin{itemize}
+	\item I \textit{parametri intrinseci} rappresentano le caratteristiche interne della camera come la distanza focale, il centro focale e le caratterisitiche di \textit{distorsione} della lente.
+	\item I \textit{parametri estrinseci} rappresentano la posizione della camera rispetto al sistema di riferimento dello spazio tridimensionale.
+\end{itemize} 
+\subsection{Parametri intrinseci}
+La relazione fra le coordinate tridimensionali di un punto $\textbf{M}=[X,Y,Z]$ e le coordinate del suo proiettato $\textbf{m}=[u,v]$ \`e:
+\[u=f\cdot \frac{X}{Z},\]
+\[v=f\cdot \frac{Y}{Z}.\]
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm]{./pictures/mappatura2d3d}
+	\caption{Similitudini tra triangoli usate nel calcolo dei parametri intrinseci}
+	\label{fig:mapping}
+\end{figure}
+\noindent Tale relazione deriva dalle propriet\`a dei triangoli simili, come mostra la figura \ref{fig:mapping}.
+La \textit{mappatura} viene definita, dunque, dalla seguente relazione:
+\begin{equation}
+\label{eq:mapping}
+[X,Y,Z]^\textit{T} \mapsto \left[f\cdot \frac{X}{Z}, f\cdot \frac{Y}{Z}\right]^\textit{T}.
+\end{equation} 
+Se il punto nello spazio e il suo proiettato sono rappresentati attraverso le loro coordinate omogenee, la \eqref{eq:mapping} pu\`o essere riscritta come
+\begin{equation}
+\label{eq:mappingMatrix}
+\left[\begin{array}{c}
+X \\ Y \\ Z \\ 1
+\end{array}\right] \mapsto 
+\left[\begin{array}{c}
+fX \\ fY \\ Z
+\end{array}\right] = 
+K \left[\begin{array}{rcl}
+I & | & 0
+\end{array}\right]
+\left[\begin{array}{c}
+X \\ Y \\ Z \\ 1
+\end{array}\right],
+\end{equation}
+dove la matrice
+\begin{equation}
+\label{eq:kSimple}
+K = 
+\left[\begin{array}{rccl}
+f & & \\
+& f & \\
+& & 1 
+\end{array}\right]
+\end{equation}
 
+viene detta \textit{matrice di calibrazione} della camera.\\
+Nella formula \eqref{eq:mapping} abbiamo assunto che l'origine delle coordinate del piano immagine si trovi nel punto principale, come \`e illustrato nella figura \ref{fig:modelloCamera}.
+Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:mapping} diventa
+ \begin{equation}
+ \label{eq:mappingGeneral}
+ [X,Y,Z]^\textit{T} \mapsto \left[f\cdot \frac{X}{Z}+p_u, f\cdot \frac{Y}{Z}+p_v\right]^\textit{T},
+ \end{equation}
+ mentre la matrice di calibrazione\eqref{eq:kSimple} diventa 
+ \begin{equation}
+ \label{eq:kGeneral}
+ K =
+  \left[\begin{array}{rcl}
+  f & & p_u \\
+  & f & p_v \\
+  & & 1 
+  \end{array}\right].
+ \end{equation}
+ Nel caso in cui il sensore della camera sia \textit{digitale}, l'immagine deve essere quantizzata come una matrice di $W$ colonne e $H$ righe, in cui ciascun elemento prende il nome di \textit{pixel} (dalla contrazione di \textit{picture element}).
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=8cm]{./pictures/griglia}
+ 	\caption{Coordinate di un frame}
+ 	\label{fig:griglia}
+ \end{figure}
+ Ogni pixel possiede, quindi, delle coordinate che definiscono la sua posizione sulla matrice del frame.
+ Se definiamo con $(i,j)$ le coordinate del generico pixel sulla matrice del frame, dove l'origine \`e posta nell'angolo in alto a sinistra, e con $(O_u, O_v)$ le coordinate del punto principale secondo il sistema di riferimento del frame (si veda a riguardo la figura \ref{fig:griglia}), possiamo mettere in relazione le coordinate dell'immagine con le coordinate frame nel seguente modo:
+ \[ u = (i - O_u) \cdot S_u \]
+ e
+ \[ v = (j - O_v) \cdot S_v, \]
+ dove $S_u$ e $S_v$ sono le dimensioni orizzontali e verticali del singolo pixel.
+ \`E necessario introdurre, nella matrice di calibrazione, l'informazione del numero di pixel per unit\`a di distanza in coordinate immagine $m_u$ e $m_v$, rispettivamente nelle direzioni $u$ e $v$, modificando la matrice di calibrazione definita in \eqref{eq:kGeneral} come
+ \begin{equation}
+ \label{eq:kDigital}
+ K =
+ \left[\begin{array}{rccl}
+ \alpha_u & & u_0\\
+ & \alpha_v & v_0\\
+ & & 1
+ \end{array}\right],
+ \end{equation}
+ dove $\alpha_u = fm_u$ e $\alpha_v=fm_v$, mentre il punto principale $[p_u, p_v]$ viene riscritto come $[u_0, v_0] = [m_u p_u, m_v p_v]$. \\
+ Nel caso in cui la matrice di calibrazione sia nota, la camera viene detta \textit{completamente calibrata}.\\
+ La matrice di calibrazione $K$ rappresenta, quindi, il cambio di sistema di riferimento nel piano immagine, ridefinendo il centro della camera $(u_0, v_0)$ in modo che coincida con il punto principale.
+ \subsection{Parametri estrinseci}
+ La matrice $K$ descritta dall'equazione \eqref{eq:kDigital} \`e valida per camere poste all'origine del sistema di riferimento.
+Se consideriamo camere localizzate in una posizione arbitraria, quindi, \`e necessario che le coordinate dei punti, definite nel sistema di riferimento tridimensionale, siano ridefinite secondo il sistema di coordinate della camera.
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=8cm]{./pictures/rt}
+ 	\caption{Trasformazione dal sistema di coordinate dell'ambiente a quello della camera}
+ 	\label{fig:rt}
+ \end{figure}
+Questa trasformazione viene definita attraverso una \textit{rototraslazione}, nello spazio, del sistema di riferimento dell'ambiente, in modo che coincida con quello della camera.
+Se $\tilde{\textbf{M}}$ rappresenta le coordinate cartesiane di un punto nel sistema di riferimento dell'ambiente e $\tilde{\textbf{M}}_{cam}$ rappresenta lo stesso punto nel sistema di riferimento della camera, si pu\`o scrivere
+\begin{equation}
+\label{eq:rototrals1}
+\tilde{\textbf{M}}_{cam}=R(\tilde{\textbf{M}} - C),
+\end{equation}
+dove $C$ rappresenta le coordinate del centro della camera nel sistema di riferimento dell'ambiente, $R$ \`e una \textit{matrice di rotazione} $3 \times 3$ che rappresenta l'orientamento della camera rispetto al sistema di riferimento dell'ambiente e $K$ \`e la matrice di calibrazione della camera.
+L'equazione \eqref{eq:rototrals1} pu\`o essere riscritta in forma matriciale: se definiamo $\textbf{M}$ e $\textbf{M}_{cam}$ come le rappresentazioni in coordinate omogenee di $\tilde{\textbf{M}}$ e $\tilde{\textbf{M}}_{cam}$, abbiamo
+\[ \textbf{M}_{cam} =  \left[\begin{array}{cc}
+R & -RC \\
+0 & 1
+\end{array}\right] 
+\textbf{M}, \]
+da cui, riprendendo l'equazione \ref{eq:mappingMatrix},
+\begin{eqnarray}
+\textbf{m} & = & K \left[\begin{array}{rcl}
+I & | & 0
+\end{array}\right]\textbf{M}_{cam} \nonumber \\
+ & = & K \left[\begin{array}{rcl}
+I & | & 0
+\end{array}\right] 
+\left[\begin{array}{cc}
+R & -RC\\
+0 & 1 
+\end{array}\right] \textbf{M} \nonumber \\
+ & = &
+K \left[\begin{array}{rcl}
+R & | & -RC
+\end{array}\right]\textbf{M}. \nonumber
+\end{eqnarray}
+Possiamo, quindi, scrivere l'equazione della matrice di proiezione della camera come
+\[P=K \left[\begin{array}{rcl}
+R & | & t
+\end{array}\right],\]
+dove $t = -RC$ prende il nome di \textit{vettore di traslazione}.
 \section{Monitoraggio video: concetti e terminologia}
 Prima di concentrarci sul problema del tampering detection, definiamo, i concetti e i termini che verranno utilizzati nel seguito della trattazione.\\
 Lo scenario che consideriamo \`e quello di una camera che deve riprendere una particolare \textit{\gls{scena}}.
@@ -34,6 +216,8 @@ Lo scenario che consideriamo \`e quello di una camera che deve riprendere una pa
 La posizione e l'orientamento della camera determinano l'\textit{\gls{inquadratura}} della scena.
 L'acquisizione, da parte della camera, della scena nell'istante di tempo $i$ viene definita \textit{immagine} o \textit{frame} i-esimo.
 La figura \ref{fig:videoMonitoring} illustra questi concetti.\\
+Per semplificare l'analisi, considereremo immagini estratte in \textit{scala di grigi}.
+Quindi ciascuna immagine verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.\\
 Nel seguito della trattazione useremo una specifica terminologia.
 Indicheremo con $\mathcal{X}$ l'insieme dei \textit{pixel} costituenti l'immagine acquisita dalla camera,
 \[ \mathcal{X} \subset \mathbb{N}^2, \]
