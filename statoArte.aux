@@ -4,7 +4,7 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{StatoArte}{{2}{5}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Modello della camera}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Utilizzo della camera oscura\relax }}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671\relax }}{6}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:prospettiva}{{2.1}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}La matrice prospettica della camera}{6}}
@@ -28,12 +28,17 @@
 \newlabel{eq:kDigital}{{2.7}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Parametri estrinseci}{10}}
 \newlabel{eq:rototrals1}{{2.8}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Monitoraggio video: concetti e terminologia}{11}}
 \citation{Targhe}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Sistema di monitoraggio video\relax }}{12}}
-\newlabel{fig:videoMonitoring}{{2.6}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Tampering Detection}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Tampering Detection}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Tecniche di tampering detection\relax }}{12}}
+\newlabel{fig:tamperingSOA}{{2.6}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Concetti e terminologia}{12}}
 \citation{aksay2007camera}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Sistema di monitoraggio video\relax }}{13}}
+\newlabel{fig:videoMonitoring}{{2.7}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Tecniche basate su confronto di background}{13}}
+\newlabel{background}{{2.2.2}{13}}
+\newlabel{eq:background}{{2.2.2}{13}}
 \citation{saglam2009real}
 \citation{tsesmelis2013tamper}
 \citation{harasse2004automated}
@@ -44,10 +49,10 @@
 \citation{harasse2004automated}
 \citation{gil2007automatic}
 \citation{ellwart2012camera}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Tecniche basate su confronto di background}{13}}
-\newlabel{eq:background}{{2.3.1}{13}}
-\newlabel{eq:backgroundThreshUpd}{{2.3.1}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{Identificazione di occlusioni}{13}}
+\citation{gil2007automatic}
+\newlabel{eq:backgroundThreshUpd}{{2.2.2}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{Identificazione di occlusioni}{14}}
+\newlabel{eq:entropy}{{2.2.2}{14}}
 \citation{saglam2009real}
 \citation{gil2007automatic}
 \citation{harasse2004automated}
@@ -60,44 +65,45 @@
 \citation{mallat1989theory}
 \citation{saglam2009real}
 \citation{bracewell1978fourier}
-\newlabel{eq:entropy}{{2.3.1}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{Identificazione di spostamenti della camera}{14}}
-\newlabel{eq:displEqSaglam}{{2.3.1}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{Identificazione di spostamenti della camera}{15}}
+\newlabel{eq:displEqSaglam}{{2.2.2}{15}}
 \citation{ellwart2012camera}
 \citation{gil2007automatic}
 \citation{harasse2004automated}
 \citation{kryjak2012fpga}
 \citation{sobel19683x3}
 \citation{canny1986computational}
-\newlabel{fig:defocusNormale}{{2.7(a)}{15}}
-\newlabel{sub@fig:defocusNormale}{{(a)}{15}}
-\newlabel{fig:defocusNormaleFourier}{{2.7(b)}{15}}
-\newlabel{sub@fig:defocusNormaleFourier}{{(b)}{15}}
-\newlabel{fig:defocusSfocato}{{2.7(c)}{15}}
-\newlabel{sub@fig:defocusSfocato}{{(c)}{15}}
-\newlabel{fig:defocusSfocatoFourier}{{2.7(d)}{15}}
-\newlabel{sub@fig:defocusSfocatoFourier}{{(d)}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{15}}
-\newlabel{fig:fourier}{{2.7}{15}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{15}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{15}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{15}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{Identificazione di sfocature}{15}}
+\newlabel{fig:defocusNormale}{{2.8(a)}{16}}
+\newlabel{sub@fig:defocusNormale}{{(a)}{16}}
+\newlabel{fig:defocusNormaleFourier}{{2.8(b)}{16}}
+\newlabel{sub@fig:defocusNormaleFourier}{{(b)}{16}}
+\newlabel{fig:defocusSfocato}{{2.8(c)}{16}}
+\newlabel{sub@fig:defocusSfocato}{{(c)}{16}}
+\newlabel{fig:defocusSfocatoFourier}{{2.8(d)}{16}}
+\newlabel{sub@fig:defocusSfocatoFourier}{{(d)}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{16}}
+\newlabel{fig:fourier}{{2.8}{16}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{16}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{16}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{16}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{Identificazione di sfocature}{16}}
 \citation{ross2011nonparametric}
 \citation{pimentel2014review}
 \citation{tsesmelis2013tamper}
 \citation{bay2006surf}
 \citation{alippi2010detecting}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{16}}
-\newlabel{fig:acquisizioneContinua}{{2.8}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Tecniche basate su monitoraggio sequenziale}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{17}}
+\newlabel{fig:acquisizioneContinua}{{2.9}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Tecniche basate su monitoraggio sequenziale}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{18}}
+\newlabel{fig:acquisizioneBassa}{{2.10}{18}}
 \citation{alippi2008just}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{17}}
-\newlabel{fig:acquisizioneBassa}{{2.9}{17}}
-\newlabel{eq:energyGradient}{{2.9}{17}}
+\citation{alippi2010detecting}
+\newlabel{eq:energyGradient}{{2.9}{19}}
+\citation{akyildiz2007survey}
 \@setckpt{statoArte}{
-\setcounter{page}{18}
+\setcounter{page}{21}
 \setcounter{equation}{9}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -107,12 +113,12 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{2}
-\setcounter{section}{3}
-\setcounter{subsection}{2}
+\setcounter{section}{2}
+\setcounter{subsection}{3}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{9}
+\setcounter{figure}{10}
 \setcounter{table}{0}
 \setcounter{subfigure}{0}
 \setcounter{lofdepth}{1}

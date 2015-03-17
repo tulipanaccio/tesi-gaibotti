@@ -2,30 +2,34 @@
 \select@language {italian}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Utilizzo della camera oscura\relax }}{6}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671\relax }}{6}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Schematizzazione del sistema ottico della camera\relax }}{7}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Similitudini tra triangoli usate nel calcolo dei parametri intrinseci\relax }}{8}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Coordinate di un frame\relax }}{9}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Trasformazione dal sistema di coordinate dell'ambiente a quello della camera\relax }}{10}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Sistema di monitoraggio video\relax }}{12}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{15}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{15}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{15}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{15}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{15}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{16}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{17}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Tecniche di tampering detection\relax }}{12}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Sistema di monitoraggio video\relax }}{13}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{16}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{16}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{16}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{16}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{16}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{17}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{18}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di sfocature\relax }}{20}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{20}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{20}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Sequenza di otto frame consecutivi acquisiti ogni minuto\relax }}{22}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di spostamento della camera\relax }}{22}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di sfocature\relax }}{22}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{22}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{22}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempi di occlusione\relax }}{23}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Occlusione volontaria}}}{23}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Occlusione dovuta a deposito di neve}}}{23}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Sequenza di otto frame consecutivi acquisiti ogni minuto\relax }}{23}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di spostamento della camera\relax }}{24}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{24}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{24}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempi di occlusione\relax }}{25}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{25}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{25}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempi di guasti\relax }}{26}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{26}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{26}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

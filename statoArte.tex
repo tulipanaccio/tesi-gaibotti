@@ -19,9 +19,8 @@
 \vspace{0.5cm}
 
 \noindent In questo capitolo presentiamo i concetti fondamentali della teoria alla base della \textit{visione artificiale} e lo studio fatto finora sul problema del \textit{tampering detection}.
-Nel primo paragrafo diamo una visione generale del modello della camera, senza pretendere una completa e dettagliata descrizione, bens\`i una visione pi\`u generale per comprendere meglio gli argomenti trattati nei prossimi capitoli.
-Nel secondo paragrafo definiamo i concetti del monitoraggio video e la terminologia che verr\`a utilizzata nel resto della tesi.
-Il terzo paragrafo descrive le soluzioni al problema del tampering detection che si trovano nella letteratura scientifica.
+Nel primo paragrafo diamo una visione generale del modello della camera, senza pretendere una completa e dettagliata descrizione, bens\`i una visione pi\`u generale per comprendere meglio gli argomenti trattati nei capitoli successivi.
+Nel secondo paragrafo descriviamo le soluzioni al problema del tampering detection presenti nella letteratura scientifica, definendo inoltre i concetti e la terminologia che verr\`a utilizzata nel resto della trattazione.
 \section{Modello della camera}
 Affinch\'e un sistema di visione artificiale possa risolvere il problema per cui \`e stato progettato, \`e necessario che esso sia in grado di acquisire una porzione della realt\`a che lo circonda.
 Questo compito viene svolto da un particolare sensore chiamato \textit{camera}, il cui scopo principale \`e quello di creare una \textit{proiezione} dell'ambiente \textit{tridimensionale} in un sistema \textit{bidimensionale}.
@@ -32,8 +31,8 @@ La proiezione \`e dovuta a un punto, chiamato \textit{centro ottico}, in cui vie
 In questa astrazione, ciascun punto dello spazio tridimensionale viene associato univocamente a un punto nel piano immagine attraverso il raggio di luce che passa dal centro ottico.
 \begin{figure}
 	\centering
-	\includegraphics[width=12cm]{./pictures/prospettiva}
-	\caption{Utilizzo della camera oscura}
+	\includegraphics[width=12cm]{./pictures/cameraObscura}
+	\caption{Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671}
 	\label{fig:prospettiva}
 \end{figure} 
 All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una \textit{camera oscura}, come si pu\`o osservare nell'illustrazione in figura \ref{fig:prospettiva}, mentre nei moderni sistemi di acquisizione viene realizzato tramite \textit{lenti ottiche}. 
@@ -203,8 +202,63 @@ Possiamo, quindi, scrivere l'equazione della matrice di proiezione della camera 
 R & | & t
 \end{array}\right],\]
 dove $t = -RC$ prende il nome di \textit{vettore di traslazione}.
-\section{Monitoraggio video: concetti e terminologia}
-Prima di concentrarci sul problema del tampering detection, definiamo, i concetti e i termini che verranno utilizzati nel seguito della trattazione.\\
+%\section{Monitoraggio video: concetti e terminologia}
+%Prima di concentrarci sul problema del tampering detection, definiamo, i concetti e i termini che verranno utilizzati nel seguito della trattazione.\\
+%Lo scenario che consideriamo \`e quello di una camera che deve riprendere una particolare \textit{\gls{scena}}.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=12cm]{./pictures/videoMonitoring}
+%	\caption{Sistema di monitoraggio video}
+%	\label{fig:videoMonitoring}
+%\end{figure}
+%\noindent 
+%La posizione e l'orientamento della camera determinano l'\textit{\gls{inquadratura}} della scena.
+%L'acquisizione, da parte della camera, della scena nell'istante di tempo $i$ viene definita \textit{immagine} o \textit{frame} i-esimo.
+%La figura \ref{fig:videoMonitoring} illustra questi concetti.\\
+%Per semplificare l'analisi, considereremo immagini estratte in \textit{scala di grigi}.
+%Quindi ciascuna immagine verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.\\
+%Nel seguito della trattazione useremo una specifica terminologia.
+%Indicheremo con $\mathcal{X}$ l'insieme dei \textit{pixel} costituenti l'immagine acquisita dalla camera,
+%\[ \mathcal{X} \subset \mathbb{N}^2, \]
+%e con $x \in \mathcal{X}$ il singolo pixel.
+%Quando vorremo considerare il frame acquisito all'istante di tempo $i$, useremo $z_i$, con $i=1,\dots , \infty$. 
+%In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $i$-esimo, useremo il termine $z_i(x)$, con 
+%\[ z_i(x) \in [0, 255]. \]
+\section{Tampering Detection}
+Nei moderni sistemi di videosorveglianza troviamo spesso algoritmi utilizzati per identificare particolari eventi all'interno della scena ripresa dalla camera. 
+Ad esempio \`e possibile avere un software in grado di identificare le targhe delle automobili che superano il limite di velocit\`a, oppure la presenza di oggetti incustoditi in una stazione \cite{Targhe}.
+Affinch\'e questi algoritmi funzionino correttamente, \`e importante che l'\textit{affidabilit\`a} del sistema di acquisizione sia preservata.
+Questa propriet\`a viene soddisfatta quando:
+\begin{itemize}
+	\item la camera mantiene la stessa inquadratura nel tempo;
+	\item tutti gli elementi della scena sono presenti nell'immagine in maniera \textit{nitida}.
+\end{itemize}
+%In un'applicazione di monitoraggio video consideriamo che la camera, in condizioni di funzionamento ottimale, mantenga la stessa inquadratura nel tempo e che sia in grado di acquisire, in maniera nitida, tutti gli elementi di interesse presenti nella scena.
+Definiamo \gls{tampering} un qualsiasi evento che determini un cambio di inquadratura o che non permetta la corretta acquisizione di una parte o della totalit\`a della scena.
+Possiamo classificare gli eventi di tampering in quattro categorie:
+\begin{itemize}
+	\item sfocature,
+	\item spostamenti della camera,
+	\item occlusioni dell'obiettivo,
+	\item guasti della camera.
+\end{itemize}
+
+Per affrontare il problema dell'identificazione di questo tipo di eventi, la letteratura scientifica offre molte tecniche che permettano l'identificazione automatica di eventi in grado di compromettere la corretta ripresa della scena da parte della videocamera.
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm]{./diagrammi/tecnicheSOA.eps}
+	\caption{Tecniche di tampering detection}
+	\label{fig:tamperingSOA}
+\end{figure}
+Lo schema in figura \ref{fig:tamperingSOA} mostra le principali tecniche di tampering detection presenti in letteratura.
+Queste possono essere divise in due categorie: 
+\begin{itemize}
+	\item tecniche basate su confronto di background,
+	\item tecniche basate su monitoraggio sequenziale.
+\end{itemize}
+Nel seguito del paragrafo verranno descritti i principali metodi utilizzati in queste due categorie.
+\subsection{Concetti e terminologia}
+Prima di concentrarci su come \`e stato affrontato il problema del tampering detection, definiamo i concetti e i termini che verranno utilizzati nel seguito della trattazione.\\
 Lo scenario che consideriamo \`e quello di una camera che deve riprendere una particolare \textit{\gls{scena}}.
 \begin{figure}
 	\centering
@@ -217,7 +271,7 @@ La posizione e l'orientamento della camera determinano l'\textit{\gls{inquadratu
 L'acquisizione, da parte della camera, della scena nell'istante di tempo $i$ viene definita \textit{immagine} o \textit{frame} i-esimo.
 La figura \ref{fig:videoMonitoring} illustra questi concetti.\\
 Per semplificare l'analisi, considereremo immagini estratte in \textit{scala di grigi}.
-Quindi ciascuna immagine verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.\\
+Ciascuna immagine, quindi, verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.\\
 Nel seguito della trattazione useremo una specifica terminologia.
 Indicheremo con $\mathcal{X}$ l'insieme dei \textit{pixel} costituenti l'immagine acquisita dalla camera,
 \[ \mathcal{X} \subset \mathbb{N}^2, \]
@@ -225,60 +279,55 @@ e con $x \in \mathcal{X}$ il singolo pixel.
 Quando vorremo considerare il frame acquisito all'istante di tempo $i$, useremo $z_i$, con $i=1,\dots , \infty$. 
 In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $i$-esimo, useremo il termine $z_i(x)$, con 
 \[ z_i(x) \in [0, 255]. \]
-\section{Tampering Detection}
-In un'applicazione di monitoraggio video consideriamo che la camera, in condizioni di funzionamento ottimale, mantenga la stessa inquadratura nel tempo e che sia in grado di acquisire, in maniera nitida, tutti gli elementi di interesse presenti nella scena.
-Definiamo \gls{tampering} un qualsiasi evento che determina un cambio di inquadratura o che non permette la corretta acquisizione di parte o totalit\`a della scena.
-Possiamo classificare gli eventi di tampering in quattro categorie:
-\begin{itemize}
-	\item sfocature,
-	\item spostamenti della camera,
-	\item occlusioni dell'obiettivo,
-	\item guasti della camera.
-\end{itemize}
-Nei moderni sistemi di videosorveglianza troviamo spesso algoritmi utilizzati per identificare particolari eventi all'interno della scena ripresa dalla camera. 
-Ad esempio \`e possibile avere un software in grado di identificare le targhe delle automobili che superano il limite di velocit\`a, oppure la presenza di oggetti incustoditi in una stazione \cite{Targhe}.
-Affinch\'e questi algoritmi funzionino correttamente, \`e importante che l'\textit{affidabilit\`a} del sistema di acquisizione sia preservata.
-Per fare questo la letteratura scientifica offre molte tecniche che permettano l'identificazione automatica di eventi in grado di compromettere la corretta ripresa della scena da parte della videocamera.
-Possiamo dividere le principali tecniche di tampering detection in due categorie: 
-\begin{itemize}
-	\item tecniche basate su confronto di background,
-	\item tecniche basate su monitoraggio sequenziale.
-\end{itemize}
-\subsection{Tecniche basate su confronto di background}
-Nella maggior parte dei lavori dedicati a questo problema, il concetto principale consiste nel confrontare ciascun frame con un modello che viene calcolato utilizzando i frame precedenti.
-Tale modello \`e ampiamente utilizzato in vari ambiti di visione artificiale e prende il nome di \textit{modello di background}.
-Un metodo generale di calcolo del background \`e presentato in \cite{aksay2007camera}.
-Indichiamo con $z_i(x)$ il valore, nel pixel $x$, della luminosit\`a nell'$i$-esimo frame.
-Il valore del modello di background \`e calcolato in maniera ricorsiva secondo la seguente formula:
 
+
+\subsection{Tecniche basate su confronto di background}
+\label{background}
+Nella maggior parte dei lavori dedicati al problema del tampering detection, il metodo principalmente utilizzato consiste nel confrontare ciascun frame con un modello che viene calcolato a partire dalle osservazioni precedenti.
+Tale metodo \`e ampiamente utilizzato in vari ambiti della visione artificiale e prende il nome di \textit{background subtraction}.
+Una tecnica generale di calcolo del background \`e presentata in \cite{aksay2007camera}.
+%Indichiamo con $z_i(x)$ il valore, nel pixel $x$, della luminosit\`a nell'$i$-esimo frame.
+Il valore del modello di background per il pixel $x$\ \`e calcolato, in maniera ricorsiva, secondo la seguente formula:
 \[
 \label{eq:background}
 B_{i + 1}(x)=\left\{ \begin{array} {lcl}
 aB_i(x)+ (1-a)z_i(x) & \mbox{, se} & |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
 B_i(x) & \mbox{, se} & |z_i(x) - z_{i-1}(x)|>T_i(x)\end{array} \right. ,
 \]
-
 dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{update parameter}) e $T_i(x)$ \`e una soglia che permette di identificare un cambiamento sostanziale di luminosit\`a nel pixel $(x)$. 
  Questa soglia viene aggiornata in maniera ricorsiva secondo la seguente formula:
   \[
   \label{eq:backgroundThreshUpd}
   T_{i + 1}(x)=\left\{ \begin{array} {lcl}
-  aT_i(x)+ (1-a)(c |z_i(x) - B_i(x)|) & \mbox{, se} & |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
-  T_i(x) & \mbox{, se} & |z_i(x) - z_{i-1}(x)|>T_i(x) \end{array} \right. ,
+  aT_i(x)+ (1-a)(c |z_i(x) - B_i(x)|) \\
+  \mbox{\hspace{1.5cm}, se	}  |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
+  T_i(x) \mbox{	\hspace{0.5cm}, se	}  |z_i(x) - z_{i-1}(x)|>T_i(x) \end{array} \right. ,
   \]
   dove $c > 1$ e $0<a<1$.
-  Lo stesso modello viene applicato in altri lavori (\cite{saglam2009real}, \cite{tsesmelis2013tamper}), mentre una variante molto usata consiste nell'estrarre il modello di background a partire dall'\textit{estrazione dei contorni} da ciascun frame (\cite{harasse2004automated}, \cite{gil2007automatic}).
-  Un approccio diverso, ma comunque riconducibile allo stesso filone, lo troviamo in \cite{ribnick2006real}, dove il background \`e sostituito da un \textit{buffer} contenente gli ultimi $n$ frame acquisiti dalla camera, che vengono confrontati con l'ultima osservazione per identificare eventi di tamepering.
+  Lo stesso modello viene utilizzato in altri lavori, come ad esempio in \cite{saglam2009real} e \cite{tsesmelis2013tamper}, mentre una variante molto usata consiste nel calcolare il modello di background a partire dall'\textit{estrazione dei contorni} di ciascun frame (\cite{harasse2004automated}, \cite{gil2007automatic}).
+  Un approccio diverso, ma comunque riconducibile allo stesso filone, lo troviamo in \cite{ribnick2006real}, dove il background \`e sostituito da un \textit{buffer} contenente gli ultimi $n$ frame acquisiti dalla camera, che vengono confrontati con l'ultima osservazione per identificare eventi di tampering.
 \subsubsection{Identificazione di occlusioni}
 L'evento di occlusione avviene quando un oggetto opaco viene posto vicino alla camera, in modo da coprire la scena ripresa.
 In \cite{aksay2007camera} e \cite{saglam2009real} questo evento \`e associato a un cambiamento nella struttura dell'\textit{istogramma} del frame occluso rispetto a quello del background.
-Infatti, nel caso di occlusioni, i valori dell'istogramma tendono a concentrarsi in un intervallo molto ristretto, verso i livelli pi\`u bassi della scala di grigi.\\
+In particolare, se $z_n$ \`e un frame in cui \`e avvenuta un'occlusione, ci si aspetta che il suo istogramma contenga i valori pi\`u alti in un intervallo pi\`u ristretto rispetto a quello del background $B_n$, in quanto la maggior parte dell'immagine prender\`a il colore dell'oggetto occludente o diventer\`a pi\`u scura.\\
+Indichiamo con $H_b(\cdot)$ il valore del $b$-esimo bin dell'istogramma di un frame, con $1 \leq b \leq 32$.
+Per identificare un evento di occlusione vengono considerate due disequazioni:
+\begin{eqnarray}
+ \left(H_{max\left(H(z_i)\right)-1}(z_i) + H_{max\left(H(z_i)\right)}(z_i) +  H_{max\left(H(z_i)\right) + 1}(z_i)\right) \nonumber \\
+ > Th_1 \left(H_{max\left(H(z_i)\right)-1}(B_i) + H_{max\left(H(z_i)\right)}(B_i)
+  +  H_{max\left(H(z_i)\right) + 1}(B_i)\right), \nonumber
+\end{eqnarray}
+\[ \sum_{b=1}^{32} H_b\left(|z_i - B_i|\right) > Th_2 \sum_{b=1}^{k}H_b\left(|z_i - B_i|\right),\]
+dove $Th_1 > 1$, $Th_2 > 1$ e $0 \leq k < 32$ sono soglie che possono essere modificate in base alla sensibilit\`a che si richiede da parte dell'algoritmo.
+In particolare, $Th_1$ e $Th_2$ possono essere aumentate in modo da aumentare la sensibilit\`a, mentre $k$ pu\`o essere diminuito.\\
 Un approccio simile \`e presente in \cite{harasse2004automated}, \cite{gil2007automatic} e \cite{ellwart2012camera}, in cui l'evento di occlusione \`e associato a un abbassamento dell'\textit{entropia}:
  \[
  \label{eq:entropy}
  E=-\sum_{k}p_k\ln(p_k) ,
  \]
- dove $p_k$ rappresenta la probabilit\`a che il livello di grigio $k$ sia presente all'interno dell'immagine. 
+ dove $p_k$ rappresenta la probabilit\`a che il livello di grigio $k$ sia presente all'interno dell'immagine. \\
+ Per riuscire a identificare delle occlusioni \textit{parziali} le tecniche descritte sopra non sono efficaci, in quanto tali eventi non sono in grado di modificare in maniera sostanziale la struttura dell'istogramma dei frame.
+ Una soluzione (\cite{gil2007automatic}) consiste nel dividere ciascuna immagine in un certo numero di \textit{blocchi} della stessa dimensione, in modo da applicare le tecniche descritte sopra per ciascuna partizione.
 \subsubsection{Identificazione di spostamenti della camera}
 Quando viene spostata la camera, in modo cambi l'inquadratura della scena, l'immagine di background $B_i$ viene lentamente aggiornato in modo da riflettere i cambiamenti avvenuti nei frame. 
 In \cite{saglam2009real} il metodo proposto per identificare uno spostamento della camera consiste nel confrontare l'immagine di background $B_i$ con $B_{i-k}$, ovvero con un secondo modello \textit{ritardato} di $k$ frame, dove $k \in \mathbb{Z}^+$.
@@ -337,42 +386,50 @@ Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_i)$ \`e 
 dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
 \subsection{Tecniche basate su monitoraggio sequenziale}
 Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
-Questo approccio risulta fattibile nel caso in cui la camera operi con un framerate \textit{continuo}, solitamente tra i 30 frame per secondo (\textit{fps}) e i 2 fps. 
-In questi casi, infatti, possiamo considerare che, tra un frame e il successivo, non avvengano grandi cambiamenti all'interno della scena e non cambi eccessivamente la luminosit\`a media.
 \begin{figure}
 	\centering
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0001}
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0002}
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0003}
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0004}
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0005}
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0006}
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0007}
-	\includegraphics[width = 3cm]{./pictures/FPSalto/img0008}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0001}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0002}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0003}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0004}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0005}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0006}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0007}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0008}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0009}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0010}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0011}
+	\includegraphics[width = 4cm]{./pictures/FPSalto/img0012}
 	\caption{Sequenza di frame acquisiti a 30 fps}
 	\label{fig:acquisizioneContinua}
 \end{figure}
+Questo approccio risulta fattibile nel caso in cui la camera operi con un framerate \textit{continuo}, solitamente tra i 30 frame per secondo (\textit{fps}) e i 2 fps. 
+In questi casi, infatti, possiamo considerare che, tra un frame e il successivo, non avvengano grandi cambiamenti all'interno della scena e non cambi eccessivamente la luminosit\`a media.
+La figura \ref{fig:acquisizioneContinua} mostra come, in un'acquisizione fatta a 30 fps, le differenze tra frame consecutivi siano quasi inesistenti. 
+Un evento di tampering pu\`o, quindi, essere identificato in maniera molto semplice, in quanto una differenza molto elevata tra il frame analizzato e il background pu\`o essere dovuto solamente a un evento di tampering sulla camera.
+La figura \ref{fig:acquisizioneBassa} mostra, invece, un esempio di frame acquisiti ogni 30 secondi.
+Notiamo come le differenze tra immagini consecutive, in questo caso, siano pi\`u marcate rispetto al caso dell'acquisizione continua. 
 \begin{figure}
 	\centering
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2691}
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2692}
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2693}
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2694}
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2695}
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2696}
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2697}
-	\includegraphics[width = 3cm]{./pictures/FPSbasso/image2698}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2691}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2692}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2693}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2694}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2695}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2696}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2697}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2698}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2699}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2700}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2701}
+	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2702}
 	\caption{Sequenza di frame acquisiti ogni 30 secondi}
 	\label{fig:acquisizioneBassa}
 \end{figure}
-La figura \ref{fig:acquisizioneContinua} mostra come, in un'acquisizione fatta a 30 fps, le differenze tra frame consecutivi siano quasi inesistenti. 
-Un evento di tampering pu\`o, quindi, essere identificato in maniera molto semplice, in quanto una differenza molto elevata tra il frame analizzato e il background pu\`o essere dovuto solamente a un'azione sulla camera.
-La figura \ref{fig:acquisizioneBassa} mostra, invece, un esempio di frame acquisiti ogni 30 secondi.
-Notiamo come le differenze tra immagini consecutive, in questo caso, siano pi\`u marcate rispetto al caso dell'acquisizione continua. 
 Questo fa s\`i che l'utilizzo di un modello di background risulti inefficiente.
-Evidenziamo, inoltre, come le tecniche viste finora richiedano capacit\`a computazionale da parte del sistema di monitoraggio.\\
+Evidenziamo, inoltre, che le tecniche viste finora richiedono che il sistema di monitoraggio possegga elevate capacit\`a computazionali, in quanto l'aggiornamento del background e l'analisi di tampering detection non pu\`o rallentare la frequenza di acquisizione.\\
 Un approccio alternativo consiste nel monitorare nel tempo il comportamento di alcuni indicatori estratti dalle singole immagini acquisite.
-Si presuppone che, quando il sistema di monitoraggio opera in condizioni di funzionamento \textit{ottimali}, gli indicatori monitorati presentino una certa \textit{stazionariet\`a}, ovvero siano considerati dei campioni \textit{indipendenti} tra loro e distribuiti secondo una stessa funzione di ripartizione.
+Si presuppone che, quando il sistema di monitoraggio opera in condizioni di funzionamento \textit{ottimali}, gli indicatori analizzati presentino una certa \textit{stazionariet\`a}, ovvero siano considerati dei campioni \textit{indipendenti} tra loro e distribuiti secondo una stessa funzione di ripartizione.
 L'evento di tampering viene considerato come un \textit{cambiamento nella stazionariet\`a} di questi indicatori.\\
 Il monitoraggio pu\`o avvenire utilizzando tecniche statistiche, come ad esempio \textit{change-point method} (CPM) \cite{ross2011nonparametric} o \textit{change-detection test} \cite{pimentel2014review}.
 Troviamo alcuni esempi nell'identificazione di sfocature: in \cite{tsesmelis2013tamper} la soluzione consiste nel monitorare nel tempo il \textit{numero di SURF} \cite{bay2006surf}, in quanto tali descrittori decrementano in maniera considerevole il loro numero in presenza di sfocature.
@@ -384,4 +441,15 @@ Un altro esempio \`e dato da \cite{alippi2010detecting}, dove le sfocature vengo
 m_i = \mathcal{M}[z_i] = \int_{\mathcal{X}}\| \bigtriangledown z_i(x) \| _1 dx,
 \end{equation}  
 dove $\| \cdot \|_1$ si riferisce alla \textit{norma} $\mathcal{L}^1$. 
-Per identificare il cambio di stazionariet\`a di questo indicatore vengono utilizzate tecniche di CDT basate su \textit{somme cumulate} (CUSUM) \cite{alippi2008just}, utilizzando un sottoinsieme delle prime osservazioni come sequenza di \textit{training}, utilizzata per configurare il test.
+Per identificare il cambio di stazionariet\`a di questo indicatore vengono utilizzate tecniche di CDT basate su \textit{somme cumulate} (CUSUM) \cite{alippi2008just}.\\
+Il test statistico utilizzato non richiede alcuna informazione \textit{a priori} del processo che si sta monitorando, e sfrutta una sequenza iniziale $\{m_i\}, i=1,\dots,T$ di indicatori estratti da frame non sfocati, in modo da configurare automaticamente i suoi parametri. 
+Tale sequenza prende il nome di \textit{training set}, e permette di stimare la \textit{densit\`a probabilistica} (\textit{probability density function} (pdf)) di $m_i$ in assenza di sfocature, (i.e. l'\textit{ipotesi nulla}, indicata con $\Theta^0$), e di definire le \textit{ipotesi alternative}, indicate con $\Theta^1$, che identificano qualsiasi cambiamento non stazionario.\\
+Per garantire una stima accurata dei parametri, \cite{alippi2010detecting} consiglia di utilizzare un training set ampio, ad esempio $T > 400$.
+Il test opera su \textit{sotto-sequenze} di misure $m_i$ (ad esempio da $20$ misure) e stima la transizione da $\Theta^0$ a $\Theta^1$ misurando la \textit{log-verosimiglianza} tra la pdf in assenza di sfocature e le pdf delle varie ipotesi alternative nella sotto-sequenza $\tau$, ovvero
+\[ r(\tau) = \ln \frac{N_{\Theta^1}(\phi_{\tau})}{N_{\Theta^0}(\phi_{\tau})}, \]
+dove $\phi_{\tau}$ \`e il valore medio della misura $m_i$ nella sotto-sequenza $\tau$, e $N_{\Theta}$ \`e la \textit{distribuzione gaussiana multivariata} parametrizzata in $\Theta$.\\
+Il metodo CUSUM considera la \textit{somma cumulata} 
+\[ S(\tau) = \sum^\tau_{t=1} r(t) \]
+e identifica un cambiamento in $m_i$ quando \[g(\tau)=S(\tau)-\nu(\tau),\] ovvero la differenza tra il valore della somma cumulata all'istante $\tau$ e il suo valore minimo nel tempo \[\nu(\tau)=\min_{t=1,...,\tau}S(t),\] supera una certa soglia $h$.\\
+L'utilizzo di una tecnica sequenziale per l'identificazione di sfocature permette di operare con una bassa complessit\`a computazionale, tanto da poter essere utilizzato come soluzione a livello di nodo per una \textit{wireless multimedia sensor network} (WMSN) \cite{akyildiz2007survey}.
+D'altro canto, confrontato con le tecniche descritte nel paragrafo \ref{background}, questo metodo genera un numero pi\`u alto di \textit{falsi allarmi}, il che si traduce, all'interno di una rete di sensori, in un aumento dei messaggi di allarme inviati, che devono essere considerati, quindi, come un costo.

@@ -1,5 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{hartley2003multiple}
+Richard Hartley and Andrew Zisserman.
+\newblock {\em Multiple view geometry in computer vision}.
+\newblock Cambridge university press, 2003.
+
+\bibitem{forsyth2002computer}
+David~A Forsyth and Jean Ponce.
+\newblock Computer vision: A modern approach.
+\newblock 2002.
+
 \bibitem{Targhe}
 \url{http://www.mitan.it/security-solution/videosorveglianza/sistemi-di-videosorveglianza-e-registrazione/}.
 \newblock Visitato il giorno 09/03/2015.
@@ -11,45 +21,23 @@ Anil Aksay, Alptekin Temizel, and A.~Enis Cetin.
 \newblock In {\em Advanced Video and Signal Based Surveillance, 2007. AVSS
   2007. IEEE Conference on}, pages 558--562. IEEE, 2007.
 
-\bibitem{alippi2010detecting}
-Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
-\newblock Detecting external disturbances on the camera lens in wireless
-  multimedia sensor networks.
-\newblock {\em Instrumentation and Measurement, IEEE Transactions on},
-  59(11):2982--2990, 2010.
+\bibitem{saglam2009real}
+Ali Saglam and Alptekin Temizel.
+\newblock Real-time adaptive camera tamper detection for video surveillance.
+\newblock In {\em Advanced Video and Signal Based Surveillance, 2009. AVSS'09.
+  Sixth IEEE International Conference on}, pages 430--435. IEEE, 2009.
 
-\bibitem{alippi2008just}
-Cesare Alippi and Manuel Roveri.
-\newblock Just-in-time adaptive classifiers-part {I}: Detecting nonstationary
-  changes.
-\newblock {\em Neural Networks, IEEE Transactions on}, 19(7):1145--1153, 2008.
+\bibitem{tsesmelis2013tamper}
+Theodore Tsesmelis, Lars Christensen, Preben Fihl, and Thomas~B Moeslund.
+\newblock Tamper detection for active surveillance systems.
+\newblock In {\em Advanced Video and Signal Based Surveillance (AVSS), 2013
+  10th IEEE International Conference on}, pages 57--62. IEEE, 2013.
 
-\bibitem{bay2006surf}
-Herbert Bay, Tinne Tuytelaars, and Luc Van~Gool.
-\newblock Surf: Speeded up robust features.
-\newblock In {\em Computer vision--ECCV 2006}, pages 404--417. Springer, 2006.
-
-\bibitem{bracewell1978fourier}
-Ronald~N Bracewell.
-\newblock The fourier transform and its applications.
-\newblock 1978.
-
-\bibitem{canny1986computational}
-John Canny.
-\newblock A computational approach to edge detection.
-\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
-  on}, (6):679--698, 1986.
-
-\bibitem{ellwart2012camera}
-Damian Ellwart, Piotr Szczuko, and Andrzej Czy{\.z}ewski.
-\newblock Camera sabotage detection for surveillance systems.
-\newblock In {\em Security and Intelligent Information Systems}, pages 45--53.
-  Springer, 2012.
-
-\bibitem{forsyth2002computer}
-David~A Forsyth and Jean Ponce.
-\newblock Computer vision: A modern approach.
-\newblock 2002.
+\bibitem{harasse2004automated}
+Sebastien Harasse, Laurent Bonnaud, Alice Caplier, and Michel Desvignes.
+\newblock Automated camera dysfunctions detection.
+\newblock In {\em Image Analysis and Interpretation, 2004. 6th IEEE Southwest
+  Symposium on}, pages 36--40. IEEE, 2004.
 
 \bibitem{gil2007automatic}
 Pedro Gil-Jim{\'e}nez, R.~L{\'o}pez-Sastre, Philip Siegmann, Javier
@@ -58,16 +46,24 @@ Pedro Gil-Jim{\'e}nez, R.~L{\'o}pez-Sastre, Philip Siegmann, Javier
 \newblock {\em Nature Inspired Problem-Solving Methods in Knowledge
   Engineering}, pages 222--231, 2007.
 
-\bibitem{harasse2004automated}
-Sebastien Harasse, Laurent Bonnaud, Alice Caplier, and Michel Desvignes.
-\newblock Automated camera dysfunctions detection.
-\newblock In {\em Image Analysis and Interpretation, 2004. 6th IEEE Southwest
-  Symposium on}, pages 36--40. IEEE, 2004.
+\bibitem{ribnick2006real}
+Evan Ribnick, Stefan Atev, Osama Masoud, Nikolaos Papanikolopoulos, and Richard
+  Voyles.
+\newblock Real-time detection of camera tampering.
+\newblock In {\em Video and Signal Based Surveillance, 2006. AVSS'06. IEEE
+  International Conference on}, pages 10--10. IEEE, 2006.
 
-\bibitem{hartley2003multiple}
-Richard Hartley and Andrew Zisserman.
-\newblock {\em Multiple view geometry in computer vision}.
-\newblock Cambridge university press, 2003.
+\bibitem{ellwart2012camera}
+Damian Ellwart, Piotr Szczuko, and Andrzej Czy{\.z}ewski.
+\newblock Camera sabotage detection for surveillance systems.
+\newblock In {\em Security and Intelligent Information Systems}, pages 45--53.
+  Springer, 2012.
+
+\bibitem{roma2002comparative}
+Nuno Roma, Jos{\'e} Santos-Victor, and Jos{\'e} Tom{\'e}.
+\newblock A comparative analysis of cross-correlation matching algorithms using
+  a pyramidal resolution approach.
+\newblock 2002.
 
 \bibitem{kryjak2012fpga}
 Tomasz Kryjak, Mateusz Komorkiewicz, and Marek Gorgon.
@@ -83,23 +79,21 @@ Stephane~G Mallat.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 11(7):674--693, 1989.
 
-\bibitem{pimentel2014review}
-Marco~A.F. Pimentel, David~A. Clifton, Lei Clifton, and Lionel Tarassenko.
-\newblock A review of novelty detection.
-\newblock {\em Signal Processing}, 99:215--249, 2014.
+\bibitem{bracewell1978fourier}
+Ronald~N Bracewell.
+\newblock The fourier transform and its applications.
+\newblock 1978.
 
-\bibitem{ribnick2006real}
-Evan Ribnick, Stefan Atev, Osama Masoud, Nikolaos Papanikolopoulos, and Richard
-  Voyles.
-\newblock Real-time detection of camera tampering.
-\newblock In {\em Video and Signal Based Surveillance, 2006. AVSS'06. IEEE
-  International Conference on}, pages 10--10. IEEE, 2006.
+\bibitem{sobel19683x3}
+Irwin Sobel and Gary Feldman.
+\newblock A 3x3 isotropic gradient operator for image processing.
+\newblock 1968.
 
-\bibitem{roma2002comparative}
-Nuno Roma, Jos{\'e} Santos-Victor, and Jos{\'e} Tom{\'e}.
-\newblock A comparative analysis of cross-correlation matching algorithms using
-  a pyramidal resolution approach.
-\newblock 2002.
+\bibitem{canny1986computational}
+John Canny.
+\newblock A computational approach to edge detection.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, (6):679--698, 1986.
 
 \bibitem{ross2011nonparametric}
 Gordon~J. Ross, Dimitris~K. Tasoulis, and Niall~M. Adams.
@@ -107,21 +101,32 @@ Gordon~J. Ross, Dimitris~K. Tasoulis, and Niall~M. Adams.
   scale.
 \newblock {\em Technometrics}, 53(4):379--389, 2011.
 
-\bibitem{saglam2009real}
-Ali Saglam and Alptekin Temizel.
-\newblock Real-time adaptive camera tamper detection for video surveillance.
-\newblock In {\em Advanced Video and Signal Based Surveillance, 2009. AVSS'09.
-  Sixth IEEE International Conference on}, pages 430--435. IEEE, 2009.
+\bibitem{pimentel2014review}
+Marco~A.F. Pimentel, David~A. Clifton, Lei Clifton, and Lionel Tarassenko.
+\newblock A review of novelty detection.
+\newblock {\em Signal Processing}, 99:215--249, 2014.
 
-\bibitem{sobel19683x3}
-Irwin Sobel and Gary Feldman.
-\newblock A 3x3 isotropic gradient operator for image processing.
-\newblock 1968.
+\bibitem{bay2006surf}
+Herbert Bay, Tinne Tuytelaars, and Luc Van~Gool.
+\newblock Surf: Speeded up robust features.
+\newblock In {\em Computer vision--ECCV 2006}, pages 404--417. Springer, 2006.
 
-\bibitem{tsesmelis2013tamper}
-Theodore Tsesmelis, Lars Christensen, Preben Fihl, and Thomas~B Moeslund.
-\newblock Tamper detection for active surveillance systems.
-\newblock In {\em Advanced Video and Signal Based Surveillance (AVSS), 2013
-  10th IEEE International Conference on}, pages 57--62. IEEE, 2013.
+\bibitem{alippi2010detecting}
+Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
+\newblock Detecting external disturbances on the camera lens in wireless
+  multimedia sensor networks.
+\newblock {\em Instrumentation and Measurement, IEEE Transactions on},
+  59(11):2982--2990, 2010.
+
+\bibitem{alippi2008just}
+Cesare Alippi and Manuel Roveri.
+\newblock Just-in-time adaptive classifiers-part {I}: Detecting nonstationary
+  changes.
+\newblock {\em Neural Networks, IEEE Transactions on}, 19(7):1145--1153, 2008.
+
+\bibitem{akyildiz2007survey}
+Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
+\newblock A survey on wireless multimedia sensor networks.
+\newblock {\em Computer networks}, 51(4):921--960, 2007.
 
 \end{thebibliography}
