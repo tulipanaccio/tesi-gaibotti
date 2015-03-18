@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2014/Arch Linux)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: tesi.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: tesi.aux
 A level-1 auxiliary file: frontespizio.aux
 A level-1 auxiliary file: dedica.aux
 A level-1 auxiliary file: sommario.aux
@@ -18,45 +16,4 @@ Warning--empty journal in roma2002comparative
 Warning--empty journal in bracewell1978fourier
 Warning--empty journal in sobel19683x3
 Warning--there's a number but no volume in canny1986computational
-You've used 22 entries,
-            1791 wiz_defined-function locations,
-            588 strings with 7793 characters,
-and the built_in function-call counts, 5882 in all, are:
-= -- 568
-> -- 220
-< -- 9
-+ -- 82
-- -- 60
-* -- 359
-:= -- 861
-add.period$ -- 73
-call.type$ -- 22
-change.case$ -- 20
-chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 286
-empty$ -- 580
-format.name$ -- 60
-if$ -- 1373
-int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 22
-newline$ -- 112
-num.names$ -- 21
-pop$ -- 94
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 151
-stack$ -- 0
-substring$ -- 427
-swap$ -- 93
-text.length$ -- 9
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 5
-while$ -- 62
-width$ -- 24
-write$ -- 239
 (There were 5 warnings)

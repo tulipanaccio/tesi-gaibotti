@@ -2,22 +2,33 @@
 \label{ProveSperimentali}
 \thispagestyle{empty}
 
-%\begin{quotation}
-%{\footnotesize
-%\noindent{\emph{``Terence: Rotta a nord con circospezione \\
-%Bud: Ehi, gli ordini li do io qui!\\
-%Terence: Ok, comante\\
-%Bud: Rotta a nord\\
-%Terence: Soltanto?\\
-%Bud: Con circospezione!''}
-%}
-%\begin{flushright}
-%Chi Trova un Amico Trova un Tesoro
-%\end{flushright}
-%}
-%\end{quotation}
 \vspace{0.5cm}
 
-\noindent 
+\noindent In questo capitolo illustriamo come sono stati condotti gli esperimenti per la valutazione del nostro algoritmo di tampering detection.
+La prima parte \`e dedicata alla descrizione dei dataset utilizzati come riferimento, mostrando quali sistemi di acquisizione sono stati utilizzati e quali sono le metriche che abbiamo tenuto in considerazione.
+Nella seconda parte, invece, entriamo nel dettaglio su quali sono stati i risultati a valle di tutta l'analisi sperimentale. 
 \section{Acquisizione dei dataset}
-\section{Risultati}
+Durante lo svolgimento della tesi abbiamo realizzato alcuni sistemi di acquisizione, in modo da avere un insieme di dataset (\textit{benchmark}) molto ampio che comprendesse sequenze video con diverse qualit\`a dei frame e con diversi framerate.
+Alcune di queste sequenze sono state utilizzate per testare l'algoritmo di segmentazione, mentre altre hanno verificato l'algoritmo di tampering detection.
+In generale, per ogni scena ripresa (dove per scena intendiamo una specifica inquadratura che \textit{non cambia} per le varie sequenze) abbiamo:
+\begin{itemize}
+	\item almeno una sequenza in cui non avviene nessun evento di tampering, che viene utilizzata per la creazione della mappa;
+	\item almeno una sequenza in cui la camera subisce una sfocatura;
+	\item almeno una sequenza in cui la camera subisce uno spostamento.
+\end{itemize}
+\subsection{Sistemi di acquisizione utilizzati}
+\subsubsection{Camere ST}
+
+\subsubsection{Raspberry Pi Camera}
+Il sistema di acquisizione realizzato con le camere di ST aveva il problema di dover essere alimentato dalla rete elettrica.
+Non \`e stato possibile, quindi, utilizzarlo per acquisizioni all'esterno.\\
+Per ovviare a questo problema abbiamo deciso di realizzare un altro sistema basato su un \textit{Raspberry Pi modello B+} \cite{raspberry} con relativo \textit{modulo camera} \cite{raspberryCamera}.
+Il Raspberry Pi \`e un \textit{single-board computer} (ovvero un computer implementato su una singola scheda elettronica) basato su un \textit{system-on-chip} (SoC) \textit{Broadcom BCM2835} \cite{broadcom}, che incorpora un processore \textit{ARM1176JZF-S} \cite{arm}, una GPU \textit{VideoCore IV} \cite{gpu} e $512$ MB di memoria.
+Utilizza un sistema operativo \textit{Debian Linux} realizzato per processori ARM chiamato \textit{Raspbian} \cite{raspbian}.
+Le ridotte dimensioni e il basso consumo di potenza hanno permesso di utilizzarlo per fare delle acquisizioni in ambienti esterni, utilizzando una batteria. 
+\subsubsection{Estrazione frame dal web}
+
+\subsection{Sequenze con presenza di tampering}
+\subsection{Definizione dei ground thruth}
+\subsection{Definizione delle metriche per la stima delle prestazioni}
+\section{Risultati ottenuti}

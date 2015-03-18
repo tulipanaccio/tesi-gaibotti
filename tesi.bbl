@@ -129,4 +129,22 @@ Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
 \newblock A survey on wireless multimedia sensor networks.
 \newblock {\em Computer networks}, 51(4):921--960, 2007.
 
+\bibitem{raspberry}
+\url{http://www.raspberrypi.org/products/model-b-plus/}.
+
+\bibitem{raspberryCamera}
+\url{http://www.raspberrypi.org/products/camera-module/}.
+
+\bibitem{broadcom}
+\url{http://www.broadcom.com/products/BCM2835/}.
+
+\bibitem{arm}
+\url{http://www.arm.com/products/processors/classic/arm11/arm1176.php/}.
+
+\bibitem{gpu}
+\url{http://www.broadcom.com/products/technology/mobmm_videocore.php/}.
+
+\bibitem{raspbian}
+\url{http://www.raspbian.org/}.
+
 \end{thebibliography}
