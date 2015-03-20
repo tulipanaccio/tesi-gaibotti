@@ -19,12 +19,13 @@
 \vspace{0.5cm}
 
 \noindent In questo capitolo presentiamo i concetti fondamentali della teoria alla base della \textit{visione artificiale} e lo studio fatto finora sul problema del \textit{tampering detection}.
-Nel primo paragrafo diamo una visione generale del modello della camera, senza pretendere una completa e dettagliata descrizione, bens\`i una visione pi\`u generale per comprendere meglio gli argomenti trattati nei capitoli successivi.
-Nel secondo paragrafo descriviamo le soluzioni al problema del tampering detection presenti nella letteratura scientifica, definendo inoltre i concetti e la terminologia che verr\`a utilizzata nel resto della trattazione.
+Nei paragrafi \ref{modelloCamera} e \ref{rappresentazImmagini} diamo una visione generale del modello della camera e di come vengono rappresentate le immagini digitali, in modo da comprendere meglio gli argomenti trattati nei capitoli successivi.
+Nel paragrafo \ref{tamperingSOA} descriviamo le soluzioni al problema del tampering detection presenti nella letteratura scientifica, definendo inoltre i concetti e la terminologia che verr\`a utilizzata nel resto della trattazione.
 \section{Modello della camera}
+\label{modelloCamera}
 Affinch\'e un sistema di visione artificiale possa risolvere il problema per cui \`e stato progettato, \`e necessario che esso sia in grado di acquisire una porzione della realt\`a che lo circonda.
 Questo compito viene svolto da un particolare sensore chiamato \textit{camera}, il cui scopo principale \`e quello di creare una \textit{proiezione} dell'ambiente \textit{tridimensionale} in un sistema \textit{bidimensionale}.
-Il principio alla base della camera \`e un concetto inventato da \textit{Filippo Brunelleschi} nel XV secolo, chiamato \textit{prospettiva a punto unico di fuga} (\textit{pinhole perspective}).
+Il principio alla base della camera \`e un concetto inventato da \textit{Filippo Brunelleschi} nel XV secolo, chiamato \textit{prospettiva a punto unico di fuga} (\textit{pinhole perspective}) \cite{manetti1976vita}.
 Il modello matematico utilizzato considera uno spazio tridimensionale, detto \textit{ambiente}, e un piano bidimensionale chiamato \textit{immagine}. 
 I punti su tale piano sono la \textit{proiezione} dell'ambiente tridimensionale.
 La proiezione \`e dovuta a un punto, chiamato \textit{centro ottico}, in cui viene convogliata la luce emanata dall'ambiente tridimensionale.
@@ -44,7 +45,7 @@ All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una
 	\label{fig:modelloCamera}
 \end{figure} 
 Nella figura \ref{fig:modelloCamera} sono illustrati i concetti che sono utilizzati per descrivere il sistema ottico della camera.
-Indichiamo con $\textbf{M}=[X, Y, Z]^\textit{T}$ un qualsiasi punto nello spazio tridimensionale e con $\textbf{m} = [u, v]^\textit{T}$ la sua proiezione sul piano immagine dovuta al centro ottico $\textbf{C}$.
+Indichiamo con la lettera maiuscola $\textbf{M}=[X, Y, Z]^\textit{T}$ un qualsiasi punto nello spazio tridimensionale e con la lettera minuscola $\textbf{m} = [u, v]^\textit{T}$ la sua proiezione sul piano immagine dovuta al centro ottico $\textbf{C}$.
 La linea che congiunge il centro ottico $\textbf{C}$ perpendicolarmente al piano immagine \`e detta \textit{asse principale}, indicata con $Z$, e il suo punto di intersezione con il piano stesso viene definita \textit{punto principale} $\textbf{c}$.
 La distanza tra il punto principale e il centro ottico viene definita \textit{distanza focale},  e viene indicata con $f$.\\
 La rappresentazione dei punti viene fatto attraverso le loro \textit{coordinate omogenee}.
@@ -67,13 +68,14 @@ La proiezione della camera pu\`o essere espressa come
 \end{equation}
 dove $P$  \`e una matrice di dimensioni $3 \times 4$ chiamata \textit{matrice prospettica} \cite{hartley2003multiple}.
 Tale matrice contiene al suo interno informazioni sui parametri della camera a cui \`e associata, e descrive sia la proiezione sul piano immagine che le trasformazioni di camera rispetto al sistema di riferimento tridimensionale.
-Formalmente viene rappresentata attraverso due matrici: una che rappresenta i \textit{parametri intrinseci} e un'altra che rappresenta i \textit{parametri estrinseci} \cite{forsyth2002computer}.
+Formalmente la matrice prospettica viene definita attraverso la concatenazione di due matrici: una che rappresenta i \textit{parametri intrinseci} e un'altra che rappresenta i \textit{parametri estrinseci} \cite{forsyth2002computer}.
 \begin{itemize}
 	\item I \textit{parametri intrinseci} rappresentano le caratteristiche interne della camera come la distanza focale, il centro focale e le caratterisitiche di \textit{distorsione} della lente.
 	\item I \textit{parametri estrinseci} rappresentano la posizione della camera rispetto al sistema di riferimento dello spazio tridimensionale.
 \end{itemize} 
 \subsection{Parametri intrinseci}
-La relazione fra le coordinate tridimensionali di un punto $\textbf{M}=[X,Y,Z]$ e le coordinate del suo proiettato $\textbf{m}=[u,v]$ \`e:
+\label{intrinsicParam}
+La relazione fra le coordinate tridimensionali di un punto $\textbf{M}=[X,Y,Z]$ e le coordinate della sua proiezione $\textbf{m}=[u,v]$ \`e:
 \[u=f\cdot \frac{X}{Z},\]
 \[v=f\cdot \frac{Y}{Z}.\]
 \begin{figure}
@@ -88,14 +90,14 @@ La \textit{mappatura} viene definita, dunque, dalla seguente relazione:
 \label{eq:mapping}
 [X,Y,Z]^\textit{T} \mapsto \left[f\cdot \frac{X}{Z}, f\cdot \frac{Y}{Z}\right]^\textit{T}.
 \end{equation} 
-Se il punto nello spazio e il suo proiettato sono rappresentati attraverso le loro coordinate omogenee, la \eqref{eq:mapping} pu\`o essere riscritta come
+Se il punto nello spazio e la sua proiezione sono rappresentati attraverso le loro coordinate omogenee, la \eqref{eq:mapping} pu\`o essere riscritta come
 \begin{equation}
 \label{eq:mappingMatrix}
 \left[\begin{array}{c}
 X \\ Y \\ Z \\ 1
 \end{array}\right] \mapsto 
 \left[\begin{array}{c}
-fX \\ fY \\ Z
+f \cdot X \\ f \cdot Y \\ Z
 \end{array}\right] = 
 K \left[\begin{array}{rcl}
 I & | & 0
@@ -160,7 +162,7 @@ Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:map
  La matrice di calibrazione $K$ rappresenta, quindi, il cambio di sistema di riferimento nel piano immagine, ridefinendo il centro della camera $(u_0, v_0)$ in modo che coincida con il punto principale.
  \subsection{Parametri estrinseci}
  La matrice $K$ descritta dall'equazione \eqref{eq:kDigital} \`e valida per camere poste all'origine del sistema di riferimento.
-Se consideriamo camere localizzate in una posizione arbitraria, quindi, \`e necessario che le coordinate dei punti, definite nel sistema di riferimento tridimensionale, siano ridefinite secondo il sistema di coordinate della camera.
+Se consideriamo delle camere poste in un punto arbitrario dell'ambiente, quindi, \`e necessario che le coordinate dei punti, definite nel sistema di riferimento tridimensionale, siano ridefinite secondo il sistema di coordinate della camera.
  \begin{figure}
  	\centering
  	\includegraphics[width=8cm]{./pictures/rt}
@@ -224,14 +226,43 @@ dove $t = -RC$ prende il nome di \textit{vettore di traslazione}.
 %Quando vorremo considerare il frame acquisito all'istante di tempo $i$, useremo $z_i$, con $i=1,\dots , \infty$. 
 %In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $i$-esimo, useremo il termine $z_i(x)$, con 
 %\[ z_i(x) \in [0, 255]. \]
+\section{Rappresentazione digitale delle immagini}
+\label{rappresentazImmagini}
+Nel paragrafo \ref{intrinsicParam} abbiamo introdotto il concetto di \textit{immagine digitale} come rappresentazione numerica dell'immagine bidimensionale.
+	\begin{figure}
+		\centering
+		\includegraphics[width=8cm]{./pictures/lenaRGB}
+		\caption{Esempio di estrazione dei canali RGB}
+		\label{fig:lenaRGB}
+	\end{figure}
+Esistono vari modi di rappresentare un'immagine in formato digitale.
+Le rappresentazioni che a noi interessa considerare sono \cite{forsyth2002computer}:
+\begin{itemize}
+	\item \textit{scala di grigi}, in cui l'immagine \`e rappresentata come una matrice $\textbf{I}$ di dimensioni $H \times W$, dove l'elemento $\textbf{I}(i,j)$ rappresenta il valore di \textit{intensit\`a luminosa} (\textit{luma}) del pixel di coordinate $(i, j)$;
+	\item \textit{RGB}, dove l'immagine \`e rappresentata come una matrice \textit{tridimensionale} $\textbf{I}_{RGB}$ di dimensioni $H \times W \times 3$, in cui vengono memorizzati i livelli di intensit\`a luminosa dei tre colori fondamentali \textit{rosso} (R), \textit{verde} (G) e \textit{blu} (B) per ciascun pixel (figura \ref{fig:lenaRGB}); 
+	\item \textit{YUV}, in cui lo spazio colore viene definito tramite un componente di luma (Y) e due componenti di \textit{crominanza} (UV), che rappresentano rispettivamente i valori di differenza dal colore blu ($U = B - Y$) e dal colore rosso ($V = R - Y$) (figura \ref{fig:yuv}).
+\end{itemize}
+Le immagini digitali possono essere memorizzate in diversi formati.
+Spesso vengono utilizzati algoritmi di \textit{compressione}, che possono essere
+\begin{itemize}
+	\item a perdita di informazione (\textit{lossy}), come nel caso delle immagini \textit{JPEG};
+	\item senza perdita di informazione (\textit{lossless}), come nel caso dei file d'immagine \textit{PNG} o \textit{GIF}.
+\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[width=8cm]{./pictures/yuv}
+		\caption{Esempio di estrazione dei canali YUV}
+		\label{fig:yuv}
+	\end{figure}
 \section{Tampering Detection}
-Nei moderni sistemi di videosorveglianza troviamo spesso algoritmi utilizzati per identificare particolari eventi all'interno della scena ripresa dalla camera. 
+\label{tamperingSOA}
+Nei moderni sistemi di videosorveglianza troviamo spesso algoritmi in grado di identificare particolari eventi all'interno della scena ripresa dalla camera. 
 Ad esempio \`e possibile avere un software in grado di identificare le targhe delle automobili che superano il limite di velocit\`a, oppure la presenza di oggetti incustoditi in una stazione \cite{Targhe}.
 Affinch\'e questi algoritmi funzionino correttamente, \`e importante che l'\textit{affidabilit\`a} del sistema di acquisizione sia preservata.
 Questa propriet\`a viene soddisfatta quando:
 \begin{itemize}
-	\item la camera mantiene la stessa inquadratura nel tempo;
-	\item tutti gli elementi della scena sono presenti nell'immagine in maniera \textit{nitida}.
+	\item la camera mantiene la stessa inquadratura nell'area di interesse;
+	\item tutti gli elementi della scena sono distinguibili all'interno dell'immagine.
 \end{itemize}
 %In un'applicazione di monitoraggio video consideriamo che la camera, in condizioni di funzionamento ottimale, mantenga la stessa inquadratura nel tempo e che sia in grado di acquisire, in maniera nitida, tutti gli elementi di interesse presenti nella scena.
 Definiamo \gls{tampering} un qualsiasi evento che determini un cambio di inquadratura o che non permetta la corretta acquisizione di una parte o della totalit\`a della scena.
@@ -242,8 +273,8 @@ Possiamo classificare gli eventi di tampering in quattro categorie:
 	\item occlusioni dell'obiettivo,
 	\item guasti della camera.
 \end{itemize}
-
-Per affrontare il problema dell'identificazione di questo tipo di eventi, la letteratura scientifica offre molte tecniche che permettano l'identificazione automatica di eventi in grado di compromettere la corretta ripresa della scena da parte della videocamera.
+La letteratura scientifica presenta molte tecniche in grado di affrontare il problema dell'identificazione di questo tipo di eventi.
+%Per affrontare il problema dell'identificazione di questo tipo di eventi, la letteratura scientifica offre molte tecniche che permettano l'identificazione automatica di eventi in grado di compromettere la corretta ripresa della scena da parte della videocamera.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm]{./diagrammi/tecnicheSOA.eps}
@@ -258,6 +289,7 @@ Queste possono essere divise in due categorie:
 \end{itemize}
 Nel seguito del paragrafo verranno descritti i principali metodi utilizzati in queste due categorie.
 \subsection{Concetti e terminologia}
+\label{concetti}
 Prima di concentrarci su come \`e stato affrontato il problema del tampering detection, definiamo i concetti e i termini che verranno utilizzati nel seguito della trattazione.\\
 Lo scenario che consideriamo \`e quello di una camera che deve riprendere una particolare \textit{\gls{scena}}.
 \begin{figure}
@@ -270,15 +302,16 @@ Lo scenario che consideriamo \`e quello di una camera che deve riprendere una pa
 La posizione e l'orientamento della camera determinano l'\textit{\gls{inquadratura}} della scena.
 L'acquisizione, da parte della camera, della scena nell'istante di tempo $i$ viene definita \textit{immagine} o \textit{frame} i-esimo.
 La figura \ref{fig:videoMonitoring} illustra questi concetti.\\
-Per semplificare l'analisi, considereremo immagini estratte in \textit{scala di grigi}.
-Ciascuna immagine, quindi, verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.\\
+Per semplificare la trattazione, considereremo immagini estratte in \textit{scala di grigi}.
+Ciascuna immagine, quindi, verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.
+L'estensione al caso di immagini \textit{RGB} \`e immediata: possiamo, infatti, applicare i vari algoritmi in maniera indipendente per ciascun canale di colore, per poi mediare i risultati ottenuti.\\
 Nel seguito della trattazione useremo una specifica terminologia.
 Indicheremo con $\mathcal{X}$ l'insieme dei \textit{pixel} costituenti l'immagine acquisita dalla camera,
 \[ \mathcal{X} \subset \mathbb{N}^2, \]
 e con $x \in \mathcal{X}$ il singolo pixel.
 Quando vorremo considerare il frame acquisito all'istante di tempo $i$, useremo $z_i$, con $i=1,\dots , \infty$. 
 In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $i$-esimo, useremo il termine $z_i(x)$, con 
-\[ z_i(x) \in [0, 255]. \]
+\[ z_i(x) \in [0, 255] \forall x \in \mathcal{X}. \]
 
 
 \subsection{Tecniche basate su confronto di background}
@@ -291,8 +324,9 @@ Il valore del modello di background per il pixel $x$\ \`e calcolato, in maniera 
 \[
 \label{eq:background}
 B_{i + 1}(x)=\left\{ \begin{array} {lcl}
-aB_i(x)+ (1-a)z_i(x) & \mbox{, se} & |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
-B_i(x) & \mbox{, se} & |z_i(x) - z_{i-1}(x)|>T_i(x)\end{array} \right. ,
+aB_i(x)+ (1-a)z_i(x) \\
+\mbox{\hspace{1.5cm}, se } |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
+B_i(x) \mbox{\hspace{0.5cm}, se } |z_i(x) - z_{i-1}(x)|>T_i(x)\end{array} \right. , \forall x \in \mathcal{X},
 \]
 dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{update parameter}) e $T_i(x)$ \`e una soglia che permette di identificare un cambiamento sostanziale di luminosit\`a nel pixel $(x)$. 
  Questa soglia viene aggiornata in maniera ricorsiva secondo la seguente formula:
@@ -301,7 +335,7 @@ dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{updat
   T_{i + 1}(x)=\left\{ \begin{array} {lcl}
   aT_i(x)+ (1-a)(c |z_i(x) - B_i(x)|) \\
   \mbox{\hspace{1.5cm}, se	}  |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
-  T_i(x) \mbox{	\hspace{0.5cm}, se	}  |z_i(x) - z_{i-1}(x)|>T_i(x) \end{array} \right. ,
+  T_i(x) \mbox{	\hspace{0.5cm}, se	}  |z_i(x) - z_{i-1}(x)|>T_i(x) \end{array} \right. ,\forall x \in \mathcal{X},
   \]
   dove $c > 1$ e $0<a<1$.
   Lo stesso modello viene utilizzato in altri lavori, come ad esempio in \cite{saglam2009real} e \cite{tsesmelis2013tamper}, mentre una variante molto usata consiste nel calcolare il modello di background a partire dall'\textit{estrazione dei contorni} di ciascun frame (\cite{harasse2004automated}, \cite{gil2007automatic}).
@@ -318,8 +352,8 @@ Per identificare un evento di occlusione vengono considerate due disequazioni:
   +  H_{max\left(H(z_i)\right) + 1}(B_i)\right), \nonumber
 \end{eqnarray}
 \[ \sum_{b=1}^{32} H_b\left(|z_i - B_i|\right) > Th_2 \sum_{b=1}^{k}H_b\left(|z_i - B_i|\right),\]
-dove $Th_1 > 1$, $Th_2 > 1$ e $0 \leq k < 32$ sono soglie che possono essere modificate in base alla sensibilit\`a che si richiede da parte dell'algoritmo.
-In particolare, $Th_1$ e $Th_2$ possono essere aumentate in modo da aumentare la sensibilit\`a, mentre $k$ pu\`o essere diminuito.\\
+dove $Th_1 > 1$, $Th_2 > 1$ e $0 \leq k < 32$ sono soglie che possono essere modificate in base alla sensibilit\`a che si richiede da parte dell'algoritmo.\\
+%In particolare, $Th_1$ e $Th_2$ possono essere aumentate in modo da aumentare la sensibilit\`a, mentre $k$ pu\`o essere diminuito.\\
 Un approccio simile \`e presente in \cite{harasse2004automated}, \cite{gil2007automatic} e \cite{ellwart2012camera}, in cui l'evento di occlusione \`e associato a un abbassamento dell'\textit{entropia}:
  \[
  \label{eq:entropy}
@@ -335,22 +369,20 @@ L'approccio consiste nel calcolare un \textit{valore di proporzione} $P$, ottenu
 \[
 \label{eq:displEqSaglam}
 P=\left\{ \begin{array} {lcl}
-P+1 & \mbox{, se} & B_i(x) \neq B_{n-k}(x) \\
-P & \mbox{, se} & B_i(x) = B_{n-k}(x) \end{array} \right. .
+P+1 & \mbox{, se} & B_i(x) \neq B_{i-k}(x) \\
+P & \mbox{, se} & B_i(x) = B_{i-k}(x) \end{array} \right. .
 \]
-Lo spostamento della camera viene identificato quando $P > Th K$, dove $0<Th<1$ \`e un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo e $K$ \`e il numero totale di pixel dell'immagine.\\
+Lo spostamento della camera viene identificato quando $P > Th \cdot K$, dove $0<Th<1$ \`e un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo e $K$ \`e il numero totale di pixel dell'immagine.\\
 Un altro approccio \`e quello di utilizzare tecniche di \textit{block matching}.
-In \cite{gil2007automatic} e \cite{harasse2004automated} il confronto viene fatto utilizzando la formula \textit{zero-mean normalized cross correlation} (ZNCC) \cite{roma2002comparative}:
+
+L'algoritmo di block matching fornisce due parametri:
+il primo parametro, $m$, indica il \textit{vettore della traslazione} tra il background e il frame corrente, mentre il secondo parametro \`e lo ZNCC relativo a quel vettore.
+
+In \cite{gil2007automatic} e \cite{harasse2004automated} l'algoritmo calcola il vettore di spostamento $m$ del frame corrente rispetto al background, e calcola la \textit{zero-mean normalized cross correlation} (ZNCC) \cite{roma2002comparative}:
 \[
 ZNCC_i(m) = \frac{\sum_{x \in \mathcal{X}}(B_{i-1}(x)- \mu_{B_{i-1}})(z_i(x+m)-\mu_{z_i})}{\sigma_{B_{i-1}} \sigma_{z_i}},
 \]
 dove $\mu_{z_i}$ e $\sigma_{z_i}$ rappresentano la media e la deviazione standard della luminosit\`a nell'immagine $z_i$.
-Un'altra cifra di merito, utilizzata in \cite{ellwart2012camera}, \`e la \textit{minimum squared difference} (MSD):
-\[
-MSD = \frac{1}{K}\sum_{x \in \mathcal{X}}(z_i - B_i)^2
-\]
-L'algoritmo di block matching fornisce due parametri:
-il primo parametro, $m$, indica il \textit{vettore della traslazione} tra il background e il frame corrente, mentre il secondo parametro \`e lo ZNCC relativo a quel vettore.
 Lo spostamento viene individuato quando il vettore $m$ ha una lunghezza minima e lo ZNCC corrispondente supera una certa soglia.
 Un metodo simile viene utilizzato anche in \cite{kryjak2012fpga}, con la differenza che, invece di analizzare la correlazione dei pixel, viene analizzata quella degli istogrammi. 
 \subsubsection{Identificazione di sfocature} 
@@ -377,15 +409,8 @@ Per analizzare questo cambiamento, \cite{aksay2007camera} confronta ciascun fram
 Nella figura \ref{fig:fourier} vediamo un esempio di come si comporta la trasformata di Fourier nel caso di sfocature: 
 nel passaggio da un frame nitido (Fig. \ref{fig:defocusNormale}) a uno sfocato (Fig. \ref{fig:defocusSfocato}) abbiamo un crollo delle componenti ad alta frequenza nelle trasformate di Fourier (rispettivamente Fig. \ref{fig:defocusNormaleFourier} e Fig. \ref{fig:defocusSfocatoFourier}).
 L'evento di tampering viene individuato quando l'\textit{energia media} della trasformata di Fourier (o di quella wavelet) del frame corrente $E_{HF}(z_i)$ \`e $Th$ volte minore di quella del background $E_{HF}(B_i)$:
-\[E_{HF}(z_i)\leq Th E_{HF}(B_i),\]
+\[E_{HF}(z_i)\leq Th \cdot E_{HF}(B_i),\]
 dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.\\
-Un altro approccio consiste nell'analizzare la perdita di dettagli confrontando i contorni (\textit{edges}) del frame corrente con quelli del background.
-Questo metodo, utilizzato in \cite{ellwart2012camera}, \cite{gil2007automatic}, \cite{harasse2004automated} e \cite{kryjak2012fpga}, consiste nell'estrarre i contorni dalle immagini secondo il metodo di Sobel \cite{sobel19683x3} o di Canny \cite{canny1986computational}, e confrontare il numero di pixel dei contorni con quelli del background. 
-Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_i)$ \`e $Th$ volte pi\`u piccolo di quello del background $\sum edges(B_i)$:
-\[ \sum edges(z_i) \leq Th \sum edges(B_i), \]
-dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
-\subsection{Tecniche basate su monitoraggio sequenziale}
-Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
 \begin{figure}
 	\centering
 	\includegraphics[width = 4cm]{./pictures/FPSalto/img0001}
@@ -403,12 +428,13 @@ Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permett
 	\caption{Sequenza di frame acquisiti a 30 fps}
 	\label{fig:acquisizioneContinua}
 \end{figure}
-Questo approccio risulta fattibile nel caso in cui la camera operi con un framerate \textit{continuo}, solitamente tra i 30 frame per secondo (\textit{fps}) e i 2 fps. 
-In questi casi, infatti, possiamo considerare che, tra un frame e il successivo, non avvengano grandi cambiamenti all'interno della scena e non cambi eccessivamente la luminosit\`a media.
-La figura \ref{fig:acquisizioneContinua} mostra come, in un'acquisizione fatta a 30 fps, le differenze tra frame consecutivi siano quasi inesistenti. 
-Un evento di tampering pu\`o, quindi, essere identificato in maniera molto semplice, in quanto una differenza molto elevata tra il frame analizzato e il background pu\`o essere dovuto solamente a un evento di tampering sulla camera.
-La figura \ref{fig:acquisizioneBassa} mostra, invece, un esempio di frame acquisiti ogni 30 secondi.
-Notiamo come le differenze tra immagini consecutive, in questo caso, siano pi\`u marcate rispetto al caso dell'acquisizione continua. 
+Un altro approccio consiste nell'analizzare la perdita di dettagli confrontando i contorni (\textit{edges}) del frame corrente con quelli del background.
+Questo metodo, utilizzato in \cite{ellwart2012camera}, \cite{gil2007automatic}, \cite{harasse2004automated} e \cite{kryjak2012fpga}, consiste nell'estrarre i contorni dalle immagini secondo il metodo di Sobel \cite{sobel19683x3} o di Canny \cite{canny1986computational}, e confrontare il numero di pixel dei contorni con quelli del background. 
+Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_i)$ \`e $Th$ volte pi\`u piccolo di quello del background $\sum edges(B_i)$:
+\[ \sum edges(z_i) \leq Th \sum edges(B_i), \]
+dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
+\subsection{Tecniche basate su monitoraggio sequenziale}
+Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
 \begin{figure}
 	\centering
 	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2691}
@@ -426,24 +452,30 @@ Notiamo come le differenze tra immagini consecutive, in questo caso, siano pi\`u
 	\caption{Sequenza di frame acquisiti ogni 30 secondi}
 	\label{fig:acquisizioneBassa}
 \end{figure}
-Questo fa s\`i che l'utilizzo di un modello di background risulti inefficiente.
+Questo approccio risulta fattibile nel caso in cui la camera operi con un framerate \textit{continuo}, solitamente tra i 30 frame per secondo (\textit{fps}) e i 2 fps. 
+In questi casi, infatti, possiamo considerare che, tra un frame e il successivo, non avvengano grandi cambiamenti all'interno della scena e non cambi eccessivamente la luminosit\`a media.
+La figura \ref{fig:acquisizioneContinua} mostra come, in un'acquisizione fatta a 30 fps, le differenze tra frame consecutivi siano quasi inesistenti. 
+Un evento di tampering pu\`o, quindi, essere identificato in maniera molto semplice, in quanto una differenza molto elevata tra il frame analizzato e il background pu\`o essere dovuto solamente a un evento di tampering sulla camera.
+La figura \ref{fig:acquisizioneBassa} mostra, invece, un esempio di frame acquisiti ogni 30 secondi.
+Notiamo come le differenze tra immagini consecutive, in questo caso, siano pi\`u marcate rispetto al caso dell'acquisizione continua. 
+Questo non permette l'impiego di un modello di background per il problema del tampering detection.
 Evidenziamo, inoltre, che le tecniche viste finora richiedono che il sistema di monitoraggio possegga elevate capacit\`a computazionali, in quanto l'aggiornamento del background e l'analisi di tampering detection non pu\`o rallentare la frequenza di acquisizione.\\
 Un approccio alternativo consiste nel monitorare nel tempo il comportamento di alcuni indicatori estratti dalle singole immagini acquisite.
 Si presuppone che, quando il sistema di monitoraggio opera in condizioni di funzionamento \textit{ottimali}, gli indicatori analizzati presentino una certa \textit{stazionariet\`a}, ovvero siano considerati dei campioni \textit{indipendenti} tra loro e distribuiti secondo una stessa funzione di ripartizione.
 L'evento di tampering viene considerato come un \textit{cambiamento nella stazionariet\`a} di questi indicatori.\\
-Il monitoraggio pu\`o avvenire utilizzando tecniche statistiche, come ad esempio \textit{change-point method} (CPM) \cite{ross2011nonparametric} o \textit{change-detection test} \cite{pimentel2014review}.
+Il monitoraggio pu\`o avvenire utilizzando tecniche statistiche, come ad esempio \textit{change-point method} (CPM) \cite{ross2011nonparametric} o \textit{change-detection test} \cite{pimentel2014review}.\\
 Troviamo alcuni esempi nell'identificazione di sfocature: in \cite{tsesmelis2013tamper} la soluzione consiste nel monitorare nel tempo il \textit{numero di SURF} \cite{bay2006surf}, in quanto tali descrittori decrementano in maniera considerevole il loro numero in presenza di sfocature.
 Notiamo, per\`o, che l'utilizzo di una tecnica del genere richiede un elevato numero di calcoli per ricavare le SURF.
-Il metodo, quindi, si presta poco a essere utilizzato su sistemi di monitoraggio a basso consumo.
+Il metodo, quindi, si presta poco a essere utilizzato su sistemi di monitoraggio a basso consumo.\\
 Un altro esempio \`e dato da \cite{alippi2010detecting}, dove le sfocature vengono identificate monitorando l'\textit{energia media del gradiente} delle immagini acquisite:
-\begin{equation}
-\label{eq:energyGradient}
-m_i = \mathcal{M}[z_i] = \int_{\mathcal{X}}\| \bigtriangledown z_i(x) \| _1 dx,
-\end{equation}  
-dove $\| \cdot \|_1$ si riferisce alla \textit{norma} $\mathcal{L}^1$. 
+%\begin{equation}
+%\label{eq:energyGradientSOA}
+\[m_i = \mathcal{M}[z_i] = \int_{\mathcal{X}}\| \nabla z_i(x) \| _1 dx,\]
+%\end{equation}  
+dove $\| \cdot \|_1$ si riferisce alla \textit{norma} $\mathcal{L}_1$. 
 Per identificare il cambio di stazionariet\`a di questo indicatore vengono utilizzate tecniche di CDT basate su \textit{somme cumulate} (CUSUM) \cite{alippi2008just}.\\
 Il test statistico utilizzato non richiede alcuna informazione \textit{a priori} del processo che si sta monitorando, e sfrutta una sequenza iniziale $\{m_i\}, i=1,\dots,T$ di indicatori estratti da frame non sfocati, in modo da configurare automaticamente i suoi parametri. 
-Tale sequenza prende il nome di \textit{training set}, e permette di stimare la \textit{densit\`a probabilistica} (\textit{probability density function} (pdf)) di $m_i$ in assenza di sfocature, (i.e. l'\textit{ipotesi nulla}, indicata con $\Theta^0$), e di definire le \textit{ipotesi alternative}, indicate con $\Theta^1$, che identificano qualsiasi cambiamento non stazionario.\\
+Tale sequenza prende il nome di \textit{training set} e, assumendo che i dati abbiano una distribuzione \textit{gaussiana,} permette di stimare i parametri di $m_i$ in assenza di sfocature che determinano l'\textit{ipotesi nulla} (indicata con $\Theta^0$), e di definire le \textit{ipotesi alternative}, indicate con $\Theta^1$, che identificano qualsiasi cambiamento non stazionario.\\
 Per garantire una stima accurata dei parametri, \cite{alippi2010detecting} consiglia di utilizzare un training set ampio, ad esempio $T > 400$.
 Il test opera su \textit{sotto-sequenze} di misure $m_i$ (ad esempio da $20$ misure) e stima la transizione da $\Theta^0$ a $\Theta^1$ misurando la \textit{log-verosimiglianza} tra la pdf in assenza di sfocature e le pdf delle varie ipotesi alternative nella sotto-sequenza $\tau$, ovvero
 \[ r(\tau) = \ln \frac{N_{\Theta^1}(\phi_{\tau})}{N_{\Theta^0}(\phi_{\tau})}, \]
@@ -451,5 +483,5 @@ dove $\phi_{\tau}$ \`e il valore medio della misura $m_i$ nella sotto-sequenza $
 Il metodo CUSUM considera la \textit{somma cumulata} 
 \[ S(\tau) = \sum^\tau_{t=1} r(t) \]
 e identifica un cambiamento in $m_i$ quando \[g(\tau)=S(\tau)-\nu(\tau),\] ovvero la differenza tra il valore della somma cumulata all'istante $\tau$ e il suo valore minimo nel tempo \[\nu(\tau)=\min_{t=1,...,\tau}S(t),\] supera una certa soglia $h$.\\
-L'utilizzo di una tecnica sequenziale per l'identificazione di sfocature permette di operare con una bassa complessit\`a computazionale, tanto da poter essere utilizzato come soluzione a livello di nodo per una \textit{wireless multimedia sensor network} (WMSN) \cite{akyildiz2007survey}.
-D'altro canto, confrontato con le tecniche descritte nel paragrafo \ref{background}, questo metodo genera un numero pi\`u alto di \textit{falsi allarmi}, il che si traduce, all'interno di una rete di sensori, in un aumento dei messaggi di allarme inviati, che devono essere considerati, quindi, come un costo.
+L'utilizzo di un descrittore leggero come l'energia media del gradiente permette di operare con una bassa complessit\`a computazionale, tanto da poter essere utilizzato come soluzione a livello di nodo per una \textit{wireless multimedia sensor network} (WMSN) \cite{akyildiz2007survey}.
+D'altro canto, confrontato con le tecniche descritte nel paragrafo \ref{background}, l'utilizzo di tecniche sequenziali genera un numero pi\`u alto di \textit{falsi allarmi}, il che si traduce, all'interno di una rete di sensori, in un aumento dei messaggi di allarme inviati, che devono essere considerati, quindi, come un costo.

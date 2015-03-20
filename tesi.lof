@@ -7,29 +7,44 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Similitudini tra triangoli usate nel calcolo dei parametri intrinseci\relax }}{8}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Coordinate di un frame\relax }}{9}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Trasformazione dal sistema di coordinate dell'ambiente a quello della camera\relax }}{10}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Tecniche di tampering detection\relax }}{12}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Sistema di monitoraggio video\relax }}{13}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{16}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{16}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{16}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{16}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{16}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{17}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{18}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Esempio di estrazione dei canali RGB\relax }}{11}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Esempio di estrazione dei canali YUV\relax }}{12}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Tecniche di tampering detection\relax }}{13}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Sistema di monitoraggio video\relax }}{14}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{17}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{17}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{17}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{17}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{17}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{18}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{19}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di sfocature\relax }}{22}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{22}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{22}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Sequenza di otto frame consecutivi acquisiti ogni minuto\relax }}{23}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di spostamento della camera\relax }}{24}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di sfocature\relax }}{24}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{24}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{24}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempi di occlusione\relax }}{25}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{25}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{25}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempi di guasti\relax }}{26}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Sequenza di otto frame consecutivi acquisiti ogni minuto\relax }}{25}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Esempio di spostamento della camera\relax }}{26}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{26}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{26}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esempi di occlusione\relax }}{27}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{27}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{27}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempi di guasti\relax }}{28}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{28}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{28}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di cambi di luminosit\`a tra il giorno e la notte\relax }}{31}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{31}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{31}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di presenza di sfocature dovute all'aumento del tempo di esposizione della camera\relax }}{32}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{32}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{32}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{33}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{33}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{33}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{34}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{34}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{34}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi utilizzato per l'acquisizione\relax }}{36}
 \addvspace {10\p@ }
