@@ -92,10 +92,10 @@ Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{
 \begin{figure}
 \centering
 \begin{subfigure}[]
-	{\label{fig:energy} \includegraphics[width=13cm]{./pictures/energyTot}}
+	{\label{fig:energy} \includegraphics[width=8cm]{./pictures/energyTot}}
 \end{subfigure}
 \begin{subfigure}[]
-	{\label{fig:energyDetr} \includegraphics[width=13cm]{./pictures/energydetr}}
+	{\label{fig:energyDetr} \includegraphics[width=8cm]{./pictures/energydetr}}
 \end{subfigure}
 \caption{Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
 \label{fig:energyTot}
@@ -103,26 +103,36 @@ Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{
 \begin{figure}
 	\centering
 	\begin{subfigure}[]
-		{\label{fig:luma} \includegraphics[width=13cm]{./pictures/lumaTot}}
+		{\label{fig:luma} \includegraphics[width=8cm]{./pictures/lumaTot}}
 	\end{subfigure}
 	\begin{subfigure}[]
-		{\label{fig:lumaDetr} \includegraphics[width=13cm]{./pictures/lumadetr}}
+		{\label{fig:lumaDetr} \includegraphics[width=8cm]{./pictures/lumadetr}}
 	\end{subfigure}
 	\caption{Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
 	\label{fig:lumaTot}
 \end{figure}
 Di conseguenza non \`e possibile applicare direttamente le tecniche di CDT come fatto in \cite{alippi2010detecting}. \\
-Per eliminare le componenti in bassa frequenza possiamo fare un \textit{detrending} di ciascun segnale calcolando la \textit{differenza} tra l'indicatore all'istante corrente e quello precedente:
-\[\Delta g\]
-Il comportamento del detrending sulle sequenze degli indicatori che abbiamo utilizzato \`e rappresentato nelle figure \ref{fig:energyDetr} e \ref{fig:lumaDetr}.  
-
+Per eliminare le componenti in bassa frequenza possiamo fare un \textit{detrending} di ciascun segnale calcolando la \textit{differenza} tra l'indicatore all'istante corrente e quello precedente.
+Nel caso dell'energia media del gradiente avremo
+\[\Delta g_t = g_t - g_{t-1},\]
+mentre per l'energia media della luma avremo
+\[\Delta l_t = l_t - l_{t -1}.\]
+Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle figure \ref{fig:energyDetr} e \ref{fig:lumaDetr}.  
+Di conseguenza non \`e possibile applicare direttamente le tecniche di CDT come fatto in \cite{alippi2010detecting}. \\
+Per eliminare le componenti in bassa frequenza possiamo fare un \textit{detrending} di ciascun segnale calcolando la \textit{differenza} tra l'indicatore all'istante corrente e quello precedente.
+Nel caso dell'energia media del gradiente avremo
+\[\Delta g_t = g_t - g_{t-1},\]
+mentre per l'energia media della luma avremo
+\[\Delta l_t = l_t - l_{t -1}.\]
+Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle figure \ref{fig:energyDetr} e \ref{fig:lumaDetr}.  
+Possiamo notare come le fluttuazioni in bassa frequenza vengano lavate via dal detrending, dato che in questo modo consideriamo solamente le differenze tra misure consecutive.\\
 \begin{figure}
 	\centering
 	\begin{subfigure}[]
-		{\label{fig:energyDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_energy}}
+		{\label{fig:energyDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_energy}}
 	\end{subfigure}
 	\begin{subfigure}[]
-		{\label{fig:lumaDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_luma}}
+		{\label{fig:lumaDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_luma}}
 	\end{subfigure}
 	\caption{Energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
 	\label{fig:defocusPLOT}
@@ -130,21 +140,25 @@ Il comportamento del detrending sulle sequenze degli indicatori che abbiamo util
 \begin{figure}
 	\centering
 	\begin{subfigure}[]
-		{\label{fig:energyDetrDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_energy_detr}}
+		{\label{fig:energyDetrDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_energy_detr}}
 	\end{subfigure}
 	\begin{subfigure}[]
-		{\label{fig:lumaDetrDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_luma_detr}}
+		{\label{fig:lumaDetrDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_luma_detr}}
 	\end{subfigure}
 	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
 	\label{fig:defocusDetrPLOt}
 \end{figure}
+Come abbiamo detto prima, lo scopo del monitoraggio di questi indicatori \`e quello di individuare degli eventi di tampering.
+Nelle figure \ref{fig:defocusPLOT} e \ref{fig:displacementPLOT} possiamo vedere il comportamento dell'energia media di luma e gradiente rispettivamente per un caso di sfocatura e per un caso di spostamento della camera.  
+In particolare, in entrambi i casi l'evento di tampering avviene al frame $1000$\footnote{Il modo in cui sono stati ottenuti gli eventi di tampering \`e descritto nel capitolo \ref{ProveSperimentali}}.
+Il detrending di questi segnali \`e visualizzato nelle figure \ref{fig:defocusDetrPLOt} e \ref{fig:displacementDetrPLOT}.\\
 \begin{figure}
 	\centering
 	\begin{subfigure}[]
-		{\label{fig:energyDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_energy}}
+		{\label{fig:energyDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_energy}}
 	\end{subfigure}
 	\begin{subfigure}[]
-		{\label{fig:lumaDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_luma}}
+		{\label{fig:lumaDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_luma}}
 	\end{subfigure}
 	\caption{Energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
 	\label{fig:displacementPLOT}
@@ -152,15 +166,29 @@ Il comportamento del detrending sulle sequenze degli indicatori che abbiamo util
 \begin{figure}
 	\centering
 	\begin{subfigure}[]
-		{\label{fig:energyDetrDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_energy_detr}}
+		{\label{fig:energyDetrDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_energy_detr}}
 	\end{subfigure}
 	\begin{subfigure}[]
-		{\label{fig:lumaDetrDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_luma_detr}}
+		{\label{fig:lumaDetrDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_luma_detr}}
 	\end{subfigure}
 	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
-	\label{fig:ddisplacementDetrPLOt}
+	\label{fig:displacementDetrPLOT}
 \end{figure}
-\section{Tecniche di monitoraggio degli indicatori}
+\noindent Possiamo vedere come, in generale, l'evento di tampering sia associato a un brusco salto o a un crollo \textit{istantaneo} del valore di uno o entrambi gli indicatori.
+Vanno notate alcune cose:
+\begin{itemize}
+	\item L'evento di sfocatura non si traduce in un cambiamento nell'energia media della luma.
+	Questo avviene perch\'e questo tipo di tampering ha come effetto principale quello di rendere pi\`u morbide le differenze di intensit\`a tra i pixel dell'immagine, mantenendo comunque il valore medio della luma invariato.
+	\item Facendo il detrending della sequenza abbiamo dei valori che oscillano attorno allo zero, un picco in corrispondenza dell'istante in cui avviene il tampering (figure \ref{fig:energyDetrDefocus}, \ref{fig:energyDetrDisplacement}, \ref{fig:lumaDetrDisplacement}) e infine altri valori che oscillano attorno allo zero.
+	Questo \`e dato dal fatto che il detrending considera le differenze tra dati consecutivi e, quindi, la differenza maggiore si ha proprio nell'istante in cui inizia l'evento di tampering, mentre solitamente le differenze tra misure consecutive sono minime. 
+	\item Questo fa s\`i che monitorare il detrending delle sequenze degli indicatori permetta di identificare pi\`u facilmente gli eventi di tampering rispetto ad analizzare la sequenza originale.
+	Il risvolto della medaglia \`e che i cambiamenti \textit{persistenti}, come quelli che stiamo considerando noi, diventano dei cambiamenti \textit{istantanei}.
+	\item Considerando l'evento di sfocatura, possiamo notare (figura \ref{fig:energyDefocus}) come, in seguito all'evento, oltre ad aver un crollo istantaneo del valore dell'energia del gradiente, abbiamo anche un \textit{abbassamento della sua varianza}.
+	Questo permette di utilizzare tecniche di monitoraggio sequenziale sull'energia del gradiente, con dei CDT sulla varianza, per identificare eventi di sfocatura.
+\end{itemize}
+
+
+\section{Algoritmo per il monitoraggio degli indicatori}
 \subsection{Monitoraggio one-shot}
 \subsection{Monitoraggio sequenziale}
 \section{Algoritmo di segmentazione}

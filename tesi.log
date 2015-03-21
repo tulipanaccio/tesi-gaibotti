@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  21 MAR 2015 10:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  21 MAR 2015 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -768,101 +768,53 @@ File: ./pictures/energyTot.eps Graphic file (type eps)
 <./pictures/energyTot.eps>
 File: ./pictures/energydetr.eps Graphic file (type eps)
  <./pictures/energydetr.eps>
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 95--100
- [][] 
- []
-
-
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 95--100
- [] 
- []
-
 File: ./pictures/lumaTot.eps Graphic file (type eps)
+
 <./pictures/lumaTot.eps>
 File: ./pictures/lumadetr.eps Graphic file (type eps)
- <./pictures/lumadetr.eps>
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 106--111
- [][] 
- []
-
-
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 106--111
- [] 
- []
-
-[31]
+ <./pictures/lumadetr.eps> [31]
 File: ./pictures/Defocus/DEFOCUS_energy.eps Graphic file (type eps)
- <./pictures/Defocus/DEFOCUS_energy.eps>
+
+<./pictures/Defocus/DEFOCUS_energy.eps>
 File: ./pictures/Defocus/DEFOCUS_luma.eps Graphic file (type eps)
-
-<./pictures/Defocus/DEFOCUS_luma.eps>
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 122--127
- [][] 
- []
-
-
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 122--127
- [] 
- []
-
+ <./pictures/Defocus/DEFOCUS_luma.eps>
 File: ./pictures/Defocus/DEFOCUS_energy_detr.eps Graphic file (type eps)
+
 <./pictures/Defocus/DEFOCUS_energy_detr.eps>
 File: ./pictures/Defocus/DEFOCUS_luma_detr.eps Graphic file (type eps)
 
 <./pictures/Defocus/DEFOCUS_luma_detr.eps>
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 133--138
- [][] 
- []
-
-
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 133--138
- [] 
- []
-
 File: ./pictures/Displacement/DISPLACEMENT_energy.eps Graphic file (type eps)
+
 <./pictures/Displacement/DISPLACEMENT_energy.eps>
 File: ./pictures/Displacement/DISPLACEMENT_luma.eps Graphic file (type eps)
 
 <./pictures/Displacement/DISPLACEMENT_luma.eps>
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 144--149
- [][] 
- []
-
-
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 144--149
- [] 
- []
-
 File: ./pictures/Displacement/DISPLACEMENT_energy_detr.eps Graphic file (type e
 ps)
+
 <./pictures/Displacement/DISPLACEMENT_energy_detr.eps>
 File: ./pictures/Displacement/DISPLACEMENT_luma_detr.eps Graphic file (type eps
 )
 
-<./pictures/Displacement/DISPLACEMENT_luma_detr.eps>
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 155--160
- [][] 
- []
+<./pictures/Displacement/DISPLACEMENT_luma_detr.eps> [32] [33] [34])
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \hbox (13.53581pt too wide) in paragraph at lines 155--160
- [] 
- []
-
-) [32] [33] [34] [35] [36] [37] [38]
+ [35]
+[36] [37]
 \openout2 = `proveSperimentali.aux'.
 
- (./proveSperimentali.tex
+ (./proveSperimentali.tex [38
+
+
+
+]
 Capitolo 5.
 File: ./pictures/raspberry.eps Graphic file (type eps)
 <./pictures/raspberry.eps>
 Underfull \vbox (badness 1527) has occurred while \output is active []
 
- [39
-
-
-
-]
+ [39]
 Underfull \vbox (badness 2213) has occurred while \output is active []
 
  [40])
@@ -911,11 +863,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
 ) (./conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
  9171 strings out of 493109
- 133092 string characters out of 6140752
+ 133091 string characters out of 6140752
  273228 words of memory out of 5000000
  12300 multiletter control sequences out of 15000+600000
  17072 words of font info for 62 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  46i,11n,77p,2195b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (63 pages, 113660 bytes).
+Output written on tesi.dvi (63 pages, 118036 bytes).
