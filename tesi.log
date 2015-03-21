@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  20 MAR 2015 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  21 MAR 2015 03:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -536,12 +536,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--19
 
 
 ] (./tesi.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 7.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 7.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -576,17 +576,19 @@ am-bien-te a quel-
 
  (./introduzione.tex
 Capitolo 1.
-) [3
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
+(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
+ [3
 
 
-]
+]) [4]
 \openout2 = `statoArte.aux'.
 
- (./statoArte.tex [4
-
-
-
-]
+ (./statoArte.tex
 Capitolo 2.
 File: ./pictures/cameraObscura.eps Graphic file (type eps)
 <./pictures/cameraObscura.eps>
@@ -599,33 +601,29 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 36.
 
 File: ./pictures/modelloCamera.eps Graphic file (type eps)
-<./pictures/modelloCamera.eps> [5] [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 73.
+<./pictures/modelloCamera.eps> [5
 
-(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
- [7]
+
+
+] [6] [7]
 File: ./pictures/mappatura2d3d.eps Graphic file (type eps)
-
-<./pictures/mappatura2d3d.eps> [8]
+ <./pictures/mappatura2d3d.eps>
+[8]
 File: ./pictures/griglia.eps Graphic file (type eps)
  <./pictures/griglia.eps> [9]
 File: ./pictures/rt.eps Graphic file (type eps)
-
-<./pictures/rt.eps> [10]
+ <./pictures/rt.eps> [10]
 File: ./pictures/lenaRGB.eps Graphic file (type eps)
- <./pictures/lenaRGB.eps> [11]
+
+<./pictures/lenaRGB.eps> [11]
 File: ./pictures/yuv.eps Graphic file (type eps)
- <./pictures/yuv.eps>
-[12]
+ <./pictures/yuv.eps> [12]
 File: ./diagrammi/tecnicheSOA.eps Graphic file (type eps)
- <./diagrammi/tecnicheSOA.eps>
+
+<./diagrammi/tecnicheSOA.eps>
 File: ./pictures/videoMonitoring.eps Graphic file (type eps)
- <./pictures/videoMonitoring.eps> [13]
-[14] [15] [16]
+ <./pictures/videoMonitoring.eps> [13] [14]
+[15] [16]
 File: ./pictures/normale.eps Graphic file (type eps)
  <./pictures/normale.eps>
 File: ./pictures/normale-fourier.eps Graphic file (type eps)
@@ -853,12 +851,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
 (./formulazioneProblema.aux) (./soluzioneProposta.aux) (./proveSperimentali.aux
 ) (./conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
- 9131 strings out of 493109
- 132020 string characters out of 6140752
- 272983 words of memory out of 5000000
- 12271 multiletter control sequences out of 15000+600000
- 16713 words of font info for 61 fonts, out of 8000000 for 9000
+ 9133 strings out of 493109
+ 132046 string characters out of 6140752
+ 272984 words of memory out of 5000000
+ 12272 multiletter control sequences out of 15000+600000
+ 17072 words of font info for 62 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  46i,11n,77p,2195b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (59 pages, 104916 bytes).
+Output written on tesi.dvi (59 pages, 110352 bytes).
