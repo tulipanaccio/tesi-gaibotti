@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  21 MAR 2015 16:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  21 MAR 2015 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,18 +454,18 @@ File: latin1.def 2014/04/30 v1.2b Input encoding file
 (./soluzioneProposta.aux) (./proveSperimentali.aux) (./conclusioni.aux))
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: longtable package is loaded.
 
@@ -474,8 +474,8 @@ Package: ltcaption 2013/02/03 v1.3-62 longtable captions (AR)
 )
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \it@ocap on input line 43.
-LaTeX Info: Redefining \it@ccap on input line 43.
+LaTeX Info: Redefining \it@ocap on input line 45.
+LaTeX Info: Redefining \it@ccap on input line 45.
 
 
 File italian.ldf warning: 
@@ -483,7 +483,7 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 43.
+italian.ldf    on input line 45.
 
 \openout2 = `frontespizio.aux'.
 
@@ -569,12 +569,15 @@ am-bien-te a quel-
 
 ] [14
 
-] [1] [2
+] [1
 
 ]
 \openout2 = `introduzione.aux'.
 
- (./introduzione.tex
+ (./introduzione.tex [2
+
+
+]
 Capitolo 1.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
@@ -582,10 +585,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
- [3
-
-
-]) [4]
+ [3]) [4]
 \openout2 = `statoArte.aux'.
 
  (./statoArte.tex
@@ -753,7 +753,7 @@ Capitolo 4.
 
 
 
-] [30]
+]
 File: ./pictures/testiGIORNO.eps Graphic file (type eps)
  <./pictures/testiGIORNO.eps>
 File: ./pictures/testiNOTTE.eps Graphic file (type eps)
@@ -762,17 +762,17 @@ File: ./pictures/buenosAiresGIORNO.eps Graphic file (type eps)
 
 <./pictures/buenosAiresGIORNO.eps>
 File: ./pictures/buenosAiresNOTTE.eps Graphic file (type eps)
- <./pictures/buenosAiresNOTTE.eps>
+ <./pictures/buenosAiresNOTTE.eps> [30]
+[31]
 File: ./pictures/energyTot.eps Graphic file (type eps)
-
-<./pictures/energyTot.eps>
+ <./pictures/energyTot.eps>
 File: ./pictures/energydetr.eps Graphic file (type eps)
  <./pictures/energydetr.eps>
 File: ./pictures/lumaTot.eps Graphic file (type eps)
 
 <./pictures/lumaTot.eps>
 File: ./pictures/lumadetr.eps Graphic file (type eps)
- <./pictures/lumadetr.eps> [31]
+ <./pictures/lumadetr.eps> [32]
 File: ./pictures/Defocus/DEFOCUS_energy.eps Graphic file (type eps)
 
 <./pictures/Defocus/DEFOCUS_energy.eps>
@@ -797,24 +797,35 @@ ps)
 File: ./pictures/Displacement/DISPLACEMENT_luma_detr.eps Graphic file (type eps
 )
 
-<./pictures/Displacement/DISPLACEMENT_luma_detr.eps> [32] [33] [34])
+<./pictures/Displacement/DISPLACEMENT_luma_detr.eps> [33] [34]
+File: ./pictures/DisplacementTOTALE/luma.eps Graphic file (type eps)
+
+<./pictures/DisplacementTOTALE/luma.eps>
+File: ./pictures/DisplacementTOTALE/lumaDetr.eps Graphic file (type eps)
+
+<./pictures/DisplacementTOTALE/lumaDetr.eps>
+File: ./pictures/testiORIGINALE.eps Graphic file (type eps)
+ <./pictures/testiORIGINALE.eps>
+File: ./pictures/testiDISPLACEMENT.eps Graphic file (type eps)
+
+<./pictures/testiDISPLACEMENT.eps> [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]
-[36] [37]
+ [36])
+[37] [38]
 \openout2 = `proveSperimentali.aux'.
 
- (./proveSperimentali.tex [38
-
-
-
-]
+ (./proveSperimentali.tex
 Capitolo 5.
 File: ./pictures/raspberry.eps Graphic file (type eps)
 <./pictures/raspberry.eps>
 Underfull \vbox (badness 1527) has occurred while \output is active []
 
- [39]
+ [39
+
+
+
+]
 Underfull \vbox (badness 2213) has occurred while \output is active []
 
  [40])
@@ -862,12 +873,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
 (./formulazioneProblema.aux) (./soluzioneProposta.aux) (./proveSperimentali.aux
 ) (./conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
- 9171 strings out of 493109
- 133091 string characters out of 6140752
- 273228 words of memory out of 5000000
- 12300 multiletter control sequences out of 15000+600000
+ 9187 strings out of 493109
+ 133530 string characters out of 6140752
+ 274365 words of memory out of 5000000
+ 12313 multiletter control sequences out of 15000+600000
  17072 words of font info for 62 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  46i,11n,77p,2195b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (63 pages, 118036 bytes).
+Output written on tesi.dvi (63 pages, 122148 bytes).

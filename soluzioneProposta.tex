@@ -51,22 +51,7 @@ l_t = \mathcal{L}[z_t] =\frac{\sum_{\mathcal{X}} z_t(x) }{|\mathcal{X}|} ,
 dove abbiamo indicato con $|\mathcal{X}|$ la \textit{cardinalit\`a} dell'insieme dei pixel $\mathcal{X}$.\\
 Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisito, che pu\`o essere monitorato per individuare eventi di spostamenti della camera. 
 \subsection{Comportamento degli indicatori nel tempo}
-Analizzando alcune sequenze video abbiamo notato che, anche in assenza di eventi di tampering, vi sono alcuni fattori che sono in grado di far variare il valore degli indicatori estratti.
-Tra i pi\`u importanti abbiamo:
-\begin{itemize}
-	\item \textit{Cambi di luminosit\`a} che avvengono nel corso della giornata. 
-	Se consideriamo l'esempio in figura \ref{fig:testiGN}, possiamo notare come, nel passaggio dal giorno (figura \ref{fig:FTgiorno}) alla notte (figura \ref{fig:FTnotte}), le differenze di luminosit\`a siano elevate.  
-%	
-%	Considerando acquisizioni fatte all'esterno, il caso pi\`u evidente avviene durante il \textit{passaggio dal giorno alla notte}, come possiamo vedere ad esempio la variazione che abbiamo tra il frame in figura \ref{fig:FTgiorno} e il frame in figura \ref{fig:FTnotte}.
-	\item \textit{Dinamicit\`a della scena}. La ripresa di una scena movimentata, come ad esempio una strada, ha come risultato che ciascun frame sia diverso dagli altri.
-	Ci\`o si traduce in una variabilit\`a elevata degli indicatori che abbiamo utilizzato. 
-	Inoltre, col passare del tempo, pu\`o succedere che cambi anche il \textit{grado di dinamicit\`a} della scena.
-	Considerando ancora l'esempio della strada, infatti, avremo dei momenti in cui il traffico \`e pi\`u intenso (nelle cosiddette \textit{ore di punta}) e altri in cui le macchine passano meno spesso (tipicamente durante la notte).
-	\item \textit{Configurazione automatica della camera}. Solitamente le camere sono in grado di configurare in maniera automatica alcuni parametri, in base alle condizioni di luminosit\`a esterne.
-	Ad esempio, durante la ripresa di scene notturne la camera solitamente aumenta il \textit{tempo di esposizione} del sensore, in modo da ricevere pi\`u luce possibile.
-	Ci\`o si traduce in un \textit{aumento del rumore} su tutta la scena acquisita (come vediamo nel frame in figura \ref{fig:FTnotte}) e in una \textit{presenza di sfocature} quando vengono immortalati degli oggetti in movimento (come ad esempio le macchine che si muovono nella figura \ref{fig:BAnotte}).
-\end{itemize} 
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:FTgiorno} \includegraphics[width=6cm]{./pictures/testiGIORNO}}
@@ -77,7 +62,7 @@ Tra i pi\`u importanti abbiamo:
 	\caption{Esempio di cambi di luminosit\`a tra il giorno e la notte}
 	\label{fig:testiGN}
 \end{figure}
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:BAgiorno} \includegraphics[width=6cm]{./pictures/buenosAiresGIORNO}}
@@ -88,19 +73,31 @@ Tra i pi\`u importanti abbiamo:
 	\caption{Esempio di presenza di sfocature dovute all'aumento del tempo di esposizione della camera}
 	\label{fig:buenosAiresGN}
 \end{figure}
-Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{difficilmente prevedibile} e che \textit{non siano stazionari}, come possiamo vedere negli esempi delle figure \ref{fig:energy} e \ref{fig:luma}.
-\begin{figure}
-\centering
-\begin{subfigure}[]
-	{\label{fig:energy} \includegraphics[width=8cm]{./pictures/energyTot}}
-\end{subfigure}
-\begin{subfigure}[]
-	{\label{fig:energyDetr} \includegraphics[width=8cm]{./pictures/energydetr}}
-\end{subfigure}
-\caption{Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
-\label{fig:energyTot}
+Analizzando alcune sequenze video abbiamo notato che, anche in assenza di eventi di tampering, vi sono alcuni fattori che sono in grado di far variare il valore degli indicatori estratti.
+Tra i pi\`u importanti abbiamo:
+\begin{itemize}
+	\item \textit{Cambi di luminosit\`a} che avvengono nel corso della giornata. 
+	Se consideriamo l'esempio in figura \ref{fig:testiGN}, possiamo notare come, nel passaggio dal giorno (figura \ref{fig:FTgiorno}) alla notte (figura \ref{fig:FTnotte}), le differenze di luminosit\`a siano elevate.  
+	\item \textit{Dinamicit\`a della scena}. La ripresa di una scena movimentata, come ad esempio una strada, ha come risultato che ciascun frame sia diverso dagli altri.
+	Ci\`o si traduce in una variabilit\`a elevata degli indicatori che abbiamo utilizzato. 
+	Inoltre, col passare del tempo, pu\`o succedere che cambi anche il \textit{grado di dinamicit\`a} della scena.
+	Considerando ancora l'esempio della strada, infatti, avremo dei momenti in cui il traffico \`e pi\`u intenso (nelle cosiddette \textit{ore di punta}) e altri in cui le macchine passano meno spesso (tipicamente durante la notte).
+	\item \textit{Configurazione automatica della camera}. Solitamente le camere sono in grado di configurare in maniera automatica alcuni parametri, in base alle condizioni di luminosit\`a esterne.
+	Ad esempio, durante la ripresa di scene notturne la camera solitamente aumenta il \textit{tempo di esposizione} del sensore, in modo da ricevere pi\`u luce possibile.
+	Ci\`o si traduce in un \textit{aumento del rumore} su tutta la scena acquisita (come vediamo nel frame in figura \ref{fig:FTnotte}) e in una \textit{presenza di sfocature} quando vengono immortalati degli oggetti in movimento (come ad esempio le macchine che si muovono nella figura \ref{fig:BAnotte}).
+\end{itemize} 
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energy} \includegraphics[width=8cm]{./pictures/energyTot}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:energyDetr} \includegraphics[width=8cm]{./pictures/energydetr}}
+	\end{subfigure}
+	\caption{Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
+	\label{fig:energyTot}
 \end{figure}
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:luma} \includegraphics[width=8cm]{./pictures/lumaTot}}
@@ -111,6 +108,7 @@ Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{
 	\caption{Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
 	\label{fig:lumaTot}
 \end{figure}
+Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{difficilmente prevedibile} e che \textit{non siano stazionari}, come possiamo vedere negli esempi delle figure \ref{fig:energy} e \ref{fig:luma}.
 Di conseguenza non \`e possibile applicare direttamente le tecniche di CDT come fatto in \cite{alippi2010detecting}. \\
 Per eliminare le componenti in bassa frequenza possiamo fare un \textit{detrending} di ciascun segnale calcolando la \textit{differenza} tra l'indicatore all'istante corrente e quello precedente.
 Nel caso dell'energia media del gradiente avremo
@@ -125,8 +123,7 @@ Nel caso dell'energia media del gradiente avremo
 mentre per l'energia media della luma avremo
 \[\Delta l_t = l_t - l_{t -1}.\]
 Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle figure \ref{fig:energyDetr} e \ref{fig:lumaDetr}.  
-Possiamo notare come le fluttuazioni in bassa frequenza vengano lavate via dal detrending, dato che in questo modo consideriamo solamente le differenze tra misure consecutive.\\
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:energyDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_energy}}
@@ -137,7 +134,7 @@ Possiamo notare come le fluttuazioni in bassa frequenza vengano lavate via dal d
 	\caption{Energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
 	\label{fig:defocusPLOT}
 \end{figure}
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:energyDetrDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_energy_detr}}
@@ -148,11 +145,11 @@ Possiamo notare come le fluttuazioni in bassa frequenza vengano lavate via dal d
 	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
 	\label{fig:defocusDetrPLOt}
 \end{figure}
+Possiamo notare come le fluttuazioni in bassa frequenza vengano lavate via dal detrending, dato che in questo modo consideriamo solamente le differenze tra misure consecutive.\\
 Come abbiamo detto prima, lo scopo del monitoraggio di questi indicatori \`e quello di individuare degli eventi di tampering.
 Nelle figure \ref{fig:defocusPLOT} e \ref{fig:displacementPLOT} possiamo vedere il comportamento dell'energia media di luma e gradiente rispettivamente per un caso di sfocatura e per un caso di spostamento della camera.  
 In particolare, in entrambi i casi l'evento di tampering avviene al frame $1000$\footnote{Il modo in cui sono stati ottenuti gli eventi di tampering \`e descritto nel capitolo \ref{ProveSperimentali}}.
-Il detrending di questi segnali \`e visualizzato nelle figure \ref{fig:defocusDetrPLOt} e \ref{fig:displacementDetrPLOT}.\\
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:energyDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_energy}}
@@ -163,7 +160,7 @@ Il detrending di questi segnali \`e visualizzato nelle figure \ref{fig:defocusDe
 	\caption{Energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
 	\label{fig:displacementPLOT}
 \end{figure}
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:energyDetrDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_energy_detr}}
@@ -174,6 +171,7 @@ Il detrending di questi segnali \`e visualizzato nelle figure \ref{fig:defocusDe
 	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
 	\label{fig:displacementDetrPLOT}
 \end{figure}
+Il detrending di questi segnali \`e visualizzato nelle figure \ref{fig:defocusDetrPLOt} e \ref{fig:displacementDetrPLOT}.\\
 \noindent Possiamo vedere come, in generale, l'evento di tampering sia associato a un brusco salto o a un crollo \textit{istantaneo} del valore di uno o entrambi gli indicatori.
 Vanno notate alcune cose:
 \begin{itemize}
@@ -186,9 +184,41 @@ Vanno notate alcune cose:
 	\item Considerando l'evento di sfocatura, possiamo notare (figura \ref{fig:energyDefocus}) come, in seguito all'evento, oltre ad aver un crollo istantaneo del valore dell'energia del gradiente, abbiamo anche un \textit{abbassamento della sua varianza}.
 	Questo permette di utilizzare tecniche di monitoraggio sequenziale sull'energia del gradiente, con dei CDT sulla varianza, per identificare eventi di sfocatura.
 \end{itemize}
-
-
+In definitiva, \`e possibile identificare un evento di tampering andando a monitorare il detrending degli indicatori descritti dalla formule \eqref{eq:energyGradient} e \eqref{eq:energyLuma}.
+Il monitoraggio pu\`o essere fatto con tecniche a \textit{basso carico computazionale}: infatti \`e possibile utilizzare semplicemente una soglia in modo da individuare il picco nel detrending dovuto all'evento di tampering.
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:lumaDisplacementBRUTTO} \includegraphics[width=8cm]{./pictures/DisplacementTOTALE/luma}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDetrDisplacementBRUTTO} \includegraphics[width=8cm]{./pictures/DisplacementTOTALE/lumaDetr}}
+	\end{subfigure}
+	\caption{Esempio di sequenza dell'energia media della luma (a) e del suo detrending (b) con un displacement difficile da identificare}
+	\label{fig:displacementBRUTTO}
+\end{figure}
+In particolare possiamo monitorare l'energia media del gradiente per individuare eventi di sfocatura, e l'energia media della luma per individuare eventi di spostamento della camera.
+Inoltre, per rendere pi\`u robusta l'identificazione di sfocature, \`e possibile usare un test sequenziale sull'energia media del gradiente in grado di individuare dei cambiamenti nella varianza.\\
+Dobbiamo fare un'ultima considerazione sullo spostamento della camera.
+Ci possono essere dei casi in cui l'evento \`e difficilmente individuabile monitorando la scena nella sua totalit\`a.
+Un esempio \`e illustrato nella figura \ref{fig:displacementBRUTTO}, dove vediamo un caso di displacement che avviene al frame $800$.
+\begin{figure}[tb]
+	\centering
+	\subfigure[]{\label{fig:displacementORIGINALE1} \includegraphics[width=6cm]{./pictures/testiORIGINALE}}
+	\subfigure[]{\label{fig:displacementSPOSTATO1}\includegraphics[width=6cm]{./pictures/testiDISPLACEMENT}}
+	\caption{Esempio di spostamento della camera}
+	\label{fig:testiDISPLACEMENT1}
+\end{figure}
+Questo evento, per\`o, non si traduce, nel detrending del segnale, in un picco che si eleva rispetto agli altri, come nel caso della figura \ref{fig:lumaDetrDisplacement}.
+Questo problema capita perch\'e stiamo monitorando l'energia media della luma calcolata sulla \textit{totalit\`a} della scena.
+Possiamo avere situazioni, come nel caso della figura \ref{fig:displacementBRUTTO}, in cui lo spostamento della camera non determina un cambiamento sostanziale nella luminosit\`a media della scena.\\
+Questo problema viene meno se consideriamo il contributo dell'energia della luma mediato non sulla totalit\`a della scena, bens\`i su \textit{regioni} specifiche analizzate separatamente.
+Infatti, se consideriamo un'area particolare della scena, come ad esempio quella occupata dal palazzo nella figura \ref{fig:displacementORIGINALE1}, durante uno spostamento della camera la variazione della luma mediata solo sui pixel appartenenti a quella regione sar\`a pi\`u marcata rispetto a quella della luminosit\`a mediata su tutta l'immagine.
+%Nella figura  \ref{fig:testiDISPLACEMENT1}, tra il frame \ref{fig:displacementORIGINALE1} e il frame \ref{fig:displacementSPOSTATO1}, l'area occupata dal palazzo cambia il suo contenuto riprendendo un pezzo di cielo.
+Abbiamo deciso, quindi, di inserire una fase di \textit{segmentazione} in cui vengono estratte le regioni della scena che la camera deve inquadrare. 
+Nel paragrafo \ref{segmentazione} vedremo in dettaglio come vengono estratte le regioni dalla scena.
 \section{Algoritmo per il monitoraggio degli indicatori}
 \subsection{Monitoraggio one-shot}
 \subsection{Monitoraggio sequenziale}
 \section{Algoritmo di segmentazione}
+\label{segmentazione}

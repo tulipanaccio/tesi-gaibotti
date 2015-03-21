@@ -37,10 +37,10 @@
 \contentsline {subsection}{\numberline {4.1.1}Misura della sfocatura nell'immagine}{29}
 \contentsline {subsection}{\numberline {4.1.2}Misura del displacement}{30}
 \contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{31}
-\contentsline {section}{\numberline {4.2}Tecniche di monitoraggio degli indicatori}{36}
-\contentsline {subsection}{\numberline {4.2.1}Monitoraggio one-shot}{36}
-\contentsline {subsection}{\numberline {4.2.2}Monitoraggio sequenziale}{36}
-\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{36}
+\contentsline {section}{\numberline {4.2}Algoritmo per il monitoraggio degli indicatori}{37}
+\contentsline {subsection}{\numberline {4.2.1}Monitoraggio one-shot}{37}
+\contentsline {subsection}{\numberline {4.2.2}Monitoraggio sequenziale}{37}
+\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{37}
 \contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{39}
 \contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{39}
 \contentsline {subsection}{\numberline {5.1.1}Sistemi di acquisizione utilizzati}{40}

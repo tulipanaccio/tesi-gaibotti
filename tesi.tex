@@ -22,6 +22,8 @@
 \addtolength{\oddsidemargin} {-0.4 cm}
 \addtolength{\evensidemargin} {-0.4 cm}
 
+%\setcounter{totalnumber}{1}
+
 \usepackage[italian]{babel}
 \usepackage[latin1]{inputenc}
 \renewcommand{\captionfont}{\normalfont \sffamily \itshape \small}
@@ -53,18 +55,15 @@
 \listoffigures
 \listoftables
 %\printglossaries
-
+\cleardoublepage
 \mainmatter
-\thispagestyle{empty} \vspace*{.75truecm} \normalfont \cleardoublepage
+\thispagestyle{empty} \vspace*{.75truecm} \normalfont 
 \pagestyle{plain}\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}} 
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}         
-\fancyhead[LE,RO]{\bfseries\thepage}    
-                                        
+\fancyhead[LE,RO]{\bfseries\thepage}                            
 \fancyhead[RE]{\bfseries\leftmark}    
 \fancyhead[LO]{\bfseries\rightmark}     
 \renewcommand{\headrulewidth}{0.3pt} 
-
-
 \include{introduzione}
 \include{statoArte}
 \include{formulazioneProblema}
@@ -72,28 +71,21 @@
 %\include{architettura}
 \include{proveSperimentali}
 \include{conclusioni}
-
-
-
 %\appendix
-
 %\pagestyle{fancy} 
 %\fancyfoot{}                                               
 %\renewcommand{\chaptermark}[1]{\markboth{\appendixname\ \thechapter.\ #1}{}} 
 %\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}         
 %\fancyhead[LE,RO]{\bfseries\thepage}    
-                                        
 %\fancyhead[RE]{\bfseries\leftmark}    
 %\fancyhead[LO]{\bfseries\rightmark}     
 %\renewcommand{\headrulewidth}{0.3pt} 
-
 %\include{appendiceA}
 %\include{appendiceB}
 %\include{appendiceC}
 %\include{appendiceD}
 %\include{appendiceE}
 %\include{appendiceF}
-
 \backmatter
 \cleardoublepage
 % ---- Bibliography ----

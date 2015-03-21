@@ -36,15 +36,15 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Esempio di cambi di luminosit\`a tra il giorno e la notte\relax }}{31}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{31}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{31}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di presenza di sfocature dovute all'aumento del tempo di esposizione della camera\relax }}{32}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Esempio di presenza di sfocature dovute all'aumento del tempo di esposizione della camera\relax }}{31}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{31}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{31}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{32}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{32}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{32}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{33}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{33}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{33}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{33}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{34}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{34}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{34}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Energia media del gradiente (a) e della luma (b) nel caso di una sfocatura\relax }}{34}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{34}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{34}
@@ -57,6 +57,12 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera\relax }}{37}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{37}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{37}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Esempio di sequenza dell'energia media della luma (a) e del suo detrending (b) con un displacement difficile da identificare\relax }}{38}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{38}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{38}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Esempio di spostamento della camera\relax }}{38}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{38}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{38}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi utilizzato per l'acquisizione\relax }}{40}
 \addvspace {10\p@ }

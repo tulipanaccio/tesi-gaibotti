@@ -30,7 +30,7 @@ Il modello matematico utilizzato considera uno spazio tridimensionale, detto \te
 I punti su tale piano sono la \textit{proiezione} dell'ambiente tridimensionale.
 La proiezione \`e dovuta a un punto, chiamato \textit{centro ottico}, in cui viene convogliata la luce emanata dall'ambiente tridimensionale.
 In questa astrazione, ciascun punto dello spazio tridimensionale viene associato univocamente a un punto nel piano immagine attraverso il raggio di luce che passa dal centro ottico.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=12cm]{./pictures/cameraObscura}
 	\caption{Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671}
@@ -38,7 +38,7 @@ In questa astrazione, ciascun punto dello spazio tridimensionale viene associato
 \end{figure} 
 All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una \textit{camera oscura}, come si pu\`o osservare nell'illustrazione in figura \ref{fig:prospettiva}, mentre nei moderni sistemi di acquisizione viene realizzato tramite \textit{lenti ottiche}. 
 \subsection{La matrice prospettica della camera}
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=10cm]{./pictures/modelloCamera}
 	\caption{Schematizzazione del sistema ottico della camera}
@@ -78,7 +78,7 @@ Formalmente la matrice prospettica viene definita attraverso la concatenazione d
 La relazione fra le coordinate tridimensionali di un punto $\textbf{M}=[X,Y,Z]$ e le coordinate della sua proiezione $\textbf{m}=[u,v]$ \`e:
 \[u=f\cdot \frac{X}{Z},\]
 \[v=f\cdot \frac{Y}{Z}.\]
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=10cm]{./pictures/mappatura2d3d}
 	\caption{Similitudini tra triangoli usate nel calcolo dei parametri intrinseci}
@@ -135,7 +135,7 @@ Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:map
   \end{array}\right].
  \end{equation}
  Nel caso in cui il sensore della camera sia \textit{digitale}, l'immagine deve essere quantizzata come una matrice di $W$ colonne e $H$ righe, in cui ciascun elemento prende il nome di \textit{pixel} (dalla contrazione di \textit{picture element}).
- \begin{figure}
+ \begin{figure}[tb]
  	\centering
  	\includegraphics[width=8cm]{./pictures/griglia}
  	\caption{Coordinate di un frame}
@@ -163,7 +163,7 @@ Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:map
  \subsection{Parametri estrinseci}
  La matrice $K$ descritta dall'equazione \eqref{eq:kDigital} \`e valida per camere poste all'origine del sistema di riferimento.
 Se consideriamo delle camere poste in un punto arbitrario dell'ambiente, quindi, \`e necessario che le coordinate dei punti, definite nel sistema di riferimento tridimensionale, siano ridefinite secondo il sistema di coordinate della camera.
- \begin{figure}
+ \begin{figure}[tb]
  	\centering
  	\includegraphics[width=8cm]{./pictures/rt}
  	\caption{Trasformazione dal sistema di coordinate dell'ambiente a quello della camera}
@@ -229,7 +229,7 @@ dove $t = -RC$ prende il nome di \textit{vettore di traslazione}.
 \section{Rappresentazione digitale delle immagini}
 \label{rappresentazImmagini}
 Nel paragrafo \ref{intrinsicParam} abbiamo introdotto il concetto di \textit{immagine digitale} come rappresentazione numerica dell'immagine bidimensionale.
-	\begin{figure}
+	\begin{figure}[tb]
 		\centering
 		\includegraphics[width=8cm]{./pictures/lenaRGB}
 		\caption{Esempio di estrazione dei canali RGB}
@@ -248,7 +248,7 @@ Spesso vengono utilizzati algoritmi di \textit{compressione}, che possono essere
 	\item a perdita di informazione (\textit{lossy}), come nel caso delle immagini \textit{JPEG};
 	\item senza perdita di informazione (\textit{lossless}), come nel caso dei file d'immagine \textit{PNG} o \textit{GIF}.
 \end{itemize}
-	\begin{figure}
+	\begin{figure}[tb]
 		\centering
 		\includegraphics[width=8cm]{./pictures/yuv}
 		\caption{Esempio di estrazione dei canali YUV}
@@ -275,7 +275,7 @@ Possiamo classificare gli eventi di tampering in quattro categorie:
 \end{itemize}
 La letteratura scientifica presenta molte tecniche in grado di affrontare il problema dell'identificazione di questo tipo di eventi.
 %Per affrontare il problema dell'identificazione di questo tipo di eventi, la letteratura scientifica offre molte tecniche che permettano l'identificazione automatica di eventi in grado di compromettere la corretta ripresa della scena da parte della videocamera.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=12cm]{./diagrammi/tecnicheSOA.eps}
 	\caption{Tecniche di tampering detection}
@@ -292,7 +292,7 @@ Nel seguito del paragrafo verranno descritti i principali metodi utilizzati in q
 \label{concetti}
 Prima di concentrarci su come \`e stato affrontato il problema del tampering detection, definiamo i concetti e i termini che verranno utilizzati nel seguito della trattazione.\\
 Lo scenario che consideriamo \`e quello di una camera che deve riprendere una particolare \textit{\gls{scena}}.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=12cm]{./pictures/videoMonitoring}
 	\caption{Sistema di monitoraggio video}
@@ -387,7 +387,7 @@ Un metodo simile viene utilizzato anche in \cite{kryjak2012fpga}, con la differe
 La conseguenza di un evento di sfocatura \`e la perdita di dettagli nell'immagine.
 In \cite{aksay2007camera} e \cite{saglam2009real} questo fenomeno \`e associato a una diminuzione dell'energia ad alta frequenza. 
 Per analizzare questo cambiamento, \cite{aksay2007camera} confronta ciascun frame con il background nel dominio delle \textit{wavelet} \cite{mallat1989theory}, mentre \cite{saglam2009real} utilizza il dominio della \textit{trasformata di Fourier} \cite{bracewell1978fourier}.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:defocusNormale} \includegraphics[width = 5cm]{./pictures/normale}}
@@ -409,7 +409,7 @@ nel passaggio da un frame nitido (Fig. \ref{fig:defocusNormale}) a uno sfocato (
 L'evento di tampering viene individuato quando l'\textit{energia media} della trasformata di Fourier (o di quella wavelet) del frame corrente $E_{HF}(z_t)$ \`e $Th$ volte minore di quella del background $E_{HF}(B_t)$:
 \[E_{HF}(z_t)\leq Th \cdot E_{HF}(B_t),\]
 dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.\\
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width = 4cm]{./pictures/FPSalto/img0001}
 	\includegraphics[width = 4cm]{./pictures/FPSalto/img0002}
@@ -433,7 +433,7 @@ Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_t)$ \`e 
 dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
 \subsection{Tecniche basate su monitoraggio sequenziale}
 Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2691}
 	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2692}

@@ -27,7 +27,7 @@ Nel seguito cerchiamo di dare una definizione formale di questi eventi.
 \label{sfocatura}
 Il fenomeno della sfocatura avviene quando un elemento trasparente o semitrasparente si interpone tra la lente della camera e la \gls{scena} ripresa, oppure quando viene cambiata la messa a fuoco, causando una perdita nei dettagli della \gls{scena} ripresa.
 
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
 		{\label{fig:pioggia} \includegraphics[width=6cm]{./pictures/pioggia}}
@@ -76,7 +76,7 @@ Nel caso pi\`u generale possiamo considerare che la camera acquisisca una sequen
 z_t(x)=\mathcal{D}_t[y_t](x) = \mathcal{B}_t[y_t](x) + \eta(x), \qquad x \in \mathcal{X}.
 \end{equation}
 La sequenza delle immagini $\{y_t\}, t = 1,\dots , N$, pu\`o variare in maniera significativa nel suo contenuto, anche nel caso in cui la vista sia la stessa.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=3cm]{./pictures/image0001.eps}
 	\includegraphics[width=3cm]{./pictures/image0002.eps}
@@ -97,7 +97,7 @@ Infatti, nel caso in cui avessimo un riscontro negativo dal confronto tra due fr
 \label{displacement}
 Lo spostamento della camera avviene quando cambia la sua inquadratura.
 Le cause possono essere, ancora una volta, di tipo naturale, ad esempio una raffica di vento che sposta la camera, oppure dovute a un intervento umano, uno spostamento intenzionale per evitare che la scena venga ripresa.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{\label{fig:displacementORIGINALE} \includegraphics[width=6cm]{./pictures/testiORIGINALE}}
 	\subfigure[]{\label{fig:displacementSPOSTATO}\includegraphics[width=6cm]{./pictures/testiDISPLACEMENT}}
@@ -132,7 +132,7 @@ Dato che, nella nostra applicazione, la camera opera con \gls{framerate} molto b
 Anche per lo spostamento della camera vale la considerazione fatta nel caso della sfocatura: il contenuto delle immagini varia con il passare del tempo, quindi identificare lo spostamento confrontando frame consecutivi nel tempo genera un alto numero di falsi allarmi, come verr\`a mostrato dalla fase sperimentale.
 \subsection{Occlusione e guasti della camera}
 Il fenomeno dell'occlusione avviene quando un oggetto opaco si pone a ridosso della camera, impedendo la visione di una parte, se non la totalit\`a, della scena. 
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{\label{fig:occlusionCALZA} \includegraphics[width=6cm]{./pictures/calza}}
 	\subfigure[]{\label{fig:occlusionNEVE}\includegraphics[width=6cm]{./pictures/neve}}
@@ -149,7 +149,7 @@ Quando parliamo di guasti, invece, possiamo considerare due casi:
 Il primo caso pu\`o avvenire quando considerano delle WMSN, in particolare quando i frame vengono trasmessi attraverso la rete dai sensori verso un nodo centrale.
 Quando avviene un guasto nella rete parte dell'immagine non viene trasmessa, come illustrato nella figura \ref{fig:guastoTrasmissione}.
 Il caso del sensore guasto, come ad esempio quello nella figura \ref{fig:guastoSensore}, comporta generalmente un aumento del rumore presente nel frame. \\
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{\label{fig:guastoTrasmissione} \includegraphics[width=6cm]{./pictures/erroreTrasm}}
 	\subfigure[]{\label{fig:guastoSensore}\includegraphics[width=6cm]{./pictures/rumore}}
