@@ -8,16 +8,16 @@
 \section{Indicatori utilizzati per identificare gli eventi di tampering}
 \subsection{Misura della sfocatura nell'immagine}
 Nel paragrafo \ref{sfocatura} abbiamo modellizzato il fenomeno della sfocatura secondo la formula \eqref{blur_multi}:
-\[z_i(x)=\mathcal{D}_i[y_i](x) = \mathcal{B}_i[y_i](x) + \eta(x), \qquad x \in \mathcal{X}.\]
+\[z_t(x)=\mathcal{D}_t[y_t](x) = \mathcal{B}_t[y_t](x) + \eta(x), \qquad x \in \mathcal{X}.\]
 Ricavare un indicatore in grado di misurare direttamente il grado di sfocatura di un'immagine \`e difficile.
 Quello che \`e possibile fare, come proposto in \cite{alippi2010detecting}, \`e utilizzare una misura \textit{indiretta} di questo operatore.\\
 Come abbiamo visto nel paragrafo \ref{sfocatura}, l'operatore di sfocatura $\mathcal{B}$ ha come effetto principale quello di rendere le differenze di intensit\`a tra pixel adiacenti pi\`u morbide (\textit{smooth}).
 In base a questo \`e possibile identificare un evento di sfocatura andando a monitorare l'\textit{energia media del gradiente} di ciascuna immagine:
 \begin{equation}
 \label{eq:energyGradient}
-g_i = \mathcal{G}[z_i] =\frac{\sum_{\mathcal{X}}\| \nabla z_i(x) \| _2^2 }{|\mathcal{X}|} ,
+g_t = \mathcal{G}[z_t] =\frac{\sum_{\mathcal{X}}\| \nabla z_t(x) \| _2^2 }{|\mathcal{X}|} ,
 \end{equation}  
-dove abbiamo indicato con $|\mathcal{X}|$ la \textit{cardinalit\`a} dell'insieme dei pixel $\mathcal{X}$, e con $\|\cdot\|_2$ la norma di tipo $\mathcal{L}_2$\footnote{$\|x\|_2=\sqrt{\sum_{i}x_i^2}$}.\\
+dove abbiamo indicato con $|\mathcal{X}|$ la \textit{cardinalit\`a} dell'insieme dei pixel $\mathcal{X}$, e con $\|\cdot\|_2$ la norma di tipo $\mathcal{L}_2$\footnote{$\|x\|_2=\sqrt{\sum_{t}x_t^2}$}.\\
 Lavorando nel dominio discreto delle immagini digitali, possiamo calcolare le derivate dell'intensit\`a luminosa (\textit{luma}) per mezzo di convoluzioni con filtri derivativi.
 In particolare, per il calcolo delle derivate orizzontali  abbiamo utilizzato il seguente filtro $f_i$:
 \[f_i = f \circledast \left[ \begin{array}{rcl}
@@ -31,22 +31,22 @@ dove abbiamo indicato con $\circledast$ l'operatore di convoluzione e con $f$ un
 \[f(i,j)=\frac{1}{2\pi\sigma^2}\exp\left(-\frac{\left(i-k-1\right)^2+\left(j-k-1\right)^2}{2\sigma^2}\right)\] 
 dove $k=2$ e  la deviazione standard $\sigma = 1$.
 Con questi filtri \`e possibile calcolare la \textit{norma del gradiente} nel seguente modo:
-\[\| \nabla z_i(x) \|_2^2=\left(z \circledast f_i\right)(x)^2 + \left(z \circledast f_j\right)(x)^2.\]
+\[\| \nabla z_t(x) \|_2^2=\left(z_t \circledast f_i\right)(x)^2 + \left(z_t \circledast f_j\right)(x)^2.\]
 Una volta calcolata la norma del gradiente \`e possibile farne la media come specificato nella formula \eqref{eq:energyGradient}.
 Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisito, che pu\`o essere monitorato per individuare eventi di sfocature. 
 In particolare l'evento \`e associato a un \textit{crollo} del valore di $g$.
 \subsection{Misura del displacement}
 Nel paragrafo \ref{displacement} abbiamo modellizzato il fenomeno dello spostamento della camera secondo la formula \eqref{eq:displacement}
-\[z_i(x)  = \left\{ \begin{array}{rcl}
-y_i(x) + \eta(x) & \mbox{per} & i < T^* \\
-w_i(x) + \eta(x) & \mbox{per} & i \geqslant T^*
+\[z_t(x)  = \left\{ \begin{array}{rcl}
+y_t(x) + \eta(x) & \mbox{per} & t < T^* \\
+w_t(x) + \eta(x) & \mbox{per} & t \geqslant T^*
 \end{array}\right. , x \in \mathcal{X}\]
 dove $T^*$ indica l'istante in cui avviene il cambiamento.\\
 Uno spostamento della camera, quindi, \`e associato a un cambiamento \textit{globale} dei valori di intensit\`a luminosa (\textit{luma}) nei pixel dell'immagine.
 In base a questo \`e possibile identificare un evento di spostamento della camera andando a monitorare l'\textit{energia media della luma} di ciascuna immagine:
 \begin{equation}
 \label{eq:energyLuma}
-l_i = \mathcal{L}[z_i] =\frac{\sum_{\mathcal{X}} z_i(x) }{|\mathcal{X}|} ,
+l_t = \mathcal{L}[z_t] =\frac{\sum_{\mathcal{X}} z_t(x) }{|\mathcal{X}|} ,
 \end{equation}  
 dove abbiamo indicato con $|\mathcal{X}|$ la \textit{cardinalit\`a} dell'insieme dei pixel $\mathcal{X}$.\\
 Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisito, che pu\`o essere monitorato per individuare eventi di spostamenti della camera. 
@@ -112,11 +112,54 @@ Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{
 	\label{fig:lumaTot}
 \end{figure}
 Di conseguenza non \`e possibile applicare direttamente le tecniche di CDT come fatto in \cite{alippi2010detecting}. \\
-Per eliminare le componenti in bassa frequenza possiamo fare un \textit{detrending} sulle sequenze facendo una convoluzione con un \textit{filtro derivativo}
-\[df=\left[\begin{array}{rl}
--1 & 1
-\end{array}\right].\]
+Per eliminare le componenti in bassa frequenza possiamo fare un \textit{detrending} di ciascun segnale calcolando la \textit{differenza} tra l'indicatore all'istante corrente e quello precedente:
+\[\Delta g\]
 Il comportamento del detrending sulle sequenze degli indicatori che abbiamo utilizzato \`e rappresentato nelle figure \ref{fig:energyDetr} e \ref{fig:lumaDetr}.  
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_energy}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_luma}}
+	\end{subfigure}
+	\caption{Energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
+	\label{fig:defocusPLOT}
+\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDetrDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_energy_detr}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDetrDefocus} \includegraphics[width=13cm]{./pictures/Defocus/DEFOCUS_luma_detr}}
+	\end{subfigure}
+	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
+	\label{fig:defocusDetrPLOt}
+\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_energy}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_luma}}
+	\end{subfigure}
+	\caption{Energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
+	\label{fig:displacementPLOT}
+\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDetrDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_energy_detr}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDetrDisplacement} \includegraphics[width=13cm]{./pictures/Displacement/DISPLACEMENT_luma_detr}}
+	\end{subfigure}
+	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
+	\label{fig:ddisplacementDetrPLOt}
+\end{figure}
 \section{Tecniche di monitoraggio degli indicatori}
 \subsection{Monitoraggio one-shot}
 \subsection{Monitoraggio sequenziale}

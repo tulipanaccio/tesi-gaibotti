@@ -300,7 +300,7 @@ Lo scenario che consideriamo \`e quello di una camera che deve riprendere una pa
 \end{figure}
 \noindent 
 La posizione e l'orientamento della camera determinano l'\textit{\gls{inquadratura}} della scena.
-L'acquisizione, da parte della camera, della scena nell'istante di tempo $i$ viene definita \textit{immagine} o \textit{frame} i-esimo.
+L'acquisizione, da parte della camera, della scena nell'istante di tempo $t$ viene definita \textit{immagine} o \textit{frame} $t$-esimo.
 La figura \ref{fig:videoMonitoring} illustra questi concetti.\\
 Per semplificare la trattazione, considereremo immagini estratte in \textit{scala di grigi}.
 Ciascuna immagine, quindi, verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.
@@ -310,8 +310,8 @@ Indicheremo con $\mathcal{X}$ l'insieme dei \textit{pixel} costituenti l'immagin
 \[ \mathcal{X} \subset \mathbb{N}^2, \]
 e con $x \in \mathcal{X}$ il singolo pixel.
 Quando vorremo considerare il frame acquisito all'istante di tempo $i$, useremo $z_i$, con $i=1,\dots , \infty$. 
-In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $i$-esimo, useremo il termine $z_i(x)$, con 
-\[ z_i(x) \in [0, 255] \forall x \in \mathcal{X}. \]
+In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $t$-esimo, useremo il termine $z_t(x)$, con 
+\[ z_t(x) \in [0, 255] \forall x \in \mathcal{X}. \]
 
 
 \subsection{Tecniche basate su confronto di background}
@@ -323,19 +323,19 @@ Una tecnica generale di calcolo del background \`e presentata in \cite{aksay2007
 Il valore del modello di background per il pixel $x$\ \`e calcolato, in maniera ricorsiva, secondo la seguente formula:
 \[
 \label{eq:background}
-B_{i + 1}(x)=\left\{ \begin{array} {lcl}
-aB_i(x)+ (1-a)z_i(x) \\
-\mbox{\hspace{1.5cm}, se } |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
-B_i(x) \mbox{\hspace{0.5cm}, se } |z_i(x) - z_{i-1}(x)|>T_i(x)\end{array} \right. , \forall x \in \mathcal{X},
+B_{t + 1}(x)=\left\{ \begin{array} {lcl}
+aB_t(x)+ (1-a)z_t(x) \\
+\mbox{\hspace{1.5cm}, se } |z_t(x) - z_{t-1}(x)|\leq T_t(x) \\
+B_t(x) \mbox{\hspace{0.5cm}, se } |z_t(x) - z_{t-1}(x)|>T_t(x)\end{array} \right. , \forall x \in \mathcal{X},
 \]
-dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{update parameter}) e $T_i(x)$ \`e una soglia che permette di identificare un cambiamento sostanziale di luminosit\`a nel pixel $(x)$. 
+dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{update parameter}) e $T_t(x)$ \`e una soglia che permette di identificare un cambiamento sostanziale di luminosit\`a nel pixel $(x)$. 
  Questa soglia viene aggiornata in maniera ricorsiva secondo la seguente formula:
   \[
   \label{eq:backgroundThreshUpd}
-  T_{i + 1}(x)=\left\{ \begin{array} {lcl}
-  aT_i(x)+ (1-a)(c |z_i(x) - B_i(x)|) \\
-  \mbox{\hspace{1.5cm}, se	}  |z_i(x) - z_{i-1}(x)|\leq T_i(x) \\
-  T_i(x) \mbox{	\hspace{0.5cm}, se	}  |z_i(x) - z_{i-1}(x)|>T_i(x) \end{array} \right. ,\forall x \in \mathcal{X},
+  T_{t + 1}(x)=\left\{ \begin{array} {lcl}
+  aT_t(x)+ (1-a)(c |z_t(x) - B_t(x)|) \\
+  \mbox{\hspace{1.5cm}, se	}  |z_t(x) - z_{t-1}(x)|\leq T_t(x) \\
+  T_t(x) \mbox{	\hspace{0.5cm}, se	}  |z_t(x) - z_{t-1}(x)|>T_t(x) \end{array} \right. ,\forall x \in \mathcal{X},
   \]
   dove $c > 1$ e $0<a<1$.
   Lo stesso modello viene utilizzato in altri lavori, come ad esempio in \cite{saglam2009real} e \cite{tsesmelis2013tamper}, mentre una variante molto usata consiste nel calcolare il modello di background a partire dall'\textit{estrazione dei contorni} di ciascun frame (\cite{harasse2004automated}, \cite{gil2007automatic}).
@@ -343,15 +343,15 @@ dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{updat
 \subsubsection{Identificazione di occlusioni}
 L'evento di occlusione avviene quando un oggetto opaco viene posto vicino alla camera, in modo da coprire la scena ripresa.
 In \cite{aksay2007camera} e \cite{saglam2009real} questo evento \`e associato a un cambiamento nella struttura dell'\textit{istogramma} del frame occluso rispetto a quello del background.
-In particolare, se $z_n$ \`e un frame in cui \`e avvenuta un'occlusione, ci si aspetta che il suo istogramma contenga i valori pi\`u alti in un intervallo pi\`u ristretto rispetto a quello del background $B_n$, in quanto la maggior parte dell'immagine prender\`a il colore dell'oggetto occludente o diventer\`a pi\`u scura.\\
+In particolare, se $z_t$ \`e un frame in cui \`e avvenuta un'occlusione, ci si aspetta che il suo istogramma contenga i valori pi\`u alti in un intervallo pi\`u ristretto rispetto a quello del background $B_t$, in quanto la maggior parte dell'immagine prender\`a il colore dell'oggetto occludente o diventer\`a pi\`u scura.\\
 Indichiamo con $H_b(\cdot)$ il valore del $b$-esimo bin dell'istogramma di un frame, con $1 \leq b \leq 32$.
 Per identificare un evento di occlusione vengono considerate due disequazioni:
 \begin{eqnarray}
- \left(H_{max\left(H(z_i)\right)-1}(z_i) + H_{max\left(H(z_i)\right)}(z_i) +  H_{max\left(H(z_i)\right) + 1}(z_i)\right) \nonumber \\
- > Th_1 \left(H_{max\left(H(z_i)\right)-1}(B_i) + H_{max\left(H(z_i)\right)}(B_i)
-  +  H_{max\left(H(z_i)\right) + 1}(B_i)\right), \nonumber
+ \left(H_{max\left(H(z_t)\right)-1}(z_t) + H_{max\left(H(z_t)\right)}(z_t) +  H_{max\left(H(z_t)\right) + 1}(z_t)\right) \nonumber \\
+ > Th_1 \left(H_{max\left(H(z_t)\right)-1}(B_t) + H_{max\left(H(z_t)\right)}(B_t)
+  +  H_{max\left(H(z_t)\right) + 1}(B_t)\right), \nonumber
 \end{eqnarray}
-\[ \sum_{b=1}^{32} H_b\left(|z_i - B_i|\right) > Th_2 \sum_{b=1}^{k}H_b\left(|z_i - B_i|\right),\]
+\[ \sum_{b=1}^{32} H_b\left(|z_t - B_t|\right) > Th_2 \sum_{b=1}^{k}H_b\left(|z_t - B_t|\right),\]
 dove $Th_1 > 1$, $Th_2 > 1$ e $0 \leq k < 32$ sono soglie che possono essere modificate in base alla sensibilit\`a che si richiede da parte dell'algoritmo.\\
 %In particolare, $Th_1$ e $Th_2$ possono essere aumentate in modo da aumentare la sensibilit\`a, mentre $k$ pu\`o essere diminuito.\\
 Un approccio simile \`e presente in \cite{harasse2004automated}, \cite{gil2007automatic} e \cite{ellwart2012camera}, in cui l'evento di occlusione \`e associato a un abbassamento dell'\textit{entropia}:
@@ -364,25 +364,23 @@ Un approccio simile \`e presente in \cite{harasse2004automated}, \cite{gil2007au
  Una soluzione (\cite{gil2007automatic}) consiste nel dividere ciascuna immagine in un certo numero di \textit{blocchi} della stessa dimensione, in modo da applicare le tecniche descritte sopra per ciascuna partizione.
 \subsubsection{Identificazione di spostamenti della camera}
 Quando viene spostata la camera, in modo cambi l'inquadratura della scena, l'immagine di background $B_i$ viene lentamente aggiornato in modo da riflettere i cambiamenti avvenuti nei frame. 
-In \cite{saglam2009real} il metodo proposto per identificare uno spostamento della camera consiste nel confrontare l'immagine di background $B_i$ con $B_{i-k}$, ovvero con un secondo modello \textit{ritardato} di $k$ frame, dove $k \in \mathbb{Z}^+$.
+In \cite{saglam2009real} il metodo proposto per identificare uno spostamento della camera consiste nel confrontare l'immagine di background $B_t$ con $B_{t-k}$, ovvero con un secondo modello \textit{ritardato} di $k$ frame, dove $k \in \mathbb{Z}^+$.
 L'approccio consiste nel calcolare un \textit{valore di proporzione} $P$, ottenuto dal confronto tra i due modelli:
 \[
 \label{eq:displEqSaglam}
 P=\left\{ \begin{array} {lcl}
-P+1 & \mbox{, se} & B_i(x) \neq B_{i-k}(x) \\
-P & \mbox{, se} & B_i(x) = B_{i-k}(x) \end{array} \right. .
+P+1 & \mbox{, se} & B_t(x) \neq B_{t-k}(x) \\
+P & \mbox{, se} & B_t(x) = B_{t-k}(x) \end{array} \right. .
 \]
 Lo spostamento della camera viene identificato quando $P > Th \cdot K$, dove $0<Th<1$ \`e un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo e $K$ \`e il numero totale di pixel dell'immagine.\\
 Un altro approccio \`e quello di utilizzare tecniche di \textit{block matching}.
-
 L'algoritmo di block matching fornisce due parametri:
 il primo parametro, $m$, indica il \textit{vettore della traslazione} tra il background e il frame corrente, mentre il secondo parametro \`e lo ZNCC relativo a quel vettore.
-
 In \cite{gil2007automatic} e \cite{harasse2004automated} l'algoritmo calcola il vettore di spostamento $m$ del frame corrente rispetto al background, e calcola la \textit{zero-mean normalized cross correlation} (ZNCC) \cite{roma2002comparative}:
 \[
-ZNCC_i(m) = \frac{\sum_{x \in \mathcal{X}}(B_{i-1}(x)- \mu_{B_{i-1}})(z_i(x+m)-\mu_{z_i})}{\sigma_{B_{i-1}} \sigma_{z_i}},
+ZNCC_t(m) = \frac{\sum_{x \in \mathcal{X}}(B_{t-1}(x)- \mu_{B_{t-1}})(z_t(x+m)-\mu_{z_t})}{\sigma_{B_{t-1}} \sigma_{z_t}},
 \]
-dove $\mu_{z_i}$ e $\sigma_{z_i}$ rappresentano la media e la deviazione standard della luminosit\`a nell'immagine $z_i$.
+dove $\mu_{z_t}$ e $\sigma_{z_t}$ rappresentano la media e la deviazione standard della luminosit\`a nell'immagine $z_t$.
 Lo spostamento viene individuato quando il vettore $m$ ha una lunghezza minima e lo ZNCC corrispondente supera una certa soglia.
 Un metodo simile viene utilizzato anche in \cite{kryjak2012fpga}, con la differenza che, invece di analizzare la correlazione dei pixel, viene analizzata quella degli istogrammi. 
 \subsubsection{Identificazione di sfocature} 
@@ -408,8 +406,8 @@ Per analizzare questo cambiamento, \cite{aksay2007camera} confronta ciascun fram
 \end{figure}
 Nella figura \ref{fig:fourier} vediamo un esempio di come si comporta la trasformata di Fourier nel caso di sfocature: 
 nel passaggio da un frame nitido (Fig. \ref{fig:defocusNormale}) a uno sfocato (Fig. \ref{fig:defocusSfocato}) abbiamo un crollo delle componenti ad alta frequenza nelle trasformate di Fourier (rispettivamente Fig. \ref{fig:defocusNormaleFourier} e Fig. \ref{fig:defocusSfocatoFourier}).
-L'evento di tampering viene individuato quando l'\textit{energia media} della trasformata di Fourier (o di quella wavelet) del frame corrente $E_{HF}(z_i)$ \`e $Th$ volte minore di quella del background $E_{HF}(B_i)$:
-\[E_{HF}(z_i)\leq Th \cdot E_{HF}(B_i),\]
+L'evento di tampering viene individuato quando l'\textit{energia media} della trasformata di Fourier (o di quella wavelet) del frame corrente $E_{HF}(z_t)$ \`e $Th$ volte minore di quella del background $E_{HF}(B_t)$:
+\[E_{HF}(z_t)\leq Th \cdot E_{HF}(B_t),\]
 dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.\\
 \begin{figure}
 	\centering
@@ -430,8 +428,8 @@ dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si 
 \end{figure}
 Un altro approccio consiste nell'analizzare la perdita di dettagli confrontando i contorni (\textit{edges}) del frame corrente con quelli del background.
 Questo metodo, utilizzato in \cite{ellwart2012camera}, \cite{gil2007automatic}, \cite{harasse2004automated} e \cite{kryjak2012fpga}, consiste nell'estrarre i contorni dalle immagini secondo il metodo di Sobel \cite{sobel19683x3} o di Canny \cite{canny1986computational}, e confrontare il numero di pixel dei contorni con quelli del background. 
-Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_i)$ \`e $Th$ volte pi\`u piccolo di quello del background $\sum edges(B_i)$:
-\[ \sum edges(z_i) \leq Th \sum edges(B_i), \]
+Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_t)$ \`e $Th$ volte pi\`u piccolo di quello del background $\sum edges(B_t)$:
+\[ \sum edges(z_t) \leq Th \sum edges(B_t), \]
 dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
 \subsection{Tecniche basate su monitoraggio sequenziale}
 Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
@@ -470,18 +468,18 @@ Il metodo, quindi, si presta poco a essere utilizzato su sistemi di monitoraggio
 Un altro esempio \`e dato da \cite{alippi2010detecting}, dove le sfocature vengono identificate monitorando l'\textit{energia media del gradiente} delle immagini acquisite:
 %\begin{equation}
 %\label{eq:energyGradientSOA}
-\[m_i = \mathcal{M}[z_i] = \int_{\mathcal{X}}\| \nabla z_i(x) \| _1 dx,\]
+\[m_t = \mathcal{M}[z_t] = \int_{\mathcal{X}}\| \nabla z_t(x) \| _1 dx,\]
 %\end{equation}  
 dove $\| \cdot \|_1$ si riferisce alla \textit{norma} $\mathcal{L}_1$. 
 Per identificare il cambio di stazionariet\`a di questo indicatore vengono utilizzate tecniche di CDT basate su \textit{somme cumulate} (CUSUM) \cite{alippi2008just}.\\
-Il test statistico utilizzato non richiede alcuna informazione \textit{a priori} del processo che si sta monitorando, e sfrutta una sequenza iniziale $\{m_i\}, i=1,\dots,T$ di indicatori estratti da frame non sfocati, in modo da configurare automaticamente i suoi parametri. 
-Tale sequenza prende il nome di \textit{training set} e, assumendo che i dati abbiano una distribuzione \textit{gaussiana,} permette di stimare i parametri di $m_i$ in assenza di sfocature che determinano l'\textit{ipotesi nulla} (indicata con $\Theta^0$), e di definire le \textit{ipotesi alternative}, indicate con $\Theta^1$, che identificano qualsiasi cambiamento non stazionario.\\
+Il test statistico utilizzato non richiede alcuna informazione \textit{a priori} del processo che si sta monitorando, e sfrutta una sequenza iniziale $\{m_t\}, t=1,\dots,T$ di indicatori estratti da frame non sfocati, in modo da configurare automaticamente i suoi parametri. 
+Tale sequenza prende il nome di \textit{training set} e, assumendo che i dati abbiano una distribuzione \textit{gaussiana,} permette di stimare i parametri di $m_t$ in assenza di sfocature che determinano l'\textit{ipotesi nulla} (indicata con $\Theta^0$), e di definire le \textit{ipotesi alternative}, indicate con $\Theta^1$, che identificano qualsiasi cambiamento non stazionario.\\
 Per garantire una stima accurata dei parametri, \cite{alippi2010detecting} consiglia di utilizzare un training set ampio, ad esempio $T > 400$.
-Il test opera su \textit{sotto-sequenze} di misure $m_i$ (ad esempio da $20$ misure) e stima la transizione da $\Theta^0$ a $\Theta^1$ misurando la \textit{log-verosimiglianza} tra la pdf in assenza di sfocature e le pdf delle varie ipotesi alternative nella sotto-sequenza $\tau$, ovvero
+Il test opera su \textit{sotto-sequenze} di misure $m_t$ (ad esempio da $20$ misure) e stima la transizione da $\Theta^0$ a $\Theta^1$ misurando la \textit{log-verosimiglianza} tra la pdf in assenza di sfocature e le pdf delle varie ipotesi alternative nella sotto-sequenza $\tau$, ovvero
 \[ r(\tau) = \ln \frac{N_{\Theta^1}(\phi_{\tau})}{N_{\Theta^0}(\phi_{\tau})}, \]
-dove $\phi_{\tau}$ \`e il valore medio della misura $m_i$ nella sotto-sequenza $\tau$, e $N_{\Theta}$ \`e la \textit{distribuzione gaussiana multivariata} parametrizzata in $\Theta$.\\
+dove $\phi_{\tau}$ \`e il valore medio della misura $m_t$ nella sotto-sequenza $\tau$, e $N_{\Theta}$ \`e la \textit{distribuzione gaussiana multivariata} parametrizzata in $\Theta$.\\
 Il metodo CUSUM considera la \textit{somma cumulata} 
 \[ S(\tau) = \sum^\tau_{t=1} r(t) \]
-e identifica un cambiamento in $m_i$ quando \[g(\tau)=S(\tau)-\nu(\tau),\] ovvero la differenza tra il valore della somma cumulata all'istante $\tau$ e il suo valore minimo nel tempo \[\nu(\tau)=\min_{t=1,...,\tau}S(t),\] supera una certa soglia $h$.\\
+e identifica un cambiamento in $m_t$ quando \[g(\tau)=S(\tau)-\nu(\tau),\] ovvero la differenza tra il valore della somma cumulata all'istante $\tau$ e il suo valore minimo nel tempo \[\nu(\tau)=\min_{t=1,...,\tau}S(t),\] supera una certa soglia $h$.\\
 L'utilizzo di un descrittore leggero come l'energia media del gradiente permette di operare con una bassa complessit\`a computazionale, tanto da poter essere utilizzato come soluzione a livello di nodo per una \textit{wireless multimedia sensor network} (WMSN) \cite{akyildiz2007survey}.
 D'altro canto, confrontato con le tecniche descritte nel paragrafo \ref{background}, l'utilizzo di tecniche sequenziali genera un numero pi\`u alto di \textit{falsi allarmi}, il che si traduce, all'interno di una rete di sensori, in un aumento dei messaggi di allarme inviati, che devono essere considerati, quindi, come un costo.

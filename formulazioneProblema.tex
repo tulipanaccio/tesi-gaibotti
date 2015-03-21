@@ -70,12 +70,12 @@ Nel caso in cui la sfocatura sia applicata sulla totalit\`a dell'immagine e foss
 \mathcal{B}[y](x) = \int_{\mathcal{X}}y(s)h(s-x)ds,
 \end{equation}
 dove $h(\cdot)$ \`e un filtro gaussiano o uniforme.\\
-Nel caso pi\`u generale possiamo considerare che la camera acquisisca una sequenza di $N$ osservazioni $\{z_i\}, i = 1, \dots ,N$, quindi la formula \eqref{blur_single} si pu\`o riscrivere come
+Nel caso pi\`u generale possiamo considerare che la camera acquisisca una sequenza di $N$ osservazioni (dove $N$ pu\`o tendere all'infinito) $\{z_t\}, t = 1, \dots ,N$, quindi la formula \eqref{blur_single} si pu\`o riscrivere come
 \begin{equation}
 \label{blur_multi}
-z_i(x)=\mathcal{D}_i[y_i](x) = \mathcal{B}_i[y_i](x) + \eta(x), \qquad x \in \mathcal{X}.
+z_t(x)=\mathcal{D}_t[y_t](x) = \mathcal{B}_t[y_t](x) + \eta(x), \qquad x \in \mathcal{X}.
 \end{equation}
-La sequenza delle immagini $\{y_i\}, i = 1,\dots , N$, pu\`o variare in maniera significativa nel suo contenuto, anche nel caso in cui la vista sia la stessa.
+La sequenza delle immagini $\{y_t\}, t = 1,\dots , N$, pu\`o variare in maniera significativa nel suo contenuto, anche nel caso in cui la vista sia la stessa.
 \begin{figure}
 	\centering
 	\includegraphics[width=3cm]{./pictures/image0001.eps}
@@ -92,7 +92,7 @@ La sequenza delle immagini $\{y_i\}, i = 1,\dots , N$, pu\`o variare in maniera 
 \noindent Un esempio \`e illustrato nella figura \ref{fig:framDifferences}, in cui le immagini riprese dalla camera sono acquisite ogni minuto. 
 Nonostante l'inquadratura non cambi tra le acquisizioni, il contenuto delle singole immagini varia parecchio, a causa del continuo passaggio di automobili e pedoni.
 Questo problema fa s\`i che l'identificazione delle sfocature non possa avvenire facendo un semplice confronto tra frame consecutivi, in quanto avremmo un numero troppo elevato di falsi positivi.
-Infatti, nel caso in cui avessimo un riscontro negativo dal confronto tra due frame ($z_i \neq z_{i + 1}$), sarebbe difficile capire se \`e cambiato il contenuto delle immagini ($y_i \neq y_{i + 1}$) o l'operatore di sfocatura ($\mathcal{B}_i \neq \mathcal{B}_{i + 1}$). 
+Infatti, nel caso in cui avessimo un riscontro negativo dal confronto tra due frame ($z_t \neq z_{t + 1}$), sarebbe difficile capire se \`e cambiato il contenuto delle immagini ($y_t \neq y_{t + 1}$) o l'operatore di sfocatura ($\mathcal{B}_t \neq \mathcal{B}_{t + 1}$). 
 \subsection{Spostamento della camera}
 \label{displacement}
 Lo spostamento della camera avviene quando cambia la sua inquadratura.
@@ -105,13 +105,13 @@ Le cause possono essere, ancora una volta, di tipo naturale, ad esempio una raff
 	\label{fig:testiDISPLACEMENT}
 \end{figure}
 \noindent Un esempio \`e mostrato nella figura \ref{fig:testiDISPLACEMENT}, dove vediamo che tra il frame riportato in figura \ref{fig:displacementORIGINALE} e quello in figura \ref{fig:displacementSPOSTATO} c'\`e stato un evento che ha spostato la camera.
-Possiamo formalizzare il concetto di spostamento della camera nel modo seguente: consideriamo la sequenza $\{y_i\}$ di immagini generate da una camera in una certa posizione, e la sequenza $\{w_i\}$ di immagini generate dalla stessa camera in una posizione differente.\\
-Possiamo modellare la sequenza di immagini $\{z_i\}$ in cui avviene uno spostamento della camera all'istante $T^*$ nel seguente modo:
+Possiamo formalizzare il concetto di spostamento della camera nel modo seguente: consideriamo la sequenza $\{y_t\}$ di immagini generate da una camera in una certa posizione, e la sequenza $\{w_t\}$ di immagini generate dalla stessa camera in una posizione differente.\\
+Possiamo modellare la sequenza di immagini $\{z_t\}$ in cui avviene uno spostamento della camera all'istante $T^*$ nel seguente modo:
 \begin{equation}
 \label{eq:displacement}
-z_i(x)  = \left\{ \begin{array}{rcl}
-	y_i(x) + \eta(x) & \mbox{per} & i < T^* \\
-	w_i(x) + \eta(x) & \mbox{per} & i \geqslant T^*
+z_t(x)  = \left\{ \begin{array}{rcl}
+	y_t(x) + \eta(x) & \mbox{per} & t < T^* \\
+	w_t(x) + \eta(x) & \mbox{per} & t \geqslant T^*
 	\end{array}\right. ,
 \end{equation}
 dove $\eta(x)$ \`e un rumore stazionario.\\
@@ -161,14 +161,14 @@ Questi problemi non sono stati affrontati durante il corso della tesi, comunque 
 Nel paragrafo \ref{tamperingSOA} abbiamo introdotto in maniera molto generale il concetto di tampering detection. 
 In questo paragrafo diamo una definizione pi\`u formale al problema.
 L'algoritmo di tampering detection consiste nell'analizzare la sequenza dei frame generati dalla camera in modo da determinare un possibile cambiamento nell'inquadratura della scena o una sfocatura.\\
-Consideriamo il caso generale di una sequenza di frame $\{z_i\}, i=1,\dots,\infty$. 
-Per $i<T^*$ abbiamo che i frame vengono acquisiti in condizioni di funzionamento normale:
-\[ z_i(x)=y_i(x) + \eta(x), \forall x \in \mathcal{X} \mbox{, per } i=1,\dots , T^*-1. \] 
-All'istante di tempo $i = T^*$ avviene un evento di tampering, il quale compromette i frame per $i\geq T^*$.  
+Consideriamo il caso generale di una sequenza di frame $\{z_t\}, t=1,\dots,\infty$. 
+Per $t<T^*$ abbiamo che i frame vengono acquisiti in condizioni di funzionamento normale:
+\[ z_t(x)=y_t(x) + \eta(x), \forall x \in \mathcal{X} \mbox{, per } t=1,\dots , T^*-1. \] 
+All'istante di tempo $t = T^*$ avviene un evento di tampering, il quale compromette i frame per $t\geq T^*$.  
 In particolare, nel caso di una sfocatura avremo
-\[ z_i = B_i[y_i](x) + \eta(x), \forall x \in \mathcal{X} \mbox{, per } i \geq T^*,\]
+\[ z_t = B_t[y_t](x) + \eta(x), \forall x \in \mathcal{X} \mbox{, per } t \geq T^*,\]
 mentre nel caso di uno spostamento della camera avremo
-\[ z_i = w_i(x) + \eta(x), \forall x \in \mathcal{X} \mbox{, per } i \geq T^*. \]
+\[ z_t = w_t(x) + \eta(x), \forall x \in \mathcal{X} \mbox{, per } t \geq T^*. \]
 %Nel caso dell'operatore di degradazione $\mathcal{D}$, con riferimento al modello descritto nell'equazione \eqref{blur_multi}, possiamo considerare che, in condizioni di funzionamento normale, l'operatore di sfocatura $\mathcal{B}$ si comporti come un \textit{filtro passa-tutto}, ovvero
 %\[\mathcal{B}_i[y](x)=y_i(x) \mbox{, per } i=1,\dots, T^*,\]
 %e che all'istante $T^*$ esso cambi, diventando come nel caso dell'equazione \eqref{eq:blur}.
