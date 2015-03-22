@@ -225,24 +225,33 @@ Nel paragrafo \ref{segmentazione} vedremo in dettaglio come vengono estratte le 
 	\LinesNumbered
 	\SetAlgoNlRelativeSize{0}
 	\SetNlSty{small}{}{.}
-	\textbf{Training on a set of normal images $S$}:\\
-	\lnl{ALG-Tr1} Learn filters $\{\mb d_m\}$, compute $\overline{\mb g}, \Sigma$ from $\mb g(i)$ extracted from $S$. \\
-	\lnl{ALG-Tr2} Set a threshold $\gamma > 0$.\\
-	\textbf{Anomaly Detection in a test image $\mb s$}:\\
-	\lnl{ALG-Test1} Compute the filter maps $\{\mb x_m\}$ solving~\eqref{eq:conv_sparse_coding}. \\
-	\lnl{ALG-Test2} \ForEach{\textnormal{pixel} $i$ \textnormal{of} $\mb s$}
-	{
-		\lnl{ALG-Test3} Compute $\mb g(i)$\\
-		\lnl{ALG-Test4} \If{$\big(\mb g(i) - \overline{\mb g})' \Sigma^{-1}(\mb g(i) - \overline{\mb g}\big) > \gamma$}
-		{
-			\lnl{ALG-Test5} $i$ belongs to an anomalous region\\
+	\textbf{Configurazione}:\\
+	\lnl{DISPL-Tr1} Estraggo le regioni $\{R_k\}, k=1,\dots,K$  \\
+	\lnl{DISPL-Tr2} \For{$t=1,\dots,T_{training}$}
+	{	\lnl{DISPL-Tr3} Estraggo il frame $z_t$ \\
+		\lnl{DISPL-Tr4} \For{$k=1,\dots,K$}{
+			\lnl{DISPL-Tr5} Calcolo $g_t^k$, $\Delta g_t^k$ per la regione $R_k$\\
 		}
-		%{
-		%\lnl{ALG-Test6} $i$ belongs to a normal region\\
-		%}
-	}   
-	%\caption{Anomaly detection using convolutional sparsity.}
-	\label{alg:ALG1}
+	}
+	\lnl{DISPL-Tr6} \For{$k=1,\dots,K$}{
+		\lnl{DISPL-Tr7} Definisco le soglie $Th_{min}^k$ e $Th_{max}^k$\\
+	}
+	\textbf{Fase operativa}:\\
+	\lnl{DISPL-Test1} \For{$t=T,\dots,\infty$}{
+		\lnl{DISPL-Test2} Estraggo il frame $z_t$ \\
+		\lnl{DISPL-Test3} $n = 0$ \\
+		\lnl{DISPL-Test4} \For{$k=1,\dots,K$}{
+			\lnl{DISPL-Test5} Calcolo $g_t^k$, $\Delta g_t^k$ per la regione $R_k$\\
+			\lnl{DISPL-Test6} \If{$\Delta g_t^k < Th_{min}^k \vee \Delta g_t^k > Thm_{max}^k $}{
+				\lnl{DISPL-Test7} $n=n+1$\\
+				}
+			}
+		\lnl{DISPL-Test8} \If{$n\geq K-1$}{
+			\lnl{DISPL-Test9} $z_t$ \`e un frame in cui \`e avvenuto uno spostamento della camera\\
+			}
+		}   
+	\caption{Algoritmo di identificazione di spostamenti della camera}
+	\label{alg:DISPL}
 \end{algorithm}
 \subsection{Monitoraggio one-shot}
 \subsection{Monitoraggio sequenziale}
