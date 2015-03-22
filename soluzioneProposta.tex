@@ -89,10 +89,10 @@ Tra i pi\`u importanti abbiamo:
 \begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
-		{\label{fig:energy} \includegraphics[width=8cm]{./pictures/energyTot}}
+		{\label{fig:energy} \includegraphics[width=12cm]{./pictures/energyTot}}
 	\end{subfigure}
 	\begin{subfigure}[]
-		{\label{fig:energyDetr} \includegraphics[width=8cm]{./pictures/energydetr}}
+		{\label{fig:energyDetr} \includegraphics[width=12cm]{./pictures/energydetr}}
 	\end{subfigure}
 	\caption{Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
 	\label{fig:energyTot}
@@ -100,13 +100,75 @@ Tra i pi\`u importanti abbiamo:
 \begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
-		{\label{fig:luma} \includegraphics[width=8cm]{./pictures/lumaTot}}
+		{\label{fig:luma} \includegraphics[width=12cm]{./pictures/lumaTot}}
 	\end{subfigure}
 	\begin{subfigure}[]
-		{\label{fig:lumaDetr} \includegraphics[width=8cm]{./pictures/lumadetr}}
+		{\label{fig:lumaDetr} \includegraphics[width=12cm]{./pictures/lumadetr}}
 	\end{subfigure}
 	\caption{Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
 	\label{fig:lumaTot}
+\end{figure}
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDefocus} \includegraphics[width=12cm]{./pictures/Defocus/DEFOCUS_energy}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDefocus} \includegraphics[width=12cm]{./pictures/Defocus/DEFOCUS_luma}}
+	\end{subfigure}
+	\caption{Energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
+	\label{fig:defocusPLOT}
+\end{figure}
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDetrDefocus} \includegraphics[width=12cm]{./pictures/Defocus/DEFOCUS_energy_detr}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDetrDefocus} \includegraphics[width=12cm]{./pictures/Defocus/DEFOCUS_luma_detr}}
+	\end{subfigure}
+	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
+	\label{fig:defocusDetrPLOt}
+\end{figure}
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDisplacement} \includegraphics[width=12cm]{./pictures/Displacement/DISPLACEMENT_energy}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDisplacement} \includegraphics[width=12cm]{./pictures/Displacement/DISPLACEMENT_luma}}
+	\end{subfigure}
+	\caption{Energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
+	\label{fig:displacementPLOT}
+\end{figure}
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:energyDetrDisplacement} \includegraphics[width=12cm]{./pictures/Displacement/DISPLACEMENT_energy_detr}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDetrDisplacement} \includegraphics[width=12cm]{./pictures/Displacement/DISPLACEMENT_luma_detr}}
+	\end{subfigure}
+	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
+	\label{fig:displacementDetrPLOT}
+\end{figure}
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:lumaDisplacementBRUTTO} \includegraphics[width=12cm]{./pictures/DisplacementTOTALE/luma}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:lumaDetrDisplacementBRUTTO} \includegraphics[width=12cm]{./pictures/DisplacementTOTALE/lumaDetr}}
+	\end{subfigure}
+	\caption{Esempio di sequenza dell'energia media della luma (a) e del suo detrending (b) con un displacement difficile da identificare}
+	\label{fig:displacementBRUTTO}
+\end{figure}
+\begin{figure}[tb]
+	\centering
+	\subfigure[]{\label{fig:displacementORIGINALE1} \includegraphics[width=6cm]{./pictures/testiORIGINALE}}
+	\subfigure[]{\label{fig:displacementSPOSTATO1}\includegraphics[width=6cm]{./pictures/testiDISPLACEMENT}}
+	\caption{Esempio di spostamento della camera}
+	\label{fig:testiDISPLACEMENT1}
 \end{figure}
 Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{difficilmente prevedibile} e che \textit{non siano stazionari}, come possiamo vedere negli esempi delle figure \ref{fig:energy} e \ref{fig:luma}.
 Di conseguenza non \`e possibile applicare direttamente le tecniche di CDT come fatto in \cite{alippi2010detecting}. \\
@@ -123,54 +185,10 @@ Nel caso dell'energia media del gradiente avremo
 mentre per l'energia media della luma avremo
 \[\Delta l_t = l_t - l_{t -1}.\]
 Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle figure \ref{fig:energyDetr} e \ref{fig:lumaDetr}.  
-\begin{figure}[tb]
-	\centering
-	\begin{subfigure}[]
-		{\label{fig:energyDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_energy}}
-	\end{subfigure}
-	\begin{subfigure}[]
-		{\label{fig:lumaDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_luma}}
-	\end{subfigure}
-	\caption{Energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
-	\label{fig:defocusPLOT}
-\end{figure}
-\begin{figure}[tb]
-	\centering
-	\begin{subfigure}[]
-		{\label{fig:energyDetrDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_energy_detr}}
-	\end{subfigure}
-	\begin{subfigure}[]
-		{\label{fig:lumaDetrDefocus} \includegraphics[width=8cm]{./pictures/Defocus/DEFOCUS_luma_detr}}
-	\end{subfigure}
-	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di una sfocatura}
-	\label{fig:defocusDetrPLOt}
-\end{figure}
 Possiamo notare come le fluttuazioni in bassa frequenza vengano lavate via dal detrending, dato che in questo modo consideriamo solamente le differenze tra misure consecutive.\\
 Come abbiamo detto prima, lo scopo del monitoraggio di questi indicatori \`e quello di individuare degli eventi di tampering.
 Nelle figure \ref{fig:defocusPLOT} e \ref{fig:displacementPLOT} possiamo vedere il comportamento dell'energia media di luma e gradiente rispettivamente per un caso di sfocatura e per un caso di spostamento della camera.  
 In particolare, in entrambi i casi l'evento di tampering avviene al frame $1000$\footnote{Il modo in cui sono stati ottenuti gli eventi di tampering \`e descritto nel capitolo \ref{ProveSperimentali}}.
-\begin{figure}[tb]
-	\centering
-	\begin{subfigure}[]
-		{\label{fig:energyDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_energy}}
-	\end{subfigure}
-	\begin{subfigure}[]
-		{\label{fig:lumaDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_luma}}
-	\end{subfigure}
-	\caption{Energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
-	\label{fig:displacementPLOT}
-\end{figure}
-\begin{figure}[tb]
-	\centering
-	\begin{subfigure}[]
-		{\label{fig:energyDetrDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_energy_detr}}
-	\end{subfigure}
-	\begin{subfigure}[]
-		{\label{fig:lumaDetrDisplacement} \includegraphics[width=8cm]{./pictures/Displacement/DISPLACEMENT_luma_detr}}
-	\end{subfigure}
-	\caption{Detrending dell'energia media del gradiente (a) e della luma (b) nel caso di uno spostamento della camera}
-	\label{fig:displacementDetrPLOT}
-\end{figure}
 Il detrending di questi segnali \`e visualizzato nelle figure \ref{fig:defocusDetrPLOt} e \ref{fig:displacementDetrPLOT}.\\
 \noindent Possiamo vedere come, in generale, l'evento di tampering sia associato a un brusco salto o a un crollo \textit{istantaneo} del valore di uno o entrambi gli indicatori.
 Vanno notate alcune cose:
@@ -186,29 +204,11 @@ Vanno notate alcune cose:
 \end{itemize}
 In definitiva, \`e possibile identificare un evento di tampering andando a monitorare il detrending degli indicatori descritti dalla formule \eqref{eq:energyGradient} e \eqref{eq:energyLuma}.
 Il monitoraggio pu\`o essere fatto con tecniche a \textit{basso carico computazionale}: infatti \`e possibile utilizzare semplicemente una soglia in modo da individuare il picco nel detrending dovuto all'evento di tampering.
-\begin{figure}[tb]
-	\centering
-	\begin{subfigure}[]
-		{\label{fig:lumaDisplacementBRUTTO} \includegraphics[width=8cm]{./pictures/DisplacementTOTALE/luma}}
-	\end{subfigure}
-	\begin{subfigure}[]
-		{\label{fig:lumaDetrDisplacementBRUTTO} \includegraphics[width=8cm]{./pictures/DisplacementTOTALE/lumaDetr}}
-	\end{subfigure}
-	\caption{Esempio di sequenza dell'energia media della luma (a) e del suo detrending (b) con un displacement difficile da identificare}
-	\label{fig:displacementBRUTTO}
-\end{figure}
 In particolare possiamo monitorare l'energia media del gradiente per individuare eventi di sfocatura, e l'energia media della luma per individuare eventi di spostamento della camera.
 Inoltre, per rendere pi\`u robusta l'identificazione di sfocature, \`e possibile usare un test sequenziale sull'energia media del gradiente in grado di individuare dei cambiamenti nella varianza.\\
 Dobbiamo fare un'ultima considerazione sullo spostamento della camera.
 Ci possono essere dei casi in cui l'evento \`e difficilmente individuabile monitorando la scena nella sua totalit\`a.
-Un esempio \`e illustrato nella figura \ref{fig:displacementBRUTTO}, dove vediamo un caso di displacement che avviene al frame $800$.
-\begin{figure}[tb]
-	\centering
-	\subfigure[]{\label{fig:displacementORIGINALE1} \includegraphics[width=6cm]{./pictures/testiORIGINALE}}
-	\subfigure[]{\label{fig:displacementSPOSTATO1}\includegraphics[width=6cm]{./pictures/testiDISPLACEMENT}}
-	\caption{Esempio di spostamento della camera}
-	\label{fig:testiDISPLACEMENT1}
-\end{figure}
+Un esempio \`e illustrato nella figura \ref{fig:displacementBRUTTO}, dove vediamo un caso di spostamento della camera che avviene al frame $800$.
 Questo evento, per\`o, non si traduce, nel detrending del segnale, in un picco che si eleva rispetto agli altri, come nel caso della figura \ref{fig:lumaDetrDisplacement}.
 Questo problema capita perch\'e stiamo monitorando l'energia media della luma calcolata sulla \textit{totalit\`a} della scena.
 Possiamo avere situazioni, come nel caso della figura \ref{fig:displacementBRUTTO}, in cui lo spostamento della camera non determina un cambiamento sostanziale nella luminosit\`a media della scena.\\
@@ -218,6 +218,32 @@ Infatti, se consideriamo un'area particolare della scena, come ad esempio quella
 Abbiamo deciso, quindi, di inserire una fase di \textit{segmentazione} in cui vengono estratte le regioni della scena che la camera deve inquadrare. 
 Nel paragrafo \ref{segmentazione} vedremo in dettaglio come vengono estratte le regioni dalla scena.
 \section{Algoritmo per il monitoraggio degli indicatori}
+\IncMargin{0.1em}
+\vspace{-0.2cm}
+\begin{algorithm}[h!]
+	% \SetAlgoNoLine
+	\LinesNumbered
+	\SetAlgoNlRelativeSize{0}
+	\SetNlSty{small}{}{.}
+	\textbf{Training on a set of normal images $S$}:\\
+	\lnl{ALG-Tr1} Learn filters $\{\mb d_m\}$, compute $\overline{\mb g}, \Sigma$ from $\mb g(i)$ extracted from $S$. \\
+	\lnl{ALG-Tr2} Set a threshold $\gamma > 0$.\\
+	\textbf{Anomaly Detection in a test image $\mb s$}:\\
+	\lnl{ALG-Test1} Compute the filter maps $\{\mb x_m\}$ solving~\eqref{eq:conv_sparse_coding}. \\
+	\lnl{ALG-Test2} \ForEach{\textnormal{pixel} $i$ \textnormal{of} $\mb s$}
+	{
+		\lnl{ALG-Test3} Compute $\mb g(i)$\\
+		\lnl{ALG-Test4} \If{$\big(\mb g(i) - \overline{\mb g})' \Sigma^{-1}(\mb g(i) - \overline{\mb g}\big) > \gamma$}
+		{
+			\lnl{ALG-Test5} $i$ belongs to an anomalous region\\
+		}
+		%{
+		%\lnl{ALG-Test6} $i$ belongs to a normal region\\
+		%}
+	}   
+	%\caption{Anomaly detection using convolutional sparsity.}
+	\label{alg:ALG1}
+\end{algorithm}
 \subsection{Monitoraggio one-shot}
 \subsection{Monitoraggio sequenziale}
 \section{Algoritmo di segmentazione}

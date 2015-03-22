@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  21 MAR 2015 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  22 MAR 2015 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -772,7 +772,7 @@ File: ./pictures/lumaTot.eps Graphic file (type eps)
 
 <./pictures/lumaTot.eps>
 File: ./pictures/lumadetr.eps Graphic file (type eps)
- <./pictures/lumadetr.eps> [32]
+ <./pictures/lumadetr.eps>
 File: ./pictures/Defocus/DEFOCUS_energy.eps Graphic file (type eps)
 
 <./pictures/Defocus/DEFOCUS_energy.eps>
@@ -797,7 +797,7 @@ ps)
 File: ./pictures/Displacement/DISPLACEMENT_luma_detr.eps Graphic file (type eps
 )
 
-<./pictures/Displacement/DISPLACEMENT_luma_detr.eps> [33] [34]
+<./pictures/Displacement/DISPLACEMENT_luma_detr.eps>
 File: ./pictures/DisplacementTOTALE/luma.eps Graphic file (type eps)
 
 <./pictures/DisplacementTOTALE/luma.eps>
@@ -808,37 +808,34 @@ File: ./pictures/testiORIGINALE.eps Graphic file (type eps)
  <./pictures/testiORIGINALE.eps>
 File: ./pictures/testiDISPLACEMENT.eps Graphic file (type eps)
 
-<./pictures/testiDISPLACEMENT.eps> [35]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36])
-[37] [38]
+<./pictures/testiDISPLACEMENT.eps> [32] [33] [34] [35] [36] [37] [38]) [39]
 \openout2 = `proveSperimentali.aux'.
 
- (./proveSperimentali.tex
+
+(./proveSperimentali.tex [40
+
+
+
+]
 Capitolo 5.
 File: ./pictures/raspberry.eps Graphic file (type eps)
 <./pictures/raspberry.eps>
 Underfull \vbox (badness 1527) has occurred while \output is active []
 
- [39
-
-
-
-]
+ [41]
 Underfull \vbox (badness 2213) has occurred while \output is active []
 
- [40])
-[41]
+ [42])
+[43]
 \openout2 = `conclusioni.aux'.
 
- (./conclusioni.tex [42
+ (./conclusioni.tex [44
 
 
 
 ]
 Capitolo 6.
-) [43] [44
+) [45] [46
 
 
 ] (./tesi.bbl
@@ -853,10 +850,10 @@ Underfull \hbox (badness 2443) in paragraph at lines 20--22
 cmr/m/n/10.95 .  Vi-si-ta-to il
  []
 
-[45
+[47
 
 
-] [46]
+] [48]
 Underfull \hbox (badness 10000) in paragraph at lines 148--149
 []$\OT1/cmtt/m/n/10.95 http : / / www . arm . com / products / processors / cla
 ssic / arm11 /
@@ -868,17 +865,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
 / mobmm _
  []
 
-) [47] (./tesi.aux (./frontespizio.aux) (./dedica.aux) (./sommario.aux)
+) [49] (./tesi.aux (./frontespizio.aux) (./dedica.aux) (./sommario.aux)
 (./ringraziamenti.aux) (./introduzione.aux) (./statoArte.aux)
 (./formulazioneProblema.aux) (./soluzioneProposta.aux) (./proveSperimentali.aux
 ) (./conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
  9187 strings out of 493109
  133530 string characters out of 6140752
- 274365 words of memory out of 5000000
+ 273365 words of memory out of 5000000
  12313 multiletter control sequences out of 15000+600000
  17072 words of font info for 62 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  46i,11n,77p,2195b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (63 pages, 122148 bytes).
+Output written on tesi.dvi (65 pages, 122324 bytes).
