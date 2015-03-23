@@ -18,9 +18,10 @@
 %\end{quotation}
 \vspace{0.5cm}
 
-\noindent In questo capitolo presentiamo i concetti fondamentali della teoria alla base della \textit{visione artificiale} e lo studio fatto finora sul problema del \textit{tampering detection}.
-Nei paragrafi \ref{modelloCamera} e \ref{rappresentazImmagini} diamo una visione generale del modello della camera e di come vengono rappresentate le immagini digitali, in modo da comprendere meglio gli argomenti trattati nei capitoli successivi.
-Nel paragrafo \ref{tamperingSOA} descriviamo le soluzioni al problema del tampering detection presenti nella letteratura scientifica, definendo inoltre i concetti e la terminologia che verr\`a utilizzata nel resto della trattazione.
+\noindent In questo capitolo presentiamo i concetti fondamentali della teoria alla base della \textit{visione artificiale} e dell'elaborazione di segnali e lo studio fatto finora sul problema del \textit{tampering detection}.\\
+Nei Paragrafi \ref{modelloCamera} e \ref{rappresentazImmagini} diamo una visione generale del modello della camera e di come vengono rappresentate le immagini digitali, in modo da comprendere meglio gli argomenti trattati nei capitoli successivi.\\
+Nel Paragrafo \ref{cdt} illustriamo le tecniche maggiormente utilizzate per identificare cambiamenti nella stazionariet\`a di un segnale o una sequenza di dati.\\
+Nel Paragrafo \ref{tamperingSOA} descriviamo le soluzioni al problema del tampering detection presenti nella letteratura scientifica, definendo inoltre i concetti e la terminologia che verr\`a utilizzata nel resto della trattazione.
 \section{Modello della camera}
 \label{modelloCamera}
 Affinch\'e un sistema di visione artificiale possa risolvere il problema per cui \`e stato progettato, \`e necessario che esso sia in grado di acquisire una porzione della realt\`a che lo circonda.
@@ -36,7 +37,7 @@ In questa astrazione, ciascun punto dello spazio tridimensionale viene associato
 	\caption{Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671}
 	\label{fig:prospettiva}
 \end{figure} 
-All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una \textit{camera oscura}, come si pu\`o osservare nell'illustrazione in figura \ref{fig:prospettiva}, mentre nei moderni sistemi di acquisizione viene realizzato tramite \textit{lenti ottiche}. 
+All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una \textit{camera oscura}, come si pu\`o osservare nell'illustrazione in Figura \ref{fig:prospettiva}, mentre nei moderni sistemi di acquisizione viene realizzato tramite \textit{lenti ottiche}. 
 \subsection{La matrice prospettica della camera}
 \begin{figure}[tb]
 	\centering
@@ -44,7 +45,7 @@ All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una
 	\caption{Schematizzazione del sistema ottico della camera}
 	\label{fig:modelloCamera}
 \end{figure} 
-Nella figura \ref{fig:modelloCamera} sono illustrati i concetti che sono utilizzati per descrivere il sistema ottico della camera.
+Nella Figura \ref{fig:modelloCamera} sono illustrati i concetti che sono utilizzati per descrivere il sistema ottico della camera.
 Indichiamo con la lettera maiuscola $\textbf{M}=[X, Y, Z]^\textit{T}$ un qualsiasi punto nello spazio tridimensionale e con la lettera minuscola $\textbf{m} = [u, v]^\textit{T}$ la sua proiezione sul piano immagine dovuta al centro ottico $\textbf{C}$.
 La linea che congiunge il centro ottico $\textbf{C}$ perpendicolarmente al piano immagine \`e detta \textit{asse principale}, indicata con $Z$, e il suo punto di intersezione con il piano stesso viene definita \textit{punto principale} $\textbf{c}$.
 La distanza tra il punto principale e il centro ottico viene definita \textit{distanza focale},  e viene indicata con $f$.\\
@@ -84,7 +85,7 @@ La relazione fra le coordinate tridimensionali di un punto $\textbf{M}=[X,Y,Z]$ 
 	\caption{Similitudini tra triangoli usate nel calcolo dei parametri intrinseci}
 	\label{fig:mapping}
 \end{figure}
-\noindent Tale relazione deriva dalle propriet\`a dei triangoli simili, come mostra la figura \ref{fig:mapping}.
+\noindent Tale relazione deriva dalle propriet\`a dei triangoli simili, come mostra la Figura \ref{fig:mapping}.
 La \textit{mappatura} viene definita, dunque, dalla seguente relazione:
 \begin{equation}
 \label{eq:mapping}
@@ -118,7 +119,7 @@ f & & \\
 \end{equation}
 
 viene detta \textit{matrice di calibrazione} della camera.\\
-Nella formula \eqref{eq:mapping} abbiamo assunto che l'origine delle coordinate del piano immagine si trovi nel punto principale, come \`e illustrato nella figura \ref{fig:modelloCamera}.
+Nella formula \eqref{eq:mapping} abbiamo assunto che l'origine delle coordinate del piano immagine si trovi nel punto principale, come \`e illustrato nella Figura \ref{fig:modelloCamera}.
 Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:mapping} diventa
  \begin{equation}
  \label{eq:mappingGeneral}
@@ -142,7 +143,7 @@ Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:map
  	\label{fig:griglia}
  \end{figure}
  Ogni pixel possiede, quindi, delle coordinate che definiscono la sua posizione sulla matrice del frame.
- Se definiamo con $(i,j)$ le coordinate del generico pixel sulla matrice del frame, dove l'origine \`e posta nell'angolo in alto a sinistra, e con $(O_u, O_v)$ le coordinate del punto principale secondo il sistema di riferimento del frame (si veda a riguardo la figura \ref{fig:griglia}), possiamo mettere in relazione le coordinate dell'immagine con le coordinate frame nel seguente modo:
+ Se definiamo con $(i,j)$ le coordinate del generico pixel sulla matrice del frame, dove l'origine \`e posta nell'angolo in alto a sinistra, e con $(O_u, O_v)$ le coordinate del punto principale secondo il sistema di riferimento del frame (si veda a riguardo la Figura \ref{fig:griglia}), possiamo mettere in relazione le coordinate dell'immagine con le coordinate frame nel seguente modo:
  \[ u = (i - O_u) \cdot S_u \]
  e
  \[ v = (j - O_v) \cdot S_v, \]
@@ -216,7 +217,7 @@ dove $t = -RC$ prende il nome di \textit{vettore di traslazione}.
 %\noindent 
 %La posizione e l'orientamento della camera determinano l'\textit{\gls{inquadratura}} della scena.
 %L'acquisizione, da parte della camera, della scena nell'istante di tempo $i$ viene definita \textit{immagine} o \textit{frame} i-esimo.
-%La figura \ref{fig:videoMonitoring} illustra questi concetti.\\
+%La Figura \ref{fig:videoMonitoring} illustra questi concetti.\\
 %Per semplificare l'analisi, considereremo immagini estratte in \textit{scala di grigi}.
 %Quindi ciascuna immagine verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.\\
 %Nel seguito della trattazione useremo una specifica terminologia.
@@ -228,7 +229,7 @@ dove $t = -RC$ prende il nome di \textit{vettore di traslazione}.
 %\[ z_i(x) \in [0, 255]. \]
 \section{Rappresentazione digitale delle immagini}
 \label{rappresentazImmagini}
-Nel paragrafo \ref{intrinsicParam} abbiamo introdotto il concetto di \textit{immagine digitale} come rappresentazione numerica dell'immagine bidimensionale.
+Nel Paragrafo \ref{intrinsicParam} abbiamo introdotto il concetto di \textit{immagine digitale} come rappresentazione numerica dell'immagine bidimensionale.
 	\begin{figure}[tb]
 		\centering
 		\includegraphics[width=8cm]{./pictures/lenaRGB}
@@ -239,8 +240,8 @@ Esistono vari modi di rappresentare un'immagine in formato digitale.
 Le rappresentazioni che a noi interessa considerare sono \cite{forsyth2002computer}:
 \begin{itemize}
 	\item \textit{scala di grigi}, in cui l'immagine \`e rappresentata come una matrice $\textbf{I}$ di dimensioni $H \times W$, dove l'elemento $\textbf{I}(i,j)$ rappresenta il valore di \textit{intensit\`a luminosa} (\textit{luma}) del pixel di coordinate $(i, j)$;
-	\item \textit{RGB}, dove l'immagine \`e rappresentata come una matrice \textit{tridimensionale} $\textbf{I}_{RGB}$ di dimensioni $H \times W \times 3$, in cui vengono memorizzati i livelli di intensit\`a luminosa dei tre colori fondamentali \textit{rosso} (R), \textit{verde} (G) e \textit{blu} (B) per ciascun pixel (figura \ref{fig:lenaRGB}); 
-	\item \textit{YUV}, in cui lo spazio colore viene definito tramite un componente di luma (Y) e due componenti di \textit{crominanza} (UV), che rappresentano rispettivamente i valori di differenza dal colore blu ($U = B - Y$) e dal colore rosso ($V = R - Y$) (figura \ref{fig:yuv}).
+	\item \textit{RGB}, dove l'immagine \`e rappresentata come una matrice \textit{tridimensionale} $\textbf{I}_{RGB}$ di dimensioni $H \times W \times 3$, in cui vengono memorizzati i livelli di intensit\`a luminosa dei tre colori fondamentali \textit{rosso} (R), \textit{verde} (G) e \textit{blu} (B) per ciascun pixel (Figura \ref{fig:lenaRGB}); 
+	\item \textit{YUV}, in cui lo spazio colore viene definito tramite un componente di luma (Y) e due componenti di \textit{crominanza} (UV), che rappresentano rispettivamente i valori di differenza dal colore blu ($U = B - Y$) e dal colore rosso ($V = R - Y$) (Figura \ref{fig:yuv}).
 \end{itemize}
 Le immagini digitali possono essere memorizzate in diversi formati.
 Spesso vengono utilizzati algoritmi di \textit{compressione}, che possono essere
@@ -254,6 +255,307 @@ Spesso vengono utilizzati algoritmi di \textit{compressione}, che possono essere
 		\caption{Esempio di estrazione dei canali YUV}
 		\label{fig:yuv}
 	\end{figure}
+	
+
+
+
+\section{Identificazione del cambiamento nella stazionariet\`a di un processo}
+\label{cdt}
+Prima di illustrare come \`e stato affrontato il problema del tampering detection nella letteratura scientifica, affrontiamo il problema, pi\`u generale, di come identificare un cambiamento all'interno di un processo.
+Una caratteristica, richiesta in molte applicazioni di analisi e elaborazione intelligente di dati, riguarda l'assunzione che il processo generante questi dati non cambi nel tempo \cite{alippi2014intelligence}. In questo caso si parla di processi \textit{stazionari}, ovvero processi dove i dati possono essere considerati generati da un'unica distribuzione probabilistica. \\
+In molte situazioni, soprattutto se vengono utilizzati dei sensori per misurare delle grandezze fisiche, si pu\`o incorrere in situazioni in cui questa ipotesi di stazionariet\`a venga meno.
+Ad esempio, pu\`o succedere che il sensore si guasti, oppure che fenomeni esterni non permettano un'acquisizione ottimale. 
+In questi casi \`e opportuno avere a disposizione degli strumenti in grado di identificare quando la condizione di stazionariet\`a di un processo viene meno, in modo da poter lanciare un allarme a riguardo. 
+Le tecniche principalmente utilizzate per questo scopo prendono il nome di \textit{Change-Point Methods} (CPM) e \textit{Change-Detection Tests} (CDT), e verranno illustrate nel resto del paragrafo.	
+\subsection{Metodi di Change-Point}
+I metodi di Change-Point (CPM) vengono utilizzati per ispezionare una certa sequenza di dati e verificare la sua stazionariet\`a. 
+Ci\`o viene fatto verificando che, all'interno della sequenza, esista un istante temporale in cui la distribuzione dei dati cambia (\textit{change point}).\\
+In maniera formale possiamo dire che, data una sequenza di dati
+\[\mathcal{X}=\{x(t), t = 1,...,n\},\]
+essa contiene un change point all'istante $\tau < n$ se \`e possibile
+suddividerla in due sotto-sequenze
+\[ \begin{array}{l}
+\mathcal{A}_\tau = \{x(t), t = 1,...,\tau \}\\
+ \mathcal{B}_\tau = \{x(t), t = \tau + 1,...,n \}
+\end{array},\]
+le quali sono due realizzazioni \textit{indipendenti e identicamente distribuite} (i.i.d.) di due differenti variabili aleatorie con distribuzione $ \mathcal{F}_0 $ e $ \mathcal{F}_1 $.
+\`E possibile, quindi,  convertire il problema del change point in uno equivalente dove si valuta se $ \mathcal{A}_\tau $ e $ \mathcal{B}_\tau $ sono generati da due distribuzioni diverse.\\
+Il problema, a questo punto, pu\`o essere riformulato come un \textit{test d'ipotesi a due campioni} \cite{ross2009introduction}, dove l'\textit{ipotesi nulla} ($ H_0 $) e l'\textit{ipotesi alternativa} ($ H_1 $) sono le seguenti:
+\[ \begin{array}{rcl}
+H_0: &  x(t) \sim &  \mathcal{F}_0 \quad  \forall t \\
+H_1: &  x(t) \sim &
+\begin{cases}
+\mathcal{F}_{0} & \text{se } t < \tau \\
+\mathcal{F}_{1} & \text{se } t \geq \tau
+\end{cases}
+\end{array}. \]
+Per la valutazione delle ipotesi fatte sopra, occorrono delle opportune \textit{statistiche di test a due campioni} 
+\[ \mathcal{T}_\tau = \mathcal{T}(\mathcal{A}_\tau, \mathcal{B}_\tau), \]
+in modo da poter comparare $ \mathcal{A}_\tau $ e $ \mathcal{B}_\tau $. In questo modo \`e possibile rifiutare l'ipotesi nulla quando il valore della statistica $ \mathcal{T}_\tau $ supera una certa soglia $ h_{n,\alpha} $, calcolata in funzione di un certo \textit{intervallo di confidenza} $ \alpha $ e del numero di campioni $ n $.\\
+Se, ad esempio, consideriamo l'ipotesi che $
+\mathcal{A}_\tau $
+e $ \mathcal{B}_\tau $ siano generate da due
+distribuzioni \textit{gaussiane}, \`e
+possibile valutare la dissimilarit\`a tra le
+due distribuzioni controllando i due
+\textit{valori attesi}. Possiamo usare, come
+statistica di test, la \textit{differenza
+	standardizzata tra le medie di due
+	campioni}, definita come
+\[ D_\tau = \sqrt{\frac{\tau(n-\tau)}{n}}
+\frac{\overline{\mathcal{A}}_\tau-\overline{\mathcal{B}}_\tau}{S_\tau}, \]
+dove $ \overline{\mathcal{A}}_\tau $ e $ \overline{\mathcal{B}}_\tau $ denotano le \textit{medie campionarie} valutate rispettivamente su $ \mathcal{A}_\tau $ e $ \mathcal{B}_\tau $, mentre $ S_\tau $ \`e la \textit{varianza campionaria} valutata \textit{su tutto l'insieme dei dati}.\\
+Quando la statistica di test utilizzata,
+corrispondente a una specifica partizione
+dell'insieme dei dati, non fornisce l'evidenza
+necessaria a rifiutare $ H_0, $ l'unica cosa
+che \`e possibile stabilire \`e che
+nell'istante $ \tau $ scelto non si \`e avuto
+un cambiamento nella stazionariet\`a
+dell'insieme. \textit{Ci\`o non implica che	l'istante di cambiamento non sia un altro ancora da valutare.} 
+In maniera rigorosa \`e necessario valutare, quindi, tutte le possibili partizioni dell'insieme dei dati considerati. 
+Le ipotesi nulla e alternativa vengono, perci\`o, modificate nel seguente modo \cite{ross2011nonparametric}:
+\[
+\begin{array}{rccl}
+H_0 :& \forall t, & x(t) \sim & \mathcal{F}_0 \\
+H_1 :& \exists \tau & x(t) \sim &
+\begin{cases}
+\mathcal{F}_{0} & \text{se } t < \tau \\
+\mathcal{F}_{1} & \text{se } t
+\geq \tau
+\end{cases}
+\end{array}.
+\]
+Entrando pi\`u nel dettaglio, per ciascun
+punto $ s \in \{2,...,n-1\} $, candidato a
+essere un change point, valutiamo la
+statistica di test $ \mathcal{T}_s. $ Viene scelto come
+change point quello che massimizza la
+statistica
+\[ M= \argmax_{s=2,...,n-1} (\mathcal{T}_s), \]
+corrispondente al valore $ \mathcal{T}_M $ di $\mathcal{T}$
+\[ \mathcal{T}_M = \max_{s=2,...,n-1} (\mathcal{T}_s).\]
+Una volta trovato $\mathcal{T}_M$ il test va finalizzato
+comparando questa statistica con la soglia
+$ h_{n,\alpha}, $ in modo da verificare se
+l'ipotesi nulla sia da scartare o meno.
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm,keepaspectratio]{pictures/CPM}
+	\caption{Esempio di CPM}
+	\label{fig:CPM}
+\end{figure}
+Nella Figura \ref{fig:CPM} possiamo vedere un esempio di CPM basato su una statistica \textit{t di Student} \cite{alippi2014intelligence}. La sequenza \`e formata da 500 dati (\textbf{a}) ed \`e stato individuato un cambiamento all'istante $\tau=350$. I valori delle varie statistiche in funzione di s sono visualizzati in (\textbf{b}).\\
+Spesso \`e preferibile utilizzare dei test
+statistici \textit{non parametrici},
+soprattutto quando le distribuzioni dei dati
+sono incognite. Le statistiche maggiormente
+utilizzate sono quelle basate su
+\textit{calcolo del rango}
+\cite{ross2011nonparametric}. Quando si ha a
+che fare con cambiamenti nella
+\textit{localit\`a} dei dati una statistica
+solitamente utilizzata \`e quella di
+\textit{Mann-Whitney}, mentre quando si
+vogliono verificare cambiamenti \textit{di
+	scala} \`e possibile utilizzare la
+statistica di \textit{Mood}. La statistica di
+\textit{Lepage} invece pu\`o risultare utile
+per analizzare entrambi i tipi di
+cambiamento. Un altro approccio consiste nel
+comparare le \textit{distribuzioni empiriche}
+dei due insiemi di dati, usando ad esempio la
+statistica di \textit{Kolmogorov-Smirnov}.
+\subsection{Change-Detection Test}
+I metodi di change point sono stati principalmente
+pensati per essere eseguiti \textit{a valle} della
+completa acquisizione dei dati. Inoltre il suo elevato
+costo computazionale fa s\`i che questa tecnica
+difficilmente possa essere utilizzabile all'interno di
+un sistema embedded. Le tecniche che vengono descritte
+in questo paragrafo, che prendono il nome di
+\textit{change detection test} (CDT), hanno come scopo
+principale quello di fare un processo dei dati
+\textit{in linea}, ovvero non appena questi sono
+disponibili. Tecniche di questo tipo vengono anche
+chiamate \textit{tecniche sequenziali}. La loro
+relativa semplicit\`a dal punto di vista
+computazionale permette di utilizzarle all'interno di
+sistemi embedded ma, rispetto alle tecniche basate su
+CPM, abbiamo una latenza (ovvero l'intervallo di tempo
+tra l'istante di identificazione del cambiamento e
+quello in cui effettivamente questo \`e avvenuto) e un
+numero di falsi positivi (viene segnalato un
+cambiamento nella distribuzione quando in, realt\`a,
+questo non \`e avvenuto) maggiori.
+\subsubsection{CDT basati su CUSUM}
+Le \textit{carte di controllo per le somme cumulate} (CUMulative SUM control chart, abbreviate in \textit{CUSUM}) \cite{alippi2014intelligence,ross2009introduction} permettono di identificare un cambiamento all'interno di una sequenza di dati in maniera molto accurata utilizzando alcune informazioni \textit{a priori} sul processo generante i dati. Queste informazioni vengono generalmente acquisite durante un \textit{fase di configurazione} del test, in modo da fissare i parametri di test necessari all'analisi.\\
+Nel seguito presentiamo due metodi di CDT che
+estendono il metodo CUSUM tradizionale rilassando
+alcune delle sue assunzioni troppo restrittive.  La
+prima variante permette di identificare in maniera
+automatica la configurazione dei parametri di test
+(\textit{CUSUM adattativo}), mentre la seconda,
+chiamata \textit{computational Intelligence CUSUM}
+(CI-CUSUM) \`e in grado di considerare un insieme
+pi\`u ricco di descrittori in modo da aumentare
+l'efficienza nell'identificare i cambiamenti
+\cite{alippi2008just}.  
+\subparagraph{CUSUM tradizionale e versione adattativa}
+Sia \[\mathcal{X}=\{x(t),t=1,...,N\},x(t)\in \mathbb{R}\]
+una sequenza di $N$ dati generata da un processo con
+densit\`a probabilistica $f_\theta(x)$, che assumiamo
+sconosciuta e parametrizzata secondo un vettore
+$\theta\in\mathbb{R}^n$. Assumiamo, inoltre, che il
+processo cambi la sua stazionariet\`a a un istante
+$T^0$ sconosciuto. Questo avvenimento pu\`o essere
+modellato come un passaggio dal vettore dei parametri
+$\theta_0$ a $\theta_1$, associati rispettivamente
+alle densit\`a $f_{\theta_0}(x)$ e
+$f_{\theta_1}(x)$. La discrepanza tra le due densit\`a
+viene valutata comparando il rapporto tra le
+log-verosimiglianze (\textit{log-likelihood ratio})
+\[
+s(t)=ln\frac{f_{\theta_1}(x(t))}{f_{\theta_0}(x(t))}
+\textit{ per ogni } t=1,...,N \]
+e la \textit{somma cumulata}
+\[ S(t) = \sum^t_{\tau=1} s(\tau) \]
+CUSUM identifica un cambiamento in $\mathcal{X}$ all'istante $\widehat{T}$ quando \[g(t)=S(t)-m(t),\] ovvero la differenza tra il valore della somma cumulata all'istante $t$ e il suo valore minimo nel tempo \[m(t)=\min_{\tau=1,...,t}S(\tau),\] supera una certa soglia $h$.\\
+Il metodo CUSUM tradizionale assume che i parametri $\theta_0$, $\theta_1$ e la soglia $h$ siano disponibili a priori. La versione adattativa viene incontro a questa assunzione che, generalmente, \`e difficile da soddisfare.\\
+La variante prima di tutto genera la sequenza cumulata
+$Y=\{y(1),y(2),...\}$, dove $y(s)$ rappresenta il
+valore della media campionaria stimata su una
+\textit{finestra mobile non sovrapponibile} di
+ampiezza $n$ presa da $\mathcal{X}$
+\[ y(s) = \frac{1}{n} \sum_{t=(s-1)n+1}^{sn}x(t) \]
+Scegliendo $n$ abbastanza grande, per il
+\textit{teorema del limite centrale}
+\cite{ross2009introduction}, la distribuzione di $Y$
+pu\`o essere approssimata con una distribuzione
+\textit{gaussiana}. In questo modo, quindi, si pu\`o
+utilizzare il metodo CUSUM tradizionale direttamente
+sulla sequenza $Y$. I primi $K$ dati di $\mathcal{X}$ vengono
+usati come \textit{insieme di configurazione} per i
+parametri necessari a identificare il cambiamento. Il
+vettore dei parametri $\theta_0$ \`e caratterizzato da
+media e varianza di $Y$, stimate attraverso i primi
+$K/n$ campioni di $Y$. Il vettore dei parametri
+$\theta_1$ viene ottenuto attraverso l'identificazione
+di un intorno di confidenza per $\theta_0$, mentre la
+soglia $h$ viene calcolata come il valore massimo di
+$g(t)$ nella sequenza $Y$
+\[ h=\max_{1\leq t\leq N/n}g(t). \]
+\noindent L'intera procedura \`e illustrata nella
+Figura \ref{fig:adaptiveCUSUM}.
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm,keepaspectratio]{pictures/adaptiveCUSUM}
+	\caption{Procedura del CUSUM
+		adattativo}
+	\label{fig:adaptiveCUSUM}
+\end{figure}
+\subparagraph{CI-CUSUM} Il metodo
+CI-CUSUM rappresenta un'estensione del
+CUSUM adattativo molto potente, in
+quanto ciascun descrittore, estratto
+dal flusso di dati, pu\`o essere
+utilizzato per avere differenti gradi
+di sensitivit\`a durante
+l'identificazione di un cambiamento.
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm,keepaspectratio]{pictures/CI-CUSUM}
+	\caption{Estrazione dei descrittori
+		nel metodo CI-CUSUM}
+	\label{fig:CI-CUSUM}
+\end{figure}
+Facciamo riferimento alla Figura \ref{fig:CI-CUSUM}. I descrittori $\varphi$ considerati contengono i principali momenti della distibuzione dei dati, come media e varianza, ma anche momenti superiori al secondo come skewness (\textit{skew}) e kurtosis (\textit{kurt}), oltre che altre informazioni derivate dalla densit\`a probabilistica (\textit{pdf}) e dalla funzione di ripartizione dei dati (\textit{cdf}).\\
+A ogni istante queste grandezze
+vengono confrontate con quelle
+appartenenti all'intervallo di
+configurazione (\textit{training set},
+indicato in Figura \ref{fig:CI-CUSUM}
+come TS), in modo da valutare la
+discrepanza tra questi valori. I
+descrittori utilizzati sono
+\[
+\varphi_1(t)=|\mu_0-\mu_V|,\varphi_2(t)=|\sigma_0-\sigma_V|,\]
+\[\varphi_3(t)=|\textit{kurt}_0-\textit{kurt}_V|,\varphi_4(t)=|\textit{skew}_0-\textit{skew}_V|, \]
+\[\varphi_5(t)=\int_x|\textit{pdf}_0(x)-\textit{pdf}_V(x)|\textit{dx},\]
+\[\varphi_6(t)=\int_x|\textit{cdf}_0(x)-\textit{cdf}_V(x)|\textit{dx}, \]
+\[ \varphi_{7\leq j\leq 12}(t)=
+\sum_{v=1}^{t-1}\textit{sgn}(\varphi_{j-6}(v+1)-\varphi_{j-6}(v)),\]
+\[\varphi_{13\leq j\leq 24}(t)=
+\sum_{v=1}^{t-1}\frac{\varphi_{j-12}(v+1)}{\varphi_{j-12}(v)} \]
+In particolare, i descrittori
+$\varphi_5(t)$ e $\varphi_6(t)$
+valutano la discrepanza tra la
+densit\`a e funzione di ripartizione
+correnti e quelle rispettive
+dell'intervallo di configurazione. I
+descrittori da $\varphi_7(t)$ a
+$\varphi_{12}(t)$ vanno ad analizzare
+i cambiamenti di segno in elementi
+consecutivi e quelli da
+$\varphi_{13}(t)$ a $\varphi_{24}(t)$
+la somma cumulata del rapporto tra
+elementi consecutivi. Per ridurre la
+complessit\`a dello spazio dei
+descrittori viene applicata
+un'\textit{analisi delle componenti
+	principali} su $\varphi$, in modo da
+avere la trasformata $\varphi_r$. A
+questo punto, dato che la
+distribuzione di $\varphi_r$ non \`e
+nota a priori, viene applicato un
+CUSUM adattativo su di essa.
+\subsubsection{CDT basati su Intersezione di Intervalli di Confidenza}
+La famiglia di tecniche che andiamo ad analizzare adesso \`e in grado di identificare cambi di stazionariet\`a, in un flusso di dati, monitorando l'evoluzione nel tempo di un certo numero di descrittori estratti dai dati stessi.
+L'ipotesi principale che viene fatta \`e che le osservazioni della sequenza monitorata siano \textit{indipendenti e identicamente distribuiti} (\textit{i.i.d.}) e generati da una distribuzione \textit{gaussiana}.
+\subparagraph{ICI-CDT}
+In \textit{ICI-CDT} (Intersection of Confidence Intervals Change Detection Test) \cite{alippi2011just}, i descrittori sono estratti attraverso una \textit{fenestratura} dei dati disponibili in sotto-sequenze composte da $n$ istanze. Per ciascuna sotto-sequenza calcoliamo media e  varianza campionarie che, per il \textit{teorema del limite centrale} \cite{ross2009introduction}, possono essere considerate distribuite in maniera gaussiana. Entrando nel dettaglio, se consideriamo $s$ come l'\textit{s-esima} sotto-sequenza, i descrittori estratti sono:
+\[ M(s)=\frac{\sum\limits_{t=(s-1)n+1}^{ns}x(t)}{n} \text{ , e } V(s)=\left(\frac{\left(\sum\limits_{t=(s-1)n+1}^{ns}(x(t)-M(s))^2\right)}{n-1}\right)^{h_0}, \]
+dove il parametro $h_0$ \`e un esponente utilizzato per generare un'approssimazione gaussiana della varianza campionaria.\\
+ICI-CDT utilizza una prima sequenza dei dati in cui si assume l'assenza di cambiamenti nella distribuzione. Tale sequenza prende il nome di \textit{insieme di training} e viene indicata con $O_{T_0}$. Da questa sequenza viene stimato il parametro $h_0$ e si configura il CDT. La configurazione avviene attraverso le due sequenze di descrittori $\{M(s), s=1,...,S_0\}$ e $\{V(s), s=1,...,S_0\}$, con $S_0=T_0/n$.\\
+Calcoliamo quindi le medie $\hat{\mu}^M_{S_0}$, $\hat{\mu}^V_{S_0}$ e le deviazioni standard $\hat{\sigma}^M_{S_0}$, $\hat{\sigma}^V_{S_0}$ dei descrittori nell'insieme di training, ovvero:
+\[ \hat{\mu}^M_{S_0}=\frac{\sum\limits_{s=1}^{S_0}M(s)}{S_0} \text{ , e } \hat{\sigma}^M_{S_0}=\sqrt{\frac{\sum\limits_{s=1}^{S_0}(M(s)-\hat{\mu}^M_{S_0})^2}{S_0-1}}, \]
+e
+\[ \hat{\mu}^V_{S_0}=\frac{\sum\limits_{s=1}^{S_0}V(s)}{S_0} \text{ , e } \hat{\sigma}^V_{S_0}=\sqrt{\frac{\sum\limits_{s=1}^{S_0}(V(s)-\hat{\mu}^V_{S_0})^2}{S_0-1}}. \]
+Queste stime definiscono gli \textit{intervalli di confidenza} per i descrittori media e deviazione standard che, sotto la condizione di stazionariet\`a, sono definiti come:
+\[I_{S_0}^M= \left[\hat{\mu}^M_{S_0}-\Gamma \hat{\sigma}^M_{S_0} \text{, } \hat{\mu}^M_{S_0}+\Gamma \hat{\sigma}^M_{S_0}\right], \]
+\[I_{S_0}^V= \left[\hat{\mu}^V_{S_0}-\Gamma \hat{\sigma}^V_{S_0} \text{, } \hat{\mu}^V_{S_0}+\Gamma \hat{\sigma}^V_{S_0}\right], \]
+dove $\Gamma>0$ \`e un parametro che controlla l'ampiezza dell'intervallo di confidenza e, quindi, la probabilit\`a che un descrittore appartenga all'intervallo sotto l'ipotesi di stazionariet\`a. \\
+Una volta che la fase di training viene completata, ICI-CDT diventa operativo e pu\`o essere utilizzato per identificare cambiamenti nella stazionariet\`a del flusso di dati. Non appena sono disponibili $n$ dati, viene creata una nuova sequenza $s$ e si calcolano i descrittori che andranno a popolare gli intervalli $I_{s}^{M}$ e $I_{s}^{V}$.\\
+A questo punto \`e possibile applicare la \textit{regola dell'intersezione degli intervalli di confidenza} (ICI-rule) \cite{goldenshluger1997spatially}. Questa regola verifica se una nuova istanza di un descrittore possa essere intesa come una realizzazione della gi\`a esistente distribuzione gaussiana. Se ci\`o non viene verificato, allora \`e avvenuto un cambiamento nella distribuzione.\\
+Da un punto di vista operazionale, per ciascuna sequenza $s$ vengono calcolati gli intervalli di confidenza dei descrittori come \`e stato fatto per quelli dell'insieme di training. ICI-CDT individua un cambiamento all'interno della sotto-sequenza $\hat{s}$ se
+\[\bigcap_{s<\hat{s}}I_s^M \neq \varnothing \text{ e } \bigcap_{s\leq\hat{s}}I_s^M = \varnothing \]
+oppure
+\[\bigcap_{s<\hat{s}}I_s^V \neq \varnothing \text{ e } \bigcap_{s\leq\hat{s}}I_s^V = \varnothing \]
+e il tempo di identificazione $\hat{T}=n\hat{s}$ corrisponde all'ultimo termine della sotto-sequenza $\hat{s}$.\\
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm,keepaspectratio]{pictures/ICIrule}
+	\caption{Esempio di come opera la regola dell'intersezione degli intervalli di confidenza (ICI-rule)}
+	\label{fig:ICIrule}
+\end{figure}
+La Figura \ref{fig:ICIrule} illustra un esempio di come opera ICI-rule.\\
+In \textbf{a} vengono rappresentati i valori dei descrittori e l'insieme di intervalli $\{[1,T_0], [1,T_1], [1,T_2], [1,T_3]\}$, mentre in \textbf{b} sono illustrati gli stimatori delle medie e i loro intervalli di confidenza. In questo caso ICI-rule individua un cambiamento nell'intervallo $[1,T_2]$, dato che $I_0 \cap ...\cap I_2 \neq \varnothing$ e $I_0 \cap ...\cap I_3 = \varnothing$.\\
+Il principale problema di questa tecnica consiste nella sua \textit{intrinseca} latenza, dovuta al fatto che opera a finestre. 
+Per risolvere questo limite \`e possibile applicare delle trasformazioni sui dati in modo da renderli approssimativamente gaussiani. Le trasformazioni pi\`u utilizzate sono quelle di \textit{Box-Cox}   \cite{box1964analysis}, per dati positivi, e di \textit{Manly}, \cite{manly1976exponential} che pu\`o essere utilizzato anche per dati negativi. Usando questo tipo di trasformazioni possiamo evitare di lavorare a finestre e utilizzare un approccio \textit{elemento  per elemento} \cite{boracchi2014reconfigurable}.           
+\subparagraph{CDT di tipo gerarchico} 
+Un altro problema di ICI-CDT consiste nel fatto che esso genera un numero molto elevato di falsi positivi. Per fare in modo che questo numero si abbassi, impattando il meno possibile sul tempo di esecuzione, \`e possibile fare un CDT di tipo \textit{gerarchico} \cite{alippi2011hierarchical}, basato su due livelli:
+\begin{itemize}
+	\item Il primo livello \`e composto da ICI-CDT, e opera sequenzialmente su tutti i dati.
+	\item Il secondo livello consiste in un test d'ipotesi statistico in grado di validare o rifiutare l'ipotesi di avvenuto cambiamento. Questo livello viene attivato ogni volta che viene identificato un cambiamento da ICI-CDT.
+\end{itemize}
+\begin{figure}
+	\centering
+	\includegraphics[width=8cm,keepaspectratio]{pictures/Hierarchical_ICI_based_CDT_Scheme}
+	\caption{Schema del modo di operare del CDT di tipo gerarchico}
+	\label{fig:HierarchicalCDT}
+\end{figure}
+Uno schema di come opera questo tipo di CDT \`e visualizzato nella Figura \ref{fig:HierarchicalCDT}.
+Il CDT di tipo gerarchico \`e progettato in modo da avere un primo livello molto efficiente dal punto di vista del tempo di esecuzione, anche se ci\`o si traduce in un numero elevato di falsi positivi. Questo limite viene mitigato usando nel secondo livello della gerarchia un test pi\`u efficiente dal lato del numero di falsi positivi prodotti. Il fatto che il secondo livello ha un tempo di esecuzione maggiore non \`e un problema, in quanto esso viene attivato solamente nei casi in cui il primo livello della gerarchia segnala un possibile cambiamento nella distribuzione dei dati.
 \section{Tampering Detection}
 \label{tamperingSOA}
 Nei moderni sistemi di videosorveglianza troviamo spesso algoritmi in grado di identificare particolari eventi all'interno della scena ripresa dalla camera. 
@@ -281,7 +583,7 @@ La letteratura scientifica presenta molte tecniche in grado di affrontare il pro
 	\caption{Tecniche di tampering detection}
 	\label{fig:tamperingSOA}
 \end{figure}
-Lo schema in figura \ref{fig:tamperingSOA} mostra le principali tecniche di tampering detection presenti in letteratura.
+Lo schema in Figura \ref{fig:tamperingSOA} mostra le principali tecniche di tampering detection presenti in letteratura.
 Queste possono essere divise in due categorie: 
 \begin{itemize}
 	\item tecniche basate su confronto di background,
@@ -301,7 +603,7 @@ Lo scenario che consideriamo \`e quello di una camera che deve riprendere una pa
 \noindent 
 La posizione e l'orientamento della camera determinano l'\textit{\gls{inquadratura}} della scena.
 L'acquisizione, da parte della camera, della scena nell'istante di tempo $t$ viene definita \textit{immagine} o \textit{frame} $t$-esimo.
-La figura \ref{fig:videoMonitoring} illustra questi concetti.\\
+La Figura \ref{fig:videoMonitoring} illustra questi concetti.\\
 Per semplificare la trattazione, considereremo immagini estratte in \textit{scala di grigi}.
 Ciascuna immagine, quindi, verr\`a rappresentata come una matrice di pixel, in cui ciascun elemento rappresenta l'intensit\`a luminosa (\textit{luma}) del pixel corrispondente.
 L'estensione al caso di immagini \textit{RGB} \`e immediata: possiamo, infatti, applicare i vari algoritmi in maniera indipendente per ciascun canale di colore, per poi mediare i risultati ottenuti.\\
@@ -312,7 +614,6 @@ e con $x \in \mathcal{X}$ il singolo pixel.
 Quando vorremo considerare il frame acquisito all'istante di tempo $i$, useremo $z_i$, con $i=1,\dots , \infty$. 
 In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $t$-esimo, useremo il termine $z_t(x)$, con 
 \[ z_t(x) \in [0, 255] \forall x \in \mathcal{X}. \]
-
 
 \subsection{Tecniche basate su confronto di background}
 \label{background}
@@ -404,7 +705,7 @@ Per analizzare questo cambiamento, \cite{aksay2007camera} confronta ciascun fram
 	\caption{Comportamento della trasformata di Fourier nel caso di sfocatura}
 	\label{fig:fourier}
 \end{figure}
-Nella figura \ref{fig:fourier} vediamo un esempio di come si comporta la trasformata di Fourier nel caso di sfocature: 
+Nella Figura \ref{fig:fourier} vediamo un esempio di come si comporta la trasformata di Fourier nel caso di sfocature: 
 nel passaggio da un frame nitido (Fig. \ref{fig:defocusNormale}) a uno sfocato (Fig. \ref{fig:defocusSfocato}) abbiamo un crollo delle componenti ad alta frequenza nelle trasformate di Fourier (rispettivamente Fig. \ref{fig:defocusNormaleFourier} e Fig. \ref{fig:defocusSfocatoFourier}).
 L'evento di tampering viene individuato quando l'\textit{energia media} della trasformata di Fourier (o di quella wavelet) del frame corrente $E_{HF}(z_t)$ \`e $Th$ volte minore di quella del background $E_{HF}(B_t)$:
 \[E_{HF}(z_t)\leq Th \cdot E_{HF}(B_t),\]
@@ -432,7 +733,7 @@ Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_t)$ \`e 
 \[ \sum edges(z_t) \leq Th \sum edges(B_t), \]
 dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
 \subsection{Tecniche basate su monitoraggio sequenziale}
-Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
+Le tecniche viste finora, come \`e stato detto nel Paragrafo \ref{background}, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width = 4cm]{./pictures/FPSbasso/image2691}
@@ -452,9 +753,9 @@ Le tecniche viste finora, come \`e stato detto nel paragrafo precedente, permett
 \end{figure}
 Questo approccio risulta fattibile nel caso in cui la camera operi con un framerate \textit{continuo}, solitamente tra i 30 frame per secondo (\textit{fps}) e i 2 fps. 
 In questi casi, infatti, possiamo considerare che, tra un frame e il successivo, non avvengano grandi cambiamenti all'interno della scena e non cambi eccessivamente la luminosit\`a media.
-La figura \ref{fig:acquisizioneContinua} mostra come, in un'acquisizione fatta a 30 fps, le differenze tra frame consecutivi siano quasi inesistenti. 
+La Figura \ref{fig:acquisizioneContinua} mostra come, in un'acquisizione fatta a 30 fps, le differenze tra frame consecutivi siano quasi inesistenti. 
 Un evento di tampering pu\`o, quindi, essere identificato in maniera molto semplice, in quanto una differenza molto elevata tra il frame analizzato e il background pu\`o essere dovuto solamente a un evento di tampering sulla camera.
-La figura \ref{fig:acquisizioneBassa} mostra, invece, un esempio di frame acquisiti ogni 30 secondi.
+La Figura \ref{fig:acquisizioneBassa} mostra, invece, un esempio di frame acquisiti ogni 30 secondi.
 Notiamo come le differenze tra immagini consecutive, in questo caso, siano pi\`u marcate rispetto al caso dell'acquisizione continua. 
 Questo non permette l'impiego di un modello di background per il problema del tampering detection.
 Evidenziamo, inoltre, che le tecniche viste finora richiedono che il sistema di monitoraggio possegga elevate capacit\`a computazionali, in quanto l'aggiornamento del background e l'analisi di tampering detection non pu\`o rallentare la frequenza di acquisizione.\\
@@ -482,4 +783,16 @@ Il metodo CUSUM considera la \textit{somma cumulata}
 \[ S(\tau) = \sum^\tau_{t=1} r(t) \]
 e identifica un cambiamento in $m_t$ quando \[g(\tau)=S(\tau)-\nu(\tau),\] ovvero la differenza tra il valore della somma cumulata all'istante $\tau$ e il suo valore minimo nel tempo \[\nu(\tau)=\min_{t=1,...,\tau}S(t),\] supera una certa soglia $h$.\\
 L'utilizzo di un descrittore leggero come l'energia media del gradiente permette di operare con una bassa complessit\`a computazionale, tanto da poter essere utilizzato come soluzione a livello di nodo per una \textit{wireless multimedia sensor network} (WMSN) \cite{akyildiz2007survey}.
-D'altro canto, confrontato con le tecniche descritte nel paragrafo \ref{background}, l'utilizzo di tecniche sequenziali genera un numero pi\`u alto di \textit{falsi allarmi}, il che si traduce, all'interno di una rete di sensori, in un aumento dei messaggi di allarme inviati, che devono essere considerati, quindi, come un costo.
+D'altro canto, confrontato con le tecniche descritte nel Paragrafo \ref{background}, l'utilizzo di tecniche sequenziali genera un numero pi\`u alto di \textit{falsi allarmi}, il che si traduce, all'interno di una rete di sensori, in un aumento dei messaggi di allarme inviati, che devono essere considerati, quindi, come un costo.
+
+
+
+
+
+
+
+
+
+
+
+

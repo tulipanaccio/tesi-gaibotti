@@ -16,6 +16,65 @@ David~A Forsyth and Jean Ponce.
 \newblock Computer vision: A modern approach.
 \newblock 2002.
 
+\bibitem{alippi2014intelligence}
+Cesare Alippi.
+\newblock {\em Intelligence for Embedded Systems}.
+\newblock Springer, 2014.
+
+\bibitem{ross2009introduction}
+Sheldon~M. Ross.
+\newblock {\em Introduction to probability and statistics for engineers and
+  scientists}.
+\newblock Academic Press, 2009.
+
+\bibitem{ross2011nonparametric}
+Gordon~J. Ross, Dimitris~K. Tasoulis, and Niall~M. Adams.
+\newblock Nonparametric monitoring of data streams for changes in location and
+  scale.
+\newblock {\em Technometrics}, 53(4):379--389, 2011.
+
+\bibitem{alippi2008just}
+Cesare Alippi and Manuel Roveri.
+\newblock Just-in-time adaptive classifiers-part {I}: Detecting nonstationary
+  changes.
+\newblock {\em Neural Networks, IEEE Transactions on}, 19(7):1145--1153, 2008.
+
+\bibitem{alippi2011just}
+Cesare Alippi, Giacomo Boracchi, and Manuel Roveri.
+\newblock A just-in-time adaptive classification system based on the
+  intersection of confidence intervals rule.
+\newblock {\em Neural Networks}, 24(8):791--800, 2011.
+
+\bibitem{goldenshluger1997spatially}
+A.~Goldenshluger and A.~Nemirovski.
+\newblock On spatially adaptive estimation of nonparametric regression.
+\newblock {\em Mathematical methods of Statistics}, 6(2):135--170, 1997.
+
+\bibitem{box1964analysis}
+George~E.P. Box and David~R. Cox.
+\newblock An analysis of transformations.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, pages 211--252, 1964.
+
+\bibitem{manly1976exponential}
+BFJ Manly.
+\newblock Exponential data transformations.
+\newblock {\em The Statistician}, pages 37--42, 1976.
+
+\bibitem{boracchi2014reconfigurable}
+Giacomo Boracchi and Manuel Roveri.
+\newblock A reconfigurable and element-wise ici-based change-detection test for
+  streaming data.
+\newblock {\em Computational Intelligence and Virtual Environments for
+  Measurement Systems and Applications (CIVEMSA), 2014 IEEE International
+  Conference on}, pages 58--63, 2014.
+
+\bibitem{alippi2011hierarchical}
+Cesare Alippi, Giacomo Boracchi, and Manuel Roveri.
+\newblock A hierarchical, nonparametric, sequential change-detection test.
+\newblock In {\em Neural Networks (IJCNN), The 2011 International Joint
+  Conference on}, pages 2889--2896. IEEE, 2011.
+
 \bibitem{Targhe}
 \url{http://www.mitan.it/security-solution/videosorveglianza/sistemi-di-videosorveglianza-e-registrazione/}.
 \newblock Visitato il giorno 09/03/2015.
@@ -101,12 +160,6 @@ John Canny.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, (6):679--698, 1986.
 
-\bibitem{ross2011nonparametric}
-Gordon~J. Ross, Dimitris~K. Tasoulis, and Niall~M. Adams.
-\newblock Nonparametric monitoring of data streams for changes in location and
-  scale.
-\newblock {\em Technometrics}, 53(4):379--389, 2011.
-
 \bibitem{pimentel2014review}
 Marco~A.F. Pimentel, David~A. Clifton, Lei Clifton, and Lionel Tarassenko.
 \newblock A review of novelty detection.
@@ -123,12 +176,6 @@ Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
   multimedia sensor networks.
 \newblock {\em Instrumentation and Measurement, IEEE Transactions on},
   59(11):2982--2990, 2010.
-
-\bibitem{alippi2008just}
-Cesare Alippi and Manuel Roveri.
-\newblock Just-in-time adaptive classifiers-part {I}: Detecting nonstationary
-  changes.
-\newblock {\em Neural Networks, IEEE Transactions on}, 19(7):1145--1153, 2008.
 
 \bibitem{akyildiz2007survey}
 Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.

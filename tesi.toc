@@ -1,7 +1,6 @@
 \select@language {italian}
 \select@language {italian}
-\contentsline {chapter}{Sommario}{iii}
-\contentsline {chapter}{Ringraziamenti}{vii}
+\contentsline {chapter}{Sommario}{i}
 \contentsline {chapter}{\numberline {1}Introduzione}{3}
 \contentsline {section}{\numberline {1.1}Aumento nell'interesse dei contenuti multimediali, tra cui il \textit {monitoraggio video} (IoT, domotica,...)}{3}
 \contentsline {section}{\numberline {1.2}Esempi videosorveglianza e webcam meteo}{3}
@@ -16,40 +15,49 @@
 \contentsline {chapter}{\numberline {2}Stato dell'arte}{5}
 \contentsline {section}{\numberline {2.1}Modello della camera}{5}
 \contentsline {subsection}{\numberline {2.1.1}La matrice prospettica della camera}{6}
-\contentsline {subsection}{\numberline {2.1.2}Parametri intrinseci}{7}
+\contentsline {subsection}{\numberline {2.1.2}Parametri intrinseci}{8}
 \contentsline {subsection}{\numberline {2.1.3}Parametri estrinseci}{10}
 \contentsline {section}{\numberline {2.2}Rappresentazione digitale delle immagini}{11}
-\contentsline {section}{\numberline {2.3}Tampering Detection}{12}
-\contentsline {subsection}{\numberline {2.3.1}Concetti e terminologia}{14}
-\contentsline {subsection}{\numberline {2.3.2}Tecniche basate su confronto di background}{15}
-\contentsline {subsubsection}{Identificazione di occlusioni}{15}
-\contentsline {subsubsection}{Identificazione di spostamenti della camera}{16}
-\contentsline {subsubsection}{Identificazione di sfocature}{17}
-\contentsline {subsection}{\numberline {2.3.3}Tecniche basate su monitoraggio sequenziale}{19}
-\contentsline {chapter}{\numberline {3}Impostazione del problema di ricerca}{23}
-\contentsline {section}{\numberline {3.1}Modello delle osservazioni}{23}
-\contentsline {subsection}{\numberline {3.1.1}Sfocatura}{23}
-\contentsline {subsection}{\numberline {3.1.2}Spostamento della camera}{25}
-\contentsline {subsection}{\numberline {3.1.3}Occlusione e guasti della camera}{27}
-\contentsline {section}{\numberline {3.2}Tampering detection}{27}
-\contentsline {chapter}{\numberline {4}Soluzione proposta}{29}
-\contentsline {section}{\numberline {4.1}Indicatori utilizzati per identificare gli eventi di tampering}{29}
-\contentsline {subsection}{\numberline {4.1.1}Misura della sfocatura nell'immagine}{29}
-\contentsline {subsection}{\numberline {4.1.2}Misura del displacement}{30}
-\contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{31}
-\contentsline {section}{\numberline {4.2}Algoritmo per il monitoraggio degli indicatori}{39}
-\contentsline {subsection}{\numberline {4.2.1}Monitoraggio one-shot}{39}
-\contentsline {subsection}{\numberline {4.2.2}Monitoraggio sequenziale}{39}
-\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{39}
-\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{41}
-\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{41}
-\contentsline {subsection}{\numberline {5.1.1}Sistemi di acquisizione utilizzati}{42}
-\contentsline {subsubsection}{Camere ST}{42}
-\contentsline {subsubsection}{Raspberry Pi Camera}{42}
-\contentsline {subsubsection}{Estrazione frame dal web}{43}
-\contentsline {subsection}{\numberline {5.1.2}Sequenze con presenza di tampering}{43}
-\contentsline {subsection}{\numberline {5.1.3}Definizione dei ground thruth}{43}
-\contentsline {subsection}{\numberline {5.1.4}Definizione delle metriche per la stima delle prestazioni}{43}
-\contentsline {section}{\numberline {5.2}Risultati ottenuti}{43}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{45}
-\contentsline {chapter}{Bibliografia}{47}
+\contentsline {section}{\numberline {2.3}Identificazione del cambiamento nella stazionariet\`a di un processo}{12}
+\contentsline {subsection}{\numberline {2.3.1}Metodi di Change-Point}{13}
+\contentsline {subsection}{\numberline {2.3.2}Change-Detection Test}{15}
+\contentsline {subsubsection}{CDT basati su CUSUM}{16}
+\contentsline {subparagraph}{CUSUM tradizionale e versione adattativa}{16}
+\contentsline {subparagraph}{CI-CUSUM}{17}
+\contentsline {subsubsection}{CDT basati su Intersezione di Intervalli di Confidenza}{19}
+\contentsline {subparagraph}{ICI-CDT}{19}
+\contentsline {subparagraph}{CDT di tipo gerarchico}{21}
+\contentsline {section}{\numberline {2.4}Tampering Detection}{22}
+\contentsline {subsection}{\numberline {2.4.1}Concetti e terminologia}{24}
+\contentsline {subsection}{\numberline {2.4.2}Tecniche basate su confronto di background}{25}
+\contentsline {subsubsection}{Identificazione di occlusioni}{25}
+\contentsline {subsubsection}{Identificazione di spostamenti della camera}{26}
+\contentsline {subsubsection}{Identificazione di sfocature}{27}
+\contentsline {subsection}{\numberline {2.4.3}Tecniche basate su monitoraggio sequenziale}{29}
+\contentsline {chapter}{\numberline {3}Impostazione del problema di ricerca}{33}
+\contentsline {section}{\numberline {3.1}Modello delle osservazioni}{33}
+\contentsline {subsection}{\numberline {3.1.1}Sfocatura}{33}
+\contentsline {subsection}{\numberline {3.1.2}Spostamento della camera}{35}
+\contentsline {subsection}{\numberline {3.1.3}Occlusione e guasti della camera}{37}
+\contentsline {section}{\numberline {3.2}Tampering detection}{37}
+\contentsline {chapter}{\numberline {4}Soluzione proposta}{39}
+\contentsline {section}{\numberline {4.1}Indicatori utilizzati per identificare gli eventi di tampering}{39}
+\contentsline {subsection}{\numberline {4.1.1}Misura della sfocatura nell'immagine}{39}
+\contentsline {subsection}{\numberline {4.1.2}Misura dello spostamento della camera}{40}
+\contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{41}
+\contentsline {section}{\numberline {4.2}Algoritmo di identificazione di sfocature e di spostamenti della camera}{49}
+\contentsline {subsection}{\numberline {4.2.1}Identificazione delle sfocature}{49}
+\contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{51}
+\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{52}
+\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{53}
+\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{53}
+\contentsline {subsection}{\numberline {5.1.1}Sistemi di acquisizione utilizzati}{54}
+\contentsline {subsubsection}{Camere ST}{54}
+\contentsline {subsubsection}{Raspberry Pi Camera}{54}
+\contentsline {subsubsection}{Estrazione frame dal web}{55}
+\contentsline {subsection}{\numberline {5.1.2}Sequenze con presenza di tampering}{55}
+\contentsline {subsection}{\numberline {5.1.3}Definizione dei ground thruth}{55}
+\contentsline {subsection}{\numberline {5.1.4}Definizione delle metriche per la stima delle prestazioni}{55}
+\contentsline {section}{\numberline {5.2}Risultati ottenuti}{55}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{57}
+\contentsline {chapter}{Bibliografia}{59}

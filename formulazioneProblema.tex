@@ -17,7 +17,9 @@
 %}
 %\end{quotation}
 \vspace{0.5cm}
-In questo capitolo descriviamo il problema affrontato dall'algoritmo di tampering detection, in maniera formale e rigorosa. Il primo paragrafo illustra il modello delle osservazioni e gli eventi che siamo interessati a identificare, mentre il secondo paragrafo formalizza il concetto di tampering detection. 
+In questo capitolo descriviamo il problema affrontato dall'algoritmo di tampering detection, in maniera formale e rigorosa. \\
+Nel Paragrafo \ref{modelloOsservaz} illustriamo il modello delle osservazioni e gli eventi che siamo interessati a identificare.\\
+Nel Paragrafo \ref{tamperingDef} formalizziamo il concetto di tampering detection. 
 \noindent 
 \section{Modello delle osservazioni}
 \label{modelloOsservaz}
@@ -38,13 +40,13 @@ Il fenomeno della sfocatura avviene quando un elemento trasparente o semitraspar
 	\caption{Esempi di sfocature}
 	\label{fig:esempiSfocature}
 \end{figure}
-\noindent Nella figura \ref{fig:esempiSfocature} sono mostrati degli esempi in cui sono presenti delle sfocature. 
+\noindent Nella Figura \ref{fig:esempiSfocature} sono mostrati degli esempi in cui sono presenti delle sfocature. 
 Queste possono essere di origine diversa: 
 \begin{itemize}
-	\item dovute a \textit{cause naturali}, come ad esempio dell'acqua piovana che si deposita sulla lente (figura \ref{fig:pioggia}), o la condensa dovuta all'umidit\`a e alle basse temperature, oppure un raggio di sole incidente sull'obiettivo della camera;
-	\item per \textit{intervento dell'uomo}, che a sua volta pu\`o avvenire in maniera intenzionale (e in questo caso si pu\`o parlare di \textit{manomissione}) oppure non intenzionale. Ad esempio, si pu\`o direttamente intervenire sulla messa a fuoco, nel caso sia possibile cambiarla manualmente; oppure (come nel caso della figura \ref{fig:bassiniDEFOCUS}) \`e possibile applicare una sostanza semitrasparente sulla lente della camera, come il gas di un deodorante spray.
+	\item dovute a \textit{cause naturali}, come ad esempio dell'acqua piovana che si deposita sulla lente (Figura \ref{fig:pioggia}), o la condensa dovuta all'umidit\`a e alle basse temperature, oppure un raggio di sole incidente sull'obiettivo della camera;
+	\item per \textit{intervento dell'uomo}, che a sua volta pu\`o avvenire in maniera intenzionale (e in questo caso si pu\`o parlare di \textit{manomissione}) oppure non intenzionale. Ad esempio, si pu\`o direttamente intervenire sulla messa a fuoco, nel caso sia possibile cambiarla manualmente; oppure (come nel caso della Figura \ref{fig:bassiniDEFOCUS}) \`e possibile applicare una sostanza semitrasparente sulla lente della camera, come il gas di un deodorante spray.
 \end{itemize}
-Inoltre, possiamo notare come nella figura \ref{fig:bassiniDEFOCUS} la sfocatura riguardi tutta l'immagine, mentre nella figura \ref{fig:pioggia} la sfocatura si concentri solo in alcune aree (quelle dove sono presenti le gocce). 
+Inoltre, possiamo notare come nella Figura \ref{fig:bassiniDEFOCUS} la sfocatura riguardi tutta l'immagine, mentre nella Figura \ref{fig:pioggia} la sfocatura si concentri solo in alcune aree (quelle dove sono presenti le gocce). 
 Nel primo caso si parler\`a, quindi, di sfocatura \textit{totale}, mentre nel secondo caso di sfocatura \textit{parziale}.\\
 Riprendendo la trattazione presente in \cite{alippi2010detecting}, questo fenomeno pu\`o essere modellato come un operatore di \textit{degradazione} $\mathcal{D}$ applicato a un'immagine $y$, considerata priva di errori, i.e.,
 \begin{equation}
@@ -55,7 +57,7 @@ In particolare, all'interno dell'operatore $\mathcal{D}$ si pu\`o considerare il
 \label{blur_single}
 z(x)=\mathcal{D}[y](x) = \mathcal{B}[y](x) + \eta(x), \qquad x \in \mathcal{X}
 \end{equation}
-dove, come abbiamo specificato nel paragrafo \ref{concetti}, indichiamo con $x$ le coordinate dei \textit{pixel} dell'immagine e con $\mathcal{X}$ l'insieme dei pixel che formano l'immagine. 
+dove, come abbiamo specificato nel Paragrafo \ref{concetti}, indichiamo con $x$ le coordinate dei \textit{pixel} dell'immagine e con $\mathcal{X}$ l'insieme dei pixel che formano l'immagine. 
 Per praticit\`a possiamo assumere che l'operatore di blur sia \textit{lineare}.
 Quindi, considerando l'immagine come un dato \textit{continuo},
 \begin{equation}
@@ -64,7 +66,7 @@ Quindi, considerando l'immagine come un dato \textit{continuo},
 \end{equation}
 dove $h(x,\cdot)$ rappresenta la \textit{risposta all'impulso}, \textit{point spread function} (PSF), della sfocatura sul pixel $x$.
 L'effetto di $h(x, \cdot)$ \`e quello di rendere le differenze di intensit\`a, tra pixel adiacenti, pi\`u morbide (\textit{smooth}).
-Nel caso in cui la sfocatura sia applicata sulla totalit\`a dell'immagine e fosse \textit{spazio invariante} (come nel caso della figura \ref{fig:bassiniDEFOCUS}), allora \`e possibile modellare l'operatore di blur come una \textit{convoluzione}\footnote{Il blur convoluzionale \`e quello che abbiamo utilizzato per generare, in maniera sintetica, sequenze con immagini sfocate.}:
+Nel caso in cui la sfocatura sia applicata sulla totalit\`a dell'immagine e fosse \textit{spazio invariante} (come nel caso della Figura \ref{fig:bassiniDEFOCUS}), allora \`e possibile modellare l'operatore di blur come una \textit{convoluzione}\footnote{Il blur convoluzionale \`e quello che abbiamo utilizzato per generare, in maniera sintetica, sequenze con immagini sfocate.}:
 \begin{equation}
 \label{blur_convolution}
 \mathcal{B}[y](x) = \int_{\mathcal{X}}y(s)h(s-x)ds,
@@ -89,7 +91,7 @@ La sequenza delle immagini $\{y_t\}, t = 1,\dots , N$, pu\`o variare in maniera 
 	\caption{Sequenza di otto frame consecutivi acquisiti ogni minuto}
 	\label{fig:framDifferences}
 \end{figure}
-\noindent Un esempio \`e illustrato nella figura \ref{fig:framDifferences}, in cui le immagini riprese dalla camera sono acquisite ogni minuto. 
+\noindent Un esempio \`e illustrato nella Figura \ref{fig:framDifferences}, in cui le immagini riprese dalla camera sono acquisite ogni minuto. 
 Nonostante l'inquadratura non cambi tra le acquisizioni, il contenuto delle singole immagini varia parecchio, a causa del continuo passaggio di automobili e pedoni.
 Questo problema fa s\`i che l'identificazione delle sfocature non possa avvenire facendo un semplice confronto tra frame consecutivi, in quanto avremmo un numero troppo elevato di falsi positivi.
 Infatti, nel caso in cui avessimo un riscontro negativo dal confronto tra due frame ($z_t \neq z_{t + 1}$), sarebbe difficile capire se \`e cambiato il contenuto delle immagini ($y_t \neq y_{t + 1}$) o l'operatore di sfocatura ($\mathcal{B}_t \neq \mathcal{B}_{t + 1}$). 
@@ -104,7 +106,7 @@ Le cause possono essere, ancora una volta, di tipo naturale, ad esempio una raff
 	\caption{Esempio di spostamento della camera}
 	\label{fig:testiDISPLACEMENT}
 \end{figure}
-\noindent Un esempio \`e mostrato nella figura \ref{fig:testiDISPLACEMENT}, dove vediamo che tra il frame riportato in figura \ref{fig:displacementORIGINALE} e quello in figura \ref{fig:displacementSPOSTATO} c'\`e stato un evento che ha spostato la camera.
+\noindent Un esempio \`e mostrato nella Figura \ref{fig:testiDISPLACEMENT}, dove vediamo che tra il frame riportato in Figura \ref{fig:displacementORIGINALE} e quello in Figura \ref{fig:displacementSPOSTATO} c'\`e stato un evento che ha spostato la camera.
 Possiamo formalizzare il concetto di spostamento della camera nel modo seguente: consideriamo la sequenza $\{y_t\}$ di immagini generate da una camera in una certa posizione, e la sequenza $\{w_t\}$ di immagini generate dalla stessa camera in una posizione differente.\\
 Possiamo modellare la sequenza di immagini $\{z_t\}$ in cui avviene uno spostamento della camera all'istante $T^*$ nel seguente modo:
 \begin{equation}
@@ -139,7 +141,7 @@ Il fenomeno dell'occlusione avviene quando un oggetto opaco si pone a ridosso de
 	\caption{Esempi di occlusione}
 	\label{fig:occlusion}
 \end{figure}
-\noindent Esempi di occlusione sono illustrati in figura \ref{fig:occlusion}. 
+\noindent Esempi di occlusione sono illustrati in Figura \ref{fig:occlusion}. 
 Pu\`o succedere (Fig. \ref{fig:occlusionCALZA}) che un oggetto venga posto intenzionalmente davanti alla lente della camera, in modo da coprire la scena, oppure (Fig. \ref{fig:occlusionNEVE}), a causa di una nevicata, pu\`o avvenire che della neve si depositi sulla lente e, quindi, venga compromessa la corretta acquisizione.\\
 Quando parliamo di guasti, invece, possiamo considerare due casi:
 \begin{itemize}
@@ -147,8 +149,8 @@ Quando parliamo di guasti, invece, possiamo considerare due casi:
 	\item guasto del \textit{sensore.}
 \end{itemize}
 Il primo caso pu\`o avvenire quando considerano delle WMSN, in particolare quando i frame vengono trasmessi attraverso la rete dai sensori verso un nodo centrale.
-Quando avviene un guasto nella rete parte dell'immagine non viene trasmessa, come illustrato nella figura \ref{fig:guastoTrasmissione}.
-Il caso del sensore guasto, come ad esempio quello nella figura \ref{fig:guastoSensore}, comporta generalmente un aumento del rumore presente nel frame. \\
+Quando avviene un guasto nella rete parte dell'immagine non viene trasmessa, come illustrato nella Figura \ref{fig:guastoTrasmissione}.
+Il caso del sensore guasto, come ad esempio quello nella Figura \ref{fig:guastoSensore}, comporta generalmente un aumento del rumore presente nel frame. \\
 \begin{figure}[tb]
 	\centering
 	\subfigure[]{\label{fig:guastoTrasmissione} \includegraphics[width=6cm]{./pictures/erroreTrasm}}
@@ -158,7 +160,8 @@ Il caso del sensore guasto, come ad esempio quello nella figura \ref{fig:guastoS
 \end{figure}
 Questi problemi non sono stati affrontati durante il corso della tesi, comunque le tecniche messe a punto per rilevare spostamenti e sfocature possono essere utilizzate anche per rilevare questo tipo di eventi. 
 \section{Tampering detection}
-Nel paragrafo \ref{tamperingSOA} abbiamo introdotto in maniera molto generale il concetto di tampering detection. 
+\label{tamperingDef}
+Nel Paragrafo \ref{tamperingSOA} abbiamo introdotto in maniera molto generale il concetto di tampering detection. 
 In questo paragrafo diamo una definizione pi\`u formale al problema.
 L'algoritmo di tampering detection consiste nell'analizzare la sequenza dei frame generati dalla camera in modo da determinare un possibile cambiamento nell'inquadratura della scena o una sfocatura.\\
 Consideriamo il caso generale di una sequenza di frame $\{z_t\}, t=1,\dots,\infty$. 
@@ -176,5 +179,5 @@ L'obiettivo dell'algoritmo \`e quello di stimare l'istante $T^*$. \\
 %Nel caso dell'operatore di spostamento $\mathcal{S}$, tenendo come riferimento la formula \eqref{eq:displacement}, l'obiettivo dell'algoritmo \`e quello di stimare l'istante di tempo $T^*$ in cui avviene il passaggio dalla sequenza di immagini $\{y_i\}$ a $\{w_i\}$.\\
 Come abbiamo illustrato precedentemente, discriminare tra cambiamenti avvenuti a livello di contenuto della scena e cambiamenti dovuti a tampering pu\`o diventare complicato confrontando direttamente i frame tra loro, in quanto stiamo operando con framerate bassi.
 %Non \`e, quindi, possibile utilizzare le tecniche basate su background che sono state descritte nel paragrafo \ref{background}.
-Non utilizzeremo, quindi, le tecniche basate su background che sono state descritte nel paragrafo \ref{background}.
-Nel prossimo capitolo vedremo la soluzione che abbiamo deciso di utilizzare per lo sviluppo dell'algoritmo di tampering detection. 
+Non utilizzeremo, quindi, le tecniche basate su background che sono state descritte nel Paragrafo \ref{background}.
+Nel Capitolo \ref{SoluzioneProposta} vedremo la soluzione che abbiamo deciso di utilizzare per lo sviluppo dell'algoritmo di tampering detection. 
