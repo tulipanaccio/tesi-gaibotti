@@ -1,5 +1,8 @@
 \begin{thebibliography}{10}
 
+\bibitem{ilmeteo}
+\url{http://www.ilmeteo.it/webcam/}.
+
 \bibitem{manetti1976vita}
 Antonio Manetti, Domenico De~Robertis, and Giuliano Tanturli.
 \newblock {\em Vita di Filippo Brunelleschi: preceduta da La novella del
@@ -202,8 +205,5 @@ Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
 
 \bibitem{picamera}
 \url{http://picamera.readthedocs.org/en/release-1.9/}.
-
-\bibitem{ilmeteo}
-\url{http://www.ilmeteo.it/webcam/}.
 
 \end{thebibliography}

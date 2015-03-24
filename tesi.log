@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  23 MAR 2015 18:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  24 MAR 2015 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -488,7 +488,17 @@ italian.ldf    on input line 45.
 
 (./frontespizio.tex
 File: ./pictures/logopm.eps Graphic file (type eps)
- <./pictures/logopm.eps> [1
+ <./pictures/logopm.eps>
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
 
 ]) [2
@@ -516,15 +526,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--19
 
 ] [4
 
-] (./tesi.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [5
+] (./tesi.toc [5
 
 ])
 \tf@toc=\write3
@@ -553,13 +555,16 @@ am-bien-te a quel-
 
 ]
 Capitolo 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
-(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
- [3]) [4]
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--41
+
+ []
+
+
+Underfull \vbox (badness 6078) has occurred while \output is active []
+
+ [3])
+[4]
 \openout2 = `statoArte.aux'.
 
  (./statoArte.tex
@@ -580,17 +585,25 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
 
 ]
 File: ./pictures/modelloCamera.eps Graphic file (type eps)
- <./pictures/modelloCamera.eps> [6] [7]
+ <./pictures/modelloCamera.eps> [6]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
+
+(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
+ [7]
 File: ./pictures/mappatura2d3d.eps Graphic file (type eps)
- <./pictures/mappatura2d3d.eps>
-[8]
+
+<./pictures/mappatura2d3d.eps> [8]
 File: ./pictures/griglia.eps Graphic file (type eps)
  <./pictures/griglia.eps> [9]
 File: ./pictures/rt.eps Graphic file (type eps)
- <./pictures/rt.eps> [10]
-File: ./pictures/lenaRGB.eps Graphic file (type eps)
 
-<./pictures/lenaRGB.eps>
+<./pictures/rt.eps> [10]
+File: ./pictures/lenaRGB.eps Graphic file (type eps)
+ <./pictures/lenaRGB.eps>
 File: ./pictures/yuv.eps Graphic file (type eps)
  <./pictures/yuv.eps> [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -744,7 +757,7 @@ Capitolo 4.
 
 
 
-]
+] [40]
 File: ./pictures/testiGIORNO.eps Graphic file (type eps)
  <./pictures/testiGIORNO.eps>
 File: ./pictures/testiNOTTE.eps Graphic file (type eps)
@@ -753,10 +766,10 @@ File: ./pictures/buenosAiresGIORNO.eps Graphic file (type eps)
 
 <./pictures/buenosAiresGIORNO.eps>
 File: ./pictures/buenosAiresNOTTE.eps Graphic file (type eps)
- <./pictures/buenosAiresNOTTE.eps> [40]
-[41]
+ <./pictures/buenosAiresNOTTE.eps> [41]
 File: ./pictures/energyTot.eps Graphic file (type eps)
- <./pictures/energyTot.eps>
+
+<./pictures/energyTot.eps>
 File: ./pictures/energydetr.eps Graphic file (type eps)
  <./pictures/energydetr.eps>
 File: ./pictures/lumaTot.eps Graphic file (type eps)
@@ -800,11 +813,27 @@ File: ./pictures/testiORIGINALE.eps Graphic file (type eps)
  <./pictures/testiORIGINALE.eps>
 File: ./pictures/testiDISPLACEMENT.eps Graphic file (type eps)
 
-<./pictures/testiDISPLACEMENT.eps> [42] [43] [44] [45] [46] [47]
+<./pictures/testiDISPLACEMENT.eps> [42] [43] [44] [45]
+File: ./pictures/testiORIGINALE.eps Graphic file (type eps)
+
+<./pictures/testiORIGINALE.eps>
+File: ./pictures/map.eps Graphic file (type eps)
+ <./pictures/map.eps> [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [48]
-[49] [50] [51]) [52]
+Underfull \vbox (badness 1824) has occurred while \output is active []
+
+ [49]
+[50] [51] [52]
+Underfull \hbox (badness 10000) in paragraph at lines 361--369
+
+ []
+
+[53]) [54]
 \openout2 = `proveSperimentali.aux'.
 
  (./proveSperimentali.tex
@@ -813,63 +842,63 @@ File: ./pictures/raspberry.eps Graphic file (type eps)
 <./pictures/raspberry.eps>
 Underfull \vbox (badness 1527) has occurred while \output is active []
 
- [53
+ [55
 
 
 
 ]
 Underfull \vbox (badness 2213) has occurred while \output is active []
 
- [54])
-[55]
+ [56])
+[57]
 \openout2 = `conclusioni.aux'.
 
- (./conclusioni.tex [56
+ (./conclusioni.tex [58
 
 
 
 ]
 Capitolo 6.
-) [57] [58
+) [59] [60
 
 
-] (./tesi.bbl [59
+] (./tesi.bbl [61
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 79--81
+Underfull \hbox (badness 10000) in paragraph at lines 82--84
 []$\OT1/cmtt/m/n/10.95 http : / / www . mitan . it / security-[]solution / vide
 osorveglianza /
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 79--81
+Underfull \hbox (badness 2443) in paragraph at lines 82--84
 \OT1/cmtt/m/n/10.95 sistemi-[]di-[]videosorveglianza-[]e-[]registrazione/$\OT1/
 cmr/m/n/10.95 .  Vi-si-ta-to il
  []
 
-[60]
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 []$\OT1/cmtt/m/n/10.95 http : / / www . arm . com / products / processors / cla
 ssic / arm11 /
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
 []$\OT1/cmtt/m/n/10.95 http : / / www . broadcom . com / products / technology 
 / mobmm _
  []
 
-[61]) [62] (./tesi.aux (./frontespizio.aux) (./sommario.aux)
-(./introduzione.aux) (./statoArte.aux) (./formulazioneProblema.aux)
-(./soluzioneProposta.aux) (./proveSperimentali.aux) (./conclusioni.aux)) ) 
+) [64] (./tesi.aux (./frontespizio.aux) (./sommario.aux) (./introduzione.aux)
+(./statoArte.aux) (./formulazioneProblema.aux) (./soluzioneProposta.aux)
+(./proveSperimentali.aux) (./conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
- 9232 strings out of 493109
- 134244 string characters out of 6140752
- 274930 words of memory out of 5000000
- 12369 multiletter control sequences out of 15000+600000
- 17072 words of font info for 62 fonts, out of 8000000 for 9000
+ 9245 strings out of 493109
+ 134461 string characters out of 6140752
+ 277041 words of memory out of 5000000
+ 12382 multiletter control sequences out of 15000+600000
+ 17615 words of font info for 65 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  46i,19n,77p,2195b,570s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (72 pages, 165052 bytes).
+Output written on tesi.dvi (74 pages, 172144 bytes).

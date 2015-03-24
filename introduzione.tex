@@ -2,45 +2,48 @@
 \label{Introduzione}
 \thispagestyle{empty}
 
-\begin{quotation}
-	{\footnotesize
-		\noindent\emph{``Terence: Mi fai un gelato anche a me? Lo vorrei di pistacchio. \\
-			Bud: Non ce l'ho il pistacchio. C'ho la vaniglia, cioccolato, fragola, limone e caff\`e. \\
-			Terence: Ah bene. Allora fammi un cono di vaniglia e di pistacchio. \\
-			Bud: No, non ce l'ho il pistacchio. C'ho la vaniglia, cioccolato, fragola, limone e caff\`e. \\
-			Terence: Ah, va bene. Allora vediamo un po', fammelo al cioccolato, tutto coperto di pistacchio. \\
-			Bud: Ehi, macch\'e sei sordo? Ti ho detto che il pistacchio non ce l'ho! \\
-			Terence: Ok ok, non c'\`e bisogno che t'arrabbi, no? Insomma, di che ce l'hai? \\
-			Bud: Ce l'ho di vaniglia, cioccolato, fragola, limone e caff\`e! \\
-			Terence: Ah, ho capito. Allora fammene uno misto: mettici la fragola, il cioccolato, la vaniglia, il limone e il caff\`e. Charlie, mi raccomando il pistacchio, eh.''}
-		\begin{flushright}
-			Pari e dispari
-		\end{flushright}
-	}
-\end{quotation}
-\vspace{0.5cm}
-Punti da sviluppare:
+%\begin{quotation}
+%	{\footnotesize
+%		\noindent\emph{``Terence: Mi fai un gelato anche a me? Lo vorrei di pistacchio. \\
+%			Bud: Non ce l'ho il pistacchio. C'ho la vaniglia, cioccolato, fragola, limone e caff\`e. \\
+%			Terence: Ah bene. Allora fammi un cono di vaniglia e di pistacchio. \\
+%			Bud: No, non ce l'ho il pistacchio. C'ho la vaniglia, cioccolato, fragola, limone e caff\`e. \\
+%			Terence: Ah, va bene. Allora vediamo un po', fammelo al cioccolato, tutto coperto di pistacchio. \\
+%			Bud: Ehi, macch\'e sei sordo? Ti ho detto che il pistacchio non ce l'ho! \\
+%			Terence: Ok ok, non c'\`e bisogno che t'arrabbi, no? Insomma, di che ce l'hai? \\
+%			Bud: Ce l'ho di vaniglia, cioccolato, fragola, limone e caff\`e! \\
+%			Terence: Ah, ho capito. Allora fammene uno misto: mettici la fragola, il cioccolato, la vaniglia, il limone e il caff\`e. Charlie, mi raccomando il pistacchio, eh.''}
+%		\begin{flushright}
+%			Pari e dispari
+%		\end{flushright}
+%	}
+%\end{quotation}
+%\vspace{0.5cm}
+Una branca dell'industria tecnologica che sta prendendo sempre pi\`u piede \`e quella dei \textit{sistemi di monitoraggio video}.
+L'abbattimento dei costi delle camere e una sempre maggiore integrazione di tecnologie hardware con sensori e infrastrutture di rete hanno permesso una rapida crescita di questo settore.\\
+Inoltre, il grande successo di Internet degli ultimi anni ha permesso l'utilizzo dei sistemi di monitoraggio video per applicazioni che prima non erano neanche pensabili.
+Oggigiorno \`e possibile avere un sistema di videosorveglianza domestico spendendo poche centinaia di euro, controllabile con il proprio \textit{smartphone} attraverso internet, oppure \`e possibile vedere le condizioni meteorologiche o del traffico nella propria citt\`a attraverso le immagini riprese da una \textit{webcam}.
+Un servizio di questo genere \`e fornito da molte piattaforme web di previsioni del tempo.
+Ad esempio, il sito \textit{ilMeteo.it} \cite{ilmeteo} permette di vedere in tempo reale il contenuto video di webcam presenti nelle principali citt\`a italiane o in localit\`a di interesse turistico.\\
+Uno dei maggiori problemi quando si ha a che fare con sistemi di monitoraggio video consiste nell'identificazione di particolari eventi in grado di compromettere la corretta ripresa della scena da parte del sensore.\\
+%Eventi di questo tipo sono, ad esempio, lo spostamento della camera, oppure una scorretta messa a fuoco della scena.\\
+Questo tipo di eventi viene classificato generalmente sotto il nome di \textit{tampering}, dall'inglese \textit{manomissione}.
+Il termine deriva dal fatto che, di solito, si ha a che fare con azioni intenzionali atte a impedire la ripresa della scena, da parte della camera, in particolari momenti.
+Pu\`o succedere, ad esempio, che un ladro copra l'obiettivo della camera con qualche oggetto, in modo da poter agire indisturbato, oppure che la sposti in modo che riprenda qualcos'altro.
+In questa tesi definiamo con il termine tampering un qualsiasi evento, intenzionale o meno, che possa compromettere la corretta acquisizione della scena inquadrata dalla camera.
+Ad esempio una sfocatura pu\`o essere causata da dell'acqua piovana che si deposita a ridosso della lente, oppure pu\`o succedere che una folata di forte vento sposti la camera, cambiando quindi l'inquadratura della scena.\\
+Questa definizione permette di analizzare il problema anche per quelle applicazioni di monitoraggio video che non sono direttamente legate alla videosorveglianza, ad esempio per lo scenario delle webcam introdotto sopra, in cui l'evento non \`e necessariamente dovuto a un intervento umano intenzionale.\\
+Le tecniche algoritmiche che vengono utilizzate per identificare gli eventi di tampering prendono il nome di algoritmi di \textit{tampering detection}.\\
+La letteratura scientifica ha prodotto molte soluzioni a riguardo, ma la maggior parte sono legate ad applicazioni di videosorveglianza.
+Questo particolare tipo di applicazioni ha bisogno di camere che acquisiscano a framerate \textit{continuo}, solitamente tra i 30 frame per secondo (fps) e i 2 fps.
+\`E infatti impensabile che una camera di videosorveglianza possa acquisire, ad esempio, un frame ogni minuto.\\
+Questo, per\`o, pu\`o andare bene nel caso si considerino applicazioni come quella delle webcam dove, al contrario, un framerate elevato \`e inutile e provoca una dissipazione di energia non giustificata.\\
 
-\section{Aumento nell'interesse dei contenuti multimediali, tra cui il \textit{monitoraggio video} (IoT, domotica,...)}
-\section{Esempi videosorveglianza e webcam meteo}
-\section{Problema dell'affidabilit\`a del contenuto video}
-\begin{itemize}
-	\item Vitale nel caso della videosorveglianza
-	\item Caso webcam limitare traffico in rete evitando di inviare frame compromessi
-	\item Qualit\`a del servizio
-\end{itemize}
-\section{Tampering Detection}
-\section{Riassunto soa}
-Enfatizzare il fatto che il lavoro presente in letteratura \`e legato solamente ad applicazioni di videosorveglianza
-\section{Scopo della tesi}
-\section{Soluzione proposta}
-\section{Esperimenti fatti}
-\section{Problemi rimasti aperti}
-\section{Struttura della tesi}
+
 La tesi \`e strutturata nel seguente modo.\\
-Nel capitolo \ref{StatoArte} si mostra lo stato dell'arte.\\
-Nel capitolo \ref{FormulazioneProblema} si illustra come \`e stato formalizzato il problema.\\
-Nel capitolo \ref{SoluzioneProposta} si illustra la soluzione proposta per risolvere il problema.\\
-Nel capitolo \ref{ProveSperimentali} si mostrano le prove realizzate per validare la soluzione proposta, descrivendo anche la realizzazione dei dataset e i risultati ottenuti.\\
-Nel capitolo \ref{Conclusioni} si mostrano le prospettive future di ricerca e si tirano le conclusioni.
+Nel Capitolo \ref{StatoArte} si mostra lo stato dell'arte.\\
+Nel Capitolo \ref{FormulazioneProblema} si illustra come \`e stato formalizzato il problema.\\
+Nel Capitolo \ref{SoluzioneProposta} si illustra la soluzione proposta per risolvere il problema.\\
+Nel Capitolo \ref{ProveSperimentali} si mostrano le prove realizzate per validare la soluzione proposta, descrivendo anche la realizzazione dei dataset e i risultati ottenuti.\\
+Nel Capitolo \ref{Conclusioni} infine si mostrano le prospettive future di ricerca e si tirano le conclusioni.
 	

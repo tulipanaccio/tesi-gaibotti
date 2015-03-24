@@ -4,9 +4,15 @@
 
 \vspace{0.5cm}
 
-\noindent In questo capitolo descriviamo la soluzione che abbiamo proposto per risolvere il problema del tampering detection, formulato nel Capitolo \ref{FormulazioneProblema}.
+\noindent In questo capitolo descriviamo la soluzione che abbiamo proposto per risolvere il problema del tampering detection, formulato nel Capitolo \ref{FormulazioneProblema}.\\
+Nel Paragrafo \ref{indicatori} descriviamo quali sono gli indicatori che abbiamo deciso di monitorare per individuare gli eventi di tampering.\\
+Nel Paragrafo  \ref{monitoraggio} illustriamo in che modo vengono monitorati questi indicatori in modo da individuare degli eventi specifici.\\
+Nel Paragrafo \ref{segmentazione} descriviamo, infine, l'algoritmo di segmentazione che utilizziamo, assieme al monitoraggio, per individuare eventi di spostamento della camera.
 \section{Indicatori utilizzati per identificare gli eventi di tampering}
 \label{indicatori}
+L'approccio che abbiamo considerato per risolvere il problema del tampering detection consiste nell'estrarre, da ciascun frame ripreso dalla camera, degli indicatori \textit{scalari} che possano essere monitorati nel tempo, in modo da individuare un cambiamento nel loro comportamento associabile a un evento di tampering. 
+In particolare abbiamo deciso di considerare un indicatore in grado di verificare la presenza di sfocature globali all'interno della scena e un altro in grado di identificare gli eventi di spostamento della camera.
+Il resto del paragrafo \`e dedicato alla descrizione di questi indicatori.
 \subsection{Misura della sfocatura nell'immagine}
 Nel Paragrafo \ref{sfocatura} abbiamo modellizzato il fenomeno della sfocatura secondo la formula \eqref{blur_multi}:
 \[z_t(x)=\mathcal{D}_t[y_t](x) = \mathcal{B}_t[y_t](x) + \eta(x), \qquad x \in \mathcal{X}.\]
@@ -203,7 +209,7 @@ Vanno notate alcune cose:
 	Questo permette di utilizzare tecniche di monitoraggio sequenziale sull'energia del gradiente, con dei CDT sulla varianza, per identificare eventi di sfocatura.
 \end{itemize}
 In definitiva, \`e possibile identificare un evento di tampering andando a monitorare il detrending degli indicatori descritti dalla formule \eqref{eq:energyGradient} e \eqref{eq:energyLuma}.
-Il monitoraggio pu\`o essere fatto con tecniche a \textit{basso carico computazionale}: infatti \`e possibile utilizzare semplicemente una soglia in modo da individuare il picco nel detrending dovuto all'evento di tampering.
+Il monitoraggio pu\`o essere fatto con tecniche a \textit{basso carico computazionale}: infatti \`e possibile utilizzare semplicemente delle soglie in modo da individuare il picco nel detrending dovuto all'evento di tampering.
 In particolare possiamo monitorare l'energia media del gradiente per individuare eventi di sfocatura, e l'energia media della luma per individuare eventi di spostamento della camera.
 Inoltre, per rendere pi\`u robusta l'identificazione di sfocature, \`e possibile usare un test sequenziale sull'energia media del gradiente in grado di individuare dei cambiamenti nella varianza.\\
 Dobbiamo fare un'ultima considerazione sullo spostamento della camera.
@@ -215,9 +221,18 @@ Possiamo avere situazioni, come nel caso della Figura \ref{fig:displacementBRUTT
 Questo problema viene meno se consideriamo il contributo dell'energia della luma mediato non sulla totalit\`a della scena, bens\`i su \textit{regioni} specifiche analizzate separatamente.
 Infatti, se consideriamo un'area particolare della scena, come ad esempio quella occupata dal palazzo nella Figura \ref{fig:displacementORIGINALE1}, durante uno spostamento della camera la variazione della luma mediata solo sui pixel appartenenti a quella regione sar\`a pi\`u marcata rispetto a quella della luminosit\`a mediata su tutta l'immagine.
 %Nella Figura  \ref{fig:testiDISPLACEMENT1}, tra il frame \ref{fig:displacementORIGINALE1} e il frame \ref{fig:displacementSPOSTATO1}, l'area occupata dal palazzo cambia il suo contenuto riprendendo un pezzo di cielo.
-Abbiamo deciso, quindi, di inserire una fase di \textit{segmentazione} in cui vengono estratte le regioni della scena che la camera deve inquadrare. 
+Abbiamo deciso, quindi, di inserire una fase di \textit{segmentazione} in cui vengono estratte le regioni della scena che la camera deve inquadrare.
+ \begin{figure}[tb]
+ 	\centering
+ 	\subfigure[]{\label{fig:testiSCENA} \includegraphics[width=6cm]{./pictures/testiORIGINALE}}
+ 	\subfigure[]{\label{fig:testiMAPPA}\includegraphics[width=6cm]{./pictures/map}}
+ 	\caption{Esempio di segmentazione della scena}
+ 	\label{fig:testiSEGMENTAZIONE}
+ \end{figure}
+Un esempio \`e illustrato nella Figura \ref{fig:testiSEGMENTAZIONE}. 
 Nel Paragrafo \ref{segmentazione} vedremo in dettaglio come vengono estratte le regioni dalla scena.
 \section{Algoritmo di identificazione di sfocature e di spostamenti della camera}
+\label{monitoraggio}
 In base alle considerazioni fatte nel Paragrafo \ref{indicatori} possiamo dividere l'algoritmo di tampering detection in due \textit{thread}:
 il primo in grado di individuare la presenza di sfocature all'interno di un'immagine, il secondo lo spostamento della camera.
 In particolare la presenza di sfocature pu\`o essere identificata monitorando l'energia media del gradiente (Formula \eqref{eq:energyGradient}), mentre l'evento di spostamento della camera pu\`o essere identificato monitorando l'energia media della luma (Formula \eqref{eq:energyLuma}).\\
@@ -280,6 +295,7 @@ Il monitoraggio sequenziale viene fatto utilizzando un CDT basato su ICI-rule\fo
 
 
 \subsection{Identificazione degli spostamenti della camera}
+\label{monitoraggioDISPL}
 L'Algoritmo \ref{alg:DISPL} mostra il funzionamento, ad alto livello, dell'algoritmo per identificare un evento di spostamento della camera.\\
 \begin{algorithm}[t]
 	% \SetAlgoNoLine
@@ -321,7 +337,7 @@ in questo caso l'analisi \`e fatta in maniera indipendente per ciascuna regione 
 \begin{equation}
 	\label{eq:lumaRegions}
 	\begin{array}{rl}
-	l_t^k&  =  \mathcal{L}[z_t] = \frac{\sum_{\mathcal{X}} z_t(x) }{|\mathcal{X}|_{R_k}}\\
+	l_t^k&  =  \mathcal{L}^k[z_t] = \frac{\sum_{\mathcal{X}} z_t(x) }{|\mathcal{X}|_{R_k}}\\
 	\Delta l_t^k & = l_t^k-l_{t-1}^k 
 	\end{array},
 \end{equation}
@@ -346,9 +362,24 @@ $\sigma_{\Delta l^k}$ indica la deviazione standard delle osservazioni del train
 e $\Gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente.\\
 Le soglie definite nella Formula \eqref{eq:soglieLuma} forniscono un limite superiore e uno inferiore ai valori di $\{\Delta l_t^k\}$ ammissibili.\\
 Dato che l'evento di spostamento della camera viene inteso come un cambiamento globale dell'immagine, ci aspettiamo che tale cambiamento sia percepibile in tutte le regioni contemporaneamente. 
-In realt\`a possiamo rilassare questo vincolo considerando solo $n-1$ regioni.
-Considerando l'esempio di spostamento nella Figura \ref{fig:displacementBRUTTO}, infatti,  
-Qualsiasi valore al di sotto di $Th_{min}^k$ o al di sopra di $Th_{max}^k$ viene considerato come un evento di sfocatura.\\ 
+In realt\`a conviene rilassare questo vincolo.
+Se consideriamo, ad  esempio, l'evento di spostamento nella Figura \ref{fig:displacementBRUTTO} e la segmentazione della scena in Figura \ref{fig:testiMAPPA}, infatti, possiamo notare come la luma nella regione del cielo non subisca cambiamenti sostanziali dato che, anche in seguito all'evento di tampering, questa regione riprende sempre una porzione di cielo.\\
+In generale, quindi, possiamo considerare un monitoraggio indipendente di ogni sequenza $\{\Delta l_t^k\}$ per $k=1,\dots,K$.
+Se, all'istante $T^*$, abbiamo che, per $K-1$ regioni sulle $K$ totali, il valore di $\Delta l_{T^*}^k$ \`e maggiore di $Th_{max}^k$ o minore di $Th_{min}^k$, allora possiamo considerare avvenuto un evento di sfocatura nel frame $z_{T^*}$. \\ 
 
 \section{Algoritmo di segmentazione}
 \label{segmentazione}
+Nel Paragrafo \ref{comportamento} abbiamo introdotto il fatto di utilizzare una segmentazione in regioni della scena ripresa dalla camera, in modo da rendere pi\`u efficiente l'identificazione di spostamenti della camera.
+Vediamo ora il modo in cui questa segmentazione viene fatta.\\
+La fase di estrazione delle regioni avviene in una fase di \textit{configurazione} del sistema di monitoraggio, in cui viene acquisito un certo numero di frame in cui non avviene nessun evento di tampering.
+Da questi frame viene estratto un vettore descrittore (\textit{feature vector}) per ciascun pixel della scena inquadrata.
+Passiamo, quindi, da una matrice di dimensioni $H\times W \times T_{conf}$, dove $H$ e $W$ sono le dimensioni in pixel dell'immagine acquisita dalla camera e $T_{conf}$ \`e il numero di frame usato per la creazione della segmentazione, a una matrice di dimensioni $H\times W \times P$, dove $P$ \`e il numero di descrittori calcolati per fare la segmentazione.\\
+Una volta ottenuta la matrice, viene fatta una \textit{clusterizzazione} dei vari feature vector, in modo da raggruppare i pixel in base a parametri comuni.
+\subsection{Calcolo dei descrittori utilizzati per la segmentazione}
+Consideriamo la sequenza $\{z_t\}$ di frame acquisiti dalla camera, con $t=1,\dots,T_conf$.
+Per ciascun pixel $x\in\mathcal{X}$ calcoliamo un vettore $d(x)$ di $5$ elementi
+\begin{equation}
+	\label{eq:featureVector}
+	d(x)=\left[r;c;\bar{\gamma}_{U(x)};\sigma_{\gamma_{U(x)}};\bar{z}(x)\right]
+\end{equation}
+\subsection{Clusterizzazione dei feature vector per l'estrazione delle regioni}
