@@ -26,19 +26,19 @@ g_t = \mathcal{G}[z_t] =\frac{\sum_{\mathcal{X}}\| \nabla z_t(x) \| _2^2 }{|\mat
 \end{equation}  
 dove abbiamo indicato con $|\mathcal{X}|$ la \textit{cardinalit\`a} dell'insieme dei pixel $\mathcal{X}$, e con $\|\cdot\|_2$ la norma di tipo $\mathcal{L}_2$\footnote{$\|x\|_2=\sqrt{\sum_{t}x_t^2}$}.\\
 Lavorando nel dominio discreto delle immagini digitali, possiamo calcolare le derivate dell'intensit\`a luminosa (\textit{luma}) per mezzo di convoluzioni con filtri derivativi.
-In particolare, per il calcolo delle derivate orizzontali  abbiamo utilizzato il seguente filtro $f_i$:
-\[f_i = f \circledast \left[ \begin{array}{rcl}
+In particolare, per il calcolo delle derivate orizzontali  abbiamo utilizzato il seguente filtro $f_h$:
+\[f_h = f \circledast \left[ \begin{array}{rcl}
 1 & 0 & -1
 \end{array}\right], \] 
-mentre per il calcolo delle derivate verticali  abbiamo utilizzato il seguente filtro $f_j$:
-\[f_j = f \circledast \left[ \begin{array}{r}
+mentre per il calcolo delle derivate verticali  abbiamo utilizzato il seguente filtro $f_v$:
+\[f_v = f \circledast \left[ \begin{array}{r}
 1 \\ 0 \\ -1
 \end{array}\right], \]
-dove abbiamo indicato con $\circledast$ l'operatore di convoluzione e con $f$ un \textit{filtro gaussiano} di dimensione $5 \times 5$:
+dove abbiamo indicato con $\circledast$ l'operatore di convoluzione e con $f$ un \textit{filtro gaussiano} di dimensione $(2k+1) \times (2k+1)$:
 \[f(i,j)=\frac{1}{2\pi\sigma^2}\exp\left(-\frac{\left(i-k-1\right)^2+\left(j-k-1\right)^2}{2\sigma^2}\right)\] 
-dove $k=2$ e  la deviazione standard $\sigma = 1$.
+dove i parametri $k$ e $\sigma$ rappresentano la dimensione del filtro e la deviazione standard della gaussiana.
 Con questi filtri \`e possibile calcolare la \textit{norma del gradiente} nel seguente modo:
-\[\| \nabla z_t(x) \|_2^2=\left(z_t \circledast f_i\right)(x)^2 + \left(z_t \circledast f_j\right)(x)^2.\]
+\[\| \nabla z_t(x) \|_2^2=\left(z_t \circledast f_h\right)(x)^2 + \left(z_t \circledast f_v\right)(x)^2.\]
 Una volta calcolata la norma del gradiente \`e possibile farne la media come specificato nella formula \eqref{eq:energyGradient}.
 Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisito, che pu\`o essere monitorato per individuare eventi di sfocature. 
 In particolare l'evento \`e associato a un \textit{crollo} del valore di $g$.
@@ -177,7 +177,7 @@ Tra i pi\`u importanti abbiamo:
 	\caption{Esempio di spostamento della camera}
 	\label{fig:testiDISPLACEMENT1}
 \end{figure}
-Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{difficilmente prevedibile} e che \textit{non siano stazionari}, come possiamo vedere negli esempi delle figure \ref{fig:energy} e \ref{fig:luma}.
+Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{difficilmente prevedibile} e che \textit{non siano stazionari}\footnote{Ovvero non sono realizzazioni i.i.d. di una stessa variabile aleatoria}, come possiamo vedere negli esempi delle figure \ref{fig:energy} e \ref{fig:luma}.
 Di conseguenza non \`e possibile applicare direttamente le tecniche di CDT come fatto in \cite{alippi2010detecting}. \\
 Per eliminare le componenti in bassa frequenza possiamo fare un \textit{detrending} di ciascun segnale calcolando la \textit{differenza} tra l'indicatore all'istante corrente e quello precedente.
 Nel caso dell'energia media del gradiente avremo
@@ -191,7 +191,7 @@ mentre per l'energia media della luma avremo
 \Delta l_t = l_t - l_{t -1}.
 \end{equation}
 Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle figure \ref{fig:energyDetr} e \ref{fig:lumaDetr}.  
-Possiamo notare come le fluttuazioni in bassa frequenza vengano lavate via dal detrending, dato che in questo modo consideriamo solamente le differenze tra misure consecutive.\\
+Possiamo notare come le fluttuazioni in bassa frequenza vengano rimosse dal detrending, dato che in questo modo consideriamo solamente le differenze tra misure consecutive.\\
 Come abbiamo detto prima, lo scopo del monitoraggio di questi indicatori \`e quello di individuare degli eventi di tampering.
 Nelle figure \ref{fig:defocusPLOT} e \ref{fig:displacementPLOT} possiamo vedere il comportamento dell'energia media di luma e gradiente rispettivamente per un caso di sfocatura e per un caso di spostamento della camera.  
 In particolare, in entrambi i casi l'evento di tampering avviene al frame $1000$\footnote{Il modo in cui sono stati ottenuti gli eventi di tampering \`e descritto nel Capitolo \ref{ProveSperimentali}}.
@@ -374,12 +374,98 @@ Vediamo ora il modo in cui questa segmentazione viene fatta.\\
 La fase di estrazione delle regioni avviene in una fase di \textit{configurazione} del sistema di monitoraggio, in cui viene acquisito un certo numero di frame in cui non avviene nessun evento di tampering.
 Da questi frame viene estratto un vettore descrittore (\textit{feature vector}) per ciascun pixel della scena inquadrata.
 Passiamo, quindi, da una matrice di dimensioni $H\times W \times T_{conf}$, dove $H$ e $W$ sono le dimensioni in pixel dell'immagine acquisita dalla camera e $T_{conf}$ \`e il numero di frame usato per la creazione della segmentazione, a una matrice di dimensioni $H\times W \times P$, dove $P$ \`e il numero di descrittori calcolati per fare la segmentazione.\\
-Una volta ottenuta la matrice, viene fatta una \textit{clusterizzazione} dei vari feature vector, in modo da raggruppare i pixel in base a parametri comuni.
+Una volta ottenuta la matrice, viene fatto un \textit{partizionamento} dei vari feature vector, in modo da raggruppare i pixel in base a parametri comuni.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{diagrammi/FeatureVector}
+	\caption{Passaggio dallo spazio dei frame allo spazio dei feature vector}
+	\label{fig:FeatureVector}
+\end{figure}
+
 \subsection{Calcolo dei descrittori utilizzati per la segmentazione}
-Consideriamo la sequenza $\{z_t\}$ di frame acquisiti dalla camera, con $t=1,\dots,T_conf$.
+Consideriamo la sequenza $\{z_t\}$ di frame acquisiti dalla camera, con $t=1,\dots,T_{conf}$.
 Per ciascun pixel $x\in\mathcal{X}$ calcoliamo un vettore $d(x)$ di $5$ elementi
 \begin{equation}
 	\label{eq:featureVector}
-	d(x)=\left[r;c;\bar{\gamma}_{U(x)};\sigma_{\gamma_{U(x)}};\bar{z}(x)\right]
+	d(x)=\left[r(x);c(x);\bar{\gamma}(x);\sigma_{\gamma}(x);\bar{z}(x)\right],
 \end{equation}
-\subsection{Clusterizzazione dei feature vector per l'estrazione delle regioni}
+dove:
+\begin{itemize}
+	\item $r(x)$ rappresenta il numero di riga del pixel $x$,
+	\item $c(x)$ rappresenta il numero di colonna del pixel $x$,
+	\item $\bar{\gamma}(x)$ rappresenta il valore del gradiente nel pixel $x$ mediato nel tempo,
+	\item $\sigma_{\gamma}(x)$ rappresenta la deviazione standard nel tempo del gradiente nel pixel $x$,
+	\item $\bar{z}(x)$ rappresenta il valore della luma del pixel $x$ mediato nel tempo.
+\end{itemize}
+Gli ultimi tre elementi dei feature vector vengono calcolati per mezzo di convoluzioni sui frame.
+In particolare per ciascun frame viene calcolato il gradiente:
+\[\bar{\gamma}(x)=\frac{\sum_{t=1}^{T_{conf}}\gamma_t(x)}{T_{conf}}=\frac{\sum_{t=1}^{T_{conf}}\left(\left(z_t \circledast f_h\right)(x)^2 + \left(z_t \circledast f_v\right)(x)^2\right)}{T_{conf}}\]
+
+%\begin{figure}[tb]
+%	\centering
+%	\begin{subfigure}[]{\label{fig:risultatoClustering} \includegraphics[width=6cm]{./pictures/segmentazione/mappa1}}
+%	\end{subfigure}
+%	\begin{subfigure}[]
+%		{\label{fig:mappaFinale} \includegraphics[width=6cm]{./pictures/segmentazione/mappa2}}
+%	\end{subfigure}
+%	\caption{Risultato finale dell'algoritmo di clustering (a) e rifinitura delle regioni (b)}
+%	\label{fig:clustering}
+%\end{figure}
+
+\subsection{Partizione dei feature vector per l'estrazione delle regioni}
+Una volta calcolati i feature vector di tutti i pixel, possiamo raggrupparli tra loro usando un algoritmo di \textit{clustering}.
+Abbiamo deciso di utilizzare il classico algoritmo di clustering \textit{k-means} \cite{han2006data}.\\
+K-means permette di partizionare un insieme di dati in $k$ sottoinsiemi.
+L'algoritmo, nella sua forma pi\`u semplice, riceve in ingresso un insieme $D$ di $P$ dati da partizionare e il numero $k$ di partizioni (cluster) $\{C_i\}, i=1,\dots,k$ che si vuole creare.
+Per semplicit\`a consideriamo ciascun dato come un vettore $d_p$ di $N$ elementi, con $p = 1,\dots ,P$.\\
+Come prima cosa vengono creati $k$ \textit{centroidi} $\{c_i\}, i=1,\dots,k$.
+Nella versione pi\`u semplice dell'algoritmo essi vengono scelti in maniera casuale dai dati appartenenti a $D$.
+Una tecnica pi\`u raffinata \`e data dall'algoritmo \textit{k-means++} \cite{arthur2007k}, che utilizza funzioni probabilistiche pi\`u accurate e permette di distribuire meglio i centroidi su tutto lo spazio dei dati.\\
+Una volta ottenuti i centroidi vengono calcolate le \textit{distanze euclidee} di ciascun dato da ogni centroide:
+\[\dist(d_p,c_i)=\sum_{n=1}^{N}(d_p(n)-c_i(n))^2. \]
+Ciascun dato $d_p$, quindi, viene associato al cluster con centroide $c_{\min}(p)$ con distanza \textit{minima} da esso:
+\[c_{\min}(p) = \argmin_{c_i} \dist(d_p,c_i). \]
+Una volta associati tutti i dati a un cluster specifico, vengono aggiornati i centroidi di ciascun cluster in base ai loro elementi e viene ripetuta la procedura con la nuova assegnazione dei centroidi.
+L'algoritmo viene richiamato fino a quando non si raggiunge la \textit{convergenza}, ovvero quando la posizione dei centroidi non cambia pi\`u.\\
+L'algoritmo di k-means viene applicato all'insieme dei feature vector estratti dai frame utilizzati per la configurazione.
+%Per migliorare le prestazione abbiamo deciso di non considerare i vettori di tutti i pixel, ma di usarne un \textit{sottocampionamento}.
+Il primo problema, utilizzando la versione base del k-means, \`e quello di determinare il numero di cluster da creare.
+Per valutare in maniera automatica il numero di cluster ottimale per ciascun insieme di dati  abbiamo utilizzato il \textit{criterio di Calinski-Harabasz}\cite{calinski1974dendrite}, che consiste nel provare l'algoritmo di k-means per un inseme di valori $k$ dati.
+Per ciascun $k$ utilizzato viene calcolata una cifra di merito chiamata \textit{variance ratio criterion} (VRC):
+\[{\VRC}_k = \frac{SS_B}{SS_W}\times\frac{P-k}{k-1},\]
+dove $SS_B$ rappresenta la \textit{varianza totale tra cluster} (\textit{overall between-cluster variance}):
+\[SS_B=\sum_{i=1}^{k}n_i\|c_i - \bar{d}\|^2, \]
+con $n_i$ che rappresenta il numero di dati appartenenti al cluster $i$ e $\bar{d}$ rappresenta il valore medio di tutti  i dati, e $SS_W$ rappresenta il grado di dispersione medio di ciascun cluster (\textit{overall within-cluster variance}):
+\[SS_W = \sum_{i=1}^{k}\sum_{d_p \in C_i}\|d_p-c_i\|^2.\]
+Viene scelto, infine, il valore $k$ con il valore ${\VRC}_k$ pi\`u alto.\\
+Un altro problema \`e dato dal peso che ha ciascun elemento dei dati durante la segmentazione.
+Nel nostro caso, ad esempio, i valori delle coordinate coordinate possiedono una varianza talmente elevata rispetto a quella degli altri elementi, che il loro contributo predomina quello delle altre componenti.
+Per risolvere il problema abbiamo utilizzato, quindi una variante \textit{pesata} del k-means \cite{kottke1994motion}, in cui il calcolo delle distanze di ciascun dato da ogni centroide viene modificato associando un \textit{peso} a ciascuna componente:
+\[{\dist}_{\text{w}}(d_p, c_i)=(d_p - c_i)^TW^i(d_p-c_i),\]
+dove $W^i$ \`e una matrice di pesi associata a ciascun cluster $C_i$:
+\[W^i =
+\left[\begin{array}{ccccc}
+w_1^i & 0 & 0 & 0 & 0\\
+0 & w_2^i & 0 & 0 & 0\\
+0 & 0 & w_3^i& 0 & 0\\
+0 & 0 & 0 & w_4^i & 0\\
+0  & 0 & 0 & 0& w_5^i\\
+\end{array}\right],
+\]
+dove $w_s^j$ corrisponde al peso dato all'elemento $s$ del feature vector associato al cluster $C_i$:
+\[w_s^j= \frac{\left(\sigma_1^i \cdot \sigma_2^i \cdot \sigma_3^i\cdot \sigma_4^i\cdot \sigma_5^i\right)^{1/5}}{\sigma_s^i},\] 
+dove $\sigma_s^i$ rappresenta la deviazione standard dell'elemento $s$ dei dati appartenenti al cluster $C_i$.
+\subsection{Separazione delle regioni}
+L'algoritmo di clustering utilizzato produce un partizionamento della scena ripresa dalla camera come quello in Figura \ref{fig:risultatoClustering}.
+Una fase finale della segmentazione consiste nell'eliminare le regioni pi\`u piccole e separare quelle rimanenti per mezzo di \textit{operatori morfologici}.
+Il risultato finale \`e quello in Figura \ref{fig:mappaFinale}, dove le zone colorate in blu scuro rappresentano i pixel che non vengono considerati durante l'analisi successiva.
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]{\label{fig:risultatoClustering} \includegraphics[width=6cm]{./pictures/segmentazione/mappa1}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:mappaFinale} \includegraphics[width=6cm]{./pictures/segmentazione/mappa2}}
+	\end{subfigure}
+	\caption{Risultato finale dell'algoritmo di clustering (a) e rifinitura delle regioni (b)}
+	\label{fig:clustering}
+\end{figure}

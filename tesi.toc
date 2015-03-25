@@ -40,16 +40,17 @@
 \contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{52}
 \contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{53}
 \contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{54}
-\contentsline {subsection}{\numberline {4.3.2}Clusterizzazione dei feature vector per l'estrazione delle regioni}{54}
-\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{55}
-\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{55}
-\contentsline {subsection}{\numberline {5.1.1}Sistemi di acquisizione utilizzati}{56}
-\contentsline {subsubsection}{Camere ST}{56}
-\contentsline {subsubsection}{Raspberry Pi Camera}{56}
-\contentsline {subsubsection}{Estrazione frame dal web}{57}
-\contentsline {subsection}{\numberline {5.1.2}Sequenze con presenza di tampering}{57}
-\contentsline {subsection}{\numberline {5.1.3}Definizione dei ground thruth}{57}
-\contentsline {subsection}{\numberline {5.1.4}Definizione delle metriche per la stima delle prestazioni}{57}
-\contentsline {section}{\numberline {5.2}Risultati ottenuti}{57}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{59}
-\contentsline {chapter}{Bibliografia}{61}
+\contentsline {subsection}{\numberline {4.3.2}Partizione dei feature vector per l'estrazione delle regioni}{55}
+\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{56}
+\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{59}
+\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{59}
+\contentsline {subsection}{\numberline {5.1.1}Sistemi di acquisizione utilizzati}{60}
+\contentsline {subsubsection}{Camere ST}{60}
+\contentsline {subsubsection}{Raspberry Pi Camera}{60}
+\contentsline {subsubsection}{Estrazione frame dal web}{61}
+\contentsline {subsection}{\numberline {5.1.2}Sequenze con presenza di tampering}{61}
+\contentsline {subsection}{\numberline {5.1.3}Definizione dei ground thruth}{61}
+\contentsline {subsection}{\numberline {5.1.4}Definizione delle metriche per la stima delle prestazioni}{61}
+\contentsline {section}{\numberline {5.2}Risultati ottenuti}{61}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{63}
+\contentsline {chapter}{Bibliografia}{65}

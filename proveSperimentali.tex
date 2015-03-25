@@ -5,9 +5,10 @@
 \vspace{0.5cm}
 
 \noindent In questo capitolo illustriamo come sono stati condotti gli esperimenti per la valutazione del nostro algoritmo di tampering detection.
-La prima parte \`e dedicata alla descrizione dei dataset utilizzati come riferimento, mostrando quali sistemi di acquisizione sono stati utilizzati e quali sono le metriche che abbiamo tenuto in considerazione.
-Nella seconda parte, invece, entriamo nel dettaglio su quali sono stati i risultati a valle di tutta l'analisi sperimentale. 
+Il Paragrafo \ref{acquisizione} \`e dedicato alla descrizione dei dataset utilizzati come riferimento, mostrando quali sistemi di acquisizione sono stati utilizzati e quali sono le metriche che abbiamo tenuto in considerazione.
+Nel Paragrafo \ref{risultati}, invece, entriamo nel dettaglio su quali sono stati i risultati a valle di tutta l'analisi sperimentale. 
 \section{Acquisizione dei dataset}
+\label{acquisizione}
 Durante lo svolgimento della tesi abbiamo realizzato alcuni sistemi di acquisizione, in modo da avere un insieme di dataset (\textit{benchmark}) molto ampio che comprendesse sequenze video con diverse qualit\`a dei frame e con diversi framerate.
 Alcune di queste sequenze sono state utilizzate per testare l'algoritmo di segmentazione, mentre altre hanno verificato l'algoritmo di tampering detection.
 In generale, per ogni scena ripresa (dove per scena intendiamo una specifica inquadratura che \textit{non cambia} per le varie sequenze) abbiamo:
@@ -17,6 +18,7 @@ In generale, per ogni scena ripresa (dove per scena intendiamo una specifica inq
 	\item almeno una sequenza in cui la camera subisce uno spostamento.
 \end{itemize}
 \subsection{Sistemi di acquisizione utilizzati}
+Per la realizzazione dei dataset sono stati utilizzati tre diversi sistemi di acquisizione, i quali vengono descritti nel seguito di questo paragrafo.
 \subsubsection{Camere ST}
 
 \subsubsection{Raspberry Pi Camera}
@@ -37,8 +39,10 @@ Per interfacciarci con il dispositivo abbiamo creato una \textit{connessione SSH
 Per l'acquisizione abbiamo creato uno script in \textit{Python}, utilizzando la libreria \textit{picamera} \cite{picamera} per interfacciarci con il modulo camera.
 %METTERE SCRIPT UTILIZZATO PER L'ACQUISIZIONE
 \subsubsection{Estrazione frame dal web}
-Un ultimo dataset \`e stato generato utilizzando sequenze di frame presenti sul portale di previsioni del tempo \textit{ilMeteo.it} \cite{ilmeteo}, 
+Un ultimo dataset \`e stato generato utilizzando sequenze di frame presenti sul portale di previsioni del tempo \textit{ilMeteo.it} \cite{ilmeteo}.
+In questo portale web, ogni webcam \`e associata a un URL, contenente l'immagine \textit{jpeg}
 \subsection{Sequenze con presenza di tampering}
 \subsection{Definizione dei ground thruth}
 \subsection{Definizione delle metriche per la stima delle prestazioni}
 \section{Risultati ottenuti}
+\label{risultati}

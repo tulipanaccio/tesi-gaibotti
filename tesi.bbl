@@ -185,6 +185,30 @@ Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
 \newblock A survey on wireless multimedia sensor networks.
 \newblock {\em Computer networks}, 51(4):921--960, 2007.
 
+\bibitem{han2006data}
+Jiawei Han and Micheline Kamber.
+\newblock {\em Data Mining: Concepts and Techniques}.
+\newblock Morgan kaufmann, 2011.
+
+\bibitem{arthur2007k}
+David Arthur and Sergei Vassilvitskii.
+\newblock k-means++: The advantages of careful seeding.
+\newblock In {\em Proceedings of the eighteenth annual ACM-SIAM symposium on
+  Discrete algorithms}, pages 1027--1035. Society for Industrial and Applied
+  Mathematics, 2007.
+
+\bibitem{calinski1974dendrite}
+Tadeusz Cali{\'n}ski and Jerzy Harabasz.
+\newblock A dendrite method for cluster analysis.
+\newblock {\em Communications in Statistics-theory and Methods}, 3(1):1--27,
+  1974.
+
+\bibitem{kottke1994motion}
+Dane~P Kottke and Ying Sun.
+\newblock Motion estimation via cluster matching.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 16(11):1128--1132, 1994.
+
 \bibitem{raspberry}
 \url{http://www.raspberrypi.org/products/model-b-plus/}.
 

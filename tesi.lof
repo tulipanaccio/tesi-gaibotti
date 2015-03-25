@@ -71,6 +71,10 @@
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Esempio di segmentazione della scena\relax }}{50}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{50}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{50}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Passaggio dallo spazio dei frame allo spazio dei feature vector\relax }}{54}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Risultato finale dell'algoritmo di clustering (a) e rifinitura delle regioni (b)\relax }}{57}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{57}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{57}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi utilizzato per l'acquisizione\relax }}{56}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi utilizzato per l'acquisizione\relax }}{60}
 \addvspace {10\p@ }
