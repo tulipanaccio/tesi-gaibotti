@@ -35,19 +35,23 @@
 \contentsline {subsection}{\numberline {4.1.1}Misura della sfocatura nell'immagine}{39}
 \contentsline {subsection}{\numberline {4.1.2}Misura dello spostamento della camera}{41}
 \contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{41}
-\contentsline {section}{\numberline {4.2}Algoritmo di identificazione di sfocature e di spostamenti della camera}{49}
-\contentsline {subsection}{\numberline {4.2.1}Identificazione delle sfocature}{50}
-\contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{52}
-\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{53}
-\contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{54}
-\contentsline {subsection}{\numberline {4.3.2}Partizione dei feature vector per l'estrazione delle regioni}{55}
-\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{57}
-\contentsline {chapter}{\numberline {5}Realizzazioni sperimentali e valutazione}{59}
-\contentsline {section}{\numberline {5.1}Acquisizione dei dataset}{59}
-\contentsline {subsection}{\numberline {5.1.1}Eventi di tampering}{61}
-\contentsline {subsection}{\numberline {5.1.2}Definizione dei ground thruth}{61}
-\contentsline {section}{\numberline {5.2}Risultati sperimentali}{61}
-\contentsline {subsection}{\numberline {5.2.1}Esperimenti condotti}{61}
-\contentsline {subsection}{\numberline {5.2.2}Definizione delle metriche per la stima delle prestazioni}{62}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{67}
-\contentsline {chapter}{Bibliografia}{69}
+\contentsline {subsection}{\numberline {4.1.4}Detrending degli indicatori}{45}
+\contentsline {section}{\numberline {4.2}Algoritmo di identificazione di sfocature e di spostamenti della camera}{52}
+\contentsline {subsection}{\numberline {4.2.1}Identificazione delle sfocature}{53}
+\contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{54}
+\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{56}
+\contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{57}
+\contentsline {subsection}{\numberline {4.3.2}Partizione dei feature vector per l'estrazione delle regioni}{57}
+\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{59}
+\contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{61}
+\contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{61}
+\contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{61}
+\contentsline {subsection}{\numberline {5.2.1}Eventi di tampering}{63}
+\contentsline {subsection}{\numberline {5.2.2}Definizione dei ground truth}{63}
+\contentsline {section}{\numberline {5.3}Figure di merito}{64}
+\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{64}
+\contentsline {subsection}{\numberline {5.4.1}Creazione dei tampering}{64}
+\contentsline {subsection}{\numberline {5.4.2}Risultati}{64}
+\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{64}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{65}
+\contentsline {chapter}{Bibliografia}{67}

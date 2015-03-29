@@ -2,7 +2,7 @@
 \select@language {italian}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671\relax }}{6}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671}}{6}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Schematizzazione del sistema ottico della camera\relax }}{7}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Similitudini tra triangoli usate nel calcolo dei parametri intrinseci\relax }}{8}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Coordinate di un frame\relax }}{9}
@@ -47,41 +47,43 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{43}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{43}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{43}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{43}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)\relax }}{44}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{44}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{44}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Energia media del gradiente (a) e suo detrending (b) nel caso di una sfocatura\relax }}{45}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{45}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{45}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Energia media della luma (a) e suo detrending (b) nel caso di una sfocatura\relax }}{46}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{44}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Energia media del gradiente (a) e suo detrending (b) nel caso di una sfocatura\relax }}{46}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{46}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{46}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Energia media del gradiente (a) e suo detrending (b) nel caso di uno spostamento della camera\relax }}{47}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{46}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Energia media della luma (a) e suo detrending (b) nel caso di una sfocatura\relax }}{47}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{47}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{47}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Energia media della luma (a) e suo detrending (b) nel caso di uno spostamento della camera\relax }}{48}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{47}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Energia media del gradiente (a) e suo detrending (b) nel caso di uno spostamento della camera\relax }}{48}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{48}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{48}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Esempio di sequenza dell'energia media della luma (a) e del suo detrending (b) con un displacement difficile da identificare\relax }}{49}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{48}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Energia media della luma (a) e suo detrending (b) nel caso di uno spostamento della camera\relax }}{49}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{49}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{49}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Esempio di spostamento della camera\relax }}{50}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{50}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{50}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Esempio di segmentazione della scena\relax }}{50}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{50}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{50}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Passaggio dallo spazio dei frame allo spazio dei feature vector\relax }}{54}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Risultato finale dell'algoritmo di clustering (a) e rifinitura delle regioni (b)\relax }}{57}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{57}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{57}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi (a) e il sistema di acquisizione basato su di esso (b)\relax }}{60}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{49}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Esempio di sequenza dell'energia media della luma (a) e del suo detrending (b) con un displacement difficile da identificare\relax }}{51}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{51}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{51}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{51}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Esempio di spostamento della camera\relax }}{52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{52}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{52}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Esempio di segmentazione della scena\relax }}{52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{52}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{52}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Passaggio dallo spazio dei frame allo spazio dei feature vector\relax }}{57}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Risultato finale dell'algoritmo di clustering (a) e rifinitura delle regioni (b)\relax }}{60}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{60}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{60}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Curve ROC per gli indicatori di spostamento della camera\relax }}{63}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Curve ROC per gli indicatori di sfocatura\relax }}{64}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{64}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{65}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{65}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi (a) e il sistema di acquisizione basato su di esso (b)\relax }}{63}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{63}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{63}
 \addvspace {10\p@ }

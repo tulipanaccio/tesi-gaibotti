@@ -34,7 +34,7 @@ In questa astrazione, ciascun punto dello spazio tridimensionale viene associato
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=12cm]{./pictures/cameraObscura}
-	\caption{Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671}
+	\caption[Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671]{Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671}
 	\label{fig:prospettiva}
 \end{figure} 
 All'epoca di Brunelleschi, il modello del centro ottico veniva realizzato da una \textit{camera oscura}, come si pu\`o osservare nell'illustrazione in Figura \ref{fig:prospettiva}, mentre nei moderni sistemi di acquisizione viene realizzato tramite \textit{lenti ottiche}. 
@@ -67,11 +67,11 @@ La proiezione della camera pu\`o essere espressa come
 \label{eq:proiezione}
 \textbf{m}=P\textbf{M},
 \end{equation}
-dove $P$  \`e una matrice di dimensioni $3 \times 4$ chiamata \textit{matrice prospettica} \cite{hartley2003multiple}.
+dove $P$ \`e una matrice di dimensioni $3 \times 4$ chiamata \textit{matrice prospettica} \cite{hartley2003multiple}.
 Tale matrice contiene al suo interno informazioni sui parametri della camera a cui \`e associata, e descrive sia la proiezione sul piano immagine che le trasformazioni di camera rispetto al sistema di riferimento tridimensionale.
 Formalmente la matrice prospettica viene definita attraverso la concatenazione di due matrici: una che rappresenta i \textit{parametri intrinseci} e un'altra che rappresenta i \textit{parametri estrinseci} \cite{forsyth2002computer}.
 \begin{itemize}
-	\item I \textit{parametri intrinseci} rappresentano le caratteristiche interne della camera come la distanza focale, il centro focale e le caratterisitiche di \textit{distorsione} della lente.
+	\item I \textit{parametri intrinseci} rappresentano le caratteristiche interne della camera come la distanza focale, il centro focale e le caratteristiche di \textit{distorsione} della lente.
 	\item I \textit{parametri estrinseci} rappresentano la posizione della camera rispetto al sistema di riferimento dello spazio tridimensionale.
 \end{itemize} 
 \subsection{Parametri intrinseci}
@@ -611,7 +611,7 @@ Nel seguito della trattazione useremo una specifica terminologia.
 Indicheremo con $\mathcal{X}$ l'insieme dei \textit{pixel} costituenti l'immagine acquisita dalla camera,
 \[ \mathcal{X} \subset \mathbb{N}^2, \]
 e con $x \in \mathcal{X}$ il singolo pixel.
-Quando vorremo considerare il frame acquisito all'istante di tempo $i$, useremo $z_i$, con $i=1,\dots , \infty$. 
+Quando vorremo considerare il frame acquisito all'istante di tempo $t$, useremo $z_t$, con $t=1,\dots , \infty$. 
 In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $t$-esimo, useremo il termine $z_t(x)$, con 
 \[ z_t(x) \in [0, 255] \forall x \in \mathcal{X}. \]
 
@@ -629,14 +629,14 @@ aB_t(x)+ (1-a)z_t(x) \\
 \mbox{\hspace{1.5cm}, se } |z_t(x) - z_{t-1}(x)|\leq T_t(x) \\
 B_t(x) \mbox{\hspace{0.5cm}, se } |z_t(x) - z_{t-1}(x)|>T_t(x)\end{array} \right. , \forall x \in \mathcal{X},
 \]
-dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{update parameter}) e $T_t(x)$ \`e una soglia che permette di identificare un cambiamento sostanziale di luminosit\`a nel pixel $(x)$. 
+dove $0 < a < 1$ \`e chiamato \textit{parametro di aggiornamento} (\textit{update parameter}) e $\Gamma_t(x)$ \`e una soglia che permette di identificare un cambiamento sostanziale di luminosit\`a nel pixel $(x)$. 
  Questa soglia viene aggiornata in maniera ricorsiva secondo la seguente formula:
   \[
   \label{eq:backgroundThreshUpd}
-  T_{t + 1}(x)=\left\{ \begin{array} {lcl}
-  aT_t(x)+ (1-a)(c |z_t(x) - B_t(x)|) \\
-  \mbox{\hspace{1.5cm}, se	}  |z_t(x) - z_{t-1}(x)|\leq T_t(x) \\
-  T_t(x) \mbox{	\hspace{0.5cm}, se	}  |z_t(x) - z_{t-1}(x)|>T_t(x) \end{array} \right. ,\forall x \in \mathcal{X},
+  \Gamma_{t + 1}(x)=\left\{ \begin{array} {lcl}
+  a\Gamma_t(x)+ (1-a)(c |z_t(x) - B_t(x)|) \\
+  \mbox{\hspace{1.5cm}, se	}  |z_t(x) - z_{t-1}(x)|\leq \Gamma_t(x) \\
+  \Gamma_t(x) \mbox{	\hspace{0.5cm}, se	}  |z_t(x) - z_{t-1}(x)|>\Gamma_t(x) \end{array} \right. ,\forall x \in \mathcal{X},
   \]
   dove $c > 1$ e $0<a<1$.
   Lo stesso modello viene utilizzato in altri lavori, come ad esempio in \cite{saglam2009real} e \cite{tsesmelis2013tamper}, mentre una variante molto usata consiste nel calcolare il modello di background a partire dall'\textit{estrazione dei contorni} di ciascun frame (\cite{harasse2004automated}, \cite{gil2007automatic}).
@@ -649,12 +649,12 @@ Indichiamo con $H_b(\cdot)$ il valore del $b$-esimo bin dell'istogramma di un fr
 Per identificare un evento di occlusione vengono considerate due disequazioni:
 \begin{eqnarray}
  \left(H_{max\left(H(z_t)\right)-1}(z_t) + H_{max\left(H(z_t)\right)}(z_t) +  H_{max\left(H(z_t)\right) + 1}(z_t)\right) \nonumber \\
- > Th_1 \left(H_{max\left(H(z_t)\right)-1}(B_t) + H_{max\left(H(z_t)\right)}(B_t)
+ > \Gamma_1 \left(H_{max\left(H(z_t)\right)-1}(B_t) + H_{max\left(H(z_t)\right)}(B_t)
   +  H_{max\left(H(z_t)\right) + 1}(B_t)\right), \nonumber
 \end{eqnarray}
-\[ \sum_{b=1}^{32} H_b\left(|z_t - B_t|\right) > Th_2 \sum_{b=1}^{k}H_b\left(|z_t - B_t|\right),\]
-dove $Th_1 > 1$, $Th_2 > 1$ e $0 \leq k < 32$ sono soglie che possono essere modificate in base alla sensibilit\`a che si richiede da parte dell'algoritmo.\\
-%In particolare, $Th_1$ e $Th_2$ possono essere aumentate in modo da aumentare la sensibilit\`a, mentre $k$ pu\`o essere diminuito.\\
+\[ \sum_{b=1}^{32} H_b\left(|z_t - B_t|\right) > \Gamma_2 \sum_{b=1}^{k}H_b\left(|z_t - B_t|\right),\]
+dove $\Gamma_1 > 1$, $\Gamma_2 > 1$ e $0 \leq k < 32$ sono soglie che possono essere modificate in base alla sensibilit\`a che si richiede da parte dell'algoritmo.\\
+%In particolare, $\Gamma_1$ e $\Gamma_2$ possono essere aumentate in modo da aumentare la sensibilit\`a, mentre $k$ pu\`o essere diminuito.\\
 Un approccio simile \`e presente in \cite{harasse2004automated}, \cite{gil2007automatic} e \cite{ellwart2012camera}, in cui l'evento di occlusione \`e associato a un abbassamento dell'\textit{entropia}:
  \[
  \label{eq:entropy}
@@ -673,7 +673,7 @@ P=\left\{ \begin{array} {lcl}
 P+1 & \mbox{, se} & B_t(x) \neq B_{t-k}(x) \\
 P & \mbox{, se} & B_t(x) = B_{t-k}(x) \end{array} \right. .
 \]
-Lo spostamento della camera viene identificato quando $P > Th \cdot K$, dove $0<Th<1$ \`e un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo e $K$ \`e il numero totale di pixel dell'immagine.\\
+Lo spostamento della camera viene identificato quando $P > \Gamma \cdot K$, dove $0<\Gamma<1$ \`e un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo e $K$ \`e il numero totale di pixel dell'immagine.\\
 Un altro approccio \`e quello di utilizzare tecniche di \textit{block matching}.
 L'algoritmo di block matching fornisce due parametri:
 il primo parametro, $m$, indica il \textit{vettore della traslazione} tra il background e il frame corrente, mentre il secondo parametro \`e lo ZNCC relativo a quel vettore.
@@ -707,9 +707,9 @@ Per analizzare questo cambiamento, \cite{aksay2007camera} confronta ciascun fram
 \end{figure}
 Nella Figura \ref{fig:fourier} vediamo un esempio di come si comporta la trasformata di Fourier nel caso di sfocature: 
 nel passaggio da un frame nitido (Fig. \ref{fig:defocusNormale}) a uno sfocato (Fig. \ref{fig:defocusSfocato}) abbiamo un crollo delle componenti ad alta frequenza nelle trasformate di Fourier (rispettivamente Fig. \ref{fig:defocusNormaleFourier} e Fig. \ref{fig:defocusSfocatoFourier}).
-L'evento di tampering viene individuato quando l'\textit{energia media} della trasformata di Fourier (o di quella wavelet) del frame corrente $E_{HF}(z_t)$ \`e $Th$ volte minore di quella del background $E_{HF}(B_t)$:
-\[E_{HF}(z_t)\leq Th \cdot E_{HF}(B_t),\]
-dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.\\
+L'evento di tampering viene individuato quando l'\textit{energia media} della trasformata di Fourier (o di quella wavelet) del frame corrente $E_{HF}(z_t)$ \`e $\Gamma$ volte minore di quella del background $E_{HF}(B_t)$:
+\[E_{HF}(z_t)\leq \Gamma \cdot E_{HF}(B_t),\]
+dove $0<\Gamma<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.\\
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width = 4cm]{./pictures/FPSalto/img0001}
@@ -729,9 +729,9 @@ dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si 
 \end{figure}
 Un altro approccio consiste nell'analizzare la perdita di dettagli confrontando i contorni (\textit{edges}) del frame corrente con quelli del background.
 Questo metodo, utilizzato in \cite{ellwart2012camera}, \cite{gil2007automatic}, \cite{harasse2004automated} e \cite{kryjak2012fpga}, consiste nell'estrarre i contorni dalle immagini secondo il metodo di Sobel \cite{sobel19683x3} o di Canny \cite{canny1986computational}, e confrontare il numero di pixel dei contorni con quelli del background. 
-Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_t)$ \`e $Th$ volte pi\`u piccolo di quello del background $\sum edges(B_t)$:
-\[ \sum edges(z_t) \leq Th \sum edges(B_t), \]
-dove $0<Th<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
+Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_t)$ \`e $\Gamma$ volte pi\`u piccolo di quello del background $\sum edges(B_t)$:
+\[ \sum edges(z_t) \leq \Gamma \sum edges(B_t), \]
+dove $0<\Gamma<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.
 \subsection{Tecniche basate su monitoraggio sequenziale}
 Le tecniche viste finora, come \`e stato detto nel Paragrafo \ref{background}, permettono di aggiornare ciascun frame con un modello della scena che viene calcolato in base alle osservazioni precedenti.
 \begin{figure}[tb]
