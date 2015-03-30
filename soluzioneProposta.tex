@@ -79,7 +79,7 @@ Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisi
 	\begin{subfigure}[]
 		{\label{fig:FTnotte} \includegraphics[width=6cm]{./pictures/testiNOTTE}}
 	\end{subfigure}
-	\caption{Esempio di cambi di luminosit\`a tra il giorno e la notte}
+	\caption[Esempio di cambi di luminosit\`a tra il giorno e la notte]{Esempio di cambi di luminosit\`a tra il giorno e la notte}
 	\label{fig:testiGN}
 \end{figure}
 \begin{figure}[tb]
@@ -90,7 +90,8 @@ Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisi
 	\begin{subfigure}[]
 		{\label{fig:BAnotte} \includegraphics[width=6cm]{./pictures/buenosAiresNOTTE}}
 	\end{subfigure}
-	\caption{Esempio di presenza di sfocature dovute all'aumento del tempo di esposizione della camera}
+	\caption[Esempio di presenza di sfocature dovute all'aumento del tempo di esposizione della camera]{In questo esempio vediamo come l'aumentare il tempo di esposizione della camera porti come effetto una presenza di sfocature nelle zone dove sono presenti oggetti in movimento. 
+		In (a), dove il frame \`e acquisito durante il giorno, vediamo come le macchine in movimento siano riprese in maniera nitida, mentre in (b), dove il frame \`e ripreso durante la notte, le zone con le macchine risultano sfocate.}
 	\label{fig:buenosAiresGN}
 \end{figure}
 Analizzando alcune sequenze video abbiamo notato che, anche in assenza di eventi di tampering, vi sono alcuni fattori che sono in grado di far variare il valore degli indicatori estratti.
@@ -119,7 +120,13 @@ Tra i pi\`u importanti abbiamo:
 	\begin{subfigure}[]
 		{\label{fig:energyDetr} \includegraphics[width=12cm]{./pictures/energydetr}}
 	\end{subfigure}
-	\caption{Energia media del gradiente lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
+	\caption[Energia media del gradiente lungo un'acquisizione di 24 ore e suo detrending]
+	{In questo esempio vediamo il comportamento dell'energia media del gradiente su una sequenza di 24 ore in cui non avvengono eventi di tampering.
+		In (a) sono riportati alcuni frame estratti dalla sequenza.
+		In (b) vediamo il comportamento dell'indicatore $g(t)$, e in (c) quello del suo detrending .
+		Anche in assenza di tampering, l'indicatore $g(t)$ presenta un andamento molto irregolare e difficilmente prevedibile.
+		Il detrending dell'indicatore, invece, possiede un andamento pi\`u stazionario, incentrato sul valore $0$.
+		}
 	\label{fig:energyTot}
 \end{figure}
 %\clearpage
@@ -135,7 +142,13 @@ Tra i pi\`u importanti abbiamo:
 	\begin{subfigure}[]
 		{\label{fig:lumaDetr} \includegraphics[width=12cm]{./pictures/lumadetr}}
 	\end{subfigure}
-	\caption{Energia media della luma lungo un'acquisizione di 24 ore (a) e suo detrending (b)}
+	\caption[Energia media della luma lungo un'acquisizione di 24 ore e suo detrending]
+	{In questo esempio vediamo il comportamento dell'energia media della luma su una sequenza di 24 ore in cui non avvengono eventi di tampering.
+		In (a) sono riportati alcuni frame estratti dalla sequenza.
+		In (b) vediamo il comportamento dell'indicatore $l(t)$, e in (c) quello del suo detrending .
+		Anche in assenza di tampering, l'indicatore $l(t)$ presenta un andamento molto irregolare e difficilmente prevedibile.
+		Il detrending dell'indicatore, invece, possiede un andamento pi\`u stazionario, incentrato sul valore $0$.
+	}
 	\label{fig:lumaTot}
 \end{figure}
 %\clearpage
@@ -168,7 +181,13 @@ Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle
 	\begin{subfigure}[]
 		{\label{fig:energyDetrDefocus} \includegraphics[width=12cm]{./pictures/Defocus/DEFOCUS_energy_detr}}
 	\end{subfigure}
-	\caption{Energia media del gradiente (a) e suo detrending (b) nel caso di una sfocatura}
+	\caption[Energia media del gradiente e suo detrending nel caso di una sfocatura]
+	{In questo esempio vediamo il comportamento dell'energia media del gradiente su una sequenza di 24 ore in cui avviene un evento di sfocatura.
+		In (a) sono riportati alcuni frame estratti dalla sequenza. 
+		La sfocatura avviene al frame $1000$ e continua per il resto della sequenza.
+		In (b) vediamo il comportamento dell'indicatore $g(t)$, e in (c) quello del suo detrending.
+		Vediamo come in (b) l'evento di sfocatura si traduca in un crollo del valore di $g(t)$.
+		In (c), invece, vediamo che l'evento si traduce in un picco nel valore del detrending nell'istante in cui inizia la sfocatura, e in una diminuzione della varianza negli istanti successivi}
 	\label{fig:defocusPLOT}
 \end{figure}
 %%\clearpage
@@ -184,11 +203,17 @@ Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle
 	\begin{subfigure}[]
 		{\label{fig:lumaDetrDefocus} \includegraphics[width=12cm]{./pictures/Defocus/DEFOCUS_luma_detr}}
 	\end{subfigure}
-	\caption{Energia media della luma (a) e suo detrending (b) nel caso di una sfocatura}
+	\caption[Energia media della luma e suo detrending nel caso di una sfocatura]
+	{In questo esempio vediamo il comportamento dell'energia media della luma su una sequenza di 24 ore in cui avviene un evento di sfocatura.
+		In (a) sono riportati alcuni frame estratti dalla sequenza. 
+		La sfocatura avviene al frame $1000$ e continua per il resto della sequenza.
+		Vediamo come il comportamento dell'indicatore $l(t)$ (b) e quello del suo detrending (c) non siano influenzati dall'evento di sfocatura.
+		Questo avviene perch\'e questo tipo di tampering abbatte le alte frequenze presenti nell'immagine, mantenendo comunque il valore medio della luma invariato.
+		}
 	\label{fig:defocusDetrPLOt}
 \end{figure}
 %%\clearpage
-Possiamo notare come le fluttuazioni in bassa frequenza vengano rimosse dal detrending, visto che gli indicatori di due frame consecutivi sono pressoché costanti.\\
+Possiamo notare come le fluttuazioni in bassa frequenza vengano rimosse dal detrending, visto che gli indicatori di due frame consecutivi sono pressoch\'e costanti.\\
 Come abbiamo detto prima, lo scopo del monitoraggio di questi indicatori \`e quello di individuare degli eventi di tampering.
 Nelle Figure \ref{fig:defocusPLOT} e \ref{fig:displacementPLOT} possiamo vedere il comportamento dell'energia media di luma e gradiente rispettivamente per un caso di sfocatura e per un caso di spostamento della camera.  
 In particolare, in entrambi i casi l'evento di tampering avviene al frame $1000$\footnote{Il modo in cui sono stati ottenuti gli eventi di tampering \`e descritto nel Capitolo \ref{ProveSperimentali}}.
@@ -205,7 +230,13 @@ Il detrending di questi segnali \`e visualizzato nelle Figure \ref{fig:defocusDe
 	\begin{subfigure}[]
 		{\label{fig:energyDetrDisplacement} \includegraphics[width=12cm]{./pictures/Displacement/DISPLACEMENT_energy_detr}}
 	\end{subfigure}
-	\caption{Energia media del gradiente (a) e suo detrending (b) nel caso di uno spostamento della camera}
+	\caption[Energia media del gradiente e suo detrending nel caso di uno spostamento della camera]
+	{In questo esempio vediamo il comportamento dell'energia media del gradiente su una sequenza di 24 ore in cui avviene un evento di spostamento della camera.
+		In (a) sono riportati alcuni frame estratti dalla sequenza. 
+		Lo spostamento della camera avviene al frame $1000$ e, per il resto della sequenza, l'inquadratura rimane la stessa.
+		In (b) vediamo il comportamento dell'indicatore $g(t)$, e in (c) quello del suo detrending.
+		Vediamo come in (b) l'evento di spostamento della camera si traduca in un salto del valore di $g(t)$.
+		In (c), invece, vediamo che l'evento si traduce in un picco (in questo caso negativo) nel valore del detrending nell'istante in cui inizia la sfocatura.}
 	\label{fig:displacementPLOT}
 \end{figure}
 %%\clearpage
@@ -221,7 +252,13 @@ Il detrending di questi segnali \`e visualizzato nelle Figure \ref{fig:defocusDe
 	\begin{subfigure}[]
 		{\label{fig:lumaDetrDisplacement} \includegraphics[width=12cm]{./pictures/Displacement/DISPLACEMENT_luma_detr}}
 	\end{subfigure}
-	\caption{Energia media della luma (a) e suo detrending (b) nel caso di uno spostamento della camera}
+	\caption[Energia media della luma e suo detrending nel caso di uno spostamento della camera]
+	{In questo esempio vediamo il comportamento dell'energia media della luma su una sequenza di 24 ore in cui avviene un evento di spostamento della camera.
+		In (a) sono riportati alcuni frame estratti dalla sequenza. 
+		Lo spostamento della camera avviene al frame $1000$ e, per il resto della sequenza, l'inquadratura rimane la stessa.
+		In (b) vediamo il comportamento dell'indicatore $l(t)$, e in (c) quello del suo detrending.
+		Vediamo come in (b) l'evento di spostamento della camera si traduca in un salto del valore di $l(t)$.
+		In (c), invece, vediamo che l'evento si traduce in un picco (in questo caso positivo) nel valore del detrending nell'istante in cui inizia la sfocatura.}
 	\label{fig:displacementDetrPLOT}
 \end{figure}
 %\clearpage
@@ -229,7 +266,7 @@ Il detrending di questi segnali \`e visualizzato nelle Figure \ref{fig:defocusDe
 Vanno notate alcune cose:
 \begin{itemize}
 	\item L'evento di sfocatura non si traduce in un cambiamento nell'energia media della luma.
-	Questo avviene perch\'e questo tipo di tampering abbatte le alte frquenze presenti nell'immagine, mantenendo comunque il valore medio della luma invariato.
+	Questo avviene perch\'e questo tipo di tampering abbatte le alte frequenze presenti nell'immagine, mantenendo comunque il valore medio della luma invariato.
 	\item Facendo il detrending della sequenza abbiamo dei valori che oscillano attorno allo zero, un picco in corrispondenza dell'istante in cui avviene il tampering (Figure \ref{fig:energyDetrDefocus}, \ref{fig:energyDetrDisplacement}, \ref{fig:lumaDetrDisplacement}) e infine altri valori che oscillano attorno allo zero.
 	Questo \`e dato dal fatto che il detrending considera le differenze tra dati consecutivi e, quindi, la differenza maggiore si ha proprio nell'istante in cui inizia l'evento di tampering, mentre solitamente le differenze tra misure consecutive sono minime. 
 	Questo fa s\`i che monitorare il detrending delle sequenze degli indicatori permetta di identificare pi\`u facilmente gli eventi di tampering rispetto ad analizzare la sequenza originale.
@@ -254,7 +291,15 @@ Ci possono essere dei casi in cui l'evento \`e difficilmente individuabile monit
 	\begin{subfigure}[]
 		{\label{fig:lumaDetrDisplacementBRUTTO} \includegraphics[width=12cm]{./pictures/DisplacementTOTALE/lumaDetr}}
 	\end{subfigure}
-	\caption{Esempio di sequenza dell'energia media della luma (a) e del suo detrending (b) con un displacement difficile da identificare}
+	\caption[Esempio di sequenza dell'energia media della luma  e del suo detrending  con un displacement difficile da identificare]
+	{In questo esempio vediamo il comportamento dell'energia media della luma su una sequenza di 24 ore in cui avviene un evento di spostamento della camera.
+		In (a) sono riportati alcuni frame estratti dalla sequenza. 
+		Lo spostamento della camera avviene al frame 
+		$800$ e, per il resto della sequenza, l'inquadratura rimane la stessa.
+		In (b) vediamo il comportamento dell'indicatore $l(t)$, e in (c) quello del suo detrending.
+		Notiamo come, in (c), non abbiamo un picco ben distinguibili dagli altri valori nell'istante in cui avviene lo spostamento, come nella Figura \ref{fig:displacementDetrPLOT}.
+		Questo problema capita perch\'e stiamo monitorando l'energia media della luma calcolata sulla \textit{totalit\`a} della scena.
+		}
 	\label{fig:displacementBRUTTO}
 \end{figure}
 %\clearpage
@@ -614,4 +659,5 @@ i & \mbox{se} & \forall \xi \in U_x \quad S(\xi) = i \\
 0 & \mbox{se} & \exists \xi \in U_x \quad S(\xi) = 0
 \end{array}\right. , \forall x \in \mathcal{X},\]
 e vengono eliminati i cluster pi\`u piccoli, ovvero quelli il cui numero di pixel \`e inferiore al $2\%$ dei pixel totali.   
-Il risultato finale \`e quello mostrato in Figura \ref{fig:mappaFinale}, dove le zone colorate in blu scuro rappresentano i pixel che non vengono considerati durante l'analisi successiva.
+Il risultato finale \`e quello mostrato in Figura \ref{fig:mappaFinale}, dove le zone colorate in blu scuro rappresentano le aree che non vengono appartengono ad alcun cluster.
+Queste zone, durante l'esecuzione dell'algoritmo di identificazione di spostamenti della camera, non verranno considerate nel calcolo dell'energia media della luma.
