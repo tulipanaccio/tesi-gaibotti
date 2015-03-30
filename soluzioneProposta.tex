@@ -40,7 +40,7 @@ mentre per il calcolo delle derivate verticali abbiamo utilizzato il seguente fi
 1 \\ 0 \\ -1
 \end{array}\right], \]
 dove abbiamo indicato con $\circledast$ l'operatore di convoluzione.
-Il filtro $f$, invece, \`e ottenuto tramite un campionamento della \textit{funzione gaussiana} con media $0$ e deviazione standard $\sigma$
+Il filtro $f$, invece, \`e ottenuto tramite un campionamento della \textit{funzione gaussiana} $h$, con media $0$ e deviazione standard $\sigma$
 \begin{equation}
 \label{eq:gaussian}
 h(i,j)=\frac{1}{2\pi\sigma^2}\exp\left(-\frac{i^2+j^2}{2\sigma^2}\right),
@@ -482,7 +482,7 @@ Da questi frame estraiamo un vettore descrittore (\textit{feature vector}) per c
 Passiamo, quindi, da una matrice di dimensioni $H\times W \times T_{c}$, dove $H$ e $W$ sono le dimensioni in pixel dell'immagine acquisita dalla camera e $T_{c}$ \`e il numero di frame usato per la creazione della segmentazione, a una matrice di dimensioni $H\times W \times P$, dove $P$ \`e il numero di descrittori calcolati per fare la segmentazione.\\
 Una volta ottenuta la matrice, viene fatto un \textit{partizionamento} dei vari feature vector, in modo da raggruppare i pixel in base a parametri comuni.\\
 La fase di segmentazione della scena in regioni avviene durante la configurazione del sistema, separatamente rispetto alla fase di identificazione degli eventi di tampering.
-La segmentazione, quindi, non comporta ulteriore costo computazionale all'algoritmo, che la considera semplicemente come una variabile d'ingresso.
+La segmentazione, quindi, non comporta ulteriore costo computazionale all'algoritmo, in cui viene considerata semplicemente come una variabile d'ingresso.
 Inoltre, la segmentazione pu\`o essere eseguita \textit{offline} su un dispositivo esterno.
 \begin{figure}
 	\centering
@@ -658,6 +658,6 @@ Infine, allarghiamo le aree di separazione tra le regioni utilizzando un altro o
 i & \mbox{se} & \forall \xi \in U_x \quad S(\xi) = i \\
 0 & \mbox{se} & \exists \xi \in U_x \quad S(\xi) = 0
 \end{array}\right. , \forall x \in \mathcal{X},\]
-e vengono eliminati i cluster pi\`u piccoli, ovvero quelli il cui numero di pixel \`e inferiore al $2\%$ dei pixel totali.   
+ed eliminiamo i cluster pi\`u piccoli, ovvero quelli il cui numero di pixel \`e inferiore al $2\%$ dei pixel totali.   
 Il risultato finale \`e quello mostrato in Figura \ref{fig:mappaFinale}, dove le zone colorate in blu scuro rappresentano le aree che non vengono appartengono ad alcun cluster.
 Queste zone, durante l'esecuzione dell'algoritmo di identificazione di spostamenti della camera, non verranno considerate nel calcolo dell'energia media della luma.
