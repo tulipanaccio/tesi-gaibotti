@@ -9,6 +9,8 @@
 \newlabel{indicatori}{{4.1}{39}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Misura della sfocatura nell'immagine}{39}}
 \newlabel{eq:energyGradient}{{4.1}{40}}
+\newlabel{eq:gaussian}{{4.2}{40}}
+\newlabel{eq:normaGradiente}{{4.3}{40}}
 \newlabel{fig:FTgiorno}{{4.1(a)}{41}}
 \newlabel{sub@fig:FTgiorno}{{(a)}{41}}
 \newlabel{fig:FTnotte}{{4.1(b)}{41}}
@@ -18,7 +20,7 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{41}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{41}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Misura dello spostamento della camera}{41}}
-\newlabel{eq:energyLuma}{{4.2}{41}}
+\newlabel{eq:energyLuma}{{4.4}{41}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{41}}
 \newlabel{comportamento}{{4.1.3}{41}}
 \citation{alippi2010detecting}
@@ -53,8 +55,8 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{44}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{44}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.4}Detrending degli indicatori}{45}}
-\newlabel{eq:gradientDetr}{{4.3}{45}}
-\newlabel{eq:lumaDetr}{{4.4}{45}}
+\newlabel{eq:gradientDetr}{{4.5}{45}}
+\newlabel{eq:lumaDetr}{{4.6}{45}}
 \newlabel{fig:collage3}{{4.5(a)}{46}}
 \newlabel{sub@fig:collage3}{{(a)}{46}}
 \newlabel{fig:energyDefocus}{{4.5(b)}{46}}
@@ -144,10 +146,10 @@
 \newlabel{alg:DEFOCUS}{{1}{53}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Identificazione delle sfocature}{53}}
 \newlabel{defocusDetection}{{4.2.1}{53}}
-\newlabel{eq:soglieGradiente}{{4.5}{53}}
+\newlabel{eq:soglieGradiente}{{4.7}{53}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{54}}
 \newlabel{monitoraggioDISPL}{{4.2.2}{54}}
-\newlabel{eq:lumaRegions}{{4.6}{54}}
+\newlabel{eq:lumaRegions}{{4.8}{54}}
 \newlabel{DISPL-Tr1}{{1}{55}}
 \newlabel{DISPL-Tr2}{{2}{55}}
 \newlabel{DISPL-Tr3}{{3}{55}}
@@ -166,30 +168,64 @@
 \newlabel{DISPL-Test9}{{16}{55}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Algoritmo di identificazione di spostamenti della camera\relax }}{55}}
 \newlabel{alg:DISPL}{{2}{55}}
-\newlabel{eq:soglieLuma}{{4.7}{55}}
+\newlabel{eq:soglieLuma}{{4.9}{55}}
+\citation{kim2003efficient}
+\citation{kottke1994motion}
+\citation{ke2007event}
+\citation{deng2001unsupervised}
+\citation{gong2000video}
+\citation{jiang2009hierarchical}
+\citation{sentinelli2014live}
+\citation{wolf1996key}
+\citation{han2006data}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{56}}
 \newlabel{segmentazione}{{4.3}{56}}
-\citation{han2006data}
-\citation{arthur2007k}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Passaggio dallo spazio dei frame allo spazio dei feature vector\relax }}{57}}
 \newlabel{fig:FeatureVector}{{4.12}{57}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{57}}
-\newlabel{eq:featureVector}{{4.8}{57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Partizione dei feature vector per l'estrazione delle regioni}{57}}
+\newlabel{descrittori}{{4.3.1}{57}}
+\newlabel{eq:featureVector}{{4.10}{57}}
+\newlabel{eq:segmentazioneGrad}{{4.11}{58}}
+\newlabel{eq:segmentazioneVar}{{4.12}{58}}
+\newlabel{eq:segmentazioneLuma}{{4.13}{58}}
+\citation{han2006data}
+\citation{lloyd1982least}
+\citation{arthur2007k}
+\newlabel{fig:FVframe}{{4.13(a)}{59}}
+\newlabel{sub@fig:FVframe}{{(a)}{59}}
+\newlabel{fig:FVgrad}{{4.13(b)}{59}}
+\newlabel{sub@fig:FVgrad}{{(b)}{59}}
+\newlabel{fig:FVstd}{{4.13(c)}{59}}
+\newlabel{sub@fig:FVstd}{{(c)}{59}}
+\newlabel{fig:FVluma}{{4.13(d)}{59}}
+\newlabel{sub@fig:FVluma}{{(d)}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Descrittori per la segmentazione della scena}}{59}}
+\newlabel{fig:FVexample}{{4.13}{59}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{59}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{59}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{59}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{59}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Partizionamento dei feature vector per l'estrazione delle regioni}{59}}
 \citation{calinski1974dendrite}
 \citation{kottke1994motion}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{59}}
-\newlabel{fig:risultatoClustering}{{4.13(a)}{60}}
-\newlabel{sub@fig:risultatoClustering}{{(a)}{60}}
-\newlabel{fig:mappaFinale}{{4.13(b)}{60}}
-\newlabel{sub@fig:mappaFinale}{{(b)}{60}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Risultato finale dell'algoritmo di clustering (a) e rifinitura delle regioni (b)\relax }}{60}}
-\newlabel{fig:clustering}{{4.13}{60}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{60}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{60}}
+\newlabel{fig:CLUSTERframe}{{4.14(a)}{62}}
+\newlabel{sub@fig:CLUSTERframe}{{(a)}{62}}
+\newlabel{fig:CLUSTERbrutto}{{4.14(b)}{62}}
+\newlabel{sub@fig:CLUSTERbrutto}{{(b)}{62}}
+\newlabel{fig:risultatoClustering}{{4.14(c)}{62}}
+\newlabel{sub@fig:risultatoClustering}{{(c)}{62}}
+\newlabel{fig:mappaFinale}{{4.14(d)}{62}}
+\newlabel{sub@fig:mappaFinale}{{(d)}{62}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Segmentazione della scena}}{62}}
+\newlabel{fig:clustering}{{4.14}{62}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{62}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{62}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{62}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{62}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{62}}
 \@setckpt{soluzioneProposta}{
-\setcounter{page}{61}
-\setcounter{equation}{8}
+\setcounter{page}{64}
+\setcounter{equation}{13}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -203,7 +239,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{13}
+\setcounter{figure}{14}
 \setcounter{table}{0}
 \setcounter{AlgoLine}{16}
 \setcounter{algocfline}{2}

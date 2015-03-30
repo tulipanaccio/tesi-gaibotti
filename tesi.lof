@@ -79,11 +79,18 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{52}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{52}
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Passaggio dallo spazio dei frame allo spazio dei feature vector\relax }}{57}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Risultato finale dell'algoritmo di clustering (a) e rifinitura delle regioni (b)\relax }}{60}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{60}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{60}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Descrittori per la segmentazione della scena}}{59}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{59}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{59}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{59}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{59}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Segmentazione della scena}}{62}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{62}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{62}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{62}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{62}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi (a) e il sistema di acquisizione basato su di esso (b)\relax }}{63}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{63}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{63}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi (a) e il sistema di acquisizione basato su di esso (b)\relax }}{67}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{67}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{67}
 \addvspace {10\p@ }

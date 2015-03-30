@@ -41,17 +41,17 @@
 \contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{54}
 \contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{56}
 \contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{57}
-\contentsline {subsection}{\numberline {4.3.2}Partizione dei feature vector per l'estrazione delle regioni}{57}
-\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{59}
-\contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{61}
-\contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{61}
-\contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{61}
-\contentsline {subsection}{\numberline {5.2.1}Eventi di tampering}{63}
-\contentsline {subsection}{\numberline {5.2.2}Definizione dei ground truth}{63}
-\contentsline {section}{\numberline {5.3}Figure di merito}{64}
-\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{64}
-\contentsline {subsection}{\numberline {5.4.1}Creazione dei tampering}{64}
-\contentsline {subsection}{\numberline {5.4.2}Risultati}{64}
-\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{64}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{65}
-\contentsline {chapter}{Bibliografia}{67}
+\contentsline {subsection}{\numberline {4.3.2}Partizionamento dei feature vector per l'estrazione delle regioni}{59}
+\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{62}
+\contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{65}
+\contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{65}
+\contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{65}
+\contentsline {subsection}{\numberline {5.2.1}Eventi di tampering}{67}
+\contentsline {subsection}{\numberline {5.2.2}Definizione dei ground truth}{67}
+\contentsline {section}{\numberline {5.3}Figure di merito}{68}
+\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{68}
+\contentsline {subsection}{\numberline {5.4.1}Creazione dei tampering}{68}
+\contentsline {subsection}{\numberline {5.4.2}Risultati}{68}
+\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{68}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{69}
+\contentsline {chapter}{Bibliografia}{71}

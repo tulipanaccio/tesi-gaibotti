@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  29 MAR 2015 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  30 MAR 2015 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -519,7 +519,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] (./tesi.toc [5
 
-])
+]
+Overfull \hbox (1.04639pt too wide) in paragraph at lines 44--44
+ [][] []\OT1/cmr/m/n/10.95 Partizionamento dei fea-tu-re vec-tor per l'e-stra-z
+io-ne del- 
+ []
+
+)
 \tf@toc=\write3
 \openout3 = `tesi.toc'.
 
@@ -768,7 +774,7 @@ File: ./pictures/lumaTot.eps Graphic file (type eps)
 <./pictures/lumaTot.eps>
 File: ./pictures/lumadetr.eps Graphic file (type eps)
  <./pictures/lumadetr.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 137--140
+Underfull \hbox (badness 10000) in paragraph at lines 142--145
 
  []
 
@@ -835,47 +841,61 @@ Underfull \vbox (badness 2875) has occurred while \output is active []
  [53]
 [54] [55]
 File: diagrammi/FeatureVector.eps Graphic file (type eps)
- <diagrammi/FeatureVector.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ <diagrammi/FeatureVector.eps> [56] [57]
+File: ./pictures/FeatureVector/frame.eps Graphic file (type eps)
 
- [56]
-[57] [58]
+<./pictures/FeatureVector/frame.eps>
+File: ./pictures/FeatureVector/spatialGrad.eps Graphic file (type eps)
+
+<./pictures/FeatureVector/spatialGrad.eps>
+File: ./pictures/FeatureVector/stdGrad.eps Graphic file (type eps)
+
+<./pictures/FeatureVector/stdGrad.eps>
+File: ./pictures/FeatureVector/meanLuma.eps Graphic file (type eps)
+ <./pictures/FeatureVector/meanLuma.eps>
+[58] [59] [60]
+File: ./pictures/FeatureVector/frame.eps Graphic file (type eps)
+ <./pictures/FeatureVector/frame.eps>
+File: ./pictures/segmentazione/kmeansNormale.eps Graphic file (type eps)
+
+<./pictures/segmentazione/kmeansNormale.eps>
 File: ./pictures/segmentazione/mappa1.eps Graphic file (type eps)
- <./pictures/segmentazione/mappa1.eps>
-File: ./pictures/segmentazione/mappa2.eps Graphic file (type eps)
 
-<./pictures/segmentazione/mappa2.eps>) [59] [60]
+<./pictures/segmentazione/mappa1.eps>
+File: ./pictures/segmentazione/mappa2.eps Graphic file (type eps)
+ <./pictures/segmentazione/mappa2.eps>
+[61] [62]) [63]
 \openout2 = `proveSperimentali.aux'.
 
- (./proveSperimentali.tex
-Capitolo 5.
-
-LaTeX Warning: Reference `risultati' on page 61 undefined on input line 10.
-
-File: ./pictures/RaspberryPiB+.eps Graphic file (type eps)
-<./pictures/RaspberryPiB+.eps>
-File: ./pictures/raspberry.eps Graphic file (type eps)
- <./pictures/raspberry.eps> [61
+ (./proveSperimentali.tex [64
 
 
 
 ]
+Capitolo 5.
+
+LaTeX Warning: Reference `risultati' on page 65 undefined on input line 10.
+
+File: ./pictures/RaspberryPiB+.eps Graphic file (type eps)
+<./pictures/RaspberryPiB+.eps>
+File: ./pictures/raspberry.eps Graphic file (type eps)
+ <./pictures/raspberry.eps> [65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62])
-[63] [64]
+ [66])
+[67] [68]
 \openout2 = `conclusioni.aux'.
 
  (./conclusioni.tex
 Capitolo 6.
-) [65
+) [69
 
 
 
-] [66
+] [70
 
 
-] (./tesi.bbl [67
+] (./tesi.bbl [71
 
 
 ]
@@ -890,19 +910,19 @@ Underfull \hbox (badness 2443) in paragraph at lines 82--84
 cmr/m/n/10.95 .  Vi-si-ta-to il
  []
 
-[68] [69]
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+[72] [73] [74]
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 []$\OT1/cmtt/m/n/10.95 http : / / www . arm . com / products / processors / cla
 ssic / arm11 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
 []$\OT1/cmtt/m/n/10.95 http : / / www . broadcom . com / products / technology 
 / mobmm _
  []
 
-) [70] (./tesi.aux (./frontespizio.aux) (./sommario.aux) (./introduzione.aux)
+) [75] (./tesi.aux (./frontespizio.aux) (./sommario.aux) (./introduzione.aux)
 (./statoArte.aux) (./formulazioneProblema.aux) (./soluzioneProposta.aux)
 (./proveSperimentali.aux) (./conclusioni.aux))
 
@@ -910,12 +930,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 9305 strings out of 493109
- 135579 string characters out of 6140752
- 277443 words of memory out of 5000000
- 12432 multiletter control sequences out of 15000+600000
- 17615 words of font info for 65 fonts, out of 8000000 for 9000
+ 9347 strings out of 493109
+ 136371 string characters out of 6140752
+ 277724 words of memory out of 5000000
+ 12469 multiletter control sequences out of 15000+600000
+ 18669 words of font info for 70 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  46i,19n,77p,2195b,570s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (80 pages, 192988 bytes).
+Output written on tesi.dvi (85 pages, 209248 bytes).

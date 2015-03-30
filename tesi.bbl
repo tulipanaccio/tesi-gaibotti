@@ -185,10 +185,66 @@ Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
 \newblock A survey on wireless multimedia sensor networks.
 \newblock {\em Computer networks}, 51(4):921--960, 2007.
 
+\bibitem{kim2003efficient}
+Jong~Bae Kim and Hang~Joon Kim.
+\newblock Efficient region-based motion segmentation for a video monitoring
+  system.
+\newblock {\em Pattern Recognition Letters}, 24(1):113--128, 2003.
+
+\bibitem{kottke1994motion}
+Dane~P Kottke and Ying Sun.
+\newblock Motion estimation via cluster matching.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 16(11):1128--1132, 1994.
+
+\bibitem{ke2007event}
+Yan Ke, Rahul Sukthankar, and Martial Hebert.
+\newblock Event detection in crowded videos.
+\newblock In {\em Computer Vision, 2007. ICCV 2007. IEEE 11th International
+  Conference on}, pages 1--8. IEEE, 2007.
+
+\bibitem{deng2001unsupervised}
+Yining Deng and BS~Manjunath.
+\newblock Unsupervised segmentation of color-texture regions in images and
+  video.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 23(8):800--810, 2001.
+
+\bibitem{gong2000video}
+Yihong Gong and Xin Liu.
+\newblock Video summarization using singular value decomposition.
+\newblock In {\em Computer Vision and Pattern Recognition, 2000. Proceedings.
+  IEEE Conference on}, volume~2, pages 174--180. IEEE, 2000.
+
+\bibitem{jiang2009hierarchical}
+Richard~M Jiang, Abdul~H Sadka, and Danny Crookes.
+\newblock Hierarchical video summarization in reference subspace.
+\newblock {\em Consumer Electronics, IEEE Transactions on}, 55(3):1551--1557,
+  2009.
+
+\bibitem{sentinelli2014live}
+Alexandro Sentinelli and Luca Celetto.
+\newblock Live key frame extraction in user generated content scenarios for
+  embedded mobile platforms.
+\newblock In {\em MultiMedia Modeling}, pages 291--302. Springer International
+  Publishing, 2014.
+
+\bibitem{wolf1996key}
+Wayne Wolf.
+\newblock Key frame selection by motion analysis.
+\newblock In {\em Acoustics, Speech, and Signal Processing, 1996. ICASSP-96.
+  Conference Proceedings., 1996 IEEE International Conference on}, volume~2,
+  pages 1228--1231. IEEE, 1996.
+
 \bibitem{han2006data}
 Jiawei Han and Micheline Kamber.
 \newblock {\em Data Mining: Concepts and Techniques}.
 \newblock Morgan kaufmann, 2011.
+
+\bibitem{lloyd1982least}
+Stuart Lloyd.
+\newblock Least squares quantization in pcm.
+\newblock {\em Information Theory, IEEE Transactions on}, 28(2):129--137, 1982.
 
 \bibitem{arthur2007k}
 David Arthur and Sergei Vassilvitskii.
@@ -202,12 +258,6 @@ Tadeusz Cali{\'n}ski and Jerzy Harabasz.
 \newblock A dendrite method for cluster analysis.
 \newblock {\em Communications in Statistics-theory and Methods}, 3(1):1--27,
   1974.
-
-\bibitem{kottke1994motion}
-Dane~P Kottke and Ying Sun.
-\newblock Motion estimation via cluster matching.
-\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
-  on}, 16(11):1128--1132, 1994.
 
 \bibitem{raspberry}
 \url{http://www.raspberrypi.org/products/model-b-plus/}.
