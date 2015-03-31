@@ -3,6 +3,13 @@
 \bibitem{ilmeteo}
 \url{http://www.ilmeteo.it/webcam/}.
 
+\bibitem{alippi2010detecting}
+Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
+\newblock Detecting external disturbances on the camera lens in wireless
+  multimedia sensor networks.
+\newblock {\em Instrumentation and Measurement, IEEE Transactions on},
+  59(11):2982--2990, 2010.
+
 \bibitem{manetti1976vita}
 Antonio Manetti, Domenico De~Robertis, and Giuliano Tanturli.
 \newblock {\em Vita di Filippo Brunelleschi: preceduta da La novella del
@@ -173,13 +180,6 @@ Herbert Bay, Tinne Tuytelaars, and Luc Van~Gool.
 \newblock Surf: Speeded up robust features.
 \newblock In {\em Computer vision--ECCV 2006}, pages 404--417. Springer, 2006.
 
-\bibitem{alippi2010detecting}
-Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
-\newblock Detecting external disturbances on the camera lens in wireless
-  multimedia sensor networks.
-\newblock {\em Instrumentation and Measurement, IEEE Transactions on},
-  59(11):2982--2990, 2010.
-
 \bibitem{akyildiz2007survey}
 Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
 \newblock A survey on wireless multimedia sensor networks.
@@ -258,6 +258,12 @@ Tadeusz Cali{\'n}ski and Jerzy Harabasz.
 \newblock A dendrite method for cluster analysis.
 \newblock {\em Communications in Statistics-theory and Methods}, 3(1):1--27,
   1974.
+
+\bibitem{matlab}
+\url{http://it.mathworks.com/products/matlab}.
+
+\bibitem{nikon}
+\url{http://www.nikon.it/it_IT/product/discontinued/digital-cameras/2011/coolpix-s570/}.
 
 \bibitem{raspberry}
 \url{http://www.raspberrypi.org/products/model-b-plus/}.

@@ -13,6 +13,17 @@ Nel Paragrafo \ref{segmentazione} descriviamo, infine, l'algoritmo di segmentazi
 L'approccio che abbiamo considerato per risolvere il problema del tampering detection consiste nell'estrarre, da ciascun frame ripreso dalla camera, degli indicatori \textit{scalari} che possano essere monitorati nel tempo, in modo da individuare un cambio di distribuzione o un \textit{outlier} associabile a un evento di tampering. 
 In particolare abbiamo deciso di considerare un indicatore in grado di verificare la presenza di sfocature globali all'interno della scena e un altro in grado di identificare gli eventi di spostamento della camera.
 Il resto del paragrafo \`e dedicato alla descrizione di questi indicatori.
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:FTgiorno} \includegraphics[width=6cm]{./pictures/testiGIORNO}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:FTnotte} \includegraphics[width=6cm]{./pictures/testiNOTTE}}
+	\end{subfigure}
+	\caption[Esempio di cambi di luminosit\`a tra il giorno e la notte]{Esempio di cambi di luminosit\`a tra il giorno e la notte}
+	\label{fig:testiGN}
+\end{figure}
 \subsection{Misura della sfocatura nell'immagine}
 Nel Paragrafo \ref{sfocatura} abbiamo modellizzato il fenomeno della sfocatura secondo la formula \eqref{blur_multi}:
 \[ 
@@ -62,26 +73,6 @@ w_t(x) + \eta(x) & \mbox{per} & t \geqslant T^*
 \end{array}\right. , \forall x \in \mathcal{X}\]
 dove $T^*$ indica l'istante in cui avviene il cambiamento.\\
 Uno spostamento della camera, quindi, pu\`o essere rilevato come un cambiamento \textit{globale} dei valori di intensit\`a luminosa (\textit{luma}) nei pixel dell'immagine.
-In base a questo \`e possibile identificare un evento di spostamento della camera andando a monitorare l'\textit{energia media della luma} di ciascuna immagine:
-\begin{equation}
-\label{eq:energyLuma}
-l(t) = \mathcal{L}[z_t] =\frac{\sum_{\mathcal{X}} z_t(x) }{|\mathcal{X}|} ,
-\end{equation}  
-dove abbiamo indicato con $|\mathcal{X}|$ la \textit{cardinalit\`a} dell'insieme dei pixel $\mathcal{X}$.\\
-Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisito, che pu\`o essere monitorato per individuare eventi di spostamenti della camera. 
-\subsection{Comportamento degli indicatori nel tempo}
-\label{comportamento}
-\begin{figure}[tb]
-	\centering
-	\begin{subfigure}[]
-		{\label{fig:FTgiorno} \includegraphics[width=6cm]{./pictures/testiGIORNO}}
-	\end{subfigure}
-	\begin{subfigure}[]
-		{\label{fig:FTnotte} \includegraphics[width=6cm]{./pictures/testiNOTTE}}
-	\end{subfigure}
-	\caption[Esempio di cambi di luminosit\`a tra il giorno e la notte]{Esempio di cambi di luminosit\`a tra il giorno e la notte}
-	\label{fig:testiGN}
-\end{figure}
 \begin{figure}[tb]
 	\centering
 	\begin{subfigure}[]
@@ -94,21 +85,6 @@ Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisi
 		In (a), dove il frame \`e acquisito durante il giorno, vediamo come le macchine in movimento siano riprese in maniera nitida, mentre in (b), dove il frame \`e ripreso durante la notte, le zone con le macchine risultano sfocate.}
 	\label{fig:buenosAiresGN}
 \end{figure}
-Analizzando alcune sequenze video abbiamo notato che, anche in assenza di eventi di tampering, vi sono alcuni fattori che sono in grado di far variare il valore degli indicatori estratti.
-Tra i pi\`u importanti abbiamo:
-\begin{itemize}
-	\item \textit{Cambiamenti di luminosit\`a} che avvengono nel corso della giornata. 
-	Se consideriamo l'esempio in Figura \ref{fig:testiGN}, possiamo notare come, nel passaggio dal giorno (Figura \ref{fig:FTgiorno}) alla notte (Figura \ref{fig:FTnotte}), le differenze di luminosit\`a siano elevate.  
-	\item \textit{Dinamicit\`a della scena}. La ripresa di una scena dinamica, come ad esempio una strada, ha come risultato che ciascun frame sia diverso dagli altri.
-	Ci\`o si traduce in una variabilit\`a elevata degli indicatori che abbiamo utilizzato. 
-	Inoltre, col passare del tempo, pu\`o succedere che cambi anche il \textit{grado di dinamicit\`a} della scena.
-	Considerando ancora l'esempio della strada avremo dei momenti in cui il traffico \`e pi\`u intenso (nelle cosiddette \textit{ore di punta}) e altri in cui le macchine passano meno spesso (tipicamente durante la notte).
-	\item \textit{Tempo di esposizione della camera}. Solitamente le camere sono in grado di configurare in maniera automatica alcuni parametri che regolano l'acquisizione dell'immagine, in base alle condizioni di luminosit\`a esterne.
-	Ad esempio, durante la ripresa di scene notturne la camera solitamente aumenta il \textit{tempo di esposizione} del sensore, in modo che esso possa ricevere pi\`u luce possibile.
-	Ci\`o porta alla \textit{presenza di sfocature} nel caso vengano immortalati degli oggetti in movimento (come ad esempio le macchine che si muovono nella Figura \ref{fig:BAnotte}).
-	Nel caso in cui il tempo di esposizione non fosse sufficiente, invece, i cambiamenti di luminosit\`a potrebbero portare a un aumento del rumore nei frame acquisiti nelle ore pi\`u scure, in quanto il sensore riceverebbe meno luce.
-\end{itemize} 
-%\cleartoevenpage
 \begin{figure}[tbp]
 	\centering
 	\begin{subfigure}[]
@@ -126,7 +102,7 @@ Tra i pi\`u importanti abbiamo:
 		In (b) vediamo il comportamento dell'indicatore $g(t)$, e in (c) quello del suo detrending .
 		Anche in assenza di tampering, l'indicatore $g(t)$ presenta un andamento molto irregolare e difficilmente prevedibile.
 		Il detrending dell'indicatore, invece, possiede un andamento pi\`u stazionario, incentrato sul valore $0$.
-		}
+	}
 	\label{fig:energyTot}
 \end{figure}
 %\clearpage
@@ -151,6 +127,30 @@ Tra i pi\`u importanti abbiamo:
 	}
 	\label{fig:lumaTot}
 \end{figure}
+In base a questo \`e possibile identificare un evento di spostamento della camera andando a monitorare l'\textit{energia media della luma} di ciascuna immagine:
+\begin{equation}
+\label{eq:energyLuma}
+l(t) = \mathcal{L}[z_t] =\frac{\sum_{\mathcal{X}} z_t(x) }{|\mathcal{X}|} ,
+\end{equation}  
+dove abbiamo indicato con $|\mathcal{X}|$ la \textit{cardinalit\`a} dell'insieme dei pixel $\mathcal{X}$.\\
+Il risultato finale \`e un indicatore \textit{scalare} per ciascun frame acquisito, che pu\`o essere monitorato per individuare eventi di spostamenti della camera. 
+\subsection{Comportamento degli indicatori nel tempo}
+\label{comportamento}
+Analizzando alcune sequenze video abbiamo notato che, anche in assenza di eventi di tampering, vi sono alcuni fattori che sono in grado di far variare il valore degli indicatori estratti.
+Tra i pi\`u importanti abbiamo:
+\begin{itemize}
+	\item \textit{Cambiamenti di luminosit\`a} che avvengono nel corso della giornata. 
+	Se consideriamo l'esempio in Figura \ref{fig:testiGN}, possiamo notare come, nel passaggio dal giorno (Figura \ref{fig:FTgiorno}) alla notte (Figura \ref{fig:FTnotte}), le differenze di luminosit\`a siano elevate.  
+	\item \textit{Dinamicit\`a della scena}. La ripresa di una scena dinamica, come ad esempio una strada, ha come risultato che ciascun frame sia diverso dagli altri.
+	Ci\`o si traduce in una variabilit\`a elevata degli indicatori che abbiamo utilizzato. 
+	Inoltre, col passare del tempo, pu\`o succedere che cambi anche il \textit{grado di dinamicit\`a} della scena.
+	Considerando ancora l'esempio della strada avremo dei momenti in cui il traffico \`e pi\`u intenso (nelle cosiddette \textit{ore di punta}) e altri in cui le macchine passano meno spesso (tipicamente durante la notte).
+	\item \textit{Tempo di esposizione della camera}. Solitamente le camere sono in grado di configurare in maniera automatica alcuni parametri che regolano l'acquisizione dell'immagine, in base alle condizioni di luminosit\`a esterne.
+	Ad esempio, durante la ripresa di scene notturne la camera solitamente aumenta il \textit{tempo di esposizione} del sensore, in modo che esso possa ricevere pi\`u luce possibile.
+	Ci\`o porta alla \textit{presenza di sfocature} nel caso vengano immortalati degli oggetti in movimento (come ad esempio le macchine che si muovono nella Figura \ref{fig:BAnotte}).
+	Nel caso in cui il tempo di esposizione non fosse sufficiente, invece, i cambiamenti di luminosit\`a potrebbero portare a un aumento del rumore nei frame acquisiti nelle ore pi\`u scure, in quanto il sensore riceverebbe meno luce.
+\end{itemize} 
+%\cleartoevenpage
 %\clearpage
 Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{difficilmente prevedibile} e che \textit{non siano stazionari}\footnote{Ovvero non sono realizzazioni i.i.d. di una stessa variabile aleatoria}, come possiamo vedere dal comportamento dell'energia del gradiente nella Figura \ref{fig:energy} e da quello dell'energia media della luma nella Figura \ref{fig:luma}.
 I due grafici riportano l'andamento degli indicatori durante una ripresa di $24$ ore, acquisendo un frame ogni minuto, in cui non sono avvenuti eventi di tampering.

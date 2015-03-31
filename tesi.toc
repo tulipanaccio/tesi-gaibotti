@@ -2,56 +2,58 @@
 \select@language {italian}
 \contentsline {chapter}{Sommario}{i}
 \contentsline {chapter}{\numberline {1}Introduzione}{3}
-\contentsline {chapter}{\numberline {2}Stato dell'arte}{5}
-\contentsline {section}{\numberline {2.1}Modello della camera}{5}
-\contentsline {subsection}{\numberline {2.1.1}La matrice prospettica della camera}{6}
-\contentsline {subsection}{\numberline {2.1.2}Parametri intrinseci}{8}
-\contentsline {subsection}{\numberline {2.1.3}Parametri estrinseci}{10}
-\contentsline {section}{\numberline {2.2}Rappresentazione digitale delle immagini}{11}
-\contentsline {section}{\numberline {2.3}Identificazione del cambiamento nella stazionariet\`a di un processo}{12}
-\contentsline {subsection}{\numberline {2.3.1}Metodi di Change-Point}{13}
-\contentsline {subsection}{\numberline {2.3.2}Change-Detection Test}{15}
-\contentsline {subsubsection}{CDT basati su CUSUM}{16}
-\contentsline {subparagraph}{CUSUM tradizionale e versione adattativa}{16}
-\contentsline {subparagraph}{CI-CUSUM}{17}
-\contentsline {subsubsection}{CDT basati su Intersezione di Intervalli di Confidenza}{19}
-\contentsline {subparagraph}{ICI-CDT}{19}
-\contentsline {subparagraph}{CDT di tipo gerarchico}{21}
-\contentsline {section}{\numberline {2.4}Tampering Detection}{22}
-\contentsline {subsection}{\numberline {2.4.1}Concetti e terminologia}{24}
-\contentsline {subsection}{\numberline {2.4.2}Tecniche basate su confronto di background}{25}
-\contentsline {subsubsection}{Identificazione di occlusioni}{25}
-\contentsline {subsubsection}{Identificazione di spostamenti della camera}{26}
-\contentsline {subsubsection}{Identificazione di sfocature}{27}
-\contentsline {subsection}{\numberline {2.4.3}Tecniche basate su monitoraggio sequenziale}{29}
-\contentsline {chapter}{\numberline {3}Impostazione del problema di ricerca}{33}
-\contentsline {section}{\numberline {3.1}Modello delle osservazioni}{33}
-\contentsline {subsection}{\numberline {3.1.1}Sfocatura}{33}
-\contentsline {subsection}{\numberline {3.1.2}Spostamento della camera}{35}
-\contentsline {subsection}{\numberline {3.1.3}Occlusione e guasti della camera}{37}
-\contentsline {section}{\numberline {3.2}Tampering detection}{37}
-\contentsline {chapter}{\numberline {4}Soluzione proposta}{39}
-\contentsline {section}{\numberline {4.1}Indicatori utilizzati per identificare gli eventi di tampering}{39}
-\contentsline {subsection}{\numberline {4.1.1}Misura della sfocatura nell'immagine}{39}
-\contentsline {subsection}{\numberline {4.1.2}Misura dello spostamento della camera}{41}
-\contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{41}
-\contentsline {subsection}{\numberline {4.1.4}Detrending degli indicatori}{45}
-\contentsline {section}{\numberline {4.2}Algoritmo di identificazione di sfocature e di spostamenti della camera}{52}
-\contentsline {subsection}{\numberline {4.2.1}Identificazione delle sfocature}{53}
-\contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{54}
-\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{56}
-\contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{57}
-\contentsline {subsection}{\numberline {4.3.2}Partizionamento dei feature vector per l'estrazione delle regioni}{59}
-\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{62}
-\contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{65}
-\contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{65}
-\contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{65}
-\contentsline {subsection}{\numberline {5.2.1}Eventi di tampering}{67}
-\contentsline {subsection}{\numberline {5.2.2}Definizione dei ground truth}{67}
-\contentsline {section}{\numberline {5.3}Figure di merito}{68}
-\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{68}
-\contentsline {subsection}{\numberline {5.4.1}Creazione dei tampering}{68}
-\contentsline {subsection}{\numberline {5.4.2}Risultati}{68}
-\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{68}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{69}
-\contentsline {chapter}{Bibliografia}{71}
+\contentsline {chapter}{\numberline {2}Stato dell'arte}{7}
+\contentsline {section}{\numberline {2.1}Modello della camera}{7}
+\contentsline {subsection}{\numberline {2.1.1}La matrice prospettica della camera}{8}
+\contentsline {subsection}{\numberline {2.1.2}Parametri intrinseci}{10}
+\contentsline {subsection}{\numberline {2.1.3}Parametri estrinseci}{12}
+\contentsline {section}{\numberline {2.2}Rappresentazione digitale delle immagini}{13}
+\contentsline {section}{\numberline {2.3}Identificazione del cambiamento nella stazionariet\`a di un processo}{14}
+\contentsline {subsection}{\numberline {2.3.1}Metodi di Change-Point}{15}
+\contentsline {subsection}{\numberline {2.3.2}Change-Detection Test}{17}
+\contentsline {subsubsection}{CDT basati su CUSUM}{18}
+\contentsline {subparagraph}{CUSUM tradizionale e versione adattativa}{18}
+\contentsline {subparagraph}{CI-CUSUM}{19}
+\contentsline {subsubsection}{CDT basati su Intersezione di Intervalli di Confidenza}{21}
+\contentsline {subparagraph}{ICI-CDT}{21}
+\contentsline {subparagraph}{CDT di tipo gerarchico}{23}
+\contentsline {section}{\numberline {2.4}Tampering Detection}{24}
+\contentsline {subsection}{\numberline {2.4.1}Concetti e terminologia}{26}
+\contentsline {subsection}{\numberline {2.4.2}Tecniche basate su confronto di background}{27}
+\contentsline {subsubsection}{Identificazione di occlusioni}{27}
+\contentsline {subsubsection}{Identificazione di spostamenti della camera}{28}
+\contentsline {subsubsection}{Identificazione di sfocature}{29}
+\contentsline {subsection}{\numberline {2.4.3}Tecniche basate su monitoraggio sequenziale}{31}
+\contentsline {chapter}{\numberline {3}Impostazione del problema di ricerca}{35}
+\contentsline {section}{\numberline {3.1}Modello delle osservazioni}{35}
+\contentsline {subsection}{\numberline {3.1.1}Sfocatura}{35}
+\contentsline {subsection}{\numberline {3.1.2}Spostamento della camera}{37}
+\contentsline {subsection}{\numberline {3.1.3}Occlusione e guasti della camera}{39}
+\contentsline {section}{\numberline {3.2}Tampering detection}{39}
+\contentsline {chapter}{\numberline {4}Soluzione proposta}{41}
+\contentsline {section}{\numberline {4.1}Indicatori utilizzati per identificare gli eventi di tampering}{41}
+\contentsline {subsection}{\numberline {4.1.1}Misura della sfocatura nell'immagine}{41}
+\contentsline {subsection}{\numberline {4.1.2}Misura dello spostamento della camera}{43}
+\contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{46}
+\contentsline {subsection}{\numberline {4.1.4}Detrending degli indicatori}{47}
+\contentsline {section}{\numberline {4.2}Algoritmo di identificazione di sfocature e di spostamenti della camera}{54}
+\contentsline {subsection}{\numberline {4.2.1}Identificazione delle sfocature}{55}
+\contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{56}
+\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{58}
+\contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{59}
+\contentsline {subsection}{\numberline {4.3.2}Partizionamento dei feature vector per l'estrazione delle regioni}{61}
+\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{64}
+\contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{67}
+\contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{67}
+\contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{68}
+\contentsline {subsection}{\numberline {5.2.1}Eventi di tampering}{69}
+\contentsline {subsection}{\numberline {5.2.2}Definizione dei ground truth}{70}
+\contentsline {section}{\numberline {5.3}Figure di merito}{70}
+\contentsline {subsection}{\numberline {5.3.1}Metriche per il monitoraggio one-shot}{70}
+\contentsline {subsection}{\numberline {5.3.2}Metriche per il monitoraggio sequenziale}{72}
+\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{72}
+\contentsline {subsection}{\numberline {5.4.1}Creazione dei tampering}{72}
+\contentsline {subsection}{\numberline {5.4.2}Risultati}{72}
+\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{72}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{75}
+\contentsline {chapter}{Bibliografia}{77}
