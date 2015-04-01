@@ -372,17 +372,17 @@ Le due soglie $\Gamma_{min}^g$ e $\Gamma_{max}^g$ vengono calcolate nel seguente
 \begin{equation}
 \label{eq:soglieGradiente}
 \begin{array}{lcl}
-\Gamma_{min}^g & = & \hat{\mu}_g(t) -\gamma \hat{\sigma}_g(t)\\
-\Gamma_{max}^g & = & \hat{\mu}_g(t) + \gamma \hat{\sigma}_g(t)
+\Gamma_{min}^g & = & \hat{\mu}_g -\gamma \hat{\sigma}_g\\
+\Gamma_{max}^g & = & \hat{\mu}_g + \gamma \hat{\sigma}_g
 \end{array},
 \end{equation}
-dove $\hat{\mu}_g(t)$ indica il valore medio delle osservazioni del training set
+dove $\hat{\mu}_g$ indica il valore medio delle osservazioni del training set
 \begin{equation}
-	\hat{\mu}_g(t) = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial g}{\partial t}(\tau)}{T_{o}}, \nonumber
+	\hat{\mu}_g = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial g}{\partial t}(\tau)}{T_{o}}, \nonumber
 \end{equation}
-$\hat{\sigma}_g(t)$ indica la deviazione standard delle osservazioni del training set
+$\hat{\sigma}_g$ indica la deviazione standard delle osservazioni del training set
 \begin{equation}
-\hat{\sigma}_g(t)  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial g}{\partial t}(\tau) - \hat{\mu}_g(\tau)\right)^2} \nonumber
+\hat{\sigma}_g  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial g}{\partial t}(\tau) - \hat{\mu}_g(\tau)\right)^2} \nonumber
 \end{equation}
 e $\gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente\footnote{Per maggiori dettagli si rimanda al Capitolo \ref{ProveSperimentali}}.\\
 Le soglie definite in \eqref{eq:soglieGradiente} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial g}{\partial t}\}$ ammissibili.
@@ -435,7 +435,7 @@ in questo caso l'analisi \`e fatta in maniera indipendente per ciascuna regione 
 	\label{eq:lumaRegions}
 	\begin{array}{ccc}
 	l^k(t)&  = & \mathcal{L}^k[z_t] = \frac{\sum_{\mathcal{X}} z_t(x) }{|{R_k}|}\\
-	\frac{\partial l^k}{\partial t}(t) & =& l_t^k-l_{t-1}^k 
+	\frac{\partial l^k}{\partial t}(t) & =& l^k(t)-l^k(t-1) 
 	\end{array},
 \end{equation}
 dove abbiamo indicato con $|{R_k}|$ il numero totale dei pixel appartenenti alla regione $R_k$.\\
@@ -444,17 +444,17 @@ Le due soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$ vengono calcolate per ciascuna
 \begin{equation}
 \label{eq:soglieLuma}
 \begin{array}{rcl}
-\Gamma_{min}^k & = & \hat{\mu}_l^k(t) -\gamma \hat{\sigma}_l^k(t)\\
-\Gamma_{max}^k & = & \hat{\mu}_l^k(t) + \gamma \hat{\sigma}_l^k(t)
+\Gamma_{min}^k & = & \hat{\mu}_l^k -\gamma \hat{\sigma}_l^k\\
+\Gamma_{max}^k & = & \hat{\mu}_l^k + \gamma \hat{\sigma}_l^k
 \end{array},
 \end{equation}
-dove $\hat{\mu}_l^k(t)$ indica il valore medio delle osservazioni del training set
+dove $\hat{\mu}_l^k$ indica il valore medio delle osservazioni del training set
 \begin{equation}
-\hat{\mu}_l^k(t) = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial l^k}{\partial t}(\tau)}{T_{o}}, \nonumber
+\hat{\mu}_l^k = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial l^k}{\partial t}(\tau)}{T_{o}}, \nonumber
 \end{equation}
-$\hat{\sigma}_l^k(t)$ indica la deviazione standard delle osservazioni del training set
+$\hat{\sigma}_l^k$ indica la deviazione standard delle osservazioni del training set
 \begin{equation}
-\hat{\sigma}_l^k(t)  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial l^k}{\partial t}(\tau) - \hat{\mu}_l^k(\tau)\right)^2} \nonumber
+\hat{\sigma}_l^k  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial l^k}{\partial t}(\tau) - \hat{\mu}_l^k(\tau)\right)^2} \nonumber
 \end{equation}
 e $\gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente.\\
 Le soglie definite nella Formula \eqref{eq:soglieLuma} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial l^k}{\partial t}\}$ ammissibili.\\

@@ -8,22 +8,22 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Similitudini tra triangoli usate nel calcolo dei parametri intrinseci\relax }}{10}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Coordinate di un frame\relax }}{11}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Trasformazione dal sistema di coordinate dell'ambiente a quello della camera\relax }}{12}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Esempio di estrazione dei canali RGB\relax }}{14}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Esempio di estrazione dei canali YUV\relax }}{15}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Esempio di CPM\relax }}{17}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Procedura del CUSUM adattativo\relax }}{20}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Estrazione dei descrittori nel metodo CI-CUSUM\relax }}{20}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Esempio di come opera la regola dell'intersezione degli intervalli di confidenza (ICI-rule)\relax }}{23}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Esempio di estrazione dei canali RGB\relax }}{13}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Esempio di estrazione dei canali YUV\relax }}{14}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Esempio di CPM}}{17}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Procedura del CUSUM adattativo}}{20}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Estrazione dei descrittori nel metodo CI-CUSUM}}{21}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Esempio di come opera la regola dell'intersezione degli intervalli di confidenza (ICI-rule)}}{23}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Schema del modo di operare del CDT di tipo gerarchico\relax }}{24}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Tecniche di tampering detection\relax }}{25}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Sistema di monitoraggio video\relax }}{26}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{29}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{29}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{29}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{29}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{30}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{31}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Tecniche di tampering detection\relax }}{26}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Sistema di monitoraggio video\relax }}{27}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{30}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{30}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{30}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{30}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{30}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{31}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{32}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di sfocature\relax }}{36}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{36}
@@ -35,7 +35,7 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Esempi di occlusione\relax }}{39}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{39}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{39}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempi di guasti\relax }}{40}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Esempi di guasti}}{40}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{40}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{40}
 \addvspace {10\p@ }
@@ -91,12 +91,12 @@
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{64}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{64}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Il Raspberry Pi (a) e il sistema di acquisizione basato su di esso (b)\relax }}{69}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{69}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{69}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Curve ROC per gli indicatori di spostamento della camera\relax }}{71}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Curve ROC per gli indicatori di sfocatura\relax }}{72}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{73}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{73}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{74}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Camera digitale usata per le acquisizioni}}{69}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sistema di acquisizione basato su Raspberry Pi}}{70}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{70}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{70}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Curve ROC per gli indicatori di sfocatura\relax }}{73}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{74}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{75}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{75}
 \addvspace {10\p@ }

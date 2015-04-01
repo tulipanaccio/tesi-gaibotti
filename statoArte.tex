@@ -117,15 +117,14 @@ f & & \\
 & & 1 
 \end{array}\right]
 \end{equation}
-
 viene detta \textit{matrice di calibrazione} della camera.\\
-Nella formula \eqref{eq:mapping} abbiamo assunto che l'origine delle coordinate del piano immagine si trovi nel punto principale, come \`e illustrato nella Figura \ref{fig:modelloCamera}.
+Nella \eqref{eq:mapping} abbiamo assunto che l'origine delle coordinate del piano immagine si trovi nel punto principale, come \`e illustrato nella Figura \ref{fig:modelloCamera}.
 Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:mapping} diventa
  \begin{equation}
  \label{eq:mappingGeneral}
  [X,Y,Z]^\textit{T} \mapsto \left[f\cdot \frac{X}{Z}+p_u, f\cdot \frac{Y}{Z}+p_v\right]^\textit{T},
  \end{equation}
- mentre la matrice di calibrazione\eqref{eq:kSimple} diventa 
+ mentre la matrice di calibrazione \eqref{eq:kSimple} diventa 
  \begin{equation}
  \label{eq:kGeneral}
  K =
@@ -162,7 +161,7 @@ Se consideriamo il punto principale di coordinate $[p_u, p_v]$, la \eqref{eq:map
  Nel caso in cui la matrice di calibrazione sia nota, la camera viene detta \textit{completamente calibrata}.\\
  La matrice di calibrazione $K$ rappresenta, quindi, il cambio di sistema di riferimento nel piano immagine, ridefinendo il centro della camera $(u_0, v_0)$ in modo che coincida con il punto principale.
  \subsection{Parametri estrinseci}
- La matrice $K$ descritta dall'equazione \eqref{eq:kDigital} \`e valida per camere poste all'origine del sistema di riferimento.
+ La matrice $K$ descritta da \eqref{eq:kDigital} \`e valida per camere poste all'origine del sistema di riferimento.
 Se consideriamo delle camere poste in un punto arbitrario dell'ambiente, quindi, \`e necessario che le coordinate dei punti, definite nel sistema di riferimento tridimensionale, siano ridefinite secondo il sistema di coordinate della camera.
  \begin{figure}[tb]
  	\centering
@@ -183,7 +182,7 @@ R & -RC \\
 0 & 1
 \end{array}\right] 
 \textbf{M}, \]
-da cui, riprendendo l'equazione \ref{eq:mappingMatrix},
+da cui, riprendendo \eqref{eq:mappingMatrix},
 \begin{eqnarray}
 \textbf{m} & = & K \left[\begin{array}{rcl}
 I & | & 0
@@ -262,7 +261,7 @@ Spesso vengono utilizzati algoritmi di \textit{compressione}, che possono essere
 \section{Identificazione del cambiamento nella stazionariet\`a di un processo}
 \label{cdt}
 Prima di illustrare come \`e stato affrontato il problema del tampering detection nella letteratura scientifica, affrontiamo il problema, pi\`u generale, di come identificare un cambiamento all'interno di un processo.
-Una caratteristica, richiesta in molte applicazioni di analisi e elaborazione intelligente di dati, riguarda l'assunzione che il processo generante questi dati non cambi nel tempo \cite{alippi2014intelligence}. In questo caso si parla di processi \textit{stazionari}, ovvero processi dove i dati possono essere considerati generati da un'unica distribuzione probabilistica. \\
+Una caratteristica, richiesta in molte applicazioni di analisi e elaborazione intelligente di dati, riguarda l'assunzione che il processo generante questi dati non cambi nel tempo \cite{alippi2014intelligence}. In questo caso si parla di processi \textit{stazionari}, ovvero processi in cui i dati possa no essere considerati generati da un'unica distribuzione probabilistica. \\
 In molte situazioni, soprattutto se vengono utilizzati dei sensori per misurare delle grandezze fisiche, si pu\`o incorrere in situazioni in cui questa ipotesi di stazionariet\`a venga meno.
 Ad esempio, pu\`o succedere che il sensore si guasti, oppure che fenomeni esterni non permettano un'acquisizione ottimale. 
 In questi casi \`e opportuno avere a disposizione degli strumenti in grado di identificare quando la condizione di stazionariet\`a di un processo viene meno, in modo da poter lanciare un allarme a riguardo. 
@@ -342,10 +341,17 @@ l'ipotesi nulla sia da scartare o meno.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm,keepaspectratio]{pictures/CPM}
-	\caption{Esempio di CPM}
+	\caption[Esempio di CPM]{Un esempio di CPM basato sulla statistica $t$ di Student. I dati in (a) sono distribuiti in accordo con \eqref{eq:esempioCPM}. I valori assunti dalla corrispondente statistica di test ${D_s,s=2,\dots,499}$ sono riportati in (b). Sono riportati anche il change point stimato $M$, e il corrispondente valore nella statistica di test $\mathcal{T}_M$. A scopo illustrativo la figura mostra anche  la partizione di $\mathcal{X}$ in $\mathcal{A}_s$ e $\mathcal{B}_s$ quando $s=200$, insieme al corrispondente valore della statistica $D_{s=200}$.}
 	\label{fig:CPM}
 \end{figure}
-Nella Figura \ref{fig:CPM} possiamo vedere un esempio di CPM basato su una statistica \textit{t di Student} \cite{alippi2014intelligence}. La sequenza \`e formata da 500 dati (\textbf{a}) ed \`e stato individuato un cambiamento all'istante $\tau=350$. I valori delle varie statistiche in funzione di s sono visualizzati in (\textbf{b}).\\
+Nella Figura \ref{fig:CPM} possiamo vedere un esempio di CPM basato su una statistica \textit{t di Student} \cite{alippi2014intelligence}. La sequenza \`e formata da 500 dati (\textbf{a}) ed \`e stato individuato un cambiamento un cambiamento nella loro distribuzione all'istante $\tau=350$:
+\begin{equation}
+	\label{eq:esempioCPM}
+	x(t)\sim \left\{ \begin{array} {lcl}
+	\mathcal{N}(0,1) & \mbox{, se} & t< 350 \\
+	\mathcal{N}(-1,1) & \mbox{, se} & t\geq 350 \end{array} \right. .
+\end{equation} 
+I valori delle varie statistiche in funzione di s sono visualizzati in (\textbf{b}).\\
 Spesso \`e preferibile utilizzare dei test
 statistici \textit{non parametrici},
 soprattutto quando le distribuzioni dei dati
@@ -375,10 +381,10 @@ difficilmente possa essere utilizzabile all'interno di
 un sistema embedded. Le tecniche che vengono descritte
 in questo paragrafo, che prendono il nome di
 \textit{change detection test} (CDT), hanno come scopo
-principale quello di fare un processo dei dati
-\textit{in linea}, ovvero non appena questi sono
+principale quello di fare un'elaborazione dei dati
+\textit{online}, ovvero non appena questi sono
 disponibili. Tecniche di questo tipo vengono anche
-chiamate \textit{tecniche sequenziali}. La loro
+chiamate \textit{sequenziali}. La loro
 relativa semplicit\`a dal punto di vista
 computazionale permette di utilizzarle all'interno di
 sistemi embedded ma, rispetto alle tecniche basate su
@@ -450,8 +456,9 @@ Figura \ref{fig:adaptiveCUSUM}.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm,keepaspectratio]{pictures/adaptiveCUSUM}
-	\caption{Procedura del CUSUM
-		adattativo}
+	\caption[Procedura del CUSUM
+		adattativo]{Procedura del CUSUM
+			adattativo. Il flusso di dati $\mathcal{X}$ passa attraverso un processo di fenestratura sequenziale. Non appena sono disponibili $n$ campioni in una finestra di dati questa viene utilizzata per generare l'indicatore $y(s)$, ottenuto tramite la media dei dati della finestra. La distribuzione di $y(s)$ \`e approssimativamente gaussiana, grazie al teorema del limite centrale, ammesso che $n$ sia abbastanza grande. Il CUSUM tradizionale pu\`o essere applicato sui parametri $\theta=[\mu,\sigma^2]$. I parametri $\theta_0,\theta_1$ e la soglia $h$ sono stimati sul insieme di training.}
 	\label{fig:adaptiveCUSUM}
 \end{figure}
 \subparagraph{CI-CUSUM} Il metodo
@@ -465,8 +472,8 @@ l'identificazione di un cambiamento.
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm,keepaspectratio]{pictures/CI-CUSUM}
-	\caption{Estrazione dei descrittori
-		nel metodo CI-CUSUM}
+	\caption[Estrazione dei descrittori
+		nel metodo CI-CUSUM]{Fase di estrazione dei descrittori e la fase di riduzione di CI-CUSUM. Un ampio insieme di descrittori viene estratto dal segnale in ingresso, in modo da comporre l'insieme descrittore $\varphi$. I descrittori estratti dall'insieme operazionale $XV$ sono comparati con quelli valutati nell'insieme di training $XT$. Una tecnica di analisi delle componenti principali permette la riduzione di $\varphi$ al descrittore $\varphi_r$.}
 	\label{fig:CI-CUSUM}
 \end{figure}
 Facciamo riferimento alla Figura \ref{fig:CI-CUSUM}. I descrittori $\varphi$ considerati contengono i principali momenti della distibuzione dei dati, come media e varianza, ma anche momenti superiori al secondo come skewness (\textit{skew}) e kurtosis (\textit{kurt}), oltre che altre informazioni derivate dalla densit\`a probabilistica (\textit{pdf}) e dalla funzione di ripartizione dei dati (\textit{cdf}).\\
@@ -475,7 +482,7 @@ vengono confrontate con quelle
 appartenenti all'intervallo di
 configurazione (\textit{training set},
 indicato in Figura \ref{fig:CI-CUSUM}
-come TS), in modo da valutare la
+come XT), in modo da valutare la
 discrepanza tra questi valori. I
 descrittori utilizzati sono
 \[
@@ -514,7 +521,7 @@ La famiglia di tecniche che andiamo ad analizzare adesso \`e in grado di identif
 L'ipotesi principale che viene fatta \`e che le osservazioni della sequenza monitorata siano \textit{indipendenti e identicamente distribuiti} (\textit{i.i.d.}) e generati da una distribuzione \textit{gaussiana}.
 \subparagraph{ICI-CDT}
 In \textit{ICI-CDT} (Intersection of Confidence Intervals Change Detection Test) \cite{alippi2011just}, i descrittori sono estratti attraverso una \textit{fenestratura} dei dati disponibili in sotto-sequenze composte da $n$ istanze. Per ciascuna sotto-sequenza calcoliamo media e  varianza campionarie che, per il \textit{teorema del limite centrale} \cite{ross2009introduction}, possono essere considerate distribuite in maniera gaussiana. Entrando nel dettaglio, se consideriamo $s$ come l'\textit{s-esima} sotto-sequenza, i descrittori estratti sono:
-\[ M(s)=\frac{\sum\limits_{t=(s-1)n+1}^{ns}x(t)}{n} \text{ , e } V(s)=\left(\frac{\left(\sum\limits_{t=(s-1)n+1}^{ns}(x(t)-M(s))^2\right)}{n-1}\right)^{h_0}, \]
+\[ M(s)=\frac{\sum\limits_{t=(s-1)n+1}^{ns}x(t)}{n} \text{ , e } V(s)=\left(\frac{\sum\limits_{t=(s-1)n+1}^{ns}(x(t)-M(s))^2}{n-1}\right)^{h_0}, \]
 dove il parametro $h_0$ \`e un esponente utilizzato per generare un'approssimazione gaussiana della varianza campionaria.\\
 ICI-CDT utilizza una prima sequenza dei dati in cui si assume l'assenza di cambiamenti nella distribuzione. Tale sequenza prende il nome di \textit{insieme di training} e viene indicata con $O_{T_0}$. Da questa sequenza viene stimato il parametro $h_0$ e si configura il CDT. La configurazione avviene attraverso le due sequenze di descrittori $\{M(s), s=1,...,S_0\}$ e $\{V(s), s=1,...,S_0\}$, con $S_0=T_0/n$.\\
 Calcoliamo quindi le medie $\hat{\mu}^M_{S_0}$, $\hat{\mu}^V_{S_0}$ e le deviazioni standard $\hat{\sigma}^M_{S_0}$, $\hat{\sigma}^V_{S_0}$ dei descrittori nell'insieme di training, ovvero:
@@ -535,7 +542,7 @@ e il tempo di identificazione $\hat{T}=n\hat{s}$ corrisponde all'ultimo termine 
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm,keepaspectratio]{pictures/ICIrule}
-	\caption{Esempio di come opera la regola dell'intersezione degli intervalli di confidenza (ICI-rule)}
+	\caption[Esempio di come opera la regola dell'intersezione degli intervalli di confidenza (ICI-rule)]{Un esempio illustrativo di utilizzo di ICI-rule nella configurazione utilizzata per fare change detection: in (a) sono illustrati i valori del descrittore e l'insieme di intervalli $\{[1,T_0],[1,T_1],[1,T_2],[1,T_3]\}$, mentre in (b) vediamo i corrispondenti polinomi di ordine zero stimati, ei loro intervalli di confidenza. ICI-rule selezione l'intervallo $[1,T_2]$, dato che $\mathcal{I}_0\cap\dots\cap\mathcal{I}_2\neq\emptyset$ e $\mathcal{I}_0\cap\dots\cap\mathcal{I}_3=\emptyset$. Le parentesi graffe in (b) rappresentano gli intervalli di confidenza; le frecce invece rappresentano le loro intersezioni.}
 	\label{fig:ICIrule}
 \end{figure}
 La Figura \ref{fig:ICIrule} illustra un esempio di come opera ICI-rule.\\
@@ -613,7 +620,7 @@ Indicheremo con $\mathcal{X}$ l'insieme dei \textit{pixel} costituenti l'immagin
 e con $x \in \mathcal{X}$ il singolo pixel.
 Quando vorremo considerare il frame acquisito all'istante di tempo $t$, useremo $z_t$, con $t=1,\dots , \infty$. 
 In particolare, per indicare il valore della \textit{luminosit\`a} del pixel $x$ per il frame $t$-esimo, useremo il termine $z_t(x)$, con 
-\[ z_t(x) \in [0, 255] \forall x \in \mathcal{X}. \]
+\[ z_t(x) \in [0, 255] \quad \forall x \in \mathcal{X}. \]
 
 \subsection{Tecniche basate su confronto di background}
 \label{background}
@@ -677,7 +684,7 @@ Lo spostamento della camera viene identificato quando $P > \Gamma \cdot K$, dove
 Un altro approccio \`e quello di utilizzare tecniche di \textit{block matching}.
 L'algoritmo di block matching fornisce due parametri:
 il primo parametro, $m$, indica il \textit{vettore della traslazione} tra il background e il frame corrente, mentre il secondo parametro \`e lo ZNCC relativo a quel vettore.
-In \cite{gil2007automatic} e \cite{harasse2004automated} l'algoritmo calcola il vettore di spostamento $m$ del frame corrente rispetto al background, e calcola la \textit{zero-mean normalized cross correlation} (ZNCC) \cite{roma2002comparative}:
+In \cite{harasse2004automated} e \cite{gil2007automatic} l'algoritmo calcola il vettore di spostamento $m$ del frame corrente rispetto al background, e calcola la \textit{zero-mean normalized cross correlation} (ZNCC) \cite{roma2002comparative}:
 \[
 ZNCC_t(m) = \frac{\sum_{x \in \mathcal{X}}(B_{t-1}(x)- \mu_{B_{t-1}})(z_t(x+m)-\mu_{z_t})}{\sigma_{B_{t-1}} \sigma_{z_t}},
 \]
@@ -728,7 +735,7 @@ dove $0<\Gamma<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che
 	\label{fig:acquisizioneContinua}
 \end{figure}
 Un altro approccio consiste nell'analizzare la perdita di dettagli confrontando i contorni (\textit{edges}) del frame corrente con quelli del background.
-Questo metodo, utilizzato in \cite{ellwart2012camera}, \cite{gil2007automatic}, \cite{harasse2004automated} e \cite{kryjak2012fpga}, consiste nell'estrarre i contorni dalle immagini secondo il metodo di Sobel \cite{sobel19683x3} o di Canny \cite{canny1986computational}, e confrontare il numero di pixel dei contorni con quelli del background. 
+Questo metodo, utilizzato in \cite{harasse2004automated}, \cite{gil2007automatic}, \cite{ellwart2012camera} e \cite{kryjak2012fpga}, consiste nell'estrarre i contorni dalle immagini secondo il metodo di Sobel \cite{sobel19683x3} o di Canny \cite{canny1986computational}, e confrontare il numero di pixel dei contorni con quelli del background. 
 Quando il numero di pixel dei contorni del frame corrente $\sum edges(z_t)$ \`e $\Gamma$ volte pi\`u piccolo di quello del background $\sum edges(B_t)$:
 \[ \sum edges(z_t) \leq \Gamma \sum edges(B_t), \]
 dove $0<\Gamma<1$ \`e  un valore di soglia scelto in base alla sensibilit\`a che si vuole dare all'algoritmo.

@@ -148,14 +148,14 @@ Quando parliamo di guasti, invece, possiamo considerare due casi:
 	\item guasto della \textit{trasmissione};
 	\item guasto del \textit{sensore.}
 \end{itemize}
-Il primo caso pu\`o avvenire quando considerano delle WMSN, in particolare quando i frame vengono trasmessi attraverso la rete dai sensori verso un nodo centrale.
+Il primo caso pu\`o avvenire nel caso si considerino delle WMSN, in particolare quando i frame vengono trasmessi attraverso la rete dai sensori verso un nodo centrale.
 Quando avviene un guasto nella rete parte dell'immagine non viene trasmessa, come illustrato nella Figura \ref{fig:guastoTrasmissione}.
 Il caso del sensore guasto, come ad esempio quello nella Figura \ref{fig:guastoSensore}, comporta generalmente un aumento del rumore presente nel frame. \\
 \begin{figure}[tb]
 	\centering
 	\subfigure[]{\label{fig:guastoTrasmissione} \includegraphics[width=6cm]{./pictures/erroreTrasm}}
 	\subfigure[]{\label{fig:guastoSensore}\includegraphics[width=6cm]{./pictures/rumore}}
-	\caption{Esempi di guasti}
+	\caption[Esempi di guasti]{Esempi di guasti che possono compromettere l'acquisizione dei frame. In (a) vediamo un esempio di guasto della trasmissione, in cui parte dell'immagine non viene correttamente trasmessa nella rete. In (b), invece, vediamo un aumento del rumore nell'immagine, causato da un guasto del sensore della camera.}
 	\label{fig:guasti}
 \end{figure}
 Questi problemi non sono stati affrontati durante il corso della tesi, comunque le tecniche messe a punto per rilevare spostamenti e sfocature possono essere utilizzate anche per rilevare questo tipo di eventi. 
@@ -175,7 +175,7 @@ mentre nel caso di uno spostamento della camera avremo
 %Nel caso dell'operatore di degradazione $\mathcal{D}$, con riferimento al modello descritto nell'equazione \eqref{blur_multi}, possiamo considerare che, in condizioni di funzionamento normale, l'operatore di sfocatura $\mathcal{B}$ si comporti come un \textit{filtro passa-tutto}, ovvero
 %\[\mathcal{B}_i[y](x)=y_i(x) \mbox{, per } i=1,\dots, T^*,\]
 %e che all'istante $T^*$ esso cambi, diventando come nel caso dell'equazione \eqref{eq:blur}.
-L'obiettivo dell'algoritmo \`e quello di stimare l'istante $T^*$. \\
+L'obiettivo dell'algoritmo di tampering detection \`e quello di stimare l'istante $T^*$. \\
 %Nel caso dell'operatore di spostamento $\mathcal{S}$, tenendo come riferimento la formula \eqref{eq:displacement}, l'obiettivo dell'algoritmo \`e quello di stimare l'istante di tempo $T^*$ in cui avviene il passaggio dalla sequenza di immagini $\{y_i\}$ a $\{w_i\}$.\\
 Come abbiamo illustrato precedentemente, discriminare tra cambiamenti avvenuti a livello di contenuto della scena e cambiamenti dovuti a tampering pu\`o diventare complicato confrontando direttamente i frame tra loro, in quanto stiamo operando con framerate bassi.
 %Non \`e, quindi, possibile utilizzare le tecniche basate su background che sono state descritte nel paragrafo \ref{background}.
