@@ -11,7 +11,7 @@ A level-1 auxiliary file: proveSperimentali.aux
 A level-1 auxiliary file: conclusioni.aux
 The style file: unsrt.bst
 Database file #1: bibl_tesi.bib
-Repeated entry---line 397 of file bibl_tesi.bib
+Repeated entry---line 408 of file bibl_tesi.bib
  : @book{han2006data
  :                  ,
 I'm skipping whatever remains of this entry
@@ -22,43 +22,43 @@ Warning--empty journal in sobel19683x3
 Warning--there's a number but no volume in canny1986computational
 You've used 54 entries,
             1791 wiz_defined-function locations,
-            725 strings with 11791 characters,
-and the built_in function-call counts, 12652 in all, are:
-= -- 1226
-> -- 394
+            730 strings with 11854 characters,
+and the built_in function-call counts, 12797 in all, are:
+= -- 1242
+> -- 404
 < -- 21
-+ -- 156
-- -- 102
-* -- 700
-:= -- 1733
-add.period$ -- 153
++ -- 159
+- -- 105
+* -- 720
+:= -- 1765
+add.period$ -- 155
 call.type$ -- 54
-change.case$ -- 37
+change.case$ -- 38
 chr.to.int$ -- 0
 cite$ -- 59
-duplicate$ -- 631
-empty$ -- 1359
-format.name$ -- 102
-if$ -- 3021
+duplicate$ -- 635
+empty$ -- 1363
+format.name$ -- 105
+if$ -- 3046
 int.to.chr$ -- 0
 int.to.str$ -- 54
-missing$ -- 47
-newline$ -- 250
-num.names$ -- 42
-pop$ -- 238
+missing$ -- 48
+newline$ -- 252
+num.names$ -- 43
+pop$ -- 233
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 411
+skip$ -- 406
 stack$ -- 0
-substring$ -- 910
+substring$ -- 929
 swap$ -- 213
 text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 126
+while$ -- 129
 width$ -- 56
-write$ -- 530
+write$ -- 536
 (There was 1 error message)

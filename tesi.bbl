@@ -1,14 +1,14 @@
 \begin{thebibliography}{10}
 
-\bibitem{ilmeteo}
-\url{http://www.ilmeteo.it/webcam/}.
+\bibitem{akyildiz2007survey}
+Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
+\newblock A survey on wireless multimedia sensor networks.
+\newblock {\em Computer networks}, 51(4):921--960, 2007.
 
-\bibitem{alippi2010detecting}
-Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
-\newblock Detecting external disturbances on the camera lens in wireless
-  multimedia sensor networks.
-\newblock {\em Instrumentation and Measurement, IEEE Transactions on},
-  59(11):2982--2990, 2010.
+\bibitem{wolf2002smart}
+Wayne Wolf, Burak Ozer, and Tiehan Lv.
+\newblock Smart cameras as embedded systems.
+\newblock {\em Computer}, 35(9):48--53, 2002.
 
 \bibitem{manetti1976vita}
 Antonio Manetti, Domenico De~Robertis, and Giuliano Tanturli.
@@ -180,10 +180,12 @@ Herbert Bay, Tinne Tuytelaars, and Luc Van~Gool.
 \newblock Surf: Speeded up robust features.
 \newblock In {\em Computer vision--ECCV 2006}, pages 404--417. Springer, 2006.
 
-\bibitem{akyildiz2007survey}
-Ian~F Akyildiz, Tommaso Melodia, and Kaushik~R Chowdhury.
-\newblock A survey on wireless multimedia sensor networks.
-\newblock {\em Computer networks}, 51(4):921--960, 2007.
+\bibitem{alippi2010detecting}
+Cesare Alippi, Giacomo Boracchi, Romolo Camplani, and Manuel Roveri.
+\newblock Detecting external disturbances on the camera lens in wireless
+  multimedia sensor networks.
+\newblock {\em Instrumentation and Measurement, IEEE Transactions on},
+  59(11):2982--2990, 2010.
 
 \bibitem{kim2003efficient}
 Jong~Bae Kim and Hang~Joon Kim.

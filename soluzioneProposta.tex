@@ -372,17 +372,17 @@ Le due soglie $\Gamma_{min}^g$ e $\Gamma_{max}^g$ vengono calcolate nel seguente
 \begin{equation}
 \label{eq:soglieGradiente}
 \begin{array}{lcl}
-\Gamma_{min}^g & = & \hat{\mu}_g -\gamma \hat{\sigma}_g\\
-\Gamma_{max}^g & = & \hat{\mu}_g + \gamma \hat{\sigma}_g
+\Gamma_{min}^g & = & \widehat{\mu}_g -\gamma \widehat{\sigma}_g\\
+\Gamma_{max}^g & = & \widehat{\mu}_g + \gamma \widehat{\sigma}_g
 \end{array},
 \end{equation}
-dove $\hat{\mu}_g$ indica il valore medio delle osservazioni del training set
+dove $\widehat{\mu}_g$ indica il valore medio delle osservazioni del training set
 \begin{equation}
-	\hat{\mu}_g = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial g}{\partial t}(\tau)}{T_{o}}, \nonumber
+	\widehat{\mu}_g = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial g}{\partial t}(\tau)}{T_{o}}, \nonumber
 \end{equation}
-$\hat{\sigma}_g$ indica la deviazione standard delle osservazioni del training set
+$\widehat{\sigma}_g$ indica la deviazione standard delle osservazioni del training set
 \begin{equation}
-\hat{\sigma}_g  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial g}{\partial t}(\tau) - \hat{\mu}_g(\tau)\right)^2} \nonumber
+\widehat{\sigma}_g  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial g}{\partial t}(\tau) - \widehat{\mu}_g(\tau)\right)^2} \nonumber
 \end{equation}
 e $\gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente\footnote{Per maggiori dettagli si rimanda al Capitolo \ref{ProveSperimentali}}.\\
 Le soglie definite in \eqref{eq:soglieGradiente} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial g}{\partial t}\}$ ammissibili.
@@ -444,17 +444,17 @@ Le due soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$ vengono calcolate per ciascuna
 \begin{equation}
 \label{eq:soglieLuma}
 \begin{array}{rcl}
-\Gamma_{min}^k & = & \hat{\mu}_l^k -\gamma \hat{\sigma}_l^k\\
-\Gamma_{max}^k & = & \hat{\mu}_l^k + \gamma \hat{\sigma}_l^k
+\Gamma_{min}^k & = & \widehat{\mu}_l^k -\gamma \widehat{\sigma}_l^k\\
+\Gamma_{max}^k & = & \widehat{\mu}_l^k + \gamma \widehat{\sigma}_l^k
 \end{array},
 \end{equation}
-dove $\hat{\mu}_l^k$ indica il valore medio delle osservazioni del training set
+dove $\widehat{\mu}_l^k$ indica il valore medio delle osservazioni del training set
 \begin{equation}
-\hat{\mu}_l^k = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial l^k}{\partial t}(\tau)}{T_{o}}, \nonumber
+\widehat{\mu}_l^k = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial l^k}{\partial t}(\tau)}{T_{o}}, \nonumber
 \end{equation}
-$\hat{\sigma}_l^k$ indica la deviazione standard delle osservazioni del training set
+$\widehat{\sigma}_l^k$ indica la deviazione standard delle osservazioni del training set
 \begin{equation}
-\hat{\sigma}_l^k  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial l^k}{\partial t}(\tau) - \hat{\mu}_l^k(\tau)\right)^2} \nonumber
+\widehat{\sigma}_l^k  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial l^k}{\partial t}(\tau) - \widehat{\mu}_l^k(\tau)\right)^2} \nonumber
 \end{equation}
 e $\gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente.\\
 Le soglie definite nella Formula \eqref{eq:soglieLuma} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial l^k}{\partial t}\}$ ammissibili.\\
@@ -473,14 +473,14 @@ In molte applicazioni di visione artificiale \`e spesso necessario estrarre, da 
 \end{itemize}
 Segmentazioni di tipo spaziale permettono, ad esempio, di seguire il movimento di uno specifico oggetto all'interno della scena ripresa \cite{kim2003efficient,kottke1994motion}, oppure di identificare un particolare evento all'interno di una scena \cite{ke2007event}.
 Alcuni standard video, come ad esempio l'MPEG-4, utilizzano una codifica \textit{object-based} in cui viene utilizzata una segmentazione spaziale dei frame \cite{deng2001unsupervised}. 
-Segmentazioni di tipo temporale, invece, permettono di dividere un filmato in \textit{shot} oppure di creare una sintesi del video con dei frame significativi. In quest'ultimo caso si parla di \textit{key-frames extraction} o di \textit{video summarization} \cite{gong2000video,jiang2009hierarchical,sentinelli2014live,wolf1996key}. Quando si vanno a trattare immagini la segmentazione \`e di tipo spaziale.\\
-Considerando la segmentazione di tipo spaziale, nella maggior parte dei casi la tecnica consiste nell'utilizzare dei descrittori per ciascun pixel e applicare delle tecniche di \textit{clustering}, ovvero delle metodologie atte a partizionare un insieme di dati \cite{han2006data}, sugli stessi. \\
+Segmentazioni di tipo temporale, invece, permettono di dividere un filmato in \textit{sottosequenze} oppure di creare una sintesi del video con dei frame significativi. In quest'ultimo caso si parla di \textit{key-frames extraction} o di \textit{video summarization} \cite{gong2000video,jiang2009hierarchical,sentinelli2014live,wolf1996key}. Quando si vanno a trattare immagini la segmentazione \`e di tipo spaziale.\\
+Considerando la segmentazione di tipo spaziale, una soluzione molto diretta consiste nell'utilizzare dei descrittori per ciascun pixel e applicare delle tecniche di \textit{clustering}, ovvero delle metodologie atte a partizionare un insieme di dati \cite{han2006data}, sugli stessi. \\
 Nel Paragrafo \ref{comportamento} abbiamo introdotto il fatto di utilizzare una segmentazione in regioni della scena ripresa dalla camera, in modo da rendere pi\`u efficiente l'identificazione di spostamenti della camera.
 Vediamo ora il modo in cui questa segmentazione viene fatta.\\
 Durante la fase di estrazione delle regioni acquisiamo un certo numero di frame in cui non avviene nessun evento di tampering.
 Da questi frame estraiamo un vettore descrittore (\textit{feature vector}) per ciascun pixel della scena inquadrata.
 Passiamo, quindi, da una matrice di dimensioni $H\times W \times T_{c}$, dove $H$ e $W$ sono le dimensioni in pixel dell'immagine acquisita dalla camera e $T_{c}$ \`e il numero di frame usato per la creazione della segmentazione, a una matrice di dimensioni $H\times W \times P$, dove $P$ \`e il numero di descrittori calcolati per fare la segmentazione.\\
-Una volta ottenuta la matrice, viene fatto un \textit{partizionamento} dei vari feature vector, in modo da raggruppare i pixel in base a parametri comuni.\\
+Una volta ottenuta la matrice, vengono raggruppati i pixel aventi feature vector simili tramite tecniche di \textit{clustering}.\\
 La fase di segmentazione della scena in regioni avviene durante la configurazione del sistema, separatamente rispetto alla fase di identificazione degli eventi di tampering.
 La segmentazione, quindi, non comporta ulteriore costo computazionale all'algoritmo, in cui viene considerata semplicemente come una variabile d'ingresso.
 Inoltre, la segmentazione pu\`o essere eseguita \textit{offline} su un dispositivo esterno.
@@ -521,10 +521,10 @@ dove:
 	\end{equation}
 \end{itemize}
 Come possiamo vedere in \eqref{eq:segmentazioneGrad}, \eqref{eq:segmentazioneVar} e \eqref{eq:segmentazioneLuma}, nel calcolo degli indicatori viene fatta una convoluzione con un filtro gaussiano.
-Questo \`e equivalente a mediare il contributo di $\|\nabla z_t\|_2^2$ e di $z_t$ in un \textit{intorno} nello spazio delle coordinate.\\
+Questo \`e equivalente a mediare il contributo di $\|\nabla z_t\|_2^2$ e di $z_t$ in un \textit{intorno spaziale}.\\
 Nella Figura \ref{fig:FVexample} possiamo vedere un esempio di come si comportano questi indicatori su una specifica scena (Figura \ref{fig:FVframe}).
 Il loro utilizzo permette di avere un'informazione completa sul comportamento dei pixel durante la ripresa della scena e il loro rapporto con i pixel appartenenti al suo intorno, definito dal filtro gaussiano $f$.\\
-In particolare, l'indicatore $\mu_{\nabla}(x)$ mette in relazione il valore di luma del pixel $x$ in rapporto con quelli nel suo intorno, definito dal filtro $f$. 
+In particolare, l'indicatore $\mu_{\nabla}(x)$ mette in relazione il valore di luma del pixel $x$  con quelli nel suo intorno, definito dal filtro $f$. 
 Valori alti di $\mu_{\nabla}(x)$ corrispondono a zone della scena con molti dettagli (\textit{textured}), mentre valori bassi corrispondo a zone della scena poco dettagliate (\textit{flat}).
 \begin{figure}[tb]
 	\centering
@@ -543,9 +543,9 @@ Valori alti di $\mu_{\nabla}(x)$ corrispondono a zone della scena con molti dett
 	\caption[Descrittori per la segmentazione della scena]
 	{Esempio grafico di come si comportano i descrittori utilizzati per la segmentazione di una specifica scena. 
 	La scena di esempio \`e rappresentata in (a).
-	In (b), dove sono illustrati il comportamento di $\mu_{\nabla}(x)$ per ciascun pixel, possiamo vedere come i valori pi\`u alti siamo in prossimit\`a delle zone pi\`u dettagliate, come per esempio il contorno tra le foglie e il cielo.
+	In (b), dove sono illustrati i valori di $\mu_{\nabla}(x)$ per ciascun pixel, possiamo vedere come i valori pi\`u alti siamo in prossimit\`a delle zone pi\`u dettagliate, come per esempio il contorno tra le foglie e il cielo.
 	In (c), invece, vediamo i valori di $\sigma_{\nabla}(x)$ per ciascun pixel.
-	Possiamo notare come i valori pi\`u alti del descrittore siano in prossimit\`a delle zone a maggior dinamicit\`a.
+	Possiamo notare come i valori pi\`u alti del descrittore siano in prossimit\`a delle zone a maggior dinamicit\`a, come ad esempio la zona dove passano le persone.
 	In (d), infine, mostriamo i valori di $\bar{z}(x)$ per ciascun pixel.}
 	\label{fig:FVexample}
 \end{figure}
@@ -553,20 +553,19 @@ Ad esempio, nella Figura \ref{fig:FVgrad} possiamo vedere come i valori pi\`u al
 L'indicatore $\sigma_{\nabla}(x)$, invece, ci fornisce un'informazione riguardo all'evoluzione di ciascun pixel nel tempo.
 Valori alti di $\sigma_{\nabla}(x)$ corrisponderanno a pixel appartenenti a zone \textit{dinamiche} della scena, mentre valori bassi dell'indicatore corrisponderanno a pixel appartenenti a zone \textit{statiche}.
 Nell'esempio in Figura \ref{fig:FVstd} possiamo vedere come i valori pi\`u alti dell'indicatore corrispondano alle zone dove passano i pedoni e i ciclisti.\\
-L'indicatore $\bar{z}$ (Figura \ref{fig:FVluma}) ci fornisce un'indicazione su come \`e distribuita mediamente la luminosit\`a nella scena.\\
+L'indicatore $\bar{z}$ (Figura \ref{fig:FVluma}) ci fornisce un'indicazione su come \`e distribuita mediamente, su un intorno spaziale, la luminosit\`a nella scena.\\
 L'utilizzo delle coordinate spaziali, infine, permette di avere un'informazione sulla posizione del pixel all'interno della scena.
 \subsection{Partizionamento dei feature vector per l'estrazione delle regioni}
 Una volta calcolati i feature vector di tutti i pixel, possiamo raggrupparli tra loro usando un algoritmo di \textit{clustering}.
-In realt\`a, per alleggerire il peso computazionale nella fase di segmentazione, possiamo fare un \textit{campionamento} dei feature vector totali.
+In realt\`a, per alleggerire il peso computazionale nella fase di segmentazione, possiamo fare un \textit{sottocampionamento} dei feature vector totali.
 Come abbiamo visto nel Paragrafo \ref{descrittori}, infatti, ciascun feature vector \`e associato non al singolo pixel, ma a un intorno del pixel definito dal filtro gaussiano $f$.
-Possiamo, quindi, dividere la scena totale in \textit{blocchi}, le cui dimensioni sono quelle del filtro $f$, e prendere il feature vector del pixel centrale di ciascun blocco.\\ 
-Per partizionare i feature vector selezionati, abbiamo deciso di utilizzare il classico algoritmo di clustering \textit{k-means} \cite{han2006data, lloyd1982least}.\\
-K-means permette di partizionare un insieme di dati in $K$ sottoinsiemi.
+Possiamo, quindi, dividere la scena totale in \textit{blocchi}, le cui dimensioni sono paragonabili a quelle del filtro $f$, e prendere il feature vector del pixel centrale di ciascun blocco.\\ 
+Per partizionare i feature vector selezionati, abbiamo deciso di utilizzare l'algoritmo di clustering \textit{k-means} \cite{han2006data, lloyd1982least}, che permette di partizionare un insieme di dati in $K$ sottoinsiemi (\textit{cluster}).
 L'algoritmo, nella sua forma pi\`u semplice, riceve in ingresso un insieme $\mathcal{X} = \{\textbf{x}_1,\dots,\textbf{x}_N\}$ di $N$ dati da partizionare e il numero $K$ di partizioni (cluster) $\{C_i\}, i=1,\dots,K$ che si vuole creare.
 Per semplicit\`a consideriamo ciascun dato come un vettore $\textbf{d}(\textbf{x})$ di $P$ elementi, $\textbf{d}(\textbf{x})\in\mathbb{R}^P, \textbf{x}\in \mathcal{X}$.\\
 Come prima cosa vengono creati i \textit{centroidi} $\{\textbf{c}_i\}, i=1,\dots,K, \textbf{c}_i \in \mathbb{R}^P$ associati ai cluster $\{C_i\}, i=1,\dots,K$.
 Nella versione pi\`u semplice dell'algoritmo essi vengono scelti in maniera casuale dai dati appartenenti a $\mathcal{X}$.
-Una tecnica pi\`u raffinata \`e data dall'algoritmo \textit{k-means++} \cite{arthur2007k}, che utilizza funzioni probabilistiche pi\`u accurate e permette di distribuire meglio i centroidi su tutto lo spazio dei dati.
+Una tecnica pi\`u raffinata \`e data dall'algoritmo \textit{k-means++} \cite{arthur2007k}, che permette di distribuire meglio i centroidi su tutto lo spazio dei dati.
 In particolare, k-means++ sceglie il primo centroide $\textbf{c}_1$ in maniera casuale da $\mathcal{X}$ con distribuzione probabilistica uniforme.
 I successivi centroidi vengono scelti iterativamente prendendo $\textbf{c}_i=\textbf{x}^\prime\in\mathcal{X}$ con probabilit\`a $\frac{D(\textbf{x}^\prime)^2}{\sum_{\textbf{x}\in \mathcal{X}}D(\textbf{x})^2}$, dove $D(\textbf{x})$ indica la minima distanza di $\textbf{x}$ dal centroide pi\`u vicino tra quelli gi\`a calcolati.\\
 Una volta ottenuti i centroidi vengono calcolate le \textit{distanze euclidee} di ciascun dato da ogni centroide:
@@ -577,7 +576,7 @@ Una volta associato ciascun dato al cluster pi\`u vicino, vengono aggiornati i c
 \[ \textbf{c}_i = \frac{\sum_{\textbf{x}\in C_i}\textbf{x}}{|C_i|} \] 
 La procedura viene ripetuta con la nuova assegnazione dei centroidi.
 L'algoritmo viene richiamato fino a quando non si raggiunge la \textit{convergenza}, ovvero il momento in cui la posizione dei centroidi non cambia pi\`u.\\
-Per utilizzare questa tecnica nel nostro algoritmo di segmentazione abbiamo dovuto fare alcune modifiche alla sua versione originale, in modo da risolvere alcuni problemi.\\
+Per utilizzare questa tecnica nel nostro algoritmo di segmentazione abbiamo dovuto considerare alcune evoluzioni del k-means rispetto alla sua versione originale, in modo da risolvere i seguenti problemi.\\
 %Per migliorare le prestazione abbiamo deciso di non considerare i vettori di tutti i pixel, ma di usarne un \textit{sottocampionamento}.
 Il primo problema, utilizzando la versione base del k-means, \`e quello di determinare il numero di cluster da creare.
 Per valutare in maniera automatica il numero di cluster ottimale per ciascun insieme di dati  abbiamo utilizzato il \textit{criterio di Calinski-Harabasz}\cite{calinski1974dendrite}, che consiste nel provare l'algoritmo di k-means per un insieme di valori $k=K_{min},\dots,K_{max}$.
@@ -629,10 +628,10 @@ w_1^i & 0 & 0 & 0 & 0\\
 dove $w_s^i$ corrisponde al peso dato all'elemento $s$ del feature vector associato al cluster $C_i$:
 \[w_s^i= \frac{\left(\sigma_1^i \cdot \sigma_2^i \cdot \sigma_3^i\cdot \sigma_4^i\cdot \sigma_5^i\right)^{1/5}}{\sigma_s^i}, s=1,\dots,5,\] 
 dove $\sigma_s^i$ rappresenta la deviazione standard dell'elemento $s$ dei dati appartenenti al cluster $C_i$.
-\subsection{Separazione delle regioni}
+\subsection{Separazione e rifinitura delle regioni}
 L'algoritmo di clustering utilizzato produce un partizionamento della scena ripresa dalla camera come quello in Figura \ref{fig:risultatoClustering}.
 Come possiamo vedere le regioni estratte dal nostro algoritmo sono legate a particolari aree presenti nella scena, in base alla loro dinamicit\`a, alla presenza di dettagli e all'intensit\`a media della luma.\\
-Una fase finale della segmentazione consiste nell'eliminare le regioni pi\`u piccole e separare quelle rimanenti per mezzo di \textit{operatori morfologici}.\\
+La fase finale della segmentazione consiste nell'eliminare le regioni pi\`u piccole e separare quelle rimanenti per mezzo di \textit{operatori morfologici}.\\
 La prima operazione che facciamo consiste nel separare le varie regioni tra di loro utilizzando l'operatore morfologico di \textit{erosione}.
 Dato che l'operatore funziona su immagini \textit{binarie} creiamo, per ciascun cluster, una \textit{maschera binaria}:
 \[M_i(x) =  \left\{ \begin{array}{rcl}
@@ -645,7 +644,7 @@ L'operatore morfologico di erosione esegue un filtraggio non lineare che rimpiaz
 0 & \mbox{se} & \exists \xi \in U_x \quad M_i(\xi) = 0
 \end{array}\right. , \forall x \in \mathcal{X},\]
 dove abbiamo indicato con $U_x$ l'intorno del pixel $x$.
-Il risultato di questo operatore \`e quello di ridurre i bordi delle immagini binarie.\\
+Il risultato di questo operatore \`e quello di ridurre i bordi degli elementi posti a $1$ delle immagini binarie.\\
 L'immagine binaria $E_i$ conterr\`a al suo interno un certo numero di \textit{regioni connesse}.
 Le regioni pi\`u piccole, ovvero quelle il cui numero di pixel \`e inferiore allo $0,01\%$ dei pixel totali, vengono eliminate ponendo a $0$ il valore dei loro pixel.
 Una volta eseguite queste operazioni su tutte le maschere $M_i$, i risultati finali vengono composti assieme in una nuova immagine:
@@ -653,11 +652,6 @@ Una volta eseguite queste operazioni su tutte le maschere $M_i$, i risultati fin
 i & \mbox{se }  x \in E_i, & i=1,\dots,K \\
 0 & \mbox{altrimenti} 
 \end{array}\right. , \forall x \in \mathcal{X}.\]
-Infine, allarghiamo le aree di separazione tra le regioni utilizzando un altro operatore di \textit{erosione}:
-\[ S'(x) =  \left\{ \begin{array}{rcl}
-i & \mbox{se} & \forall \xi \in U_x \quad S(\xi) = i \\
-0 & \mbox{se} & \exists \xi \in U_x \quad S(\xi) = 0
-\end{array}\right. , \forall x \in \mathcal{X},\]
-ed eliminiamo i cluster pi\`u piccoli, ovvero quelli il cui numero di pixel \`e inferiore al $2\%$ dei pixel totali.   
+Infine eliminiamo i cluster pi\`u piccoli, ovvero quelli il cui numero di pixel \`e inferiore al $2\%$ dei pixel totali.   
 Il risultato finale \`e quello mostrato in Figura \ref{fig:mappaFinale}, dove le zone colorate in blu scuro rappresentano le aree che non vengono appartengono ad alcun cluster.
 Queste zone, durante l'esecuzione dell'algoritmo di identificazione di spostamenti della camera, non verranno considerate nel calcolo dell'energia media della luma.

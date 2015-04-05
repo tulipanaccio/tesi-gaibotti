@@ -1,7 +1,10 @@
 \select@language {italian}
 \select@language {italian}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Webcam per il monitoraggio meteorologico}}{5}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Esempi di eventi di tampering intenzionali}}{4}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Esempi di eventi di tampering dovuti a cause naturali}}{5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{5}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Athanasius Kircher, Principio della prospettiva nella camera obscura, 1671}}{8}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Schematizzazione del sistema ottico della camera\relax }}{9}
@@ -95,8 +98,16 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Sistema di acquisizione basato su Raspberry Pi}}{70}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{70}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{70}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Curve ROC per gli indicatori di sfocatura\relax }}{73}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{74}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{75}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{75}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Esempi di sequenze con eventi di sfocature create sinteticamente}}{75}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{75}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{75}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{75}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{75}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{75}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Esempio di sequenza con un evento di spostamento della camera creato sinteticamente\relax }}{76}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Curve ROC per gli indicatori di spostamento della camera\relax }}{76}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Curve ROC per gli indicatori di sfocatura\relax }}{77}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{78}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{79}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{80}
 \addvspace {10\p@ }

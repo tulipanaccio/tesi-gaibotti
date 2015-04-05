@@ -42,7 +42,7 @@
 \contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{58}
 \contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{59}
 \contentsline {subsection}{\numberline {4.3.2}Partizionamento dei feature vector per l'estrazione delle regioni}{61}
-\contentsline {subsection}{\numberline {4.3.3}Separazione delle regioni}{64}
+\contentsline {subsection}{\numberline {4.3.3}Separazione e rifinitura delle regioni}{64}
 \contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{67}
 \contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{67}
 \contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{69}
@@ -51,9 +51,9 @@
 \contentsline {section}{\numberline {5.3}Figure di merito}{71}
 \contentsline {subsection}{\numberline {5.3.1}Creazione delle ROC curve per il monitoraggio one-shot}{71}
 \contentsline {subsection}{\numberline {5.3.2}Metriche per il monitoraggio sequenziale}{73}
-\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{74}
-\contentsline {subsection}{\numberline {5.4.1}Creazione dei tampering}{74}
+\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{73}
+\contentsline {subsection}{\numberline {5.4.1}Creazione del tampering}{74}
 \contentsline {subsection}{\numberline {5.4.2}Risultati}{74}
 \contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{74}
-\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{77}
-\contentsline {chapter}{Bibliografia}{79}
+\contentsline {chapter}{\numberline {6}Direzioni future di ricerca e conclusioni}{81}
+\contentsline {chapter}{Bibliografia}{83}

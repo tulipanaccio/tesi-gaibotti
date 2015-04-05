@@ -524,21 +524,21 @@ In \textit{ICI-CDT} (Intersection of Confidence Intervals Change Detection Test)
 \[ M(s)=\frac{\sum\limits_{t=(s-1)n+1}^{ns}x(t)}{n} \text{ , e } V(s)=\left(\frac{\sum\limits_{t=(s-1)n+1}^{ns}(x(t)-M(s))^2}{n-1}\right)^{h_0}, \]
 dove il parametro $h_0$ \`e un esponente utilizzato per generare un'approssimazione gaussiana della varianza campionaria.\\
 ICI-CDT utilizza una prima sequenza dei dati in cui si assume l'assenza di cambiamenti nella distribuzione. Tale sequenza prende il nome di \textit{insieme di training} e viene indicata con $O_{T_0}$. Da questa sequenza viene stimato il parametro $h_0$ e si configura il CDT. La configurazione avviene attraverso le due sequenze di descrittori $\{M(s), s=1,...,S_0\}$ e $\{V(s), s=1,...,S_0\}$, con $S_0=T_0/n$.\\
-Calcoliamo quindi le medie $\hat{\mu}^M_{S_0}$, $\hat{\mu}^V_{S_0}$ e le deviazioni standard $\hat{\sigma}^M_{S_0}$, $\hat{\sigma}^V_{S_0}$ dei descrittori nell'insieme di training, ovvero:
-\[ \hat{\mu}^M_{S_0}=\frac{\sum\limits_{s=1}^{S_0}M(s)}{S_0} \text{ , e } \hat{\sigma}^M_{S_0}=\sqrt{\frac{\sum\limits_{s=1}^{S_0}(M(s)-\hat{\mu}^M_{S_0})^2}{S_0-1}}, \]
+Calcoliamo quindi le medie $\widehat{\mu}^M_{S_0}$, $\widehat{\mu}^V_{S_0}$ e le deviazioni standard $\widehat{\sigma}^M_{S_0}$, $\widehat{\sigma}^V_{S_0}$ dei descrittori nell'insieme di training, ovvero:
+\[ \widehat{\mu}^M_{S_0}=\frac{\sum\limits_{s=1}^{S_0}M(s)}{S_0} \text{ , e } \widehat{\sigma}^M_{S_0}=\sqrt{\frac{\sum\limits_{s=1}^{S_0}(M(s)-\widehat{\mu}^M_{S_0})^2}{S_0-1}}, \]
 e
-\[ \hat{\mu}^V_{S_0}=\frac{\sum\limits_{s=1}^{S_0}V(s)}{S_0} \text{ , e } \hat{\sigma}^V_{S_0}=\sqrt{\frac{\sum\limits_{s=1}^{S_0}(V(s)-\hat{\mu}^V_{S_0})^2}{S_0-1}}. \]
+\[ \widehat{\mu}^V_{S_0}=\frac{\sum\limits_{s=1}^{S_0}V(s)}{S_0} \text{ , e } \widehat{\sigma}^V_{S_0}=\sqrt{\frac{\sum\limits_{s=1}^{S_0}(V(s)-\widehat{\mu}^V_{S_0})^2}{S_0-1}}. \]
 Queste stime definiscono gli \textit{intervalli di confidenza} per i descrittori media e deviazione standard che, sotto la condizione di stazionariet\`a, sono definiti come:
-\[I_{S_0}^M= \left[\hat{\mu}^M_{S_0}-\Gamma \hat{\sigma}^M_{S_0} \text{, } \hat{\mu}^M_{S_0}+\Gamma \hat{\sigma}^M_{S_0}\right], \]
-\[I_{S_0}^V= \left[\hat{\mu}^V_{S_0}-\Gamma \hat{\sigma}^V_{S_0} \text{, } \hat{\mu}^V_{S_0}+\Gamma \hat{\sigma}^V_{S_0}\right], \]
+\[I_{S_0}^M= \left[\widehat{\mu}^M_{S_0}-\Gamma \widehat{\sigma}^M_{S_0} \text{, } \widehat{\mu}^M_{S_0}+\Gamma \widehat{\sigma}^M_{S_0}\right], \]
+\[I_{S_0}^V= \left[\widehat{\mu}^V_{S_0}-\Gamma \widehat{\sigma}^V_{S_0} \text{, } \widehat{\mu}^V_{S_0}+\Gamma \widehat{\sigma}^V_{S_0}\right], \]
 dove $\Gamma>0$ \`e un parametro che controlla l'ampiezza dell'intervallo di confidenza e, quindi, la probabilit\`a che un descrittore appartenga all'intervallo sotto l'ipotesi di stazionariet\`a. \\
 Una volta che la fase di training viene completata, ICI-CDT diventa operativo e pu\`o essere utilizzato per identificare cambiamenti nella stazionariet\`a del flusso di dati. Non appena sono disponibili $n$ dati, viene creata una nuova sequenza $s$ e si calcolano i descrittori che andranno a popolare gli intervalli $I_{s}^{M}$ e $I_{s}^{V}$.\\
 A questo punto \`e possibile applicare la \textit{regola dell'intersezione degli intervalli di confidenza} (ICI-rule) \cite{goldenshluger1997spatially}. Questa regola verifica se una nuova istanza di un descrittore possa essere intesa come una realizzazione della gi\`a esistente distribuzione gaussiana. Se ci\`o non viene verificato, allora \`e avvenuto un cambiamento nella distribuzione.\\
-Da un punto di vista operazionale, per ciascuna sequenza $s$ vengono calcolati gli intervalli di confidenza dei descrittori come \`e stato fatto per quelli dell'insieme di training. ICI-CDT individua un cambiamento all'interno della sotto-sequenza $\hat{s}$ se
-\[\bigcap_{s<\hat{s}}I_s^M \neq \varnothing \text{ e } \bigcap_{s\leq\hat{s}}I_s^M = \varnothing \]
+Da un punto di vista operazionale, per ciascuna sequenza $s$ vengono calcolati gli intervalli di confidenza dei descrittori come \`e stato fatto per quelli dell'insieme di training. ICI-CDT individua un cambiamento all'interno della sotto-sequenza $\widehat{s}$ se
+\[\bigcap_{s<\widehat{s}}I_s^M \neq \varnothing \text{ e } \bigcap_{s\leq\widehat{s}}I_s^M = \varnothing \]
 oppure
-\[\bigcap_{s<\hat{s}}I_s^V \neq \varnothing \text{ e } \bigcap_{s\leq\hat{s}}I_s^V = \varnothing \]
-e il tempo di identificazione $\hat{T}=n\hat{s}$ corrisponde all'ultimo termine della sotto-sequenza $\hat{s}$.\\
+\[\bigcap_{s<\widehat{s}}I_s^V \neq \varnothing \text{ e } \bigcap_{s\leq\widehat{s}}I_s^V = \varnothing \]
+e il tempo di identificazione $\widehat{T}=n\widehat{s}$ corrisponde all'ultimo termine della sotto-sequenza $\widehat{s}$.\\
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm,keepaspectratio]{pictures/ICIrule}

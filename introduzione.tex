@@ -19,46 +19,102 @@
 %	}
 %\end{quotation}
 %\vspace{0.5cm}
-Una branca dell'industria tecnologica che sta prendendo sempre pi\`u piede \`e quella dei \textit{sistemi di monitoraggio video}.
-L'abbattimento dei costi delle camere e una sempre maggiore integrazione di tecnologie hardware con sensori e infrastrutture di rete hanno permesso una rapida crescita di questo settore.\\
-Inoltre, il grande successo di Internet degli ultimi anni ha permesso l'utilizzo dei sistemi di monitoraggio video per applicazioni che prima non erano neanche pensabili.
-Oggigiorno \`e possibile avere un sistema di videosorveglianza domestico spendendo poche centinaia di euro, controllabile con il proprio \textit{smartphone} attraverso Internet, oppure \`e possibile vedere le condizioni meteorologiche o del traffico nella propria citt\`a attraverso le immagini riprese da una \textit{webcam}.
-Un servizio di questo genere \`e fornito da molte piattaforme web di previsioni del tempo.
-Ad esempio, il sito \textit{ilMeteo.it} \cite{ilmeteo} permette di vedere in tempo reale il contenuto video di webcam presenti nelle principali citt\`a o in localit\`a di interesse turistico.\\
-Uno dei maggiori problemi quando si ha a che fare con sistemi di monitoraggio video consiste nell'identificazione di particolari eventi in grado di compromettere la corretta ripresa della scena da parte del sensore.\\
-%Eventi di questo tipo sono, ad esempio, lo spostamento della camera, oppure una scorretta messa a fuoco della scena.\\
+Nell'ultimo decennio le reti senza fili di sensori multimediali, o \textit{wireless multimedia sensor network} (WMSN) \cite{akyildiz2007survey}, hanno ricevuto parecchie attenzioni da parte della ricerca scientifica, sia in ambito accademico che industriale, dati i molti problemi rimasti ancora aperti in questo settore.\\
+L'interesse, inoltre, \`e dato dagli infiniti scenari applicativi che le WMSN permettono.
+Un esempio \`e la rete di sensori per il monitoraggio video (\textit{multimedia surveillance sensor networks}), dove abbiamo la presenza di nodi in grado di acquisire ed elaborare segnali video e di comunicare con gli altri apparati della rete (gateway, applicazioni client, altri sensori, ...).
+Questi particolari nodi prendono il nome di \textit{smart camera}, o camere intelligenti \cite{wolf2002smart}, e sono dispositivi che integrano al loro interno \textit{sensori di immagine}, \textit{capacit\`a di calcolo} e \textit{interfacce di rete}.
+In questo modo \`e possibile far girare algoritmi elaborazione di immagini o di visione artificiale direttamente sul sensore, e ottenere un'\textit{intelligenza distribuita} su tutta la rete.\\
+Gli scenari pi\`u interessanti, inoltre, sono quelli in cui non si pu\`o avere accesso alla rete elettrica per alimentare i sensori: questo pu\`o accadere, ad esempio, nel caso in cui si voglia monitorare un parco naturale, o pi\`u in generale ambienti extra urbani in cui non ci si pu\`o allacciare alla rete elettrica.\\
+Questo pone il problema di avere dei nodi alimentati a \textit{batteria} che possano mantenere la carica a lungo, anche degli anni.
+Lo sviluppo di smart camera a \textit{bassa dissipazione di potenza} \`e gi\`a in atto, e sono gi\`a presenti dei prototipi o prodotti commerciali.
+\textit{STMicroelectronics} ha sviluppato una smart camera in grado di acquisire e trasmettere immagini e video, e fare semplici elaborazioni sui frame, come ad esempio identificazione di oggetti o classificatori.
+La corrente assorbita da questo dispositivo \`e di circa $30-40 \mu \text{A}$, a circa $1.2-1.5 \text{V}$.
+Questo vuol dire che, utilizzando due batterie di tipo AA per alimentare il dispositivo, la loro carica potrebbe mantenersi per degli \textit{anni}.
+Questa ottimizzazione del consumo di energia \`e dovuto innanzitutto dalla possibilit\`a di integrare degli algoritmi direttamente in \textit{hardware}.
+Un altro peso \`e dato dal \textit{contesto applicativo} in cui la camera opera.
+Ad esempio, il \textit{framerate}, ovvero la frequenza con cui la camera acquisisce le immagini, ha degli impatti molto alti sul consumo di potenza del dispositivo.
+Acquisire $30$ frame ogni secondo, per esempio, fa consumare al dispositivo molta pi\`u corrente rispetto ad acquisire $1$ frame ogni minuto.\\
+In questa tesi affrontiamo un particolare problema legato ai sistemi di monitoraggio video, considerando lo scenario in cui le camere operino a framerate \textit{bassi}, come ad esempio un frame ogni minuto.
+Uno dei maggiori problemi quando si ha a che fare con sistemi di monitoraggio video consiste nell'identificazione di particolari eventi in grado di compromettere la corretta ripresa della scena da parte del sensore.
+Eventi di questo tipo sono, ad esempio, lo spostamento della camera, oppure una scorretta messa a fuoco della scena.\\
 Questo tipo di eventi viene classificato generalmente sotto il nome di \textit{tampering}, dall'inglese \textit{manomissione}.
 Il termine deriva dal fatto che, di solito, questi eventi sono legati ad azioni intenzionali atte a impedire che la camera riprenda correttamente la scena.
 Pu\`o succedere, ad esempio, che un ladro copra l'obiettivo della camera con qualche oggetto, in modo da poter agire indisturbato, oppure che la sposti in modo che riprenda qualcos'altro.
-In questa tesi definiamo con il termine tampering un qualsiasi evento, intenzionale o meno, che possa compromettere la corretta acquisizione della scena inquadrata dalla camera.
-Ad esempio una sfocatura pu\`o essere causata da dell'acqua piovana che si deposita a ridosso della lente, oppure pu\`o succedere che una folata di forte vento sposti la camera, cambiando quindi l'inquadratura della scena.\\
-Questa definizione permette di analizzare il problema anche per quelle applicazioni di monitoraggio video che non sono direttamente legate alla videosorveglianza, ad esempio per lo scenario delle webcam introdotto sopra, in cui l'evento non \`e necessariamente dovuto a un intervento umano intenzionale.\\
-Le tecniche algoritmiche che vengono utilizzate per identificare gli eventi di tampering prendono il nome di algoritmi di \textit{tampering detection}.\\
-La letteratura scientifica ha prodotto molte soluzioni a riguardo, ma la maggior parte sono legate ad applicazioni di videosorveglianza.
-Questo particolare tipo di applicazioni ha bisogno di camere che acquisiscano a framerate \textit{continuo}, solitamente tra i 30 frame per secondo (fps) e i 2 fps.
-\`E infatti impensabile che una camera di videosorveglianza possa acquisire, ad esempio, un frame ogni minuto.\\
-Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per camere intelligenti (\textit{smart camera}) e a basso consumo.
-In particolare abbiamo considerato scenari in cui la camera operi a \textit{basso framerate}, ad esempio acquisendo un'immagine ogni minuto.\\
-Questa assunzione copre in realt\`a molti casi d'uso gi\`a esistenti, che non sono legati alla videosorveglianza.
-\begin{figure}[t]
+\begin{figure}
 	\centering
-	\includegraphics[width=12cm]{pictures/ilMeteo}
-	\caption[Webcam per il monitoraggio meteorologico]{In questa figura vediamo un esempio di applicazione per sistemi di monitoraggio video. Molti siti di previsioni del tempo consentono l'accesso alle immagini registrate da webcam utilizzate per il monitoraggio meteorologico. Come possiamo vedere, la webcam al centro dell'immagine non \`e in condizioni di riprendere correttamente la scena, in quanto c'\`e un'impalcatura che ne impedisce la visione. Inoltre, possiamo vedere come alcune webcam non riprendano alcuna scena.}
-	\label{fig:ilMeteo}
+	\includegraphics[width=7cm]{pictures/tamperdetection}
+	\caption[Esempi di eventi di tampering intenzionali]{Esempi di eventi di tampering intenzionali. Per evitare che la camera riprenda correttamente la scena \`e possibile coprire il sensore con un oggetto opaco, oppure spostarla in modo che riprenda una scena diversa. Altre manomissioni possono essere fatte cambiando la messa a fuoco della camera o spruzzando della vernice spray sull'obiettivo.}
+	\label{fig:tamperdetection}
 \end{figure}
-Un esempio \`e quello delle webcam per il monitoraggio meteorologico che abbiamo illustrato precedentemente.
-Nella Figura \ref{fig:ilMeteo} possiamo vedere come una parte delle webcam accessibili da un sito di previsioni del tempo in realt\`a non forniscano molte informazioni riguardanti il monitoraggio meteorologico:
-alcune webcam sono spente, e quindi non inviano frame alla piattaforma, e una camera, quella centrale, non pu\`o riprendere la scena perch\'e le \`e stata posta un'impalcatura davanti.
-Avere delle tecniche in grado di identificare in maniera automatica questo tipo di eventi potrebbe evitare l'invio di immagini compromesse e inviare un segnale di allarme al gestore della camera, che provvederebbe alla risoluzione del problema, ad esempio cambiando la locazione della camera.
-In questo modo si aumenterebbe l'affidabilit\`a del sistema e si diminuirebbe il traffico di dati sulla rete, in quanto si eviterebbe di inviare frame compromessi.\\
-
-Le tecniche principalmente utilizzate nella letteratura scientifica hanno come base il confronto di ciascun frame con quelli successivi, utilizzando \textit{modelli di background}.
-Queste, per essere efficaci, hanno bisogno che i frame vengano acquisiti a framerate continuo, in quanto viene fatta l'ipotesi che tra i vari frame della scena il contenuto vari poco.
-Abbiamo notato, invece, che operando a basso framerate le differenze tra frame consecutivi sono molto elevati, a causa di cambiamenti di luminosit\`a, di ombre e di zone dinamiche della scena.\\
-Il nostro lavoro di tesi \`e una prosecuzione del lavoro svolto da \cite{alippi2010detecting}, dove vengono identificati eventi di sfocatura utilizzando \textit{tecniche sequenziali} su un indicatore \textit{scalare} estratto da ciascun frame.\\
-Il nostro lavoro si \`e concentrato sugli eventi di \textit{sfocatura} e di \textit{spostamento della camera}.
-Per individuare questi eventi analizziamo il comportamento di indicatori scalari estratti dalle singole immagini.
-Abbiamo notato come questi eventi determinino un cambiamento molto brusco nel normale andamento di questi indicatori.
+Esempi di tampering intenzionale sono illustrati nella Figura \ref{fig:tamperdetection}.
+In questa tesi definiamo con il termine tampering un qualsiasi evento, intenzionale o meno, che possa compromettere la corretta acquisizione della scena inquadrata dalla camera.
+Ad esempio una sfocatura pu\`o essere causata da dell'acqua piovana che si deposita a ridosso della lente, oppure pu\`o succedere che una folata di forte vento sposti la camera, cambiando quindi l'inquadratura della scena, oppure che della neve si depositi sulla camera e non permetta di vedere parte della scena.
+Esempi di eventi di tampering dovuti a cause naturali sono illustrati nella Figura \ref{fig:tamperingNaturali}.
+\begin{figure}[tb]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:pioggia1} \includegraphics[width=6cm]{./pictures/pioggia}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:neve1} \includegraphics[width=6cm]{./pictures/neve}}
+	\end{subfigure}
+	\caption[Esempi di eventi di tampering dovuti a cause naturali]{Esempi di eventi di tampering dovuti a cause naturali: in (a) vediamo come le gocce di pioggia possano portare a delle sfocature nell'immagine, con la conseguente perdita di dettagli, mentre in (b) possiamo vedere un cumulo di neve sulla camera che impedisce di riprendere la totalit\`a della scena.}
+	\label{fig:tamperingNaturali}
+\end{figure}\\
+La letteratura scientifica ha prodotto molte soluzioni a riguardo, ma la maggior parte sono legate ad applicazioni in cui le camere operano a framerate \textit{continuo}, solitamente tra i 30 frame per secondo (fps) e i 2 fps.
+Utilizzando frequenze di acquisizione cos\`i alte abbiamo frame consecutivi molto simili fra loro, in cui non avvengono cambiamenti sostanziali all'interno della scena ripresa, a meno di eventi di tampering.
+Ci\`o permette di utilizzare tecniche di \textit{background subtraction} o di confronto tra frame consecutivi, in modo da identificare dei cambiamenti sostanziali.
+Queste tecniche, oltre a richiedere capacit\`a di calcolo e di memoria che una camera a basso consumo di potenza difficilmente pu\`o garantire, risultano essere non efficaci nel caso in cui la frequenza con cui i frame vengono acquisiti \`e bassa.
+Infatti, in questo caso, le differenze tra due immagini acquisite consecutivamente sono molto elevate, in quanto entrano in gioco nuovi elementi come i \textit{cambiamenti di luminosit\`a} e la \textit{dinamicit\`a} della scena.\\
+Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per camere intelligenti (\textit{smart camera}) e a basso consumo.
+La soluzione che proponiamo \`e quella di monitorare degli indicatori a basso costo computazionale, estratti dalle singole immagini, attraverso tecniche \textit{one-shot} e \textit{sequenziali}, in modo da identificare l'istante in cui avviene l'evento di tampering.\\
+Questi indicatori, per\`o, non sono definiti su tutta l'immagine, ma su \textit{regioni adattative} estratte dalla scena.
+A questo scopo abbiamo sviluppato un \textit{algoritmo di segmentazione} che permetta di estrarre queste regioni.
+Questo algoritmo viene eseguito durante la configurazione del sistema, separatamente rispetto alla fase di identificazione degli eventi di tampering.
+La segmentazione, quindi, non comporta ulteriore costo computazionale all'algoritmo, in cui viene considerata semplicemente come una variabile d'ingresso.
+Inoltre, la segmentazione pu\`o essere eseguita \textit{offline} su un dispositivo esterno.\\
+Gli esperimenti condotti hanno confermato come l'utilizzo della segmentazione della scena porti a dei miglioramenti nelle prestazioni dell'algoritmo, diminuendo il numero di falsi allarmi.\\
+La tesi \`e stata svolta durante un lavoro di stage presso il gruppo \textit{Advanced System Technology} di \textit{STMicroelectronics}, dove la ricerca \`e volta allo sviluppo di algoritmi intelligenti di elaborazione immagini da integrare nei propri dispositivi embedded.\\
+%Una branca dell'industria tecnologica che sta prendendo sempre pi\`u piede \`e quella dei \textit{sistemi di monitoraggio video}.
+%L'abbattimento dei costi delle camere e una sempre maggiore integrazione di tecnologie hardware con sensori e infrastrutture di rete hanno permesso una rapida crescita di questo settore.\\
+%Inoltre, il grande successo di Internet degli ultimi anni ha permesso l'utilizzo dei sistemi di monitoraggio video per applicazioni che prima non erano neanche pensabili.
+%Oggigiorno \`e possibile avere un sistema di videosorveglianza domestico spendendo poche centinaia di euro, controllabile con il proprio \textit{smartphone} attraverso Internet, oppure \`e possibile vedere le condizioni meteorologiche o del traffico nella propria citt\`a attraverso le immagini riprese da una \textit{webcam}.
+%Un servizio di questo genere \`e fornito da molte piattaforme web di previsioni del tempo.
+%Ad esempio, il sito \textit{ilMeteo.it} \cite{ilmeteo} permette di vedere in tempo reale il contenuto video di webcam presenti nelle principali citt\`a o in localit\`a di interesse turistico.\\
+%Uno dei maggiori problemi quando si ha a che fare con sistemi di monitoraggio video consiste nell'identificazione di particolari eventi in grado di compromettere la corretta ripresa della scena da parte del sensore.\\
+%%Eventi di questo tipo sono, ad esempio, lo spostamento della camera, oppure una scorretta messa a fuoco della scena.\\
+%Questo tipo di eventi viene classificato generalmente sotto il nome di \textit{tampering}, dall'inglese \textit{manomissione}.
+%Il termine deriva dal fatto che, di solito, questi eventi sono legati ad azioni intenzionali atte a impedire che la camera riprenda correttamente la scena.
+%Pu\`o succedere, ad esempio, che un ladro copra l'obiettivo della camera con qualche oggetto, in modo da poter agire indisturbato, oppure che la sposti in modo che riprenda qualcos'altro.
+%In questa tesi definiamo con il termine tampering un qualsiasi evento, intenzionale o meno, che possa compromettere la corretta acquisizione della scena inquadrata dalla camera.
+%Ad esempio una sfocatura pu\`o essere causata da dell'acqua piovana che si deposita a ridosso della lente, oppure pu\`o succedere che una folata di forte vento sposti la camera, cambiando quindi l'inquadratura della scena.\\
+%Questa definizione permette di analizzare il problema anche per quelle applicazioni di monitoraggio video che non sono direttamente legate alla videosorveglianza, ad esempio per lo scenario delle webcam introdotto sopra, in cui l'evento non \`e necessariamente dovuto a un intervento umano intenzionale.\\
+%Le tecniche algoritmiche che vengono utilizzate per identificare gli eventi di tampering prendono il nome di algoritmi di \textit{tampering detection}.\\
+%La letteratura scientifica ha prodotto molte soluzioni a riguardo, ma la maggior parte sono legate ad applicazioni di videosorveglianza.
+%Questo particolare tipo di applicazioni ha bisogno di camere che acquisiscano a framerate \textit{continuo}, solitamente tra i 30 frame per secondo (fps) e i 2 fps.
+%\`E infatti impensabile che una camera di videosorveglianza possa acquisire, ad esempio, un frame ogni minuto.\\
+%Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per camere intelligenti (\textit{smart camera}) e a basso consumo.
+%In particolare abbiamo considerato scenari in cui la camera operi a \textit{basso framerate}, ad esempio acquisendo un'immagine ogni minuto.\\
+%Questa assunzione copre in realt\`a molti casi d'uso gi\`a esistenti, che non sono legati alla videosorveglianza.
+%\begin{figure}[t]
+%	\centering
+%	\includegraphics[width=12cm]{pictures/ilMeteo}
+%	\caption[Webcam per il monitoraggio meteorologico]{In questa figura vediamo un esempio di applicazione per sistemi di monitoraggio video. Molti siti di previsioni del tempo consentono l'accesso alle immagini registrate da webcam utilizzate per il monitoraggio meteorologico. Come possiamo vedere, la webcam al centro dell'immagine non \`e in condizioni di riprendere correttamente la scena, in quanto c'\`e un'impalcatura che ne impedisce la visione. Inoltre, possiamo vedere come alcune webcam non riprendano alcuna scena.}
+%	\label{fig:ilMeteo}
+%\end{figure}
+%Un esempio \`e quello delle webcam per il monitoraggio meteorologico che abbiamo illustrato precedentemente.
+%Nella Figura \ref{fig:ilMeteo} possiamo vedere come una parte delle webcam accessibili da un sito di previsioni del tempo in realt\`a non forniscano molte informazioni riguardanti il monitoraggio meteorologico:
+%alcune webcam sono spente, e quindi non inviano frame alla piattaforma, e una camera, quella centrale, non pu\`o riprendere la scena perch\'e le \`e stata posta un'impalcatura davanti.
+%Avere delle tecniche in grado di identificare in maniera automatica questo tipo di eventi potrebbe evitare l'invio di immagini compromesse e inviare un segnale di allarme al gestore della camera, che provvederebbe alla risoluzione del problema, ad esempio cambiando la locazione della camera.
+%In questo modo si aumenterebbe l'affidabilit\`a del sistema e si diminuirebbe il traffico di dati sulla rete, in quanto si eviterebbe di inviare frame compromessi.\\
+%
+%Le tecniche principalmente utilizzate nella letteratura scientifica hanno come base il confronto di ciascun frame con quelli successivi, utilizzando \textit{modelli di background}.
+%Queste, per essere efficaci, hanno bisogno che i frame vengano acquisiti a framerate continuo, in quanto viene fatta l'ipotesi che tra i vari frame della scena il contenuto vari poco.
+%Abbiamo notato, invece, che operando a basso framerate le differenze tra frame consecutivi sono molto elevati, a causa di cambiamenti di luminosit\`a, di ombre e di zone dinamiche della scena.\\
+%Il nostro lavoro di tesi \`e una prosecuzione del lavoro svolto da \cite{alippi2010detecting}, dove vengono identificati eventi di sfocatura utilizzando \textit{tecniche sequenziali} su un indicatore \textit{scalare} estratto da ciascun frame.\\
+%Il nostro lavoro si \`e concentrato sugli eventi di \textit{sfocatura} e di \textit{spostamento della camera}.
+%Per individuare questi eventi analizziamo il comportamento di indicatori scalari estratti dalle singole immagini.
+%Abbiamo notato come questi eventi determinino un cambiamento molto brusco nel normale andamento di questi indicatori.
 
 
 \noindent La tesi \`e strutturata nel seguente modo.\\
