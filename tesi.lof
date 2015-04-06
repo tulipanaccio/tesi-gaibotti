@@ -15,18 +15,18 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Esempio di estrazione dei canali YUV\relax }}{14}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Esempio di CPM}}{17}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Procedura del CUSUM adattativo}}{20}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Estrazione dei descrittori nel metodo CI-CUSUM}}{21}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Estrazione dei descrittori nel metodo CI-CUSUM}}{20}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Esempio di come opera la regola dell'intersezione degli intervalli di confidenza (ICI-rule)}}{23}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Schema del modo di operare del CDT di tipo gerarchico\relax }}{24}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Tecniche di tampering detection\relax }}{26}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Sistema di monitoraggio video\relax }}{27}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{30}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{30}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{30}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{30}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{30}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{31}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{32}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Tecniche di tampering detection\relax }}{25}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Sistema di monitoraggio video\relax }}{26}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Comportamento della trasformata di Fourier nel caso di sfocatura\relax }}{29}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{29}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{29}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{29}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{29}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Sequenza di frame acquisiti a 30 fps\relax }}{30}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Sequenza di frame acquisiti ogni 30 secondi\relax }}{31}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Esempi di sfocature\relax }}{36}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{36}

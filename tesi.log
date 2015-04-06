@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  4 APR 2015 18:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=latex 2015.3.6)  6 APR 2015 08:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -451,9 +451,9 @@ Package: inputenc 2014/04/30 v1.2b Input encoding file
 (/usr/share/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2014/04/30 v1.2b Input encoding file
 )) (./tesi.aux
-(./frontespizio.aux) (./sommario.aux) (./introduzione.aux) (./statoArte.aux)
-(./formulazioneProblema.aux) (./soluzioneProposta.aux) (./proveSperimentali.aux
-) (./conclusioni.aux))
+(./frontespizio.aux) (./dedica.aux) (./sommario.aux) (./introduzione.aux)
+(./statoArte.aux) (./formulazioneProblema.aux) (./soluzioneProposta.aux)
+(./proveSperimentali.aux) (./conclusioni.aux))
 \openout1 = `tesi.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
@@ -513,18 +513,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-\openout2 = `sommario.aux'.
+\openout2 = `dedica.aux'.
 
- (./sommario.tex)
+ (./dedica.tex)
 [1
 
 
+] [2
 
-] [2] [3
+
+]
+\openout2 = `sommario.aux'.
+
+ (./sommario.tex) [3
+
 
 ] [4
 
 ] (./tesi.toc [5
+
 
 ]
 Overfull \hbox (1.04639pt too wide) in paragraph at lines 44--44
@@ -573,7 +580,7 @@ File: ./pictures/pioggia.eps Graphic file (type eps)
 <./pictures/pioggia.eps>
 File: ./pictures/neve.eps Graphic file (type eps)
  <./pictures/neve.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 22--118
+Underfull \hbox (badness 10000) in paragraph at lines 22--120
 
  []
 
@@ -604,6 +611,9 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
+
+Underfull \vbox (badness 3343) has occurred while \output is active []
+
  [9]
 File: ./pictures/mappatura2d3d.eps Graphic file (type eps)
 
@@ -619,12 +629,12 @@ File: ./pictures/yuv.eps Graphic file (type eps)
  <./pictures/yuv.eps>
 [14] [15]
 File: pictures/CPM.eps Graphic file (type eps)
- <pictures/CPM.eps> [16] [17] [18] [19]
+ <pictures/CPM.eps> [16] [17] [18]
 File: pictures/adaptiveCUSUM.eps Graphic file (type eps)
  <pictures/adaptiveCUSUM.eps>
 File: pictures/CI-CUSUM.eps Graphic file (type eps)
 
-<pictures/CI-CUSUM.eps> [20] [21] [22]
+<pictures/CI-CUSUM.eps> [19] [20] [21] [22]
 File: pictures/ICIrule.eps Graphic file (type eps)
  <pictures/ICIrule.eps> [23]
 File: pictures/Hierarchical_ICI_based_CDT_Scheme.eps Graphic file (type eps)
@@ -632,9 +642,9 @@ File: pictures/Hierarchical_ICI_based_CDT_Scheme.eps Graphic file (type eps)
 <pictures/Hierarchical_ICI_based_CDT_Scheme.eps> [24]
 File: ./diagrammi/tecnicheSOA.eps Graphic file (type eps)
 
-<./diagrammi/tecnicheSOA.eps>
+<./diagrammi/tecnicheSOA.eps> [25]
 File: ./pictures/videoMonitoring.eps Graphic file (type eps)
- <./pictures/videoMonitoring.eps> [25] [26]
+ <./pictures/videoMonitoring.eps> [26]
 [27] [28]
 File: ./pictures/normale.eps Graphic file (type eps)
  <./pictures/normale.eps>
@@ -644,7 +654,7 @@ File: ./pictures/sfocato.eps Graphic file (type eps)
 
 <./pictures/sfocato.eps>
 File: ./pictures/sfocato-fourier.eps Graphic file (type eps)
- <./pictures/sfocato-fourier.eps>
+ <./pictures/sfocato-fourier.eps> [29]
 File: ./pictures/FPSalto/img0001.eps Graphic file (type eps)
 
 <./pictures/FPSalto/img0001.eps>
@@ -674,7 +684,7 @@ File: ./pictures/FPSalto/img0011.eps Graphic file (type eps)
 
 <./pictures/FPSalto/img0011.eps>
 File: ./pictures/FPSalto/img0012.eps Graphic file (type eps)
- <./pictures/FPSalto/img0012.eps> [29]
+ <./pictures/FPSalto/img0012.eps> [30]
 File: ./pictures/FPSbasso/image2691.eps Graphic file (type eps)
 
 <./pictures/FPSbasso/image2691.eps>
@@ -705,11 +715,7 @@ File: ./pictures/FPSbasso/image2701.eps Graphic file (type eps)
 <./pictures/FPSbasso/image2701.eps>
 File: ./pictures/FPSbasso/image2702.eps Graphic file (type eps)
  <./pictures/FPSbasso/image2702.eps>
-[30]
-Underfull \vbox (badness 5939) has occurred while \output is active []
-
- [31]
-[32]) [33]
+[31] [32]) [33]
 \openout2 = `formulazioneProblema.aux'.
 
  (./formulazioneProblema.tex [34
@@ -855,7 +861,7 @@ File: ./pictures/testiORIGINALE.eps Graphic file (type eps)
 File: ./pictures/map.eps Graphic file (type eps)
 
 <./pictures/map.eps> [52] [53] [54]
-Underfull \vbox (badness 2875) has occurred while \output is active []
+Underfull \vbox (badness 2080) has occurred while \output is active []
 
  [55]
 [56] [57]
@@ -872,7 +878,11 @@ File: ./pictures/FeatureVector/stdGrad.eps Graphic file (type eps)
 <./pictures/FeatureVector/stdGrad.eps>
 File: ./pictures/FeatureVector/meanLuma.eps Graphic file (type eps)
  <./pictures/FeatureVector/meanLuma.eps>
-[60] [61] [62]
+[60]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [61]
+[62]
 File: ./pictures/FeatureVector/frame.eps Graphic file (type eps)
  <./pictures/FeatureVector/frame.eps>
 File: ./pictures/segmentazione/kmeansNormale.eps Graphic file (type eps)
@@ -883,7 +893,11 @@ File: ./pictures/segmentazione/mappa1.eps Graphic file (type eps)
 <./pictures/segmentazione/mappa1.eps>
 File: ./pictures/segmentazione/mappa2.eps Graphic file (type eps)
  <./pictures/segmentazione/mappa2.eps>
-[63] [64]) [65]
+[63]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [64])
+[65]
 \openout2 = `proveSperimentali.aux'.
 
  (./proveSperimentali.tex [66
@@ -900,19 +914,12 @@ File: ./pictures/RaspberryPiB+.eps Graphic file (type eps)
 File: ./pictures/raspberry.eps Graphic file (type eps)
 
 <./pictures/raspberry.eps> [68]
-Underfull \vbox (badness 3977) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [69]
 [70] [71] [72]
-
-Package caption Warning: \label without proper \caption on input line 190.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:syntDef' on page 73 undefined on input line 188.
-
 File: ./pictures/sequenzeCreate/defocus1.eps Graphic file (type eps)
-<./pictures/sequenzeCreate/defocus1.eps>
+ <./pictures/sequenzeCreate/defocus1.eps>
 File: ./pictures/sequenzeCreate/defocus3.eps Graphic file (type eps)
 
 <./pictures/sequenzeCreate/defocus3.eps>
@@ -967,7 +974,12 @@ Overfull \hbox (9.88582pt too wide) in paragraph at lines 259--260
 
  (./conclusioni.tex
 Capitolo 6.
-) [81
+)
+Underfull \hbox (badness 10000) in paragraph at lines 5--82
+
+ []
+
+[81
 
 
 
@@ -1007,20 +1019,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 283--284
 / mobmm _
  []
 
-) [87] (./tesi.aux (./frontespizio.aux) (./sommario.aux) (./introduzione.aux)
-(./statoArte.aux) (./formulazioneProblema.aux) (./soluzioneProposta.aux)
-(./proveSperimentali.aux) (./conclusioni.aux))
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) [87] (./tesi.aux (./frontespizio.aux) (./dedica.aux) (./sommario.aux)
+(./introduzione.aux) (./statoArte.aux) (./formulazioneProblema.aux)
+(./soluzioneProposta.aux) (./proveSperimentali.aux) (./conclusioni.aux)) ) 
 Here is how much of TeX's memory you used:
- 9497 strings out of 493109
- 139205 string characters out of 6140752
- 286771 words of memory out of 5000000
- 12592 multiletter control sequences out of 15000+600000
+ 9505 strings out of 493109
+ 139286 string characters out of 6140752
+ 287216 words of memory out of 5000000
+ 12593 multiletter control sequences out of 15000+600000
  18974 words of font info for 71 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  46i,19n,77p,2195b,570s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tesi.dvi (97 pages, 243908 bytes).
+Output written on tesi.dvi (97 pages, 246308 bytes).

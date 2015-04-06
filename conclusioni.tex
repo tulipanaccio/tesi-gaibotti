@@ -1,21 +1,11 @@
-\chapter{Direzioni future di ricerca e conclusioni}
+\chapter{Conclusioni e direzioni future di ricerca}
 \label{Conclusioni}
 \thispagestyle{empty}
 
-%\begin{quotation}
-%{\footnotesize
-%\noindent{\emph{``Terence: Rotta a nord con circospezione \\
-%Bud: Ehi, gli ordini li do io qui!\\
-%Terence: Ok, comante\\
-%Bud: Rotta a nord\\
-%Terence: Soltanto?\\
-%Bud: Con circospezione!''}
-%}
-%\begin{flushright}
-%Chi Trova un Amico Trova un Tesoro
-%\end{flushright}
-%}
-%\end{quotation}
-\vspace{0.5cm}
-
-\noindent 
+\noindent In questo lavoro di tesi abbiamo presentato una soluzione al problema, nei sistemi di monitoraggio video, di identificare particolari eventi che possano compromettere la corretta ripresa della scena, a cui si fa riferimento con il termine tampering.
+In particolare abbiamo considerato l'utilizzo di camere intelligenti alimentate a batteria e lo scenario in cui la frequenza di acquisizione delle immagini da parte del sensore sia bassa, ad esempio un frame ogni minuto.\\
+Abbiamo visto come il fatto di considerare dei framerate bassi complichi l'identificazione di eventi di tampering, in quanto le differenze tra frame consecutivi sono molto pi\`u elevate rispetto al caso di acquisizione continua. 
+Inoltre, il fatto di avere algoritmi a bassa complessit\`a computazionale non ci permette di utilizzare degli indicatori troppo onerosi da estrarre dalle immagini.\\
+La soluzione che abbiamo proposto \`e stata di utilizzare degli indicatori semplici, da estrarre in specifiche regioni della scena inquadrata dalla camera, e di monitorarli nel tempo con tecniche one-shot e sequenziali, in modo da individuare cambiamenti nel loro comportamento associabili a eventi di tampering.
+Le regioni vengono estratte da un algoritmo di segmentazione della scena, che viene eseguito prima della messa in opera del sistema.\\
+Abbiamo visto, infine, come le prove sperimentali condotte abbiano dimostrato che l'utilizzo della segmentazione della scena porti a dei miglioramenti nelle prestazioni dell'algoritmo, diminuendo il numero di falsi allarmi, senza aggiungere complessit\`a computazionale.\\

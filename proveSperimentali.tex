@@ -2,7 +2,7 @@
 \label{ProveSperimentali}
 \thispagestyle{empty}
 
-\vspace{0.5cm}
+%\vspace{0.5cm}
 \noindent In questo capitolo illustriamo il procedimento attraverso il quale sono stati condotti gli esperimenti per la valutazione della soluzione proposta e i risultati ottenuti.\\
 Il Paragrafo \ref{obiettivi} \`e dedicato alla descrizione dei metodi considerati durante gli esperimenti e i loro obiettivi.\\ 
 Il Paragrafo \ref{acquisizione} \`e dedicato alla descrizione dei dataset utilizzati e dei sistemi di acquisizione realizzati per la loro acquisizione.\\
@@ -187,7 +187,6 @@ Inoltre, per ciascun filtro, abbiamo creato $5$ sequenze diverse, cambiando l'is
 In totale, quindi, le sequenze video che abbiamo considerato per la nostra valutazione sono state $150$.
 La Figura \ref{fig:syntDef} mostra alcuni esempi di come operano i filtri gaussiani appena definiti.\\
 \begin{figure}[tbp]
-	\label{fig:syntDef}
 	\centering
 	\begin{subfigure}[]
 		{\includegraphics[width=12cm]{./pictures/sequenzeCreate/defocus1}
@@ -210,6 +209,7 @@ La Figura \ref{fig:syntDef} mostra alcuni esempi di come operano i filtri gaussi
 			\label{fig:synt6}}
 	\end{subfigure}
 	\caption[Esempi di sequenze con eventi di sfocature create sinteticamente]{Esempi di sequenze con eventi di sfocature create con filtri gaussiani: (a) $\sigma=1$, (b) $\sigma=3$, (c) $\sigma=5$, (d) $\sigma=7$, (e) $\sigma=10$. }
+	\label{fig:syntDef}
 \end{figure}
 Per simulare l'evento di spostamento della camera, invece, abbiamo creato $100$ sequenze di frame concatenando due diversi scenari tra loro.
 Per rendere la simulazione il pi\`u verosimile possibile, le sequenze video concatenate hanno dovuto rispettare alcuni vincoli:

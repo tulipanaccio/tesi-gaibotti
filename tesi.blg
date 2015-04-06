@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2014/Arch Linux)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tesi.aux
 A level-1 auxiliary file: frontespizio.aux
+A level-1 auxiliary file: dedica.aux
 A level-1 auxiliary file: sommario.aux
 A level-1 auxiliary file: introduzione.aux
 A level-1 auxiliary file: statoArte.aux
@@ -22,7 +23,7 @@ Warning--empty journal in sobel19683x3
 Warning--there's a number but no volume in canny1986computational
 You've used 54 entries,
             1791 wiz_defined-function locations,
-            730 strings with 11854 characters,
+            731 strings with 11864 characters,
 and the built_in function-call counts, 12797 in all, are:
 = -- 1242
 > -- 404

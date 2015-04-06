@@ -16,7 +16,7 @@
 %\end{flushright}
 %}
 %\end{quotation}
-\vspace{0.5cm}
+%\vspace{0.5cm}
 
 \noindent In questo capitolo presentiamo i concetti fondamentali della teoria alla base della \textit{visione artificiale} e dell'elaborazione di segnali e lo studio fatto finora sul problema del \textit{tampering detection}.\\
 Nei Paragrafi \ref{modelloCamera} e \ref{rappresentazImmagini} diamo una visione generale del modello della camera e di come vengono rappresentate le immagini digitali, in modo da comprendere meglio gli argomenti trattati nei capitoli successivi.\\
@@ -338,7 +338,7 @@ Una volta trovato $\mathcal{T}_M$ il test va finalizzato
 comparando questa statistica con la soglia
 $ h_{n,\alpha}, $ in modo da verificare se
 l'ipotesi nulla sia da scartare o meno.
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=12cm,keepaspectratio]{pictures/CPM}
 	\caption[Esempio di CPM]{Un esempio di CPM basato sulla statistica $t$ di Student. I dati in (a) sono distribuiti in accordo con \eqref{eq:esempioCPM}. I valori assunti dalla corrispondente statistica di test ${D_s,s=2,\dots,499}$ sono riportati in (b). Sono riportati anche il change point stimato $M$, e il corrispondente valore nella statistica di test $\mathcal{T}_M$. A scopo illustrativo la figura mostra anche  la partizione di $\mathcal{X}$ in $\mathcal{A}_s$ e $\mathcal{B}_s$ quando $s=200$, insieme al corrispondente valore della statistica $D_{s=200}$.}
