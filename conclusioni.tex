@@ -8,4 +8,12 @@ Abbiamo visto come il fatto di considerare dei framerate bassi complichi l'ident
 Inoltre, il fatto di avere algoritmi a bassa complessit\`a computazionale non ci permette di utilizzare degli indicatori troppo onerosi da estrarre dalle immagini.\\
 La soluzione che abbiamo proposto \`e stata di utilizzare degli indicatori semplici, da estrarre in specifiche regioni della scena inquadrata dalla camera, e di monitorarli nel tempo con tecniche one-shot e sequenziali, in modo da individuare cambiamenti nel loro comportamento associabili a eventi di tampering.
 Le regioni vengono estratte da un algoritmo di segmentazione della scena, che viene eseguito prima della messa in opera del sistema.\\
-Abbiamo visto, infine, come le prove sperimentali condotte abbiano dimostrato che l'utilizzo della segmentazione della scena porti a dei miglioramenti nelle prestazioni dell'algoritmo, diminuendo il numero di falsi allarmi, senza aggiungere complessit\`a computazionale.\\
+Abbiamo visto, infine, come le prove sperimentali condotte abbiano dimostrato che l'utilizzo della segmentazione della scena porti a dei miglioramenti nelle prestazioni dell'algoritmo, diminuendo il numero di falsi allarmi, senza aggiungere complessit\`a computazionale.
+Un monitoraggio sequenziale sulla varianza dell'energia media del gradiente, inoltre, ha permesso di diminuire ulteriormente i falsi allarmi nell'identificazione degli eventi di sfocatura.\\
+Gli sviluppi futuri riguarderanno il miglioramento dell'algoritmo e la sua integrazione su un dispositivo.
+Per quanto riguarda l'identificazione di sfocature la ricerca dovr\`a essere condotta su come combinare il monitoraggio sequenziale con quello one-shot.
+Per come \`e stato realizzato l'algoritmo al momento, infatti, le due tecniche sono eseguite in cascata, e il primo che identifica un cambiamento solleva l'allarme.
+Dato che CONTINUARE!!!\\
+Per quanto riguarda l'identificazione di spostamenti della camera un ulteriore sviluppo potrebbe riguardare l'integrazione delle informazioni estratte dalle immagini della camera con i dati estratti da dispositivi MEMS (\textit{Micro Electro-Mechanical Systems}), come \textit{sensori inerziali} o \textit{giroscopi}, in modo da poter validare gli allarmi ricevuti dalla camera e, quindi, ridurre ulteriormente i falsi allarmi.
+
+

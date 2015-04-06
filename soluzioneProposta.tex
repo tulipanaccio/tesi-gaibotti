@@ -338,55 +338,74 @@ In questo paragrafo illustriamo come sono state sviluppate le due tecniche.
 L'Algoritmo \ref{alg:DEFOCUS} mostra il funzionamento, ad alto livello, dell'algoritmo per identificare la presenza di sfocature nei frame.
 %\IncMargin{0.1em}
 %\vspace{-0.2cm}
-\begin{algorithm}[t]
+\begin{algorithm}[tp]
 	% \SetAlgoNoLine
 	\LinesNumbered
 	\SetAlgoNlRelativeSize{0}
 	\SetNlSty{small}{}{.}
 	\textbf{Configurazione}:\\
+	\lnl{DEF-Tr0} Estraggo le regioni $\{R_k\}, k=1,\dots,K$  \\
 	\lnl{DEF-Tr1} \For{$t=1,\dots,T_{o}$}
 	{	\lnl{DEF-Tr2} Estraggo il frame $z_t$ \\
+		\lnl{DEF-Tr2a} \For{$k=1,\dots,K$}{
+			\lnl{DEF-Tr3a} Calcolo $g^k(t)$, $\frac{\partial g^k}{\partial t}(t)$ per la regione $R_k$\\
+		}
 		\lnl{DEF-Tr3} Calcolo $g(t)$, $\frac{\partial g}{\partial t}(t)$ \\
 	}
-	\lnl{DEF-Tr4} Definisco le soglie $\Gamma_{min}^g$ e $\Gamma_{max}^g$\\
+	\lnl{DEF-Tr6a} \For{$k=1,\dots,K$}{
+		\lnl{DEF-Tr7a} Definisco le soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$\\
+	}
 	\lnl{DEF-Tr5} Definisco i parametri per il CDT sulla varianza di $g(t)$\\
 	\textbf{Fase operativa}:\\
 	\lnl{DEF-Test1} \For{$t=T_{o},\dots,\infty$}{
 		\lnl{DEF-Test2} Estraggo il frame $z_t$ \\
-		\lnl{DEF-Test3} Calcolo $g(t)$, $\frac{\partial g}{\partial t}(t)$\\
-		\lnl{DEF-Test4} \If{$\frac{\partial g}{\partial t}(t) < \Gamma_{min}^g \vee \frac{\partial g}{\partial t}(t) > \Gamma_{max}^g $}{
-			\lnl{DEF-Test5} $z_t$ \`e un frame in cui \`e avvenuto una sfocatura\\
+		\lnl{DEF-Tr3b} Calcolo $g(t)$, $\frac{\partial g}{\partial t}(t)$ \\
+		\lnl{DEF-Test2a} $n=0$\\
+		\lnl{DEF-Test4a} \For{$k=1,\dots,K$}{
+			\lnl{DEF-Test5a} Calcolo $g^k(t)$, $\frac{\partial g^k}{\partial t}(t)$ per la regione $R_k$\\
+			\lnl{DEF-Test6a} \If{$\frac{\partial g^k}{\partial t}(t) < \Gamma_{min}^k \vee \frac{\partial g^k}{\partial t}(t) > \Gamma_{max}^k $}{
+				\lnl{DEF-Test7a} $n=n+1$\\
+			}
 		}
 		\lnl{DEF-Test8} \If{CDT identifica un cambiamento in $g(t)$}{
-			\lnl{DEF-Test9} $z_t$ \`e un frame in cui \`e avvenuto uno spostamento della camera\\
+			\lnl{DEF-Test9} $z_t$ \`e un frame in cui \`e avvenuta una sfocatura\\
 		}
 	}   
 	\caption{Algoritmo di identificazione di sfocature}
 	\label{alg:DEFOCUS}
 \end{algorithm}
 Dato che la sfocatura causa un crollo dell'energia media del gradiente e anche della sua varianza, \`e possibile lanciare due monitoraggi in grado di identificare ciascuno di questi cambiamenti, uno di tipo \textit{one-shot} e l'altro di tipo \textit{sequenziale}.\\
-Il monitoraggio one-shot prevede un'analisi del detrending dell'energia media del gradiente, secondo \eqref{eq:energyGradient} e \eqref{eq:gradientDetr}, in modo da identificare il picco dovuto al cambiamento (si veda la Figura \ref{fig:defocusPLOT}).
+Il monitoraggio one-shot prevede un'analisi del detrending dell'energia media del gradiente separatamente per ciascuna regione estratta dall'algoritmo di segmentazione, in modo da identificare il picco dovuto al cambiamento (si veda la Figura \ref{fig:defocusPLOT}).
+Facendo riferimento a \eqref{eq:energyGradient} e \eqref{eq:gradientDetr} possiamo derivare le formule per il calcolo dell'energia media del gradiente e del suo detrending per una specifica regione $R_k$:
+\begin{equation}
+\label{eq:gradientRegions}
+\begin{array}{ccc}
+g^k(t)&  = & \mathcal{G}^k[z_t] = \frac{\sum_{R_k}\| \nabla z_t(x) \| _2^2 }{|{R_k}|}\\
+\frac{\partial g^k}{\partial t}(t) & =& g^k(t)-g^k(t-1) 
+\end{array},
+\end{equation}
+dove abbiamo indicato con $|{R_k}|$ il numero totale dei pixel appartenenti alla regione $R_k$.\\
 L'identificazione viene fatta attraverso la definizione di due \textit{soglie}, calcolate facendo riferimento alle prime $T_{o}$ osservazioni, ritenute prive di tampering.
 Tale sequenza prende il nome di \textit{training set}.
-Le due soglie $\Gamma_{min}^g$ e $\Gamma_{max}^g$ vengono calcolate nel seguente modo:
+Le due soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$ vengono calcolate nel seguente modo:
 \begin{equation}
 \label{eq:soglieGradiente}
 \begin{array}{lcl}
-\Gamma_{min}^g & = & \widehat{\mu}_g -\gamma \widehat{\sigma}_g\\
-\Gamma_{max}^g & = & \widehat{\mu}_g + \gamma \widehat{\sigma}_g
+\Gamma_{min}^k & = & \hat{\mu}_g^k -\gamma \hat{\sigma}_g^k\\
+\Gamma_{max}^k & = & \hat{\mu}_g^k + \gamma \hat{\sigma}_g^k
 \end{array},
 \end{equation}
-dove $\widehat{\mu}_g$ indica il valore medio delle osservazioni del training set
+dove $\hat{\mu}_g^k$ indica il valore medio delle osservazioni del training set
 \begin{equation}
-	\widehat{\mu}_g = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial g}{\partial t}(\tau)}{T_{o}}, \nonumber
+	\hat{\mu}_g^k = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial g^k}{\partial t}(\tau)}{T_{o}}, \nonumber
 \end{equation}
-$\widehat{\sigma}_g$ indica la deviazione standard delle osservazioni del training set
+$\hat{\sigma}_g^k$ indica la deviazione standard delle osservazioni del training set
 \begin{equation}
-\widehat{\sigma}_g  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial g}{\partial t}(\tau) - \widehat{\mu}_g(\tau)\right)^2} \nonumber
+\hat{\sigma}_g^k  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial g^k}{\partial t}(\tau) - \hat{\mu}_g^k(\tau)\right)^2} \nonumber
 \end{equation}
 e $\gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente\footnote{Per maggiori dettagli si rimanda al Capitolo \ref{ProveSperimentali}}.\\
-Le soglie definite in \eqref{eq:soglieGradiente} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial g}{\partial t}\}$ ammissibili.
-Qualsiasi valore al di sotto di $\Gamma_{min}$ o al di sopra di $\Gamma_{max}$ viene considerato come un evento di sfocatura nel frame corrispondente.\\ 
+Le soglie definite in \eqref{eq:soglieGradiente} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial g^k}{\partial t}\}$ ammissibili.
+Se, all'istante $T^*$, abbiamo che, per $K-1$ regioni sulle $K$ totali, il valore di $\frac{\partial g^k}{\partial t}(T^*)$ \`e maggiore di $\Gamma_{max}^k$ o minore di $\Gamma_{min}^k$, allora possiamo considerare avvenuto un evento di sfocatura nel frame $z_{T^*}$. \\  
 Oltre all'analisi sul detrending \`e possibile fare un monitoraggio sequenziale sulla varianza di $\{g(t)\}$: infatti, come abbiamo visto nel Paragrafo \ref{comportamento}, la presenza di una sfocatura comporta una diminuzione della varianza di questa sequenza.
 Il monitoraggio sequenziale viene fatto utilizzando un CDT basato su ICI-rule\footnote{Lo schema di funzionamento del CDT basato su ICI-rule \`e spiegato nel Paragrafo \ref{cdt}.} sulla varianza di $\{g(t)\}$, usando il training set per configurare i suoi parametri.
 
@@ -394,7 +413,44 @@ Il monitoraggio sequenziale viene fatto utilizzando un CDT basato su ICI-rule\fo
 \subsection{Identificazione degli spostamenti della camera}
 \label{monitoraggioDISPL}
 L'Algoritmo \ref{alg:DISPL} mostra il funzionamento, ad alto livello, dell'algoritmo per identificare un evento di spostamento della camera.\\
-\begin{algorithm}[t]
+Una prima fase dell'algoritmo consiste nella \textit{segmentazione} della scena inquadrata dalla camera in un insieme di regioni $\{R_k\}, k=1,\dots,K$.
+Il metodo con cui vengono estratte queste regioni verr\`a analizzato in dettaglio nel paragrafo \ref{segmentazione}. \\
+L'analisi che viene fatta \`e simile a quella vista nel monitoraggio del detrending dell'energia del gradiente:
+in questo caso l'analisi \`e fatta in maniera indipendente per ciascuna regione $R_k$, calcolando l'energia della luma \textit{mediata per i pixel appartenenti alla regione}:
+\begin{equation}
+	\label{eq:lumaRegions}
+	\begin{array}{ccc}
+	l^k(t)&  = & \mathcal{L}^k[z_t] = \frac{\sum_{R_k} z_t(x) }{|{R_k}|}\\
+	\frac{\partial l^k}{\partial t}(t) & =& l^k(t)-l^k(t-1) 
+	\end{array},
+\end{equation}
+dove abbiamo indicato con $|{R_k}|$ il numero totale dei pixel appartenenti alla regione $R_k$.\\
+L'identificazione viene fatta attraverso la definizione di due \textit{soglie}, calcolate facendo riferimento alle prime $T_{o}$ osservazioni, ritenute prive di tampering.
+Le due soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$ vengono calcolate per ciascuna regione nel seguente modo:
+\begin{equation}
+\label{eq:soglieLuma}
+\begin{array}{rcl}
+\Gamma_{min}^k & = & \hat{\mu}_l^k -\gamma \hat{\sigma}_l^k\\
+\Gamma_{max}^k & = & \hat{\mu}_l^k + \gamma \hat{\sigma}_l^k
+\end{array},
+\end{equation}
+dove $\hat{\mu}_l^k$ indica il valore medio delle osservazioni del training set
+\begin{equation}
+\hat{\mu}_l^k = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial l^k}{\partial t}(\tau)}{T_{o}}, \nonumber
+\end{equation}
+$\hat{\sigma}_l^k$ indica la deviazione standard delle osservazioni del training set
+\begin{equation}
+\hat{\sigma}_l^k  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial l^k}{\partial t}(\tau) - \hat{\mu}_l^k(\tau)\right)^2} \nonumber
+\end{equation}
+e $\gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente.\\
+Le soglie definite nella Formula \eqref{eq:soglieLuma} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial l^k}{\partial t}\}$ ammissibili.\\
+Dato che l'evento di spostamento della camera viene inteso come un cambiamento globale dell'immagine, ci aspettiamo che tale cambiamento sia percepibile in tutte le regioni contemporaneamente. 
+Nella pratica, per\`o, pu\`o capitare che l'energia media della luma all'interno di una specifica regione non cambi, anche in caso di spostamento della camera.
+Se consideriamo, ad  esempio, l'evento di spostamento nella Figura \ref{fig:displacementBRUTTO} e la segmentazione della scena in Figura \ref{fig:testiMAPPA}, infatti, possiamo notare come la luma nella regione del cielo non subisca cambiamenti sostanziali dato che, anche in seguito all'evento di tampering, questa regione riprende sempre una porzione di cielo.\\
+In generale, quindi, possiamo considerare un monitoraggio indipendente di ogni sequenza $\{\frac{\partial l^k}{\partial t}\}$ per $k=1,\dots,K$.
+Se, all'istante $T^*$, abbiamo che, per $K-1$ regioni sulle $K$ totali, il valore di $\frac{\partial l^k}{\partial t}(T^*)$ \`e maggiore di $\Gamma_{max}^k$ o minore di $\Gamma_{min}^k$, allora possiamo considerare avvenuto un evento di sfocatura nel frame $z_{T^*}$. \\ 
+Dato che l'evento di spostamento della camera, in genere, non comporta un cambiamento persistente nella varianza dell'energia media della luma, non ha senso aggiungere un monitoraggio sequenziale come abbiamo fatto nell'Algoritmo \ref{alg:DEFOCUS}.
+\begin{algorithm}[tp]
 	% \SetAlgoNoLine
 	\LinesNumbered
 	\SetAlgoNlRelativeSize{0}
@@ -427,43 +483,6 @@ L'Algoritmo \ref{alg:DISPL} mostra il funzionamento, ad alto livello, dell'algor
 	\caption{Algoritmo di identificazione di spostamenti della camera}
 	\label{alg:DISPL}
 \end{algorithm}
-Una prima fase dell'algoritmo consiste nella \textit{segmentazione} della scena inquadrata dalla camera in un insieme di regioni $\{R_k\}, k=1,\dots,K$.
-Il metodo con cui vengono estratte queste regioni verr\`a analizzato in dettaglio nel paragrafo \ref{segmentazione}. \\
-L'analisi che viene fatta \`e simile a quella vista nel monitoraggio del detrending dell'energia del gradiente:
-in questo caso l'analisi \`e fatta in maniera indipendente per ciascuna regione $R_k$, calcolando l'energia della luma \textit{mediata per i pixel appartenenti alla regione}:
-\begin{equation}
-	\label{eq:lumaRegions}
-	\begin{array}{ccc}
-	l^k(t)&  = & \mathcal{L}^k[z_t] = \frac{\sum_{\mathcal{X}} z_t(x) }{|{R_k}|}\\
-	\frac{\partial l^k}{\partial t}(t) & =& l^k(t)-l^k(t-1) 
-	\end{array},
-\end{equation}
-dove abbiamo indicato con $|{R_k}|$ il numero totale dei pixel appartenenti alla regione $R_k$.\\
-L'identificazione viene fatta attraverso la definizione di due \textit{soglie}, calcolate facendo riferimento alle prime $T_{o}$ osservazioni, ritenute prive di tampering.
-Le due soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$ vengono calcolate per ciascuna regione nel seguente modo:
-\begin{equation}
-\label{eq:soglieLuma}
-\begin{array}{rcl}
-\Gamma_{min}^k & = & \widehat{\mu}_l^k -\gamma \widehat{\sigma}_l^k\\
-\Gamma_{max}^k & = & \widehat{\mu}_l^k + \gamma \widehat{\sigma}_l^k
-\end{array},
-\end{equation}
-dove $\widehat{\mu}_l^k$ indica il valore medio delle osservazioni del training set
-\begin{equation}
-\widehat{\mu}_l^k = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial l^k}{\partial t}(\tau)}{T_{o}}, \nonumber
-\end{equation}
-$\widehat{\sigma}_l^k$ indica la deviazione standard delle osservazioni del training set
-\begin{equation}
-\widehat{\sigma}_l^k  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial l^k}{\partial t}(\tau) - \widehat{\mu}_l^k(\tau)\right)^2} \nonumber
-\end{equation}
-e $\gamma>1$ \`e un parametro moltiplicativo ottenuto sperimentalmente.\\
-Le soglie definite nella Formula \eqref{eq:soglieLuma} forniscono un limite superiore e uno inferiore ai valori di $\{\frac{\partial l^k}{\partial t}\}$ ammissibili.\\
-Dato che l'evento di spostamento della camera viene inteso come un cambiamento globale dell'immagine, ci aspettiamo che tale cambiamento sia percepibile in tutte le regioni contemporaneamente. 
-Nella pratica, per\`o, pu\`o capitare che l'energia media della luma all'interno di una specifica regione non cambi, anche in caso di spostamento della camera.
-Se consideriamo, ad  esempio, l'evento di spostamento nella Figura \ref{fig:displacementBRUTTO} e la segmentazione della scena in Figura \ref{fig:testiMAPPA}, infatti, possiamo notare come la luma nella regione del cielo non subisca cambiamenti sostanziali dato che, anche in seguito all'evento di tampering, questa regione riprende sempre una porzione di cielo.\\
-In generale, quindi, possiamo considerare un monitoraggio indipendente di ogni sequenza $\{\Delta l_t^k\}$ per $k=1,\dots,K$.
-Se, all'istante $T^*$, abbiamo che, per $K-1$ regioni sulle $K$ totali, il valore di $\Delta l_{T^*}^k$ \`e maggiore di $\Gamma_{max}^k$ o minore di $\Gamma_{min}^k$, allora possiamo considerare avvenuto un evento di sfocatura nel frame $z_{T^*}$. \\ 
-Dato che l'evento di spostamento della camera, in genere, non comporta un cambiamento persistente nella varianza dell'energia media della luma, non ha senso aggiungere un monitoraggio sequenziale come abbiamo fatto nell'Algoritmo \ref{alg:DEFOCUS}.
 \section{Algoritmo di segmentazione}
 \label{segmentazione}
 In molte applicazioni di visione artificiale \`e spesso necessario estrarre, da un'immagine o un video, una o pi\`u regioni specifiche. Quando si vanno a trattare dei video, i tipi di segmentazione che possono essere applicati sono solitamente due:

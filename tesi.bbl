@@ -10,6 +10,37 @@ Wayne Wolf, Burak Ozer, and Tiehan Lv.
 \newblock Smart cameras as embedded systems.
 \newblock {\em Computer}, 35(9):48--53, 2002.
 
+\bibitem{harasse2004automated}
+Sebastien Harasse, Laurent Bonnaud, Alice Caplier, and Michel Desvignes.
+\newblock Automated camera dysfunctions detection.
+\newblock In {\em Image Analysis and Interpretation, 2004. 6th IEEE Southwest
+  Symposium on}, pages 36--40. IEEE, 2004.
+
+\bibitem{aksay2007camera}
+Anil Aksay, Alptekin Temizel, and A.~Enis Cetin.
+\newblock Camera tamper detection using wavelet analysis for video
+  surveillance.
+\newblock In {\em Advanced Video and Signal Based Surveillance, 2007. AVSS
+  2007. IEEE Conference on}, pages 558--562. IEEE, 2007.
+
+\bibitem{saglam2009real}
+Ali Saglam and Alptekin Temizel.
+\newblock Real-time adaptive camera tamper detection for video surveillance.
+\newblock In {\em Advanced Video and Signal Based Surveillance, 2009. AVSS'09.
+  Sixth IEEE International Conference on}, pages 430--435. IEEE, 2009.
+
+\bibitem{ellwart2012camera}
+Damian Ellwart, Piotr Szczuko, and Andrzej Czy{\.z}ewski.
+\newblock Camera sabotage detection for surveillance systems.
+\newblock In {\em Security and Intelligent Information Systems}, pages 45--53.
+  Springer, 2012.
+
+\bibitem{tsesmelis2013tamper}
+Theodore Tsesmelis, Lars Christensen, Preben Fihl, and Thomas~B Moeslund.
+\newblock Tamper detection for active surveillance systems.
+\newblock In {\em Advanced Video and Signal Based Surveillance (AVSS), 2013
+  10th IEEE International Conference on}, pages 57--62. IEEE, 2013.
+
 \bibitem{manetti1976vita}
 Antonio Manetti, Domenico De~Robertis, and Giuliano Tanturli.
 \newblock {\em Vita di Filippo Brunelleschi: preceduta da La novella del
@@ -89,31 +120,6 @@ Cesare Alippi, Giacomo Boracchi, and Manuel Roveri.
 \url{http://www.mitan.it/security-solution/videosorveglianza/sistemi-di-videosorveglianza-e-registrazione/}.
 \newblock Visitato il giorno 09/03/2015.
 
-\bibitem{aksay2007camera}
-Anil Aksay, Alptekin Temizel, and A.~Enis Cetin.
-\newblock Camera tamper detection using wavelet analysis for video
-  surveillance.
-\newblock In {\em Advanced Video and Signal Based Surveillance, 2007. AVSS
-  2007. IEEE Conference on}, pages 558--562. IEEE, 2007.
-
-\bibitem{saglam2009real}
-Ali Saglam and Alptekin Temizel.
-\newblock Real-time adaptive camera tamper detection for video surveillance.
-\newblock In {\em Advanced Video and Signal Based Surveillance, 2009. AVSS'09.
-  Sixth IEEE International Conference on}, pages 430--435. IEEE, 2009.
-
-\bibitem{tsesmelis2013tamper}
-Theodore Tsesmelis, Lars Christensen, Preben Fihl, and Thomas~B Moeslund.
-\newblock Tamper detection for active surveillance systems.
-\newblock In {\em Advanced Video and Signal Based Surveillance (AVSS), 2013
-  10th IEEE International Conference on}, pages 57--62. IEEE, 2013.
-
-\bibitem{harasse2004automated}
-Sebastien Harasse, Laurent Bonnaud, Alice Caplier, and Michel Desvignes.
-\newblock Automated camera dysfunctions detection.
-\newblock In {\em Image Analysis and Interpretation, 2004. 6th IEEE Southwest
-  Symposium on}, pages 36--40. IEEE, 2004.
-
 \bibitem{gil2007automatic}
 Pedro Gil-Jim{\'e}nez, R.~L{\'o}pez-Sastre, Philip Siegmann, Javier
   Acevedo-Rodr{\'\i}guez, and Saturnino Maldonado-Basc{\'o}n.
@@ -127,12 +133,6 @@ Evan Ribnick, Stefan Atev, Osama Masoud, Nikolaos Papanikolopoulos, and Richard
 \newblock Real-time detection of camera tampering.
 \newblock In {\em Video and Signal Based Surveillance, 2006. AVSS'06. IEEE
   International Conference on}, pages 10--10. IEEE, 2006.
-
-\bibitem{ellwart2012camera}
-Damian Ellwart, Piotr Szczuko, and Andrzej Czy{\.z}ewski.
-\newblock Camera sabotage detection for surveillance systems.
-\newblock In {\em Security and Intelligent Information Systems}, pages 45--53.
-  Springer, 2012.
 
 \bibitem{roma2002comparative}
 Nuno Roma, Jos{\'e} Santos-Victor, and Jos{\'e} Tom{\'e}.
