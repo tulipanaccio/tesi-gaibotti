@@ -158,6 +158,9 @@ Il risultato finale \`e una curva che passa per i punti $(0,0)$ e $(1,1)$, che c
 L'area sottesa a ciascuna curva prende il nome di \textit{Area Under Curve} della ROC (AUC) e il suo valore fornisce un elemento di confronto fra tecniche diverse.  
 Dato uno specifico tampering, quindi, possiamo scegliere la tecnica la cui ROC curve ha un valore di AUC pi\`u elevato.
 Inoltre, grazie alle ROC curve, possiamo ricavare il valore ottimale del parametro $\gamma$, cercando quello per cui la curva \`e pi\`u vicina al punto $(0,1)$.
+La scelta pu\`o essere fatta anche ricorrendo a un altro metodo grafico, che consiste nel riportare su un grafico i valori di $\text{RECALL}_\gamma$ e \[\text{SPECIFICITY}_\gamma= \frac{\text{TN}_\gamma}{\text{TN}_\gamma+\text{FP}_\gamma}\]
+al variare del parametro $\gamma$.
+L'intersezione delle due curve determina il valore ottimale del parametro $\gamma$.
 %Per lo spostamento della camera abbiamo che:
 %\begin{itemize}
 %	\item in generale l'approccio "a regioni" ha prestazioni migliori dell'approccio su tutta la scena
@@ -242,7 +245,7 @@ La Figura \ref{fig:syntDispl} mostra un esempio di sequenze concatenate tra loro
 \subsection{Risultati}
 Una volta create tutte le sequenze di tampering abbiamo proceduto ad analizzare il comportamento del nostro algoritmo.\\
 Per le tecniche one-shot abbiamo osservato le prestazioni dell'algoritmo al variare del parametro $\gamma$ utilizzato per la definizione delle soglie in \eqref{eq:soglieGeneriche}.
-In particolare, abbiamo considerato valori di $\gamma$ compresi tra $0$ e $500$.
+In particolare, abbiamo considerato valori di $\gamma$ compresi tra $1$ e $500$.
 Le prestazioni al variare del parametro $\gamma$ sono state riportate su delle ROC curve in modo da poter confrontare tecniche differenti e scegliere il parametro $\gamma$ ottimale.\\ 
 Nella Figura \ref{fig:ROC_displacement} possiamo vedere le ROC curve costruite per valutare gli indicatori utilizzati per individuare uno spostamento della camera.
 Le curve visualizzate sul grafico fanno riferimento a valori di $1-\text{SPECIFICITY}$ compresi tra $0$ e $0.1$, in quanto tutte le tecniche comunque mantengono buone prestazioni senza avere un numero troppo alto di falsi positivi (che rimangono sotto al $5\%$ anche per valori di RECALL prossimi a $1$).

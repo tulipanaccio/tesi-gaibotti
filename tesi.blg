@@ -4,6 +4,7 @@ The top-level auxiliary file: tesi.aux
 A level-1 auxiliary file: frontespizio.aux
 A level-1 auxiliary file: dedica.aux
 A level-1 auxiliary file: sommario.aux
+A level-1 auxiliary file: ringraziamenti.aux
 A level-1 auxiliary file: introduzione.aux
 A level-1 auxiliary file: statoArte.aux
 A level-1 auxiliary file: formulazioneProblema.aux
@@ -23,7 +24,7 @@ Warning--empty journal in sobel19683x3
 Warning--there's a number but no volume in canny1986computational
 You've used 55 entries,
             1791 wiz_defined-function locations,
-            733 strings with 11906 characters,
+            734 strings with 11924 characters,
 and the built_in function-call counts, 12887 in all, are:
 = -- 1248
 > -- 405

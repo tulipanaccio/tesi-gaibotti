@@ -82,9 +82,9 @@ Il problema di individuare, in maniera automatica, eventi di tampering, sia inte
 \end{figure}
 La letteratura scientifica ha prodotto molte soluzioni a riguardo \cite{harasse2004automated,aksay2007camera,saglam2009real,ellwart2012camera,tsesmelis2013tamper}, ma la maggior parte sono legate ad applicazioni in cui le camere operano a framerate \textit{continuo}, solitamente tra i 30 frame per secondo (fps) e i 2 fps.
 Utilizzando frequenze di acquisizione cos\`i alte abbiamo frame consecutivi molto simili fra loro anche in scene molto dinamiche, in cui non avvengono cambiamenti sostanziali all'interno della scena ripresa, a meno di eventi di tampering.
-Ci\`o permette di utilizzare tecniche di \textit{background subtraction} o di confronto tra frame consecutivi, e quidni rilevare l'evento di tampering come un cambiamento sostanziale della scena.
+Ci\`o permette di utilizzare tecniche di \textit{background subtraction} o di confronto tra frame consecutivi, e quindi rilevare l'evento di tampering come un cambiamento sostanziale della scena.
 Queste tecniche, oltre a richiedere capacit\`a di calcolo e di memoria che una camera a basso consumo di potenza difficilmente pu\`o garantire, risultano essere non efficaci nel caso in cui la frequenza con cui i frame vengono acquisiti \`e bassa.
-Infatti, in questo caso, le differenze tra due immagini acquisite consecutivamente sono molto elevate, in quanto entrano in gioco nuovi elementi come i \textit{cambiamenti di luminosit\`a} e la \textit{dinamicit\`a} della scena.\\
+Infatti, in questo caso, le differenze tra due immagini acquisite consecutivamente sono molto elevate, in quanto elementi come i \textit{cambiamenti di luminosit\`a} e la \textit{dinamicit\`a} della scena sono pi\`u marcati rispetto al caso di acquisizione continua.\\
 Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per camere intelligenti (\textit{smart camera}) e a basso consumo, in cui si opera a framerate bassi, minori di 1fps.
 Lo sviluppo dell'algoritmo \`e stato fatto nell'ottica di mantenere al minimo il numero di falsi allarmi lanciati dal sistema.
 Questi ultimi, infatti, comportano un costo dal punto di vista del consumo energetico, in quanto vengono trasmessi sulla rete dei segnali di allarme non necessari.\\

@@ -83,7 +83,7 @@
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Esempio di segmentazione della scena\relax }}{56}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{56}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{56}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Passaggio dallo spazio dei frame allo spazio dei feature vector\relax }}{62}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Passaggio dallo spazio dei frame allo spazio dei feature vector\relax }}{63}
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Descrittori per la segmentazione della scena}}{64}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{64}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{64}
@@ -95,32 +95,32 @@
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{67}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{67}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Camera digitale usata per le acquisizioni}}{71}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Sistema di acquisizione basato su Raspberry Pi}}{72}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Esempi di sequenze con eventi di sfocature create sinteticamente}}{76}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{76}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{76}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{76}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{76}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{76}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Esempio di sequenza con un evento di spostamento della camera creato sinteticamente\relax }}{77}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces ROC curve per gli indicatori di spostamento della camera}}{78}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Camera digitale usata per le acquisizioni}}{73}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sistema di acquisizione basato su Raspberry Pi}}{74}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{74}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{74}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Esempi di sequenze con eventi di sfocature create sinteticamente}}{78}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{78}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{78}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces ROC curve per gli indicatori di sfocatura}}{80}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{78}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{78}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{78}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Esempio di sequenza con un evento di spostamento della camera creato sinteticamente\relax }}{79}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces ROC curve per gli indicatori di spostamento della camera}}{80}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Prestazioni del monitoraggio sequenziale per l'identificazione di sfocature}}{81}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{81}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{81}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{81}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Sequenze con eventi di tampering reali}}{82}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces ROC curve per gli indicatori di sfocatura}}{82}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{82}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{82}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{82}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{82}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{82}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {}}}{82}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Prestazioni del monitoraggio sequenziale per l'identificazione di sfocature}}{83}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{83}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{83}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{83}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Sequenze con eventi di tampering reali}}{84}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{84}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{84}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{84}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{84}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{84}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {}}}{84}
 \addvspace {10\p@ }

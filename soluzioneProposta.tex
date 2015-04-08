@@ -154,7 +154,7 @@ Tra i pi\`u importanti abbiamo:
 %\clearpage
 Questi fenomeni fanno s\`i che i nostri indicatori abbiano una dinamica \textit{difficilmente prevedibile} e che \textit{non siano stazionari}\footnote{Ovvero non sono realizzazioni i.i.d. di una stessa variabile aleatoria}, come possiamo vedere dal comportamento dell'energia del gradiente nella Figura \ref{fig:energy} e da quello dell'energia media della luma nella Figura \ref{fig:luma}.
 I due grafici riportano l'andamento degli indicatori durante una ripresa di $24$ ore, acquisendo un frame ogni minuto, in cui non sono avvenuti eventi di tampering.
-Il fatto che questi indicatori non si comportino in maniera stazionare anche nel caso in cui non avvengano eventi di tampering rende impossibile applicare direttamente le tecniche di CDT come in \cite{alippi2010detecting}. \\
+Il fatto che questi indicatori non si comportino in maniera stazionaria anche nel caso in cui non avvengano eventi di tampering rende impossibile applicare direttamente le tecniche di CDT come in \cite{alippi2010detecting}. \\
 \subsection{Detrending degli indicatori}
 Osservando l'andamento degli indicatori nelle Figure \ref{fig:energy} e \ref{fig:luma} possiamo notare la presenza di componenti ad alta frequenza, dovute dal rumore nelle immagini, e di componenti in bassa frequenza, dovute prevalentemente ai cambi di luce e dalla dinamicit\`a della scena.
 Per eliminare le componenti in bassa frequenza, che sono quelle che rendono i nostri indicatori non prevedibili, possiamo fare un \textit{detrending} di ciascun segnale calcolando la \textit{differenza} tra l'indicatore all'istante corrente e quello precedente.
@@ -215,9 +215,11 @@ Vediamo un esempio di come si comporta il detrending sui nostri indicatori nelle
 %%\clearpage
 Possiamo notare come le fluttuazioni in bassa frequenza vengano rimosse dal detrending, visto che gli indicatori di due frame consecutivi sono pressoch\'e costanti.\\
 Come abbiamo detto prima, lo scopo del monitoraggio di questi indicatori \`e quello di individuare degli eventi di tampering.
-Nelle Figure \ref{fig:defocusPLOT} e \ref{fig:displacementPLOT} possiamo vedere il comportamento dell'energia media di luma e gradiente rispettivamente per un caso di sfocatura e per un caso di spostamento della camera.  
-In particolare, in entrambi i casi l'evento di tampering avviene al frame $1000$\footnote{Il modo in cui sono stati ottenuti gli eventi di tampering \`e descritto nel Capitolo \ref{ProveSperimentali}}.
-Il detrending di questi segnali \`e visualizzato nelle Figure \ref{fig:defocusDetrPLOt} e \ref{fig:displacementDetrPLOT}.\\
+Nelle Figure \ref{fig:energyDefocus} e \ref{fig:lumaDefocus} possiamo vedere il comportamento dell'energia media di gradiente e luma per un caso di sfocatura.  
+Nelle Figure \ref{fig:energyDisplacement} e \ref{fig:lumaDisplacement}, invece, vediamo il comportamento dell'energia media di gradiente e luma per un caso di spostamento della camera.
+%Nelle Figure \ref{fig:defocusPLOT} e \ref{fig:displacementPLOT} possiamo vedere il comportamento dell'energia media di gradiente e luma rispettivamente per un caso di sfocatura e per un caso di spostamento della camera.  
+In particolare, sia nel caso di sfocatura che di spostamento della camera, l'evento di tampering avviene al frame $1000$\footnote{Il modo in cui sono stati ottenuti gli eventi di tampering \`e descritto nel Capitolo \ref{ProveSperimentali}}.
+Il detrending di questi segnali \`e visualizzato rispettivamente nelle Figure \ref{fig:energyDetrDefocus}, \ref{fig:lumaDetrDefocus}, \ref{fig:energyDetrDisplacement} e \ref{fig:lumaDetrDisplacement}.\\
 %\cleartoevenpage
 \begin{figure}[tbp]
 	\centering
@@ -274,12 +276,12 @@ Vanno notate alcune cose:
 	\item Considerando l'evento di sfocatura, possiamo notare (Figura \ref{fig:energyDefocus}) come, in seguito all'evento, oltre ad aver un crollo istantaneo del valore dell'energia del gradiente, abbiamo anche un abbassamento \textit{persistente} della sua varianza.
 	Questo permette di utilizzare tecniche di monitoraggio sequenziale sull'energia del gradiente, con dei CDT sulla varianza, per identificare eventi di sfocatura.
 \end{itemize}
-In definitiva, \`e possibile identificare un evento di tampering andando a monitorare il detrending degli indicatori descritti da \eqref{eq:energyGradient} e \eqref{eq:energyLuma}, utilizzando semplicemente delle soglie in modo da individuare il picco causato dall'evento di tampering.
+In definitiva, \`e possibile identificare un evento di tampering andando a monitorare il detrending degli indicatori descritti da \eqref{eq:energyGradient} e \eqref{eq:energyLuma}, utilizzando semplicemente delle soglie in modo da individuare il picco causato dall'evento di tampering (monitoraggio \textit{one-shot}).
 In particolare possiamo monitorare l'energia media del gradiente per individuare eventi di sfocatura, e l'energia media della luma per individuare eventi di spostamento della camera.
 Inoltre, per rendere pi\`u robusta l'identificazione di sfocature, \`e possibile usare un test sequenziale sull'energia media del gradiente in grado di individuare dei cambiamenti nella varianza.
 Dato il \textit{basso carico computazionale} richiesto da queste tecniche, \`e possibile integrarle su dispositivi embedded a basso consumo di energia.\\
-Dobbiamo fare un'ultima considerazione sullo spostamento della camera.
-Ci possono essere dei casi in cui l'evento \`e difficilmente individuabile monitorando la scena nella sua totalit\`a.
+Dobbiamo fare un'ultima considerazione per quanto riguarda il comportamento degli indicatori.
+Ci possono essere dei casi in cui un evento di tampering risulta difficilmente individuabile anche facendo il detrending degli indicatori.
 %\cleartoevenpage
 \begin{figure}[tbp]
 	\centering
@@ -315,9 +317,11 @@ Questo evento, per\`o, non si traduce, nel segnale $\frac{\partial l}{\partial t
 Questo problema capita perch\'e stiamo monitorando l'energia media della luma calcolata sulla \textit{totalit\`a} della scena.
 Possiamo avere situazioni, come nel caso della Figura \ref{fig:displacementBRUTTO}, in cui lo spostamento della camera non determina un cambiamento sostanziale nella luminosit\`a media della scena.\\
 Questo problema viene meno se consideriamo il contributo dell'energia della luma mediato non sulla totalit\`a della scena, bens\`i \textit{separatamente} su \textit{regioni} specifiche.
-Infatti, se consideriamo un'area particolare della scena, come ad esempio quella occupata dal palazzo nella Figura \ref{fig:displacementORIGINALE1}, durante uno spostamento della camera la variazione della luma mediata solo sui pixel appartenenti a quella regione sar\`a pi\`u marcata rispetto a quella della luminosit\`a mediata su tutta l'immagine.
+Infatti, se consideriamo un'area particolare della scena, come ad esempio quella occupata dal palazzo nella Figura \ref{fig:displacementORIGINALE1}, durante uno spostamento della camera la variazione della luma mediata solo sui pixel appartenenti a quella regione sar\`a pi\`u marcata rispetto a quella della luminosit\`a mediata su tutta l'immagine.\\
+La stessa considerazione pu\`o essere fatta anche per quanto riguarda gli eventi di sfocatura, soprattutto nel caso in cui la scena monitorata sia poco dettagliata.
+In questo caso, infatti, abbiamo che l'energia media del gradiente possiede dei valori bassi anche in assenza di eventi di tampering.\\
 %Nella Figura  \ref{fig:testiDISPLACEMENT1}, tra il frame \ref{fig:displacementORIGINALE1} e il frame \ref{fig:displacementSPOSTATO1}, l'area occupata dal palazzo cambia il suo contenuto riprendendo un pezzo di cielo.
-Questo ci ha suggerito di inserire una fase di \textit{segmentazione} in cui vengono estratte le regioni della scena che la camera deve inquadrare.
+Queste considerazioni ci hanno suggerito di inserire una fase di \textit{segmentazione} in cui vengono estratte le regioni della scena che la camera deve inquadrare.
  \begin{figure}[tb]
  	\centering
  	\subfigure[]{\label{fig:testiSCENA} \includegraphics[width=6cm]{./pictures/testiORIGINALE}}
@@ -329,8 +333,8 @@ Un esempio \`e illustrato nella Figura \ref{fig:testiSEGMENTAZIONE}.
 Nel Paragrafo \ref{segmentazione} vedremo in dettaglio come vengono estratte le regioni dalla scena.
 \section{Algoritmo di identificazione di sfocature e di spostamenti della camera}
 \label{monitoraggio}
-In base alle considerazioni fatte nel Paragrafo \ref{indicatori} possiamo dividere l'algoritmo di tampering detection in due \textit{thread}:
-il primo in grado di individuare la presenza di sfocature, il secondo lo spostamento della camera.
+In base alle considerazioni fatte nel Paragrafo \ref{indicatori} possiamo dividere l'algoritmo di tampering detection in due parti:
+la prima in grado di individuare la presenza di sfocature, la seconda lo spostamento della camera.
 In particolare la presenza di sfocature pu\`o essere identificata monitorando l'energia media del gradiente, descritta in \eqref{eq:energyGradient}, mentre l'evento di spostamento della camera pu\`o essere identificato monitorando l'energia media della luma, descritta in \eqref{eq:energyLuma}.\\
 In questo paragrafo illustriamo come sono state sviluppate le due tecniche.
 \subsection{Identificazione delle sfocature}
@@ -375,7 +379,9 @@ L'Algoritmo \ref{alg:DEFOCUS} mostra il funzionamento, ad alto livello, dell'alg
 	\label{alg:DEFOCUS}
 \end{algorithm}
 Dato che la sfocatura causa un crollo dell'energia media del gradiente e anche della sua varianza, \`e possibile lanciare due monitoraggi in grado di identificare ciascuno di questi cambiamenti, uno di tipo \textit{one-shot} e l'altro di tipo \textit{sequenziale}.\\
-Il monitoraggio one-shot prevede un'analisi del detrending dell'energia media del gradiente separatamente per ciascuna regione estratta dall'algoritmo di segmentazione, in modo da identificare il picco dovuto al cambiamento (si veda la Figura \ref{fig:defocusPLOT}).
+Il monitoraggio one-shot prevede un'analisi del detrending dell'energia media del gradiente separatamente per ciascuna regione estratta dall'algoritmo di segmentazione, in modo da identificare il picco dovuto al cambiamento (si veda la Figura \ref{fig:defocusPLOT}).\\
+Una prima fase dell'algoritmo consiste nella \textit{segmentazione} della scena inquadrata dalla camera in un insieme di regioni $\{R_k\}, k=1,\dots,K$.
+Il metodo con cui vengono estratte queste regioni verr\`a analizzato in dettaglio nel paragrafo \ref{segmentazione}. \\
 Facendo riferimento a \eqref{eq:energyGradient} e \eqref{eq:gradientDetr} possiamo derivare le formule per il calcolo dell'energia media del gradiente e del suo detrending per una specifica regione $R_k$:
 \begin{equation}
 \label{eq:gradientRegions}
@@ -412,6 +418,39 @@ Il monitoraggio sequenziale viene fatto utilizzando un CDT basato su ICI-rule\fo
 
 \subsection{Identificazione degli spostamenti della camera}
 \label{monitoraggioDISPL}
+\begin{algorithm}[tp]
+	% \SetAlgoNoLine
+	\LinesNumbered
+	\SetAlgoNlRelativeSize{0}
+	\SetNlSty{small}{}{.}
+	\textbf{Configurazione}:\\
+	\lnl{DISPL-Tr1} Estraggo le regioni $\{R_k\}, k=1,\dots,K$  \\
+	\lnl{DISPL-Tr2} \For{$t=1,\dots,T_{o}$}
+	{	\lnl{DISPL-Tr3} Estraggo il frame $z_t$ \\
+		\lnl{DISPL-Tr4} \For{$k=1,\dots,K$}{
+			\lnl{DISPL-Tr5} Calcolo $l^k(t)$, $\frac{\partial l^k}{\partial t}(t)$ per la regione $R_k$\\
+		}
+	}
+	\lnl{DISPL-Tr6} \For{$k=1,\dots,K$}{
+		\lnl{DISPL-Tr7} Definisco le soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$\\
+	}
+	\textbf{Fase operativa}:\\
+	\lnl{DISPL-Test1} \For{$t=T_{o},\dots,\infty$}{
+		\lnl{DISPL-Test2} Estraggo il frame $z_t$ \\
+		\lnl{DISPL-Test3} $n = 0$ \\
+		\lnl{DISPL-Test4} \For{$k=1,\dots,K$}{
+			\lnl{DISPL-Test5} Calcolo $l^k(t)$, $\frac{\partial l^k}{\partial t}(t)$ per la regione $R_k$\\
+			\lnl{DISPL-Test6} \If{$\frac{\partial l^k}{\partial t}(t) < \Gamma_{min}^k \vee \frac{\partial l^k}{\partial t}(t) > \Gamma_{max}^k $}{
+				\lnl{DISPL-Test7} $n=n+1$\\
+			}
+		}
+		\lnl{DISPL-Test8} \If{$n\geq K-1$}{
+			\lnl{DISPL-Test9} $z_t$ \`e un frame in cui \`e avvenuto uno spostamento della camera\\
+		}
+	}   
+	\caption{Algoritmo di identificazione di spostamenti della camera}
+	\label{alg:DISPL}
+\end{algorithm}
 L'Algoritmo \ref{alg:DISPL} mostra il funzionamento, ad alto livello, dell'algoritmo per identificare un evento di spostamento della camera.\\
 Una prima fase dell'algoritmo consiste nella \textit{segmentazione} della scena inquadrata dalla camera in un insieme di regioni $\{R_k\}, k=1,\dots,K$.
 Il metodo con cui vengono estratte queste regioni verr\`a analizzato in dettaglio nel paragrafo \ref{segmentazione}. \\
@@ -450,39 +489,7 @@ Se consideriamo, ad  esempio, l'evento di spostamento nella Figura \ref{fig:disp
 In generale, quindi, possiamo considerare un monitoraggio indipendente di ogni sequenza $\{\frac{\partial l^k}{\partial t}\}$ per $k=1,\dots,K$.
 Se, all'istante $T^*$, abbiamo che, per $K-1$ regioni sulle $K$ totali, il valore di $\frac{\partial l^k}{\partial t}(T^*)$ \`e maggiore di $\Gamma_{max}^k$ o minore di $\Gamma_{min}^k$, allora possiamo considerare avvenuto un evento di sfocatura nel frame $z_{T^*}$. \\ 
 Dato che l'evento di spostamento della camera, in genere, non comporta un cambiamento persistente nella varianza dell'energia media della luma, non ha senso aggiungere un monitoraggio sequenziale come abbiamo fatto nell'Algoritmo \ref{alg:DEFOCUS}.
-\begin{algorithm}[tp]
-	% \SetAlgoNoLine
-	\LinesNumbered
-	\SetAlgoNlRelativeSize{0}
-	\SetNlSty{small}{}{.}
-	\textbf{Configurazione}:\\
-	\lnl{DISPL-Tr1} Estraggo le regioni $\{R_k\}, k=1,\dots,K$  \\
-	\lnl{DISPL-Tr2} \For{$t=1,\dots,T_{o}$}
-	{	\lnl{DISPL-Tr3} Estraggo il frame $z_t$ \\
-		\lnl{DISPL-Tr4} \For{$k=1,\dots,K$}{
-			\lnl{DISPL-Tr5} Calcolo $l^k(t)$, $\frac{\partial l^k}{\partial t}(t)$ per la regione $R_k$\\
-		}
-	}
-	\lnl{DISPL-Tr6} \For{$k=1,\dots,K$}{
-		\lnl{DISPL-Tr7} Definisco le soglie $\Gamma_{min}^k$ e $\Gamma_{max}^k$\\
-	}
-	\textbf{Fase operativa}:\\
-	\lnl{DISPL-Test1} \For{$t=T_{o},\dots,\infty$}{
-		\lnl{DISPL-Test2} Estraggo il frame $z_t$ \\
-		\lnl{DISPL-Test3} $n = 0$ \\
-		\lnl{DISPL-Test4} \For{$k=1,\dots,K$}{
-			\lnl{DISPL-Test5} Calcolo $l^k(t)$, $\frac{\partial l^k}{\partial t}(t)$ per la regione $R_k$\\
-			\lnl{DISPL-Test6} \If{$\frac{\partial l^k}{\partial t}(t) < \Gamma_{min}^k \vee \frac{\partial l^k}{\partial t}(t) > \Gamma_{max}^k $}{
-				\lnl{DISPL-Test7} $n=n+1$\\
-			}
-		}
-		\lnl{DISPL-Test8} \If{$n\geq K-1$}{
-			\lnl{DISPL-Test9} $z_t$ \`e un frame in cui \`e avvenuto uno spostamento della camera\\
-		}
-	}   
-	\caption{Algoritmo di identificazione di spostamenti della camera}
-	\label{alg:DISPL}
-\end{algorithm}
+
 \section{Algoritmo di segmentazione}
 \label{segmentazione}
 In molte applicazioni di visione artificiale \`e spesso necessario estrarre, da un'immagine o un video, una o pi\`u regioni specifiche. Quando si vanno a trattare dei video, i tipi di segmentazione che possono essere applicati sono solitamente due:

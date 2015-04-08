@@ -1,6 +1,7 @@
 \select@language {italian}
 \select@language {italian}
 \contentsline {chapter}{Sommario}{iii}
+\contentsline {chapter}{Ringraziamenti}{v}
 \contentsline {chapter}{\numberline {1}Introduzione}{3}
 \contentsline {chapter}{\numberline {2}Stato dell'arte}{9}
 \contentsline {section}{\numberline {2.1}Modello della camera}{9}
@@ -36,24 +37,24 @@
 \contentsline {subsection}{\numberline {4.1.2}Misura dello spostamento della camera}{45}
 \contentsline {subsection}{\numberline {4.1.3}Comportamento degli indicatori nel tempo}{48}
 \contentsline {subsection}{\numberline {4.1.4}Detrending degli indicatori}{49}
-\contentsline {section}{\numberline {4.2}Algoritmo di identificazione di sfocature e di spostamenti della camera}{56}
+\contentsline {section}{\numberline {4.2}Algoritmo di identificazione di sfocature e di spostamenti della camera}{57}
 \contentsline {subsection}{\numberline {4.2.1}Identificazione delle sfocature}{57}
 \contentsline {subsection}{\numberline {4.2.2}Identificazione degli spostamenti della camera}{59}
-\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{60}
-\contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{62}
-\contentsline {subsection}{\numberline {4.3.2}Partizionamento dei feature vector per l'estrazione delle regioni}{64}
-\contentsline {subsection}{\numberline {4.3.3}Separazione e rifinitura delle regioni}{67}
-\contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{69}
-\contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{69}
-\contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{70}
-\contentsline {subsection}{\numberline {5.2.1}Eventi di tampering}{72}
-\contentsline {subsection}{\numberline {5.2.2}Definizione dei ground truth}{73}
-\contentsline {section}{\numberline {5.3}Figure di merito}{73}
-\contentsline {subsection}{\numberline {5.3.1}Creazione delle ROC curve per il monitoraggio one-shot}{73}
-\contentsline {subsection}{\numberline {5.3.2}Metriche per il monitoraggio sequenziale}{75}
-\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{75}
-\contentsline {subsection}{\numberline {5.4.1}Creazione del tampering}{75}
-\contentsline {subsection}{\numberline {5.4.2}Risultati}{77}
-\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{81}
-\contentsline {chapter}{\numberline {6}Conclusioni e direzioni future di ricerca}{83}
-\contentsline {chapter}{Bibliografia}{85}
+\contentsline {section}{\numberline {4.3}Algoritmo di segmentazione}{61}
+\contentsline {subsection}{\numberline {4.3.1}Calcolo dei descrittori utilizzati per la segmentazione}{63}
+\contentsline {subsection}{\numberline {4.3.2}Partizionamento dei feature vector per l'estrazione delle regioni}{65}
+\contentsline {subsection}{\numberline {4.3.3}Separazione e rifinitura delle regioni}{68}
+\contentsline {chapter}{\numberline {5}Prove sperimentali e valutazione}{71}
+\contentsline {section}{\numberline {5.1}Metodi considerati e obiettivi}{71}
+\contentsline {section}{\numberline {5.2}Acquisizione dei dataset}{72}
+\contentsline {subsection}{\numberline {5.2.1}Eventi di tampering}{74}
+\contentsline {subsection}{\numberline {5.2.2}Definizione dei ground truth}{75}
+\contentsline {section}{\numberline {5.3}Figure di merito}{75}
+\contentsline {subsection}{\numberline {5.3.1}Creazione delle ROC curve per il monitoraggio one-shot}{75}
+\contentsline {subsection}{\numberline {5.3.2}Metriche per il monitoraggio sequenziale}{77}
+\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{77}
+\contentsline {subsection}{\numberline {5.4.1}Creazione del tampering}{79}
+\contentsline {subsection}{\numberline {5.4.2}Risultati}{79}
+\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{84}
+\contentsline {chapter}{\numberline {6}Conclusioni e direzioni future di ricerca}{85}
+\contentsline {chapter}{Bibliografia}{87}
