@@ -15,6 +15,7 @@
 \citation{gpu}
 \citation{raspbian}
 \citation{picamera}
+\citation{ilmeteo}
 \citation{curl}
 \newlabel{eq:frameDiff}{{5.1}{70}}
 \newlabel{eq:frameDiffReg}{{5.2}{70}}
@@ -42,38 +43,75 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.4}Esperimento 1: tampering sintetico}{75}}
 \newlabel{esp1}{{5.4}{75}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Creazione del tampering}{75}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Risultati}{76}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{76}}
-\newlabel{esp2}{{5.5}{76}}
-\newlabel{fig:synt2}{{5.3(a)}{77}}
-\newlabel{sub@fig:synt2}{{(a)}{77}}
-\newlabel{fig:synt3}{{5.3(b)}{77}}
-\newlabel{sub@fig:synt3}{{(b)}{77}}
-\newlabel{fig:synt4}{{5.3(c)}{77}}
-\newlabel{sub@fig:synt4}{{(c)}{77}}
-\newlabel{fig:synt5}{{5.3(d)}{77}}
-\newlabel{sub@fig:synt5}{{(d)}{77}}
-\newlabel{fig:synt6}{{5.3(e)}{77}}
-\newlabel{sub@fig:synt6}{{(e)}{77}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Esempi di sequenze con eventi di sfocature create sinteticamente}}{77}}
-\newlabel{fig:syntDef}{{5.3}{77}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{77}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{77}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{77}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{77}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {}}}{77}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Esempio di sequenza con un evento di spostamento della camera creato sinteticamente\relax }}{78}}
-\newlabel{fig:syntDispl}{{5.4}{78}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Curve ROC per gli indicatori di spostamento della camera\relax }}{78}}
-\newlabel{fig:ROC_displacement}{{5.5}{78}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Curve ROC per gli indicatori di sfocatura\relax }}{79}}
-\newlabel{fig:ROC_defocus}{{5.6}{79}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{80}}
-\newlabel{fig:DD}{{5.7}{80}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{81}}
-\newlabel{fig:FPR}{{5.8}{81}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{82}}
-\newlabel{fig:FNR}{{5.9}{82}}
+\newlabel{fig:synt2}{{5.3(a)}{76}}
+\newlabel{sub@fig:synt2}{{(a)}{76}}
+\newlabel{fig:synt3}{{5.3(b)}{76}}
+\newlabel{sub@fig:synt3}{{(b)}{76}}
+\newlabel{fig:synt4}{{5.3(c)}{76}}
+\newlabel{sub@fig:synt4}{{(c)}{76}}
+\newlabel{fig:synt5}{{5.3(d)}{76}}
+\newlabel{sub@fig:synt5}{{(d)}{76}}
+\newlabel{fig:synt6}{{5.3(e)}{76}}
+\newlabel{sub@fig:synt6}{{(e)}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Esempi di sequenze con eventi di sfocature create sinteticamente}}{76}}
+\newlabel{fig:syntDef}{{5.3}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{76}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {}}}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Esempio di sequenza con un evento di spostamento della camera creato sinteticamente\relax }}{77}}
+\newlabel{fig:syntDispl}{{5.4}{77}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Risultati}{77}}
+\newlabel{fig:ROC_displacement}{{5.5(a)}{78}}
+\newlabel{sub@fig:ROC_displacement}{{(a)}{78}}
+\newlabel{fig:sceltaGammaDisplacement}{{5.5(b)}{78}}
+\newlabel{sub@fig:sceltaGammaDisplacement}{{(b)}{78}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces ROC curve per gli indicatori di spostamento della camera}}{78}}
+\newlabel{fig:oneShotDisplacement}{{5.5}{78}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{78}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{78}}
+\newlabel{fig:ROC_defocus}{{5.6(a)}{80}}
+\newlabel{sub@fig:ROC_defocus}{{(a)}{80}}
+\newlabel{fig:sceltaGammaDefocus}{{5.6(b)}{80}}
+\newlabel{sub@fig:sceltaGammaDefocus}{{(b)}{80}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces ROC curve per gli indicatori di sfocatura}}{80}}
+\newlabel{fig:oneShotDefocus}{{5.6}{80}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{80}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{80}}
+\newlabel{fig:DD}{{5.7(a)}{81}}
+\newlabel{sub@fig:DD}{{(a)}{81}}
+\newlabel{fig:FPR}{{5.7(b)}{81}}
+\newlabel{sub@fig:FPR}{{(b)}{81}}
+\newlabel{fig:FNR}{{5.7(c)}{81}}
+\newlabel{sub@fig:FNR}{{(c)}{81}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Prestazioni del monitoraggio sequenziale per l'identificazione di sfocature}}{81}}
+\newlabel{fig:graficiSeq}{{5.7}{81}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{81}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{81}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{81}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Esperimento 2: tampering reale}{81}}
+\newlabel{esp2}{{5.5}{81}}
+\newlabel{fig:realBass1}{{5.8(a)}{82}}
+\newlabel{sub@fig:realBass1}{{(a)}{82}}
+\newlabel{fig:realBass2}{{5.8(b)}{82}}
+\newlabel{sub@fig:realBass2}{{(b)}{82}}
+\newlabel{fig:realBass3}{{5.8(c)}{82}}
+\newlabel{sub@fig:realBass3}{{(c)}{82}}
+\newlabel{fig:realParco1}{{5.8(d)}{82}}
+\newlabel{sub@fig:realParco1}{{(d)}{82}}
+\newlabel{fig:realParco2}{{5.8(e)}{82}}
+\newlabel{sub@fig:realParco2}{{(e)}{82}}
+\newlabel{fig:realParco3}{{5.8(f)}{82}}
+\newlabel{sub@fig:realParco3}{{(f)}{82}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Sequenze con eventi di tampering reali}}{82}}
+\newlabel{fig:realBass}{{5.8}{82}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{82}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{82}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{82}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{82}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {}}}{82}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {}}}{82}}
 \@setckpt{proveSperimentali}{
 \setcounter{page}{83}
 \setcounter{equation}{4}
@@ -90,7 +128,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{9}
+\setcounter{figure}{8}
 \setcounter{table}{0}
 \setcounter{AlgoLine}{16}
 \setcounter{algocfline}{2}

@@ -23,7 +23,7 @@ Nell'ultimo decennio le reti senza fili di sensori multimediali, o \textit{wirel
 Ci\`o \`e avvenuto sia in ambito industriale, per i molteplici scenari in cui questo tipo di reti pu\`o essere applicato, che in ambito accademico, dati i numerosi problemi rimasti ancora aperti.\\
 %accademico che industriale, dati i molti problemi rimasti ancora aperti in questo settore.\\
 %L'interesse, inoltre, \`e dato dagli infiniti scenari applicativi che le WMSN permettono.
-Un esempio di scenario applicativo per le WMSN \`e la rete di sensori per il monitoraggio video (\textit{multimedia surveillance sensor networks}) (MSSN), dove abbiamo la presenza di nodi in grado di acquisire ed elaborare segnali video e di comunicare con gli altri apparati della rete (gateway, applicazioni client, altri sensori, ...).
+Un esempio di scenario applicativo per le WMSN \`e la rete di sensori per il monitoraggio video (\textit{multimedia surveillance sensor networks}) (MSSN), dove sono presenti dei nodi in grado di acquisire ed elaborare segnali video e di comunicare con gli altri apparati della rete (gateway, applicazioni client, altri sensori, ...).
 \begin{figure}
 \centering
 \includegraphics[width=13cm]{pictures/WMSN}
@@ -45,16 +45,16 @@ Questa ottimizzazione del consumo di energia \`e dovuta innanzitutto alla possib
 %Inoltre, dato che la trasmissione delle immagini sulla rete richiede molta energia, è auspicabile un elaborazione locale per determinare se vale la pena accendere la radio e trasmettere.
 Un altro fattore che determina il consumo della batteria \`e il \textit{contesto applicativo} in cui la camera opera.
 Ad esempio, il \textit{framerate}, ovvero la frequenza con cui la camera acquisisce le immagini, ha degli impatti molto alti sul consumo di potenza del dispositivo.
-Per alcune applicazioni di monitoraggio video potrebbe non essere necessario avere un'acquisizione \textit{continua}, ovvero tra i $30$ e i $2$ \textit{frame per secondo} (fps), da parte della camera, ma basterebbe un'acquisizione ed elaborazione a framerate molto pi\`u bassi, ad esempio un frame ogni minuto.
+Per alcune applicazioni di monitoraggio video potrebbe non essere necessario avere un'acquisizione \textit{continua}, ovvero tra i $30$ e i $2$ \textit{frame per secondo} (fps), da parte della camera, ma basterebbe un'acquisizione ed elaborazione a framerate molto pi\`u bassi, ad esempio un frame ogni minuto.\\
 %A volte per le finalit\`a per cui si colloca la telecamera potrebbe non servire l'acquisizione a 30fps ma basterebbe un'acquisizione ed un'elaborazione a framerate molto più bassi, ad esempio 1 frame al minuto. Eventualmente aggiungendo che la trasmissione dei dati sulla rete richiede molta energia e quindi un processing locale per determinare se vale la pena accendere la radio e trasmette è auspicambile.
 %Acquisire $30$ frame ogni secondo, per esempio, fa consumare al dispositivo molta pi\`u corrente rispetto ad acquisire un frame ogni minuto.\\
 %
 %questo è un po' banale. Girerei il problema nel seguente modo: a volte per le finalità per cui si colloca la telecamera potrebbe non servire l'acquisizione a 30fps ma basterebbe un'acquisizione ed un'elaborazione a framerate molto più bassi, ad esempio 1 frame al minuto. Eventualmente aggiungendo che la trasmissione dei dati sulla rete richiede molta energia e quindi un processing locale per determinare se vale la pena accendere la radio e trasmette è auspicambile.
 %
 %In generale, uno potrebbe dire.. beh ma che applicazioni girano su questa camera che acquisice ad 1frame al minuto e che uno potrebbe manomettere? Questa è una cosa da chiarire, dicendo che l'acquisizione potrebbe essere di default a basso framerate (sotto 1 fps) ed eventualmente triggerata da altri sensori del dispositivo (es sensori di prossimtà) o da altri dispositivi nella rete.
-In questa tesi affrontiamo un particolare problema legato ai sistemi di monitoraggio video, considerando lo scenario in cui le camere operino a framerate \textit{bassi}, minori di $1$fps.
+In questo lavoro di tesi affrontiamo un particolare problema legato ai sistemi di monitoraggio video, e consideriamo il caso particolare in cui vengano impiegate camere intelligenti a basso consumo energetico.\\
 Uno dei maggiori problemi quando si ha a che fare con sistemi di monitoraggio video consiste nell'identificazione di eventi in grado di compromettere la corretta ripresa della scena da parte del sensore.
-Eventi di questo tipo sono, ad esempio, lo spostamento della camera, oppure cambio di messa a fuoco della scena.\\
+Eventi di questo tipo sono, ad esempio, lo spostamento della camera, oppure il cambio di messa a fuoco della scena.\\
 Questo tipo di eventi viene classificato generalmente sotto il nome di \textit{tampering}, dall'inglese \textit{manomissione}.
 Il termine deriva dal fatto che, di solito, questi eventi sono legati ad azioni intenzionali atte a impedire che la camera riprenda correttamente la scena.
 Pu\`o succedere, ad esempio, che un ladro copra l'obiettivo della camera con qualche oggetto, in modo da poter agire indisturbato, oppure che la sposti in modo che riprenda qualcos'altro.
@@ -85,9 +85,15 @@ Utilizzando frequenze di acquisizione cos\`i alte abbiamo frame consecutivi molt
 Ci\`o permette di utilizzare tecniche di \textit{background subtraction} o di confronto tra frame consecutivi, e quidni rilevare l'evento di tampering come un cambiamento sostanziale della scena.
 Queste tecniche, oltre a richiedere capacit\`a di calcolo e di memoria che una camera a basso consumo di potenza difficilmente pu\`o garantire, risultano essere non efficaci nel caso in cui la frequenza con cui i frame vengono acquisiti \`e bassa.
 Infatti, in questo caso, le differenze tra due immagini acquisite consecutivamente sono molto elevate, in quanto entrano in gioco nuovi elementi come i \textit{cambiamenti di luminosit\`a} e la \textit{dinamicit\`a} della scena.\\
-Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per camere intelligenti (\textit{smart camera}) e a basso consumo, cercando di mantenere al minimo il numero di falsi allarmi lanciati dal sistema.
+Lo scopo della tesi \`e lo sviluppo di un algoritmo di tampering detection per camere intelligenti (\textit{smart camera}) e a basso consumo, in cui si opera a framerate bassi, minori di 1fps.
+Lo sviluppo dell'algoritmo \`e stato fatto nell'ottica di mantenere al minimo il numero di falsi allarmi lanciati dal sistema.
 Questi ultimi, infatti, comportano un costo dal punto di vista del consumo energetico, in quanto vengono trasmessi sulla rete dei segnali di allarme non necessari.\\
-La soluzione che proponiamo \`e quella di monitorare degli indicatori a basso costo computazionale, estratti dalle singole immagini, attraverso tecniche \textit{one-shot} e \textit{sequenziali}, in modo da identificare l'istante in cui avviene l'evento di tampering.\\
+La soluzione che proponiamo \`e quella di monitorare degli indicatori a basso costo computazionale, estratti dalle singole immagini, in modo da identificare l'istante in cui avviene l'evento di tampering.
+Le tecniche di monitoraggio utilizzate sono due:
+\begin{itemize}
+	\item \textbf{one-shot}, in cui verifichiamo che il valore dell'indicatore, in ogni istante, stia all'interno di un intervallo definito da due \textit{soglie}, calcolate a partire da un insieme di osservazioni di \textit{training};
+	\item \textbf{sequenziale}, in cui verifichiamo la \textit{stazionariet\`a} dell'indicatore nel tempo, ovvero l'ipotesi che le osservazioni siano \textit{indipendenti e identicamente distribuite} (i.i.d.).
+\end{itemize}
 Per garantire alte prestazioni e limitare il numero di falsi allarmi, abbiamo deciso di applicare questo monitoraggio su alcune \textit{regioni adattative} estratte dalla scena.
 %Questi indicatori, per\`o, non sono definiti su tutta l'immagine, ma su \textit{regioni adattative} estratte dalla scena.
 A questo scopo abbiamo sviluppato un \textit{algoritmo di segmentazione} che permetta di estrarre queste regioni.

@@ -2,7 +2,7 @@
 \label{Conclusioni}
 \thispagestyle{empty}
 
-\noindent In questo lavoro di tesi abbiamo presentato una soluzione al problema, nei sistemi di monitoraggio video, di identificare particolari eventi che possano compromettere la corretta ripresa della scena, a cui si fa riferimento con il termine tampering.
+\noindent In questo lavoro di tesi abbiamo presentato una soluzione al problema, riguardante sistemi di monitoraggio video, di identificare particolari eventi che possano compromettere la corretta ripresa della scena, a cui si fa riferimento con il termine tampering.
 In particolare abbiamo considerato l'utilizzo di camere intelligenti alimentate a batteria e lo scenario in cui la frequenza di acquisizione delle immagini da parte del sensore sia bassa, ad esempio un frame ogni minuto.\\
 Abbiamo visto come il fatto di considerare dei framerate bassi complichi l'identificazione di eventi di tampering, in quanto le differenze tra frame consecutivi sono molto pi\`u elevate rispetto al caso di acquisizione continua. 
 Inoltre, il fatto di avere algoritmi a bassa complessit\`a computazionale non ci permette di utilizzare degli indicatori troppo onerosi da estrarre dalle immagini.\\
@@ -13,7 +13,12 @@ Un monitoraggio sequenziale sulla varianza dell'energia media del gradiente, ino
 Gli sviluppi futuri riguarderanno il miglioramento dell'algoritmo e la sua integrazione su un dispositivo.
 Per quanto riguarda l'identificazione di sfocature la ricerca dovr\`a essere condotta su come combinare il monitoraggio sequenziale con quello one-shot.
 Per come \`e stato realizzato l'algoritmo al momento, infatti, le due tecniche sono eseguite in cascata, e il primo che identifica un cambiamento solleva l'allarme.
-Dato che CONTINUARE!!!\\
-Per quanto riguarda l'identificazione di spostamenti della camera un ulteriore sviluppo potrebbe riguardare l'integrazione delle informazioni estratte dalle immagini della camera con i dati estratti da dispositivi MEMS (\textit{Micro Electro-Mechanical Systems}), come \textit{sensori inerziali} o \textit{giroscopi}, in modo da poter validare gli allarmi ricevuti dalla camera e, quindi, ridurre ulteriormente i falsi allarmi.
+Combinare le due tecniche, ad esempio utilizzando il monitoraggio sequenziale come \textit{validazione} degli allarmi lanciati dal monitoraggio one-shot, potrebbe portare a un miglioramento delle prestazioni, riducendo il numero di falsi allarmi e, di conseguenza, il consumo energetico dovuto alla trasmissione di segnali inutili.\\
+Per quanto riguarda l'identificazione di spostamenti della camera un ulteriore sviluppo potrebbe riguardare l'integrazione delle informazioni estratte dalle immagini della camera con i dati estratti da dispositivi MEMS (\textit{Micro Electro-Mechanical Systems}), in modo da poter validare gli allarmi ricevuti dalla camera.
+Uno scenario possibile, ad esempio, potrebbe essere quello in cui abbiamo dei sensori inerziali che forniscono un'acquisizione \textit{continua} di dati accelerometrici e giroscopici. 
+I dati estratti dalla camera possono essere utilizzati come un'\textit{informazione aggiuntiva} per validare un evento di spostamento della camera identificato dal sensore inerziale.\\
+La fase finale dello sviluppo dovrebbe consistere nell'integrazione dell'algoritmo su un prototipo di smart camera di \textit{STMicroelectorics}.
+L'integrazione passa prima di tutto da una riscrittura del codice MATLAB in C, rispettando alcuni vincoli di ottimizzazione del codice.
+In seguito sar\`a possibile accelerare alcune funzioni direttamente in hardware, in modo da aumentare le prestazioni e ridurre il consumo energetico.
 
 

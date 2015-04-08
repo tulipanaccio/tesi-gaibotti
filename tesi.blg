@@ -21,45 +21,45 @@ Warning--empty journal in roma2002comparative
 Warning--empty journal in bracewell1978fourier
 Warning--empty journal in sobel19683x3
 Warning--there's a number but no volume in canny1986computational
-You've used 54 entries,
+You've used 55 entries,
             1791 wiz_defined-function locations,
-            731 strings with 11864 characters,
-and the built_in function-call counts, 12797 in all, are:
-= -- 1242
-> -- 404
+            733 strings with 11906 characters,
+and the built_in function-call counts, 12887 in all, are:
+= -- 1248
+> -- 405
 < -- 21
-+ -- 159
++ -- 160
 - -- 105
 * -- 720
-:= -- 1765
-add.period$ -- 155
-call.type$ -- 54
+:= -- 1771
+add.period$ -- 156
+call.type$ -- 55
 change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 59
-duplicate$ -- 635
-empty$ -- 1363
+cite$ -- 60
+duplicate$ -- 640
+empty$ -- 1381
 format.name$ -- 105
-if$ -- 3046
+if$ -- 3071
 int.to.chr$ -- 0
-int.to.str$ -- 54
+int.to.str$ -- 55
 missing$ -- 48
-newline$ -- 252
+newline$ -- 255
 num.names$ -- 43
-pop$ -- 233
+pop$ -- 239
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 406
+skip$ -- 414
 stack$ -- 0
 substring$ -- 929
-swap$ -- 213
+swap$ -- 214
 text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
 while$ -- 129
-width$ -- 56
-write$ -- 536
+width$ -- 57
+write$ -- 541
 (There was 1 error message)

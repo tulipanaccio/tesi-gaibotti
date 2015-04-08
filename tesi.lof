@@ -99,16 +99,28 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Sistema di acquisizione basato su Raspberry Pi}}{72}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{72}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{72}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Esempi di sequenze con eventi di sfocature create sinteticamente}}{77}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{77}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{77}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{77}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{77}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{77}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Esempio di sequenza con un evento di spostamento della camera creato sinteticamente\relax }}{78}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Curve ROC per gli indicatori di spostamento della camera\relax }}{78}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Curve ROC per gli indicatori di sfocatura\relax }}{79}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{80}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{81}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente\relax }}{82}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Esempi di sequenze con eventi di sfocature create sinteticamente}}{76}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{76}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{76}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{76}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{76}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{76}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Esempio di sequenza con un evento di spostamento della camera creato sinteticamente\relax }}{77}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces ROC curve per gli indicatori di spostamento della camera}}{78}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{78}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{78}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces ROC curve per gli indicatori di sfocatura}}{80}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{80}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{80}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Prestazioni del monitoraggio sequenziale per l'identificazione di sfocature}}{81}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{81}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{81}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{81}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Sequenze con eventi di tampering reali}}{82}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{82}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{82}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{82}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{82}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{82}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {}}}{82}
 \addvspace {10\p@ }

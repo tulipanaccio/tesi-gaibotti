@@ -64,8 +64,8 @@ Un primo dataset \`e stato acquisito utilizzando una consumer camera \textit{Nik
 \caption[Camera digitale usata per le acquisizioni]{Camera digitale usata per le acquisizioni}
 \label{fig:digitalCamera}
 \end{figure}
-Questo primo insieme \`e stato utilizzato come \textit{benchmark} per l'algoritmo di segmentazione, ed \`e costituito da scene riprese all'aperto con un framerate continuo ($30$ fps).
-Ciascun video \`e costituito da un minuto di ripresa ($1800$ frame), e ci\`o lo rende inutilizzabile per validare le scelte fatte per l'algoritmo di tampering detection.\\
+Questo primo insieme \`e stato utilizzato durante la realizzazione dell'algoritmo di segmentazione, ed \`e costituito da scene riprese all'aperto con un framerate continuo ($30$ fps).
+Ciascun video \`e costituito da un minuto di ripresa ($1800$ frame), e ci\`o rende questo dataset inutilizzabile per validare le scelte fatte per l'algoritmo di tampering detection.\\
 Per validare il nostro algoritmo, infatti, \`e necessario che le sequenze utilizzate comprendano un elevato numero di frame acquisiti con framerate bassi, ad esempio un'immagine ogni minuto. 
 Dato che la consumer camera non permette di variare il framerate, abbiamo utilizzato un secondo sistema di acquisizione basato su un \textit{Raspberry Pi modello B+} \cite{raspberry} con relativo \textit{modulo camera} \cite{raspberryCamera}, in cui \`e possibile variare la frequenza di acquisizione dei frame a piacimento.
 Il Raspberry Pi (Fig. \ref{fig:raspberry}) \`e un \textit{single-board computer} (ovvero un computer implementato su una singola scheda elettronica) basato su un \textit{system-on-chip} (SoC) \textit{Broadcom BCM2835} \cite{broadcom}, che incorpora un processore \textit{ARM1176JZF-S} \cite{arm}, una GPU \textit{VideoCore IV} \cite{gpu} e $512$ MB di memoria.
@@ -87,7 +87,7 @@ Il sistema realizzato \`e illustrato nella Figura \ref{fig:raspberryC}. Le ridot
 \end{figure}
 Per interfacciarci con il dispositivo abbiamo creato una \textit{connessione SSH}, tramite USB, con uno smartphone: in questo modo abbiamo potuto lanciare i comandi necessari per far partire l'acquisizione. 
 Per l'acquisizione abbiamo creato uno script in \textit{Python}, utilizzando la libreria \textit{picamera} \cite{picamera} per interfacciarci con il modulo camera.\\
-Abbiamo acquisito, infine, un terzo dataset utilizzando il sito \textit{ilMeteo.it}.
+Abbiamo acquisito, infine, un terzo dataset utilizzando il sito \textit{ilMeteo.it} \cite{ilmeteo}.
 Questo portale di previsioni del tempo fornisce l'accesso ai frame acquisiti dalle webcam presenti in varie citt\`a e in varie localit\`a turistiche.
 A ciascuna webcam \`e associato un unico URL, in cui \`e presente un'immagine in formato \textit{jpeg} rappresentante il frame corrente acquisito dalla camera.
 Queste webcam, in genere, acquisiscono un frame ogni minuto, e ci\`o ha permesso di utilizzarle come caso d'uso reale.\\
@@ -111,7 +111,7 @@ Per creare sfocature di intensit\`a differente abbiamo utilizzato filtri gaussia
 Lo spostamento della camera, invece, \`e stato simulato concatenando sequenze di frame differenti.
 \subsection{Definizione dei ground truth}
 Per valutare le prestazioni del nostro metodo, abbiamo dovuto definire un \textit{ground truth} (GT) per ciascuna sequenza video, in modo da poter disporre di alcune metriche per poter confrontare i risultati ottenuti.\\
-Dato che il nostro algoritmo identifica gli istanti in cui un evento di tampering inizia, nel GT di ciascuna sequenza sar\`a presente, quindi, il numero del frame in cui questo evento inizia effettivamente. 
+Dato che il nostro algoritmo identifica gli istanti in cui un evento di tampering inizia, nel GT di ciascuna sequenza sar\`a presente il numero del frame in cui questo evento inizia effettivamente. 
 In particolare avremo un'indicazione del frame in cui avviene una sfocatura (se presente) e un'indicazione del frame in cui avviene lo spostamento della camera (se presente).
 Ricordiamo, inoltre, che nella nostra analisi stiamo considerando che il passaggio da una situazione prima di tampering a una con tampering come un evento \textit{istantaneo}. 
 \section{Figure di merito}
@@ -126,17 +126,17 @@ Come abbiamo visto nel Paragrafo \ref{monitoraggio}, dato un generico descrittor
 \begin{equation}
 	\label{eq:soglieGeneriche}
 	\begin{array}{lcl}
-	\Gamma_{min}^\xi & = & \widehat{\mu}_\xi -\gamma \widehat{\sigma}_\xi\\
-	\Gamma_{max}^\xi & = & \widehat{\mu}_\xi + \gamma \widehat{\sigma}_\xi
+	\Gamma_{min}^\xi & = & \hat{\mu}_\xi -\gamma \hat{\sigma}_\xi\\
+	\Gamma_{max}^\xi & = & \hat{\mu}_\xi + \gamma \hat{\sigma}_\xi
 	\end{array},
 \end{equation}
-dove $\widehat{\mu}_\xi$ indica il valore medio delle osservazioni del training set
+dove $\hat{\mu}_\xi$ indica il valore medio delle osservazioni del training set
 \begin{equation}
-\widehat{\mu}_\xi = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial \xi}{\partial t}(\tau)}{T_{o}}, \nonumber
+\hat{\mu}_\xi = \frac{\sum_{\tau = 1}^{T_{o}} \frac{\partial \xi}{\partial t}(\tau)}{T_{o}}, \nonumber
 \end{equation}
-$\widehat{\sigma}_\xi$ indica la deviazione standard delle osservazioni del training set
+$\hat{\sigma}_\xi$ indica la deviazione standard delle osservazioni del training set
 \begin{equation}
-\widehat{\sigma}_\xi  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial \xi}{\partial t}(\tau) - \widehat{\mu}_\xi(\tau)\right)^2} \nonumber
+\hat{\sigma}_\xi  = \sqrt{\frac{1}{T_{o}-1}\sum_{\tau=1}^{T_{o}}\left(\frac{\partial \xi}{\partial t}(\tau) - \hat{\mu}_\xi(\tau)\right)^2} \nonumber
 \end{equation}
 e $\gamma>1$ \`e un parametro moltiplicativo.\\
 Fissato un valore di $\gamma$, una volta che abbiamo lanciato il monitoraggio per un consistente numero di sequenze di frame con eventi di tampering, quello che andiamo a controllare \`e:
@@ -173,19 +173,6 @@ Se indichiamo con $T^*$ l'istante in cui avviene l'evento di sfocatura e con $\w
 	\item \textbf{False Negative Rate} (FNR), ovvero la percentuale di sequenze in cui non viene identificato un evento di tampering.
 	\item \textbf{Detection Delay} (DD), ovvero la latenza media ($\widehat{T} - T^*$) in caso di corretta identificazione dell'evento di tampering, che si ha nel caso in cui $\widehat{T}>T^*$.
 \end{itemize}
-
-\section{Esperimento 1: tampering sintetico}
-\label{esp1}
-Le prime prove sperimentali che abbiamo condotto riguardano l'utilizzo di sequenze video in cui gli eventi di tampering vengono indotti sinteticamente, utilizzando le tecniche che abbiamo descritto nel Paragrafo \ref{tamperingSint}.
-Abbiamo analizzato il comportamento del nostro algoritmo per varie sequenze di frame e utilizzato le cifre di merito e i grafici introdotti nel Paragrafo \ref{figureDiMerito}.
-\subsection{Creazione del tampering}
-Gli esperimenti sintetici sono stati condotti sia per quanto riguarda la sfocatura che per quanto riguarda lo spostamento della camera.\\
-Gli eventi di sfocatura sono stati creati utilizzando la \eqref{eq:blurArtificiale}.
-In particolare abbiamo considerato tre diverse scene.
-Per ciascuna scena abbiamo utilizzato $10$ diversi tipi di filtro gaussiano, variando la deviazione standard $\sigma$ tra $1$ e $10$.
-Inoltre, per ciascun filtro, abbiamo creato $5$ sequenze diverse, cambiando l'istante in cui avviene l'evento di sfocatura.
-In totale, quindi, le sequenze video che abbiamo considerato per la nostra valutazione sono state $150$.
-La Figura \ref{fig:syntDef} mostra alcuni esempi di come operano i filtri gaussiani appena definiti.\\
 \begin{figure}[tbp]
 	\centering
 	\begin{subfigure}[]
@@ -211,6 +198,18 @@ La Figura \ref{fig:syntDef} mostra alcuni esempi di come operano i filtri gaussi
 	\caption[Esempi di sequenze con eventi di sfocature create sinteticamente]{Esempi di sequenze con eventi di sfocature create con filtri gaussiani: (a) $\sigma=1$, (b) $\sigma=3$, (c) $\sigma=5$, (d) $\sigma=7$, (e) $\sigma=10$. }
 	\label{fig:syntDef}
 \end{figure}
+\section{Esperimento 1: tampering sintetico}
+\label{esp1}
+Le prime prove sperimentali che abbiamo condotto riguardano l'utilizzo di sequenze video in cui gli eventi di tampering vengono indotti sinteticamente, utilizzando le tecniche che abbiamo descritto nel Paragrafo \ref{tamperingSint}.
+Abbiamo analizzato il comportamento del nostro algoritmo per varie sequenze di frame e utilizzato le cifre di merito e i grafici introdotti nel Paragrafo \ref{figureDiMerito}.
+\subsection{Creazione del tampering}
+Gli esperimenti sintetici sono stati condotti sia per quanto riguarda la sfocatura che per quanto riguarda lo spostamento della camera.\\
+Gli eventi di sfocatura sono stati creati utilizzando la \eqref{eq:blurArtificiale}.
+In particolare abbiamo considerato tre diverse scene.
+Per ciascuna scena abbiamo utilizzato $10$ diversi tipi di filtro gaussiano, variando la deviazione standard $\sigma$ tra $1$ e $10$.
+Inoltre, per ciascun filtro, abbiamo creato $5$ sequenze diverse, cambiando l'istante in cui avviene l'evento di sfocatura.
+In totale, quindi, le sequenze video che abbiamo considerato per la nostra valutazione sono state $150$.
+La Figura \ref{fig:syntDef} mostra alcuni esempi di come operano i filtri gaussiani appena definiti.\\
 Per simulare l'evento di spostamento della camera, invece, abbiamo creato $100$ sequenze di frame concatenando due diversi scenari tra loro.
 Per rendere la simulazione il pi\`u verosimile possibile, le sequenze video concatenate hanno dovuto rispettare alcuni vincoli:
 \begin{itemize}
@@ -226,40 +225,164 @@ La Figura \ref{fig:syntDispl} mostra un esempio di sequenze concatenate tra loro
 	\caption{Esempio di sequenza con un evento di spostamento della camera creato sinteticamente}
 	\label{fig:syntDispl}
 \end{figure}
-
+\begin{figure}[tbp]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:ROC_displacement} \includegraphics[width=12cm]{diagrammi/ROC_displacement}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:sceltaGammaDisplacement} \includegraphics[width=13cm]{diagrammi/sceltaGammaDisplacement}}
+	\end{subfigure}
+	\caption[ROC curve per gli indicatori di spostamento della camera]{Nella Figura (a) notiamo l'andamento delle ROC curve per gli indicatori utilizzati per individuare l'evento di spostamento della camera.
+		Come possiamo vedere i risultati migliori sono dati dall'analisi, nelle regioni, dell'energia media della luma.
+		In (b), invece, vediamo la scelta del parametro $\gamma$ per lo spostamento della camera nel caso di analisi, nelle regioni, dell'energia media della luma. La scelta \`e stata compiuta trovando il valore di $\gamma$ in cui i valori SPECIFICITY e RECALL si intersecano. Dal grafico in figura possiamo notare che le due caratteristiche si intersecano per $\gamma=3$.
+	}
+	\label{fig:oneShotDisplacement}
+\end{figure}
 \subsection{Risultati}
+Una volta create tutte le sequenze di tampering abbiamo proceduto ad analizzare il comportamento del nostro algoritmo.\\
+Per le tecniche one-shot abbiamo osservato le prestazioni dell'algoritmo al variare del parametro $\gamma$ utilizzato per la definizione delle soglie in \eqref{eq:soglieGeneriche}.
+In particolare, abbiamo considerato valori di $\gamma$ compresi tra $0$ e $500$.
+Le prestazioni al variare del parametro $\gamma$ sono state riportate su delle ROC curve in modo da poter confrontare tecniche differenti e scegliere il parametro $\gamma$ ottimale.\\ 
+Nella Figura \ref{fig:ROC_displacement} possiamo vedere le ROC curve costruite per valutare gli indicatori utilizzati per individuare uno spostamento della camera.
+Le curve visualizzate sul grafico fanno riferimento a valori di $1-\text{SPECIFICITY}$ compresi tra $0$ e $0.1$, in quanto tutte le tecniche comunque mantengono buone prestazioni senza avere un numero troppo alto di falsi positivi (che rimangono sotto al $5\%$ anche per valori di RECALL prossimi a $1$).
+Quello che possiamo notare \`e come, per i valori pi\`u bassi di $1-\text{SPECIFICITY}$, le prestazioni migliori si abbiano nel caso in cui si utilizzi l'algoritmo di identificazione degli spostamenti della camera descritto nel Paragrafo \ref{monitoraggioDISPL}, dove viene utilizzato il monitoraggio dell'energia media della luma assieme alla segmentazione della scena in regioni.
+In particolare i risultati migliori si hanno nel caso in cui $\gamma = 3$ dove, considerando il nostro algoritmo, abbiamo $1-\text{SPECIFICITY}=0.0109$ e $\text{RECALL} = 0.9831$.
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[width=12cm]{diagrammi/ROC_displacement}
+%	\caption[ROC curve per gli indicatori di spostamento della camera]{In questa figura notiamo l'andamento delle ROC curve per gli indicatori utilizzati per individuare l'evento di spostamento della camera.
+%		Come possiamo vedere i risultati migliori sono dati dall'analisi, nelle regioni, dell'energia media della luma.}
+%	\label{fig:ROC_displacement}
+%\end{figure}
+La scelta del valore ottimale di $\gamma$ \`e stato trovato guardando i grafici dei valori di SPECIFICITY e RECALL in funzione di $\gamma$, che sono riportati in Figura \ref{fig:sceltaGammaDisplacement}, e trovando il punto in cui i due grafici si intersecano.\\
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[width=13cm]{diagrammi/sceltaGammaDisplacement}
+%	\caption[Scelta del parametro $\gamma$ per lo spostamento della camera]{Scelta del parametro $\gamma$ per lo spostamento della camera. La scelta \`e stata compiuta trovando il valore di $\gamma$ in cui i valori SPECIFICITY e RECALL si intersecano. Dal grafico in figura possiamo notare che le due caratteristiche si intersecano per $\gamma=3$.}
+%	\label{fig:sceltaGammaDisplacement}
+%\end{figure}
+Nella Figura \ref{fig:ROC_defocus} possiamo vedere le ROC curve costruite per valutare gli indicatori utilizzati per individuare eventi di sfocatura.
+In questo caso abbiamo fatto un confronto tra la nostra scelta di utilizzare le regioni nell'analisi dell'energia media del gradiente, illustrata nel Paragrafo \ref{defocusDetection}, e la stessa analisi considerando per\`o la totalit\`a della scena.
+Dalle due ROC curve possiamo vedere come l'utilizzo dell'informazione portata dalle regioni porti a un miglioramento delle prestazioni.
+\begin{figure}[tbp]
+	\centering
+	\begin{subfigure}[]
+		{\label{fig:ROC_defocus} \includegraphics[width=12cm]{diagrammi/ROC_defocus}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\label{fig:sceltaGammaDefocus} \includegraphics[width=13cm]{diagrammi/sceltaGammaDefocus}}
+	\end{subfigure}
+	\caption[ROC curve per gli indicatori di sfocatura]{Nella Figura (a) illustriamo l'andamento delle ROC curve per gli indicatori utilizzati per individuare un evento di sfocatura. 
+		Come possiamo vedere i risultati migliori sono dati dall'analisi, nelle regioni, dell'energia media del gradiente.
+		In (b), invece, vediamo la scelta del parametro $\gamma$ per la sfocatura. La scelta \`e stata compiuta trovando il valore di $\gamma$ in cui i valori SPECIFICITY e RECALL si intersecano. Dal grafico in figura possiamo notare che le due caratteristiche si intersecano per $\gamma=19$.
+	}
+	\label{fig:oneShotDefocus}
+\end{figure}
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[width=12cm]{diagrammi/ROC_defocus}
+%	\caption[Curve ROC per gli indicatori di sfocatura]{In questa figura illustriamo l'andamento delle ROC curve per gli indicatori utilizzati per individuare un evento di sfocatura. 
+%		Come possiamo vedere i risultati migliori sono dati dall'analisi, nelle regioni, dell'energia media del gradiente.}
+%	\label{fig:ROC_defocus}
+%\end{figure}
+In particolare i risultati migliori si hanno nel caso in cui $\gamma = 19$ dove, considerando il nostro algoritmo, abbiamo $1-\text{SPECIFICITY}=0.0111$ e $\text{RECALL} = 0.9933$.
+La scelta del valore ottimale di $\gamma$, ancora una volta, \`e stato trovato guardando i grafici dei valori di SPECIFICITY e RECALL in funzione di $\gamma$, che sono riportati in Figura \ref{fig:sceltaGammaDefocus}, e trovando il punto in cui i due grafici si intersecano.\\
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=13cm]{diagrammi/sceltaGammaDefocus}
+%	\caption[Scelta del parametro $\gamma$ per la sfocatura]{Scelta del parametro $\gamma$ per la sfocatura. La scelta \`e stata compiuta trovando il valore di $\gamma$ in cui i valori SPECIFICITY e RECALL si intersecano. Dal grafico in figura possiamo notare che le due caratteristiche si intersecano per $\gamma=19$.}
+%	\label{fig:sceltaGammaDefocus}
+%\end{figure}
+Per quanto riguarda l'identificazione delle sfocature, inoltre, abbiamo analizzato le prestazioni del monitoraggio sequenziale della varianza dell'energia media del gradiente in funzione dell'intensit\`a della sfocatura, determinata dal parametro $\sigma$ del filtro gaussiano usato per simularla.
+Nelle Figure \ref{fig:DD}, \ref{fig:FPR} e \ref{fig:FNR} vediamo, rispettivamente, i valori di \textit{Detection Delay}, \textit{False Positive Rate} e \textit{False Negative Rate} in funzione del valore di $\sigma$. 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=13cm]{diagrammi/ROC_displacement}
-	\caption{Curve ROC per gli indicatori di spostamento della camera}
-	\label{fig:ROC_displacement}
+	\begin{subfigure}[]
+		{\includegraphics[width=6cm]{diagrammi/DD}
+			\label{fig:DD}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\includegraphics[width=6cm]{diagrammi/FPR}
+			\label{fig:FPR}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\includegraphics[width=6cm]{diagrammi/FNR}
+			\label{fig:FNR}}
+	\end{subfigure}
+	\caption[Prestazioni del monitoraggio sequenziale per l'identificazione di sfocature]{Prestazioni del monitoraggio sequenziale per l'identificazione di sfocature al variare dell'intensit\`a di sfocatura: (a) detection delay, (b) false positive rate, (c) false negative rate}
+	\label{fig:graficiSeq}
 \end{figure}
-%
-%Per la sfocatura non abbiamo vantaggi ad utilizzare la segmentazione rispetto alla totalit\`a della scena.\\ 
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=13cm]{diagrammi/ROC_defocus}
-	\caption{Curve ROC per gli indicatori di sfocatura}
-	\label{fig:ROC_defocus}
-\end{figure}
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=13cm]{diagrammi/DD}
-	\caption{Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente}
-	\label{fig:DD}
-\end{figure}
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=13cm]{diagrammi/FPR}
-	\caption{False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente}
-	\label{fig:FPR}
-\end{figure}
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=13cm]{diagrammi/FNR}
-	\caption{False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente}
-	\label{fig:FNR}
-\end{figure}
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[width=12cm]{diagrammi/DD}
+%	\caption[Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente]{Detection Delay per l'analisi sequenziale della varianza dell'energia del gradiente}
+%	\label{fig:DD}
+%\end{figure}
+Possiamo notare come la latenza del monitoraggio decresca in funzione dell'intensit\`a della sfocatura, ma rimane comunque elevata anche per sfocature consistenti.
+Ci\`o \`e dovuto al fatto che il CDT utilizzato nel monitoraggio sequenziale opera \textit{a finestre} e, quindi, l'identificazione di un cambiamento nella stazionariet\`a dell'indicatore \`e determinato dal numero di osservazioni costituenti una finestra.
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[width=12cm]{diagrammi/FPR}
+%	\caption[False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente]{False Positive Rate per l'analisi sequenziale della varianza dell'energia del gradiente}
+%	\label{fig:FPR}
+%\end{figure}
+Per quanto riguarda l'andamento dei falsi positivi possiamo notare come questi non siano influenzati dal grado di intensit\`a della sfocatura.
+Questo \`e normale dato che queste identificazioni avvengono prima che l'evento effettivamente si manifesti. 
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[width=12cm]{diagrammi/FNR}
+%	\caption[False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente]{False Negative Rate per l'analisi sequenziale della varianza dell'energia del gradiente}
+%	\label{fig:FNR}
+%\end{figure}
+Possiamo vedere, infine, come i falsi negativi siano influenzati dall'intensit\`a della sfocatura. \\
+Come abbiamo potuto vedere, il monitoraggio sequenziale ha lo svantaggio principale di avere una latenza molto alta.
+L'ultimo esperimento che abbiamo condotto \`e servito per verificare la sua effettiva utilit\`a affiancato al monitoraggio one-shot dell'energia media del gradiente sulle regioni.
+Per verificare ci\`o abbiamo fissato il valore del parametro $\gamma$ al suo valore ottimale ricavato precedentemente, ovvero $\gamma=19$.
+Fissato questo valore abbiamo eseguito l'algoritmo su tutte le sequenze video con eventi di sfocatura.
+L'algoritmo \`e stato in grado di identificare l'evento su $148$ sequenze sulle $150$ totali, con una resa del $99\%$. 
+Per le due sequenze che non sono state riconosciute abbiamo eseguito il monitoraggio sequenziale.
+In questo caso siamo stati in grado di identificare correttamente un'ulteriore sequenza, mentre la restante ha prodotto un falso negativo. 
 \section{Esperimento 2: tampering reale}
 \label{esp2}
+\begin{figure}[tbp]
+	\centering
+	\begin{subfigure}[]
+		{\includegraphics[width=3cm]{./pictures/bassini/orig}
+			\label{fig:realBass1}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\includegraphics[width=3cm]{./pictures/bassini/def}
+			\label{fig:realBass2}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\includegraphics[width=3cm]{./pictures/bassini/displ}
+			\label{fig:realBass3}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\includegraphics[width=3cm]{./pictures/parco/orig}
+			\label{fig:realParco1}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\includegraphics[width=3cm]{./pictures/parco/def}
+			\label{fig:realParco2}}
+	\end{subfigure}
+	\begin{subfigure}[]
+		{\includegraphics[width=3cm]{./pictures/parco/displ}
+			\label{fig:realParco3}}
+	\end{subfigure}
+	\caption[Sequenze con eventi di tampering reali]{In questa figura sono riportate le sequenze di tampering reale considerate: Prima scena (a) scena originale (b) evento di sfocatura (c) evento di spostamento della camera. Seconda scena (d) scena originale (e) evento di sfocatura (f) evento di spostamento della camera. }
+	\label{fig:realBass}
+\end{figure}
+La seconda prova sperimentale \`e stata fatta su alcune sequenze riprese utilizzando il sistema basato su Raspberry Pi, dove sono presenti eventi di tampering \textit{reali}, realizzati come descritto nel Paragrafo \ref{tamperingSint}.
+Esempi di frame utilizzati durante l'esperimento sono illustrati nella Figura \ref{fig:realBass}.
+In particolare abbiamo analizzato il comportamento del nostro algoritmo per due scene differenti, considerando sia il caso di sfocatura che quello di spostamento della camera.
+Le sequenze totali, quindi, sono state $4$.\\
+Per gli esperimenti condotti abbiamo utilizzato i valori di $\gamma$, il parametro che determina le soglie, ricavati nel Paragrafo \ref{esp1}, ovvero 
+\begin{itemize}
+	\item $\gamma = 19$ per gli eventi di sfocatura;
+	\item $\gamma = 3$ per identificare gli eventi di spostamento della camera.
+\end{itemize}
+Per tutte e quattro le sequenze l'algoritmo \`e stato in grado di individuare l'evento di tampering.
+Nonostante questo abbiamo avuto in tutte le sequenze un certo numero di falsi positivi, soprattutto per quanto riguarda lo spostamento della camera.
 
